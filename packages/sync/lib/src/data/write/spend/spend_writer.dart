@@ -509,6 +509,9 @@ final class SpendWriter implements WalletSpender {
       return Err(WriterSession.mapFailure(error));
     } finally {
       lease.close();
+      if (_readiness[key] case final cell?) {
+        _refresh(key, cell);
+      }
     }
   }
 
