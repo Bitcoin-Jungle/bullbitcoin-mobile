@@ -150,6 +150,8 @@ abstract interface class NativeLiquidSpend {
 
   Future<LiquidPsetEffect> effect(String pset);
 
+  Future<BigInt> amountToAddress(String pset, String address);
+
   void close();
 }
 
@@ -176,7 +178,11 @@ final class SdkSpendSessions implements NativeSpendSessions {
   @override
   Future<NativeLiquidSpend> liquid(LiquidWalletDescriptor descriptor) async {
     final store = await openLiquidStore(documentsDirectory, descriptor);
-    return _LiquidSpend(store.store.wallet, store.store.close);
+    return _LiquidSpend(
+      store.store.wallet,
+      store.store.close,
+      descriptor.key.network,
+    );
   }
 
   @override
@@ -540,8 +546,10 @@ final class _BitcoinSpend implements NativeBitcoinSpend {
 /// A Liquid spend over [wallet], for package tests: the LWK library is not
 /// built for unit tests.
 @visibleForTesting
-NativeLiquidSpend liquidSpendOver(lwk.Wallet wallet) =>
-    _LiquidSpend(wallet, () {});
+NativeLiquidSpend liquidSpendOver(
+  lwk.Wallet wallet, {
+  LiquidNetwork network = LiquidNetwork.mainnet,
+}) => _LiquidSpend(wallet, () {}, network);
 
 /// LWK reports a shortfall only as text.
 const _lwkInsufficientFunds = 'InsufficientFunds';
@@ -550,7 +558,9 @@ final class _LiquidSpend implements NativeLiquidSpend {
   final lwk.Wallet _wallet;
   final void Function() _close;
 
-  _LiquidSpend(this._wallet, this._close);
+  final Network _network;
+
+  _LiquidSpend(this._wallet, this._close, this._network);
 
   @override
   Future<List<({Outpoint outpoint, bool confirmed})>> coins() async {
@@ -668,6 +678,23 @@ final class _LiquidSpend implements NativeLiquidSpend {
       policyBalanceSat: balance.value,
       feeSat: decoded.absoluteFees.toInt(),
     );
+  }
+
+  @override
+  Future<BigInt> amountToAddress(String pset, String address) async {
+    final network = _network;
+    if (network is! LiquidNetwork) {
+      throw const SpendRefusal(SyncUnsupportedNetworkFailure());
+    }
+    return switch (await liquidPsetAmountToAddress(
+      pset,
+      address,
+      network: network,
+      policyAsset: await _wallet.policyAsset(),
+    )) {
+      Ok(:final value) => value,
+      Err(:final failure) => throw SpendRefusal(failure),
+    };
   }
 
   @override
