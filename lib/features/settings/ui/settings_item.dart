@@ -1,4 +1,5 @@
 import 'package:primitives/primitives.dart';
+import 'package:bull_ark/ark_ui.dart';
 import 'package:bb_mobile/core/utils/build_context_x.dart';
 import 'package:bb_mobile/core/utils/constants.dart';
 import 'package:bb_mobile/features/backup_settings/ui/backup_settings_router.dart';
@@ -43,6 +44,7 @@ enum SettingsItemId {
   importWallet,
   broadcastTransaction,
   payjoin,
+  ark,
   autoswap,
   electrum,
   mempool,
@@ -72,6 +74,7 @@ const backupSettingsDataItemOrder = [
 
 const walletSettingsItemOrder = [
   SettingsItemId.payjoin,
+  SettingsItemId.ark,
   SettingsItemId.autoswap,
   SettingsItemId.importWallet,
   SettingsItemId.electrum,
@@ -194,6 +197,7 @@ List<SettingsItem> buildSettingsItems({
   NetworkEnv environment = NetworkEnv.mainnet,
 }) {
   final english = AppLocalizationsEn();
+  final arkTitle = arkLocalizationsForLanguage(localization.localeName).title;
   final rootSection = localization.settingsScreenTitle;
   final backupSection = localization.settingsBackupTitle;
   final walletSection = localization.settingsWalletTitle;
@@ -451,6 +455,14 @@ List<SettingsItem> buildSettingsItems({
         english.settingsSearchBroadcastTransactionKeywords,
         [english.bitcoinSettingsBroadcastTransactionTitle],
       ),
+    ),
+    SettingsItem(
+      id: SettingsItemId.ark,
+      section: SettingsItemSection.wallet,
+      title: arkTitle,
+      path: path(SettingsItemSection.wallet, arkTitle),
+      icon: Icons.account_balance_wallet_outlined,
+      open: ArkNavigation.open,
     ),
     SettingsItem(
       id: SettingsItemId.payjoin,
@@ -757,6 +769,7 @@ List<SettingsItem> buildSettingsItems({
       SettingsItemId.testnetCredentials => NetworkCapability.exchange,
       SettingsItemId.autoswap => NetworkCapability.swaps,
       SettingsItemId.payjoin => NetworkCapability.payjoin,
+      SettingsItemId.ark => NetworkCapability.ark,
       SettingsItemId.sp => NetworkCapability.silentPayments,
       SettingsItemId.mempool ||
       SettingsItemId.servicesStatus => NetworkCapability.publicFeeEstimates,

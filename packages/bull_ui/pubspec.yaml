@@ -20,6 +20,7 @@ dependencies:
   auto_size_text: ^3.0.0
   custom_sliding_segmented_control: ^2.0.0
   shimmer: ^4.0.0
+  qr_flutter: ^4.1.0
 
 dev_dependencies:
   flutter_test:
