@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:bull_ui/src/theme/bull_icon.dart';
 import 'package:bull_ui/src/theme/bull_theme.dart';
 import 'package:bull_ui/src/theme/bull_shapes.dart';
+import 'package:bull_ui/src/theme/bull_typography.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter/services.dart';
 
@@ -98,12 +99,10 @@ class BullQuickAction extends StatelessWidget {
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           textAlign: TextAlign.center,
-                          style: Theme.of(context).textTheme.labelLarge
-                              ?.copyWith(
-                                fontSize: 11.5,
-                                fontWeight: FontWeight.w600,
-                                color: colors.text,
-                              ),
+                          style: context.bullType.caption.copyWith(
+                            fontWeight: FontWeight.w700,
+                            color: colors.text,
+                          ),
                         ),
                       ],
                     ),

@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Size the text of `BullQuickAction`, `BullToolButton`, `BullSwipeAction`, `BullBadge`, `BullLabelChip`, `BullStatTile`, `BullPriceCard`, `BullBitcoinAmountInput` and `LabeledInputFrame` from `BullTypography` roles instead of typed-in sizes; the former 600 weight, which Golos Text does not ship, becomes 700. These components now need `BullTypography` in `ThemeData.extensions`.
 - Add `BullTypography.brandFamily` (Bebas Neue) for the brand wordmark headings, replacing the app's `AppFonts.textTitleTheme`.
 - Add `BullTypography.toTextTheme()`, which projects the type scale onto the 15 Material `TextTheme` slots so widgets reading `Theme.of(context).textTheme` follow the same roles, and expose the family as `BullTypography.fontFamily`.
 - Restyle `BullSwitch` so its state reads at a glance: off is a hollow track ringed in `outline` around a grey thumb with a cross, on a `primary` track around a white thumb with a check. `BullSwitch.themeData` is the app's `switchTheme` too, so every Material `Switch` matches.
