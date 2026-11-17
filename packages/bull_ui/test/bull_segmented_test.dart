@@ -110,13 +110,40 @@ void main() {
           tester.widget<Text>(find.text(label)).style?.color;
 
       await tester.pumpWidget(build('All'));
-      expect(colorOf('All'), testBullTheme.primary);
+      expect(colorOf('All'), testBullTheme.primaryText);
 
       await tester.pumpWidget(build('Frozen'));
       await tester.pumpAndSettle();
 
-      expect(colorOf('Frozen'), testBullTheme.primary);
-      expect(colorOf('All'), isNot(testBullTheme.primary));
+      expect(colorOf('Frozen'), testBullTheme.primaryText);
+      expect(colorOf('All'), isNot(testBullTheme.primaryText));
+    });
+
+    testWidgets('the selected label takes the accent text colour in dark', (
+      tester,
+    ) async {
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: ThemeData(
+            extensions: bullUiExtensions(
+              colors: BullTheme.dark,
+              brightness: Brightness.dark,
+            ),
+          ),
+          home: Scaffold(
+            body: BullSegmented(
+              items: const {'All', 'Frozen'},
+              initialValue: 'All',
+              onSelected: (_) {},
+            ),
+          ),
+        ),
+      );
+
+      expect(
+        tester.widget<Text>(find.text('All')).style?.color,
+        BullTheme.dark.primaryText,
+      );
     });
   });
 }
