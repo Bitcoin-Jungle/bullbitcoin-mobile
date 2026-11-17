@@ -619,6 +619,168 @@ abstract class ArkLocalizations {
   /// In en, this message translates to:
   /// **'Some older Ark reminders remain unresolved. New VTXO reminders can still be scheduled. Open Ark regularly.'**
   String get reminderMigrationPending;
+
+  /// No description provided for @exitStatusUnknown.
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown exit state'**
+  String get exitStatusUnknown;
+
+  /// No description provided for @exitStatusNone.
+  ///
+  /// In en, this message translates to:
+  /// **'No exit observed'**
+  String get exitStatusNone;
+
+  /// No description provided for @exitStatusPending.
+  ///
+  /// In en, this message translates to:
+  /// **'Exit pending'**
+  String get exitStatusPending;
+
+  /// No description provided for @exitStatusClaimable.
+  ///
+  /// In en, this message translates to:
+  /// **'Exit claimable'**
+  String get exitStatusClaimable;
+
+  /// No description provided for @exitStatusSubmitted.
+  ///
+  /// In en, this message translates to:
+  /// **'Claim submitted'**
+  String get exitStatusSubmitted;
+
+  /// No description provided for @exitStatusClaimed.
+  ///
+  /// In en, this message translates to:
+  /// **'Exit claimed'**
+  String get exitStatusClaimed;
+
+  /// No description provided for @exitStatusFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Exit needs attention'**
+  String get exitStatusFailed;
+
+  /// No description provided for @spendableInSats.
+  ///
+  /// In en, this message translates to:
+  /// **'Spendable (sats)'**
+  String get spendableInSats;
+
+  /// No description provided for @pendingInSats.
+  ///
+  /// In en, this message translates to:
+  /// **'Pending (sats)'**
+  String get pendingInSats;
+
+  /// No description provided for @reserveInSats.
+  ///
+  /// In en, this message translates to:
+  /// **'On-chain fee reserve (sats)'**
+  String get reserveInSats;
+
+  /// No description provided for @operationPrepared.
+  ///
+  /// In en, this message translates to:
+  /// **'Prepared'**
+  String get operationPrepared;
+
+  /// No description provided for @operationAdmitted.
+  ///
+  /// In en, this message translates to:
+  /// **'Admitted'**
+  String get operationAdmitted;
+
+  /// No description provided for @operationPending.
+  ///
+  /// In en, this message translates to:
+  /// **'Pending'**
+  String get operationPending;
+
+  /// No description provided for @operationCompleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Completed'**
+  String get operationCompleted;
+
+  /// No description provided for @operationFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed'**
+  String get operationFailed;
+
+  /// No description provided for @operationUnknown.
+  ///
+  /// In en, this message translates to:
+  /// **'Outcome unknown'**
+  String get operationUnknown;
+
+  /// No description provided for @operationConflicted.
+  ///
+  /// In en, this message translates to:
+  /// **'Conflicting transaction observed'**
+  String get operationConflicted;
+
+  /// No description provided for @observedActivity.
+  ///
+  /// In en, this message translates to:
+  /// **'Observed activity'**
+  String get observedActivity;
+
+  /// No description provided for @activityObservationsUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Activity observations unavailable'**
+  String get activityObservationsUnavailable;
+
+  /// No description provided for @movementBoard.
+  ///
+  /// In en, this message translates to:
+  /// **'Board funding'**
+  String get movementBoard;
+
+  /// No description provided for @movementPayment.
+  ///
+  /// In en, this message translates to:
+  /// **'Payment'**
+  String get movementPayment;
+
+  /// No description provided for @movementRenewal.
+  ///
+  /// In en, this message translates to:
+  /// **'Renewal'**
+  String get movementRenewal;
+
+  /// No description provided for @movementExit.
+  ///
+  /// In en, this message translates to:
+  /// **'Exit'**
+  String get movementExit;
+
+  /// No description provided for @movementLightningReceipt.
+  ///
+  /// In en, this message translates to:
+  /// **'Lightning receipt'**
+  String get movementLightningReceipt;
+
+  /// No description provided for @observedTimeUtc.
+  ///
+  /// In en, this message translates to:
+  /// **'Observed time (UTC)'**
+  String get observedTimeUtc;
+
+  /// No description provided for @transactionId.
+  ///
+  /// In en, this message translates to:
+  /// **'Transaction ID'**
+  String get transactionId;
+
+  /// No description provided for @share.
+  ///
+  /// In en, this message translates to:
+  /// **'Share'**
+  String get share;
 }
 
 class _ArkLocalizationsDelegate

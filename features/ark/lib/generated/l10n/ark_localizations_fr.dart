@@ -291,4 +291,86 @@ class ArkLocalizationsFr extends ArkLocalizations {
   @override
   String get reminderMigrationPending =>
       'Certains anciens rappels Ark restent non résolus. De nouveaux rappels VTXO peuvent encore être programmés. Ouvrez Ark régulièrement.';
+
+  @override
+  String get exitStatusUnknown => 'État de sortie inconnu';
+
+  @override
+  String get exitStatusNone => 'Aucune sortie observée';
+
+  @override
+  String get exitStatusPending => 'Sortie en attente';
+
+  @override
+  String get exitStatusClaimable => 'Sortie récupérable';
+
+  @override
+  String get exitStatusSubmitted => 'Récupération soumise';
+
+  @override
+  String get exitStatusClaimed => 'Sortie récupérée';
+
+  @override
+  String get exitStatusFailed => 'Sortie à vérifier';
+
+  @override
+  String get spendableInSats => 'Disponible (sats)';
+
+  @override
+  String get pendingInSats => 'En attente (sats)';
+
+  @override
+  String get reserveInSats => 'Réserve de frais sur la chaîne (sats)';
+
+  @override
+  String get operationPrepared => 'Préparée';
+
+  @override
+  String get operationAdmitted => 'Admise';
+
+  @override
+  String get operationPending => 'En attente';
+
+  @override
+  String get operationCompleted => 'Terminée';
+
+  @override
+  String get operationFailed => 'Échec';
+
+  @override
+  String get operationUnknown => 'Résultat inconnu';
+
+  @override
+  String get operationConflicted => 'Transaction conflictuelle observée';
+
+  @override
+  String get observedActivity => 'Activité observée';
+
+  @override
+  String get activityObservationsUnavailable =>
+      'Observations d’activité indisponibles';
+
+  @override
+  String get movementBoard => 'Financement Ark';
+
+  @override
+  String get movementPayment => 'Paiement';
+
+  @override
+  String get movementRenewal => 'Renouvellement';
+
+  @override
+  String get movementExit => 'Sortie';
+
+  @override
+  String get movementLightningReceipt => 'Réception Lightning';
+
+  @override
+  String get observedTimeUtc => 'Heure observée (UTC)';
+
+  @override
+  String get transactionId => 'Identifiant de transaction';
+
+  @override
+  String get share => 'Partager';
 }
