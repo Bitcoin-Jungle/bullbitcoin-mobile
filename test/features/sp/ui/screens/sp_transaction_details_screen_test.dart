@@ -104,7 +104,7 @@ void main() {
     final context = tester.element(find.text('Verification failed'));
     final label = tester.widget<Text>(find.text('Verification failed'));
     expect(find.text('Verification failed'), findsOneWidget);
-    expect(label.style?.color, context.appColors.error);
+    expect(label.style?.color, context.appColors.errorText);
   });
 
   testWidgets('shows fee when present', (tester) async {
