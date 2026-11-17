@@ -4786,5 +4786,8 @@
   "mnemonicWordCountLabel": "Mots",
   "passphraseOptionOffSubtitle": "Mot supplémentaire facultatif (BIP39)",
   "passphraseOptionOnSubtitle": "Saisie ci-dessous, jamais affichée",
-  "networkWalletReuseNoRecoveryPhrase": "Ce portefeuille n'a pas de phrase de récupération, il ne peut donc pas être réutilisé ici. Importez une phrase de récupération ou créez un nouveau portefeuille."
+  "networkWalletReuseNoRecoveryPhrase": "Ce portefeuille n'a pas de phrase de récupération, il ne peut donc pas être réutilisé ici. Importez une phrase de récupération ou créez un nouveau portefeuille.",
+  "transactionOrderTypeSellUsdt": "Vendre des USDT",
+  "transactionOrderTypeFiatPayment": "Paiement fiat",
+  "transactionOrderTypeBalanceAdjustment": "Ajustement de solde"
 }

@@ -9,6 +9,7 @@ import 'package:bb_mobile/core/widgets/transaction_viewer.dart';
 import 'package:bb_mobile/core/widgets/snackbar_utils.dart';
 import 'package:bb_mobile/core/widgets/text/currency_text.dart';
 import 'package:bb_mobile/features/transactions/presentation/blocs/transaction_details/transaction_details_cubit.dart';
+import 'package:bb_mobile/features/transactions/presentation/order_l10n.dart';
 import 'package:bb_mobile/features/transactions/presentation/order_payment_method_l10n.dart';
 import 'package:bb_mobile/features/transactions/presentation/order_swap_status_l10n.dart';
 import 'package:bb_mobile/features/transactions/ui/widgets/labels_table_item.dart';
@@ -286,7 +287,7 @@ class TransactionDetailsTable extends StatelessWidget {
               return [
                 BullDetailsTableItem(
                   label: context.loc.transactionDetailLabelOrderType,
-                  displayValue: order.orderType.value,
+                  displayValue: order.typeLabel(context),
                 ),
                 BullDetailsTableItem(
                   label: context.loc.transactionDetailLabelOrderNumber,
@@ -354,15 +355,15 @@ class TransactionDetailsTable extends StatelessWidget {
 
                 BullDetailsTableItem(
                   label: context.loc.transactionDetailLabelPayinStatus,
-                  displayValue: order.payinStatus.value,
+                  displayValue: order.payinStatus.toTranslated(context),
                 ),
                 BullDetailsTableItem(
                   label: context.loc.transactionDetailLabelOrderStatus,
-                  displayValue: order.orderStatus.value,
+                  displayValue: order.orderStatus.toTranslated(context),
                 ),
                 BullDetailsTableItem(
                   label: context.loc.transactionDetailLabelPayoutStatus,
-                  displayValue: order.payoutStatus.value,
+                  displayValue: order.payoutStatus.toTranslated(context),
                 ),
                 BullDetailsTableItem(
                   label: context.loc.transactionDetailLabelCreatedAt,
@@ -379,7 +380,7 @@ class TransactionDetailsTable extends StatelessWidget {
               return [
                 BullDetailsTableItem(
                   label: context.loc.transactionDetailLabelOrderType,
-                  displayValue: order.orderType.value,
+                  displayValue: order.typeLabel(context),
                 ),
                 BullDetailsTableItem(
                   label: context.loc.transactionDetailLabelOrderNumber,
@@ -420,15 +421,15 @@ class TransactionDetailsTable extends StatelessWidget {
                 ),
                 BullDetailsTableItem(
                   label: context.loc.transactionDetailLabelPayinStatus,
-                  displayValue: order.payinStatus.value,
+                  displayValue: order.payinStatus.toTranslated(context),
                 ),
                 BullDetailsTableItem(
                   label: context.loc.transactionDetailLabelOrderStatus,
-                  displayValue: order.orderStatus.value,
+                  displayValue: order.orderStatus.toTranslated(context),
                 ),
                 BullDetailsTableItem(
                   label: context.loc.transactionDetailLabelPayoutStatus,
-                  displayValue: order.payoutStatus.value,
+                  displayValue: order.payoutStatus.toTranslated(context),
                 ),
                 BullDetailsTableItem(
                   label: context.loc.transactionDetailLabelCreatedAt,
@@ -444,7 +445,7 @@ class TransactionDetailsTable extends StatelessWidget {
               return [
                 BullDetailsTableItem(
                   label: context.loc.transactionDetailLabelOrderType,
-                  displayValue: order.orderType.value,
+                  displayValue: order.typeLabel(context),
                 ),
                 BullDetailsTableItem(
                   label: context.loc.transactionDetailLabelOrderNumber,
@@ -501,15 +502,15 @@ class TransactionDetailsTable extends StatelessWidget {
                   ),
                 BullDetailsTableItem(
                   label: context.loc.transactionDetailLabelPayinStatus,
-                  displayValue: order.payinStatus.value,
+                  displayValue: order.payinStatus.toTranslated(context),
                 ),
                 BullDetailsTableItem(
                   label: context.loc.transactionDetailLabelOrderStatus,
-                  displayValue: order.orderStatus.value,
+                  displayValue: order.orderStatus.toTranslated(context),
                 ),
                 BullDetailsTableItem(
                   label: context.loc.transactionDetailLabelPayoutStatus,
-                  displayValue: order.payoutStatus.value,
+                  displayValue: order.payoutStatus.toTranslated(context),
                 ),
                 BullDetailsTableItem(
                   label: context.loc.transactionDetailLabelCreatedAt,
@@ -525,7 +526,7 @@ class TransactionDetailsTable extends StatelessWidget {
               return [
                 BullDetailsTableItem(
                   label: context.loc.transactionDetailLabelOrderType,
-                  displayValue: order.orderType.value,
+                  displayValue: order.typeLabel(context),
                 ),
                 BullDetailsTableItem(
                   label: context.loc.transactionDetailLabelOrderNumber,
@@ -552,15 +553,15 @@ class TransactionDetailsTable extends StatelessWidget {
                 ),
                 BullDetailsTableItem(
                   label: context.loc.transactionDetailLabelPayinStatus,
-                  displayValue: order.payinStatus.value,
+                  displayValue: order.payinStatus.toTranslated(context),
                 ),
                 BullDetailsTableItem(
                   label: context.loc.transactionDetailLabelOrderStatus,
-                  displayValue: order.orderStatus.value,
+                  displayValue: order.orderStatus.toTranslated(context),
                 ),
                 BullDetailsTableItem(
                   label: context.loc.transactionDetailLabelPayoutStatus,
-                  displayValue: order.payoutStatus.value,
+                  displayValue: order.payoutStatus.toTranslated(context),
                 ),
                 BullDetailsTableItem(
                   label: context.loc.transactionDetailLabelCreatedAt,
@@ -576,7 +577,7 @@ class TransactionDetailsTable extends StatelessWidget {
               return [
                 BullDetailsTableItem(
                   label: context.loc.transactionDetailLabelOrderType,
-                  displayValue: order.orderType.value,
+                  displayValue: order.typeLabel(context),
                 ),
                 BullDetailsTableItem(
                   label: context.loc.transactionDetailLabelOrderNumber,
@@ -610,15 +611,15 @@ class TransactionDetailsTable extends StatelessWidget {
                 ),
                 BullDetailsTableItem(
                   label: context.loc.transactionDetailLabelPayinStatus,
-                  displayValue: order.payinStatus.value,
+                  displayValue: order.payinStatus.toTranslated(context),
                 ),
                 BullDetailsTableItem(
                   label: context.loc.transactionDetailLabelOrderStatus,
-                  displayValue: order.orderStatus.value,
+                  displayValue: order.orderStatus.toTranslated(context),
                 ),
                 BullDetailsTableItem(
                   label: context.loc.transactionDetailLabelPayoutStatus,
-                  displayValue: order.payoutStatus.value,
+                  displayValue: order.payoutStatus.toTranslated(context),
                 ),
                 BullDetailsTableItem(
                   label: context.loc.transactionDetailLabelCreatedAt,
@@ -634,7 +635,7 @@ class TransactionDetailsTable extends StatelessWidget {
               return [
                 BullDetailsTableItem(
                   label: context.loc.transactionDetailLabelOrderType,
-                  displayValue: order.orderType.value,
+                  displayValue: order.typeLabel(context),
                 ),
                 BullDetailsTableItem(
                   label: context.loc.transactionDetailLabelOrderNumber,
@@ -701,15 +702,15 @@ class TransactionDetailsTable extends StatelessWidget {
                 ),
                 BullDetailsTableItem(
                   label: context.loc.transactionDetailLabelPayinStatus,
-                  displayValue: order.payinStatus.value,
+                  displayValue: order.payinStatus.toTranslated(context),
                 ),
                 BullDetailsTableItem(
                   label: context.loc.transactionDetailLabelOrderStatus,
-                  displayValue: order.orderStatus.value,
+                  displayValue: order.orderStatus.toTranslated(context),
                 ),
                 BullDetailsTableItem(
                   label: context.loc.transactionDetailLabelPayoutStatus,
-                  displayValue: order.payoutStatus.value,
+                  displayValue: order.payoutStatus.toTranslated(context),
                 ),
                 BullDetailsTableItem(
                   label: context.loc.transactionDetailLabelCreatedAt,
@@ -725,7 +726,7 @@ class TransactionDetailsTable extends StatelessWidget {
               return [
                 BullDetailsTableItem(
                   label: context.loc.transactionDetailLabelOrderType,
-                  displayValue: order.orderType.value,
+                  displayValue: order.typeLabel(context),
                 ),
                 BullDetailsTableItem(
                   label: context.loc.transactionDetailLabelOrderNumber,
@@ -792,15 +793,15 @@ class TransactionDetailsTable extends StatelessWidget {
                 ),
                 BullDetailsTableItem(
                   label: context.loc.transactionDetailLabelPayinStatus,
-                  displayValue: order.payinStatus.value,
+                  displayValue: order.payinStatus.toTranslated(context),
                 ),
                 BullDetailsTableItem(
                   label: context.loc.transactionDetailLabelOrderStatus,
-                  displayValue: order.orderStatus.value,
+                  displayValue: order.orderStatus.toTranslated(context),
                 ),
                 BullDetailsTableItem(
                   label: context.loc.transactionDetailLabelPayoutStatus,
-                  displayValue: order.payoutStatus.value,
+                  displayValue: order.payoutStatus.toTranslated(context),
                 ),
                 BullDetailsTableItem(
                   label: context.loc.transactionDetailLabelCreatedAt,
@@ -816,7 +817,7 @@ class TransactionDetailsTable extends StatelessWidget {
               return [
                 BullDetailsTableItem(
                   label: context.loc.transactionDetailLabelOrderType,
-                  displayValue: order.orderType.value,
+                  displayValue: order.typeLabel(context),
                 ),
                 BullDetailsTableItem(
                   label: context.loc.transactionDetailLabelOrderNumber,
@@ -850,15 +851,15 @@ class TransactionDetailsTable extends StatelessWidget {
                 ),
                 BullDetailsTableItem(
                   label: context.loc.transactionDetailLabelPayinStatus,
-                  displayValue: order.payinStatus.value,
+                  displayValue: order.payinStatus.toTranslated(context),
                 ),
                 BullDetailsTableItem(
                   label: context.loc.transactionDetailLabelOrderStatus,
-                  displayValue: order.orderStatus.value,
+                  displayValue: order.orderStatus.toTranslated(context),
                 ),
                 BullDetailsTableItem(
                   label: context.loc.transactionDetailLabelPayoutStatus,
-                  displayValue: order.payoutStatus.value,
+                  displayValue: order.payoutStatus.toTranslated(context),
                 ),
                 BullDetailsTableItem(
                   label: context.loc.transactionDetailLabelCreatedAt,
@@ -876,7 +877,7 @@ class TransactionDetailsTable extends StatelessWidget {
               return [
                 BullDetailsTableItem(
                   label: context.loc.transactionDetailLabelOrderType,
-                  displayValue: order?.orderTypeLabel,
+                  displayValue: order?.typeLabel(context),
                 ),
               ];
             }
