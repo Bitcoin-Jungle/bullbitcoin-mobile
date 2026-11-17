@@ -195,8 +195,10 @@ class _BullSnackBarContent extends StatelessWidget {
             child: Text(
               actionLabel!,
               // Error reads as a warm red on both the light and the dark toast.
-              style: Theme.of(context).textTheme.bodyLarge
-                  ?.copyWith(color: colors.error, fontWeight: FontWeight.w700),
+              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                color: colors.errorText,
+                fontWeight: FontWeight.w700,
+              ),
             ),
           ),
         ],

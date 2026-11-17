@@ -85,7 +85,7 @@ class BullDropdown<T> extends StatelessWidget {
               ),
               isDense: false,
             ),
-            icon: Icon(Icons.keyboard_arrow_down, color: colors.primary),
+            icon: Icon(Icons.keyboard_arrow_down, color: colors.primaryText),
           ),
         ),
       ),

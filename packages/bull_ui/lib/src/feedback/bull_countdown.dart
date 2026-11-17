@@ -80,8 +80,10 @@ class BullCountdownState extends State<BullCountdown> {
       '${(remainingTime.inSeconds % 60).toString().padLeft(2, '0')}',
       style:
           widget.textStyle ??
-          Theme.of(context).textTheme.bodyMedium
-              ?.copyWith(fontWeight: FontWeight.w500, color: colors.primary),
+          Theme.of(context).textTheme.bodyMedium?.copyWith(
+            fontWeight: FontWeight.w500,
+            color: colors.primaryText,
+          ),
     );
   }
 }

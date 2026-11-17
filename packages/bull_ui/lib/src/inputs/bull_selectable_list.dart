@@ -136,7 +136,7 @@ class _BullSelectableRow extends StatelessWidget {
               const Gap(8),
               Icon(
                 Icons.radio_button_checked_outlined,
-                color: isSelected ? colors.primary : colors.textMuted,
+                color: isSelected ? colors.primaryText : colors.textMuted,
               ),
             ],
           ),

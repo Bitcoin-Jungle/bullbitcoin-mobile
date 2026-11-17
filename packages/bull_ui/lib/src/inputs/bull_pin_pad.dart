@@ -279,7 +279,7 @@ class _ScrambleKey extends StatelessWidget {
           color: !enabled
               ? keypad.disabledGlyph
               : active
-              ? context.bull.primary
+              ? context.bull.primaryText
               : keypad.onKey,
         ),
       ),

@@ -174,7 +174,7 @@ class _BullDetailsTableItemState extends State<BullDetailsTableItem> {
                           child: Icon(
                             Icons.copy_outlined,
                             size: 18,
-                            color: colors.primary,
+                            color: colors.primaryText,
                           ),
                         ),
                       ),
@@ -191,7 +191,7 @@ class _BullDetailsTableItemState extends State<BullDetailsTableItem> {
                           child: Icon(
                             _expanded ? Icons.expand_less : Icons.expand_more,
                             size: 18,
-                            color: colors.primary,
+                            color: colors.primaryText,
                           ),
                         ),
                       ),

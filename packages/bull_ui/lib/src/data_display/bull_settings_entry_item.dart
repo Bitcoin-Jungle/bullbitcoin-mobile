@@ -56,7 +56,7 @@ class BullSettingsEntryItem extends StatelessWidget {
     final colors = context.bull;
     final effectiveIcon = isSuperUser ? Icons.admin_panel_settings : icon;
     final effectiveIconColor = isSuperUser
-        ? colors.primary
+        ? colors.primaryText
         : (iconColor ?? colors.onSurface);
 
     return ListTile(

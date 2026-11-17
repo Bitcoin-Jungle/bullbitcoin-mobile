@@ -38,7 +38,7 @@ class BullViewerActionButton extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(icon, size: 14, color: colors.primary),
+              Icon(icon, size: 14, color: colors.primaryText),
               const Gap(4),
               BullText(
                 label,

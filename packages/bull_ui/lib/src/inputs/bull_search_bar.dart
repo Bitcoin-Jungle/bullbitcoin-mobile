@@ -135,7 +135,7 @@ class _BullSearchBarState extends State<BullSearchBar> {
         onChanged: widget.onChanged,
         textInputAction: TextInputAction.search,
         style: textStyle?.copyWith(color: colors.text),
-        cursorColor: colors.primary,
+        cursorColor: colors.primaryText,
         decoration: InputDecoration(
           hintText: widget.hint,
           hintStyle: _hintStyle(context),

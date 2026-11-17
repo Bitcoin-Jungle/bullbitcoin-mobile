@@ -232,7 +232,7 @@ class _BullBitcoinAmountInputState extends State<BullBitcoinAmountInput> {
           style: theme.textTheme.bodyLarge?.copyWith(
             color: widget.error == null
                 ? context.bull.transparent
-                : theme.colorScheme.error,
+                : context.bull.errorText,
           ),
           maxLines: 2,
         ),

@@ -122,7 +122,7 @@ class BullSupportButton extends StatelessWidget {
             child: BullText(
               label,
               style: context.bullText.bodyMedium,
-              color: context.bull.primary,
+              color: context.bull.primaryText,
             ),
           ),
         );

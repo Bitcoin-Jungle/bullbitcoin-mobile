@@ -57,7 +57,7 @@ class BullSuccessScreen extends StatelessWidget {
                             BullIcon(
                               BullIcons.checkCircle,
                               size: 100,
-                              color: colors.success,
+                              color: colors.successText,
                             ),
                         const SizedBox(height: BullSpacing.lg),
                         Text(

@@ -42,14 +42,20 @@ class BullFilterChip extends StatelessWidget {
         children: [
           Text(
             label,
-            style: Theme.of(context).textTheme.labelLarge
-                ?.copyWith(fontWeight: FontWeight.w600, color: colors.primary),
+            style: Theme.of(context).textTheme.labelLarge?.copyWith(
+              fontWeight: FontWeight.w600,
+              color: colors.primaryText,
+            ),
           ),
           if (onSelected == null) ...[
             const SizedBox(width: 4),
             GestureDetector(
               onTap: onRemove,
-              child: BullIcon(BullIcons.close, size: 13, color: colors.primary),
+              child: BullIcon(
+                BullIcons.close,
+                size: 13,
+                color: colors.primaryText,
+              ),
             ),
           ],
         ],
@@ -81,7 +87,7 @@ class BullFilterChip extends StatelessWidget {
             label,
             style: Theme.of(context).textTheme.labelLarge?.copyWith(
               color: selected!
-                  ? (selectionColor ?? colors.primary)
+                  ? (selectionColor ?? colors.primaryText)
                   : colors.onSurface,
             ),
           ),

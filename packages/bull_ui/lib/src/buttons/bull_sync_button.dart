@@ -68,13 +68,17 @@ class _BullSyncButtonState extends State<BullSyncButton>
         children: [
           RotationTransition(
             turns: _controller,
-            child: BullIcon(BullIcons.sync, size: 16, color: colors.primary),
+            child: BullIcon(
+              BullIcons.sync,
+              size: 16,
+              color: colors.primaryText,
+            ),
           ),
           const SizedBox(width: 4),
           Text(
             widget.label,
             style: context.bullText.labelMedium?.copyWith(
-              color: colors.primary,
+              color: colors.primaryText,
               fontWeight: FontWeight.w600,
             ),
           ),

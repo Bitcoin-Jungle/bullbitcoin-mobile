@@ -38,6 +38,9 @@ class BullInfoBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = context.bull;
     final accent = tone == BullInfoTone.warning ? colors.warning : colors.info;
+    final iconColor = tone == BullInfoTone.warning
+        ? colors.warningText
+        : colors.info;
     final defaultIcon = tone == BullInfoTone.warning
         ? BullIcons.schedule
         : BullIcons.acUnit;
@@ -62,7 +65,7 @@ class BullInfoBar extends StatelessWidget {
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      BullIcon(icon ?? defaultIcon, size: 16, color: accent),
+                      BullIcon(icon ?? defaultIcon, size: 16, color: iconColor),
                       const SizedBox(width: 8),
                       Expanded(
                         child: Text(

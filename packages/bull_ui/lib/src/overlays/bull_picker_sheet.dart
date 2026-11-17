@@ -83,7 +83,7 @@ class BullPickerSheet<T> extends StatelessWidget {
                             style: Theme.of(context).textTheme.headlineSmall
                                 ?.copyWith(
                                   color: selected
-                                      ? colors.primary
+                                      ? colors.primaryText
                                       : colors.onSurface,
                                   fontWeight: selected
                                       ? FontWeight.w600
@@ -91,7 +91,8 @@ class BullPickerSheet<T> extends StatelessWidget {
                                 ),
                           ),
                         ),
-                        if (selected) Icon(Icons.check, color: colors.primary),
+                        if (selected)
+                          Icon(Icons.check, color: colors.primaryText),
                       ],
                     ),
                   ),
