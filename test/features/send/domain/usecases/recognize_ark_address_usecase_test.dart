@@ -19,12 +19,16 @@ class Preferences extends Mock implements ArkPreferencesRepository {}
 
 class Provisioning extends Mock implements ArkProvisioningPort {}
 
+class BoardFunding extends Mock implements ArkBoardFundingPort {}
+
 class Fixture {
   final client = Client();
   final registry = Registry();
   final preferences = Preferences();
+  final boardFunding = BoardFunding();
   late final ArkFacade facade = createArkFacade(
     client: client,
+    boardFunding: boardFunding,
     preferences: preferences,
     registry: registry,
     provisioning: Provisioning(),
@@ -68,6 +72,7 @@ void main() {
       );
       verifyZeroInteractions(fixture.registry);
       verifyZeroInteractions(fixture.client);
+      verifyZeroInteractions(fixture.boardFunding);
     },
   );
   test('Ark paste consults only public local account inventory', () async {
