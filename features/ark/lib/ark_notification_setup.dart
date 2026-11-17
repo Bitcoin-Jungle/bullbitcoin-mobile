@@ -1,6 +1,7 @@
 /// Notification copy and platform channel for Ark safety reminders.
 library;
 
+import 'dart:io';
 import 'dart:ui';
 
 import 'package:notifications/notifications.dart';
@@ -13,7 +14,10 @@ const arkExpiryChannelId = 'bull_ark_expiry';
 /// Initialize the shared plugin before using the scheduled gateway.
 Future<Result<ScheduledNotificationPort, NotificationsFailure>>
 initializeArkNotifications(Locale locale) async {
-  final copy = lookupArkLocalizations(locale);
+  if (!Platform.isAndroid && !Platform.isIOS) {
+    return const Err(NotificationsGatewayFailure());
+  }
+  final copy = lookupArkLocalizations(_supportedLocale(locale));
   final gateway = localNotifications(
     channelId: arkExpiryChannelId,
     channelName: copy.expiryTitle,
@@ -33,6 +37,30 @@ initializeArkNotifications(Locale locale) async {
 }
 
 ({String title, String body}) arkExpiryCopy(Locale locale) {
-  final copy = lookupArkLocalizations(locale);
+  final copy = lookupArkLocalizations(_supportedLocale(locale));
   return (title: copy.expiryTitle, body: copy.expiryBody);
+}
+
+Locale _supportedLocale(Locale locale) =>
+    locale.languageCode == 'fr' ? const Locale('fr') : const Locale('en');
+
+/// Refuses platform effects when plugin initialization failed. Durable intent
+/// remains in the reminder ledger and the caller can retry after recovery.
+ScheduledNotificationPort unavailableArkNotifications() =>
+    const _UnavailableArkNotifications();
+
+final class _UnavailableArkNotifications implements ScheduledNotificationPort {
+  const _UnavailableArkNotifications();
+
+  @override
+  Future<Result<void, NotificationsFailure>> schedule(
+    LocalNotification notification, {
+    required int platformId,
+    required DateTime at,
+  }) async => const Err(NotificationsGatewayFailure());
+
+  @override
+  Future<Result<void, NotificationsFailure>> cancelScheduled(
+    int platformId,
+  ) async => const Err(NotificationsGatewayFailure());
 }
