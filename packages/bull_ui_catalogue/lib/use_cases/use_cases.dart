@@ -39,7 +39,7 @@ m.Widget bullIconUseCase(m.BuildContext context) {
         min: 12,
         max: 96,
       ),
-      color: context.bull.primary,
+      color: context.bull.primaryText,
     ),
   );
 }
@@ -736,7 +736,7 @@ m.Widget bullInfoCardUseCase(m.BuildContext context) {
       child: BullInfoCard(
         title: context.knobs.string(label: 'title', initialValue: 'Heads up'),
         description: 'Your change output stays on the same keychain.',
-        tagColor: context.bull.warning,
+        tagColor: context.bull.warningText,
         bgColor: context.bull.warning.withValues(alpha: 0.12),
         boldDescription: context.knobs.boolean(label: 'bold description'),
       ),
@@ -853,7 +853,7 @@ m.Widget bullStatTileUseCase(m.BuildContext context) {
       label: context.knobs.string(label: 'label', initialValue: 'Balance'),
       value: context.knobs.string(label: 'value', initialValue: '0.5421 BTC'),
       sub: '\$53,210',
-      accent: context.bull.success,
+      accent: context.bull.successText,
     ),
   );
 }
@@ -909,7 +909,7 @@ m.Widget bullCountdownShortUseCase(m.BuildContext context) {
       until: DateTime.now().add(const Duration(seconds: 30)),
       textStyle: m.Theme.of(context).textTheme.headlineLarge?.copyWith(
         fontFeatures: const [m.FontFeature.tabularFigures()],
-        color: context.bull.warning,
+        color: context.bull.warningText,
       ),
     ),
   );
@@ -1033,7 +1033,7 @@ m.Widget bullCarouselUseCase(m.BuildContext context) {
             BullInfoCard(
               title: 'Warning ${i + 1}',
               description: 'Swipe to see the next card.',
-              tagColor: context.bull.error,
+              tagColor: context.bull.errorText,
               bgColor: context.bull.error.withValues(alpha: 0.12),
             ),
         ],
