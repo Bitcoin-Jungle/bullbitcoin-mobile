@@ -56,7 +56,7 @@ final class _LogSettingsView extends StatelessWidget {
               icon: Icon(
                 Icons.tune,
                 color: hasActiveFilters
-                    ? context.bull.primary
+                    ? context.bull.primaryText
                     : context.bull.onSurface,
               ),
               onPressed: () => showLogsFilterSheet(context),

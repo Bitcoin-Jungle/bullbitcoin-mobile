@@ -223,8 +223,8 @@ class KeyServerStatusWidget extends StatelessWidget {
                       Icons.circle,
                       size: 12,
                       color: switch (status) {
-                        KeyServerStatus.online => context.bull.success,
-                        KeyServerStatus.offline => context.bull.error,
+                        KeyServerStatus.online => context.bull.successText,
+                        KeyServerStatus.offline => context.bull.errorText,
                         KeyServerStatus.connecting ||
                         KeyServerStatus.unknown => context.bull.textMuted,
                       },

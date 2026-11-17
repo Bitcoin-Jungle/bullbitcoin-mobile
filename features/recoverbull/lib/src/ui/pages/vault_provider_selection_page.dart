@@ -259,7 +259,7 @@ class _VaultProviderSelectionPageState
                         child: BullText(
                           context.loc.backupWalletHowToDecide,
                           style: context.bullText.headlineLarge?.copyWith(
-                            color: context.bull.primary,
+                            color: context.bull.primaryText,
                           ),
                         ),
                       ),

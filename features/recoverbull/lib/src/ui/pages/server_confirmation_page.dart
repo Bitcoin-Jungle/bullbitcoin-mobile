@@ -65,7 +65,7 @@ class ServerConfirmationPage extends StatelessWidget {
                   isDefault ? Icons.verified_user : Icons.warning_amber,
                   size: 64,
                   color: isDefault
-                      ? context.bull.primary
+                      ? context.bull.primaryText
                       : context.bull.tertiary,
                 ),
                 const Gap(32),
@@ -109,7 +109,7 @@ class ServerConfirmationPage extends StatelessWidget {
                 if (!isDefault) ...[
                   BullInfoCard(
                     description: context.loc.recoverbullServerCustomWarning,
-                    tagColor: context.bull.error,
+                    tagColor: context.bull.errorText,
                     bgColor: context.bull.errorContainer,
                   ),
                   const Gap(24),
@@ -126,7 +126,7 @@ class ServerConfirmationPage extends StatelessWidget {
                   BullText(
                     failure.toTranslated(context),
                     style: context.bullText.bodyMedium?.copyWith(
-                      color: context.bull.error,
+                      color: context.bull.errorText,
                     ),
                     textAlign: .center,
                   ),
@@ -150,13 +150,13 @@ class ServerConfirmationPage extends StatelessWidget {
                       Icon(
                         Icons.info_outline,
                         size: 20,
-                        color: context.bull.primary,
+                        color: context.bull.primaryText,
                       ),
                       const Gap(8),
                       BullText(
                         context.loc.recoverbullLearnMore,
                         style: context.bullText.bodyMedium,
-                        color: context.bull.primary,
+                        color: context.bull.primaryText,
                       ),
                     ],
                   ),

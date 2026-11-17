@@ -449,7 +449,7 @@ class _Body extends StatelessWidget {
                       _blockageStatus(context),
                       textAlign: .center,
                       style: context.bullText.bodyLarge?.copyWith(
-                        color: context.bull.warning,
+                        color: context.bull.warningText,
                         fontWeight: .w700,
                       ),
                     ),
@@ -571,8 +571,8 @@ class _PhaseCard extends StatelessWidget {
   });
 
   Color _color(BuildContext context) => switch (phase) {
-    _PhaseState.done => context.bull.success,
-    _PhaseState.failed => context.bull.error,
+    _PhaseState.done => context.bull.successText,
+    _PhaseState.failed => context.bull.errorText,
     _PhaseState.active || _PhaseState.pending => context.bull.textMuted,
   };
 
@@ -715,7 +715,7 @@ class _FailurePanel extends StatelessWidget {
           message,
           textAlign: .center,
           style: context.bullText.bodyMedium?.copyWith(
-            color: context.bull.error,
+            color: context.bull.errorText,
           ),
           maxLines: 4,
         ),

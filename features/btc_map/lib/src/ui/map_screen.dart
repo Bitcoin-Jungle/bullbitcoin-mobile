@@ -100,7 +100,7 @@ class _BlockingFailure extends StatelessWidget {
         children: [
           BullInfoCard(
             description: message,
-            tagColor: context.bull.error,
+            tagColor: context.bull.errorText,
             bgColor: context.bull.errorContainer,
           ),
           const Gap(16),

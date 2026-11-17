@@ -239,7 +239,7 @@ final class _LogsFilterSheetState extends State<_LogsFilterSheet> {
                           .logsViewerClearFilter,
                       onPressed: () =>
                           context.read<LogsCubit>().setDateRange(null, null),
-                      icon: Icon(Icons.clear, color: context.bull.primary),
+                      icon: Icon(Icons.clear, color: context.bull.primaryText),
                     ),
                   ],
                 ],
@@ -457,14 +457,14 @@ class _LogLineState extends State<_LogLine> {
 
 Color _colorForSeverity(BuildContext context, LogSeverity severity) =>
     switch (severity) {
-      LogSeverity.finest => context.bull.success.withValues(alpha: 0.5),
-      LogSeverity.finer => context.bull.success.withValues(alpha: 0.7),
-      LogSeverity.fine => context.bull.success,
+      LogSeverity.finest => context.bull.successText.withValues(alpha: 0.5),
+      LogSeverity.finer => context.bull.successText.withValues(alpha: 0.7),
+      LogSeverity.fine => context.bull.successText,
       LogSeverity.config => context.bull.textMuted,
       LogSeverity.info => context.bull.info,
-      LogSeverity.warning => context.bull.warning,
-      LogSeverity.severe => context.bull.error,
-      LogSeverity.shout => context.bull.primary,
+      LogSeverity.warning => context.bull.warningText,
+      LogSeverity.severe => context.bull.errorText,
+      LogSeverity.shout => context.bull.primaryText,
       LogSeverity.unknown => context.bull.textMuted,
     };
 

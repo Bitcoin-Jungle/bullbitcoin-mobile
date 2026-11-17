@@ -352,7 +352,7 @@ class _PassphrasePageState extends State<PassphrasePage> with PrivacyScreen {
                   BullText(
                     context.loc.recoverbullPassphraseWhitespace,
                     style: context.bullText.bodySmall?.copyWith(
-                      color: context.bull.warning,
+                      color: context.bull.warningText,
                     ),
                     maxLines: 3,
                   ),
@@ -364,7 +364,7 @@ class _PassphrasePageState extends State<PassphrasePage> with PrivacyScreen {
                     child: BullText(
                       error,
                       style: context.bullText.bodySmall?.copyWith(
-                        color: context.bull.error,
+                        color: context.bull.errorText,
                       ),
                       maxLines: 4,
                     ),
@@ -396,7 +396,7 @@ class _PassphrasePageState extends State<PassphrasePage> with PrivacyScreen {
                         description: context
                             .loc
                             .recoverbullContinueWithoutPassphraseWarning,
-                        tagColor: context.bull.warning,
+                        tagColor: context.bull.warningText,
                         bgColor: context.bull.warningContainer,
                       ),
                       const Gap(12),

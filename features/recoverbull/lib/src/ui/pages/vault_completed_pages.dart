@@ -26,7 +26,7 @@ class _Notice extends StatelessWidget {
     padding: const EdgeInsets.only(top: 12),
     child: BullInfoCard(
       description: message,
-      tagColor: context.bull.warning,
+      tagColor: context.bull.warningText,
       bgColor: context.bull.warningContainer,
     ),
   );

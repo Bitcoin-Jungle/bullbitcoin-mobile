@@ -473,7 +473,7 @@ class _PasswordInputPageState extends State<PasswordInputPage>
               BullText(
                 context.loc.recoverbullUnexpectedError,
                 style: context.bullText.bodyMedium?.copyWith(
-                  color: context.bull.error,
+                  color: context.bull.errorText,
                 ),
                 textAlign: .center,
               ),

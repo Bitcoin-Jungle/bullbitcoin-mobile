@@ -173,7 +173,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     BullText(
                       failure.toTranslated(context),
                       style: context.bullText.bodyMedium?.copyWith(
-                        color: context.bull.error,
+                        color: context.bull.errorText,
                       ),
                       maxLines: 4,
                     ),
@@ -212,13 +212,13 @@ class _SettingsPageState extends State<SettingsPage> {
                         Icon(
                           Icons.info_outline,
                           size: 20,
-                          color: context.bull.primary,
+                          color: context.bull.primaryText,
                         ),
                         const Gap(8),
                         BullText(
                           context.loc.recoverbullLearnMore,
                           style: context.bullText.bodyMedium,
-                          color: context.bull.primary,
+                          color: context.bull.primaryText,
                         ),
                       ],
                     ),

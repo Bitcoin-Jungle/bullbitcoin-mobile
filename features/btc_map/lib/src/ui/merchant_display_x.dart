@@ -12,9 +12,9 @@ extension MerchantVerificationDisplay on MerchantVerification {
   };
 
   Color color(BuildContext context) => switch (this) {
-    MerchantVerification.recent => context.bull.success,
+    MerchantVerification.recent => context.bull.successText,
     MerchantVerification.outdated ||
-    MerchantVerification.never => context.bull.warning,
+    MerchantVerification.never => context.bull.warningText,
   };
 
   /// The one-word form used in the list.
