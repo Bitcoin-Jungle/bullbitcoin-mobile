@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Give text and borders the same contrast in both themes, at least WCAG AA: light `text`, `onSurface`, `secondary` and `inverseSurface` become black; `textMuted` and `onSurfaceVariant` become `#555555` in light and `#939398` in dark (6.8:1 on the background, 4.5:1 on dark cards); `border` and `outline` become `#8D8D8D` in light and `#5A5A5C` in dark (3.0:1 on the background). `BullKeypadColors` keeps its values.
 - Hold Bull's palette in `BullTheme.light` and `BullTheme.dark` (`BullTheme.of(brightness)`); the app, the catalogue and `testBullTheme` read it instead of keeping their own copies.
 - Add `primaryText`, `errorText`, `successText` and `warningText` to `BullTheme`: the accent and status colours as text or a standalone icon, at least 4.5:1 on every surface. `primary`, `error`, `success` and `warning` stay for fills, badges and borders.
 - Size the text of `BullQuickAction`, `BullToolButton`, `BullSwipeAction`, `BullBadge`, `BullLabelChip`, `BullStatTile`, `BullPriceCard`, `BullBitcoinAmountInput` and `LabeledInputFrame` from `BullTypography` roles instead of typed-in sizes; the former 600 weight, which Golos Text does not ship, becomes 700. These components now need `BullTypography` in `ThemeData.extensions`.

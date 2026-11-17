@@ -35,16 +35,13 @@ void main() {
       });
     }
 
-    // The dark keypad was drawn from the dark palette; the two must not drift apart.
-    test('the dark keypad matches the dark palette', () {
+    // The dark keypad keys and glyphs come from the dark palette. Its greys do not: they keep the keypad pairs at light parity, while the palette greys are sized for text and borders on every surface.
+    test('the dark keypad keys match the dark palette', () {
       const keypad = BullKeypadColors.dark;
       const colors = BullTheme.dark;
       expect(keypad.panel, colors.surfaceContainerHighest);
       expect(keypad.key, colors.background);
       expect(keypad.onKey, colors.onSurface);
-      expect(keypad.functionKey, colors.outline);
-      expect(keypad.onFunctionKeyDisabled, colors.textMuted);
-      expect(keypad.disabledGlyph, colors.outline);
     });
 
     test('of picks the preset for the brightness', () {
