@@ -1,52 +1,10 @@
 import 'package:bull_ui/bull_ui.dart';
 import 'package:material_ui/material_ui.dart';
 
-/// Minimal [BullTheme] for widget tests. A bare `MaterialApp` would crash
+/// The light [BullTheme] for widget tests. A bare `MaterialApp` would crash
 /// `context.bull` (the accessor force-unwraps the extension), so every test
 /// wraps its widget in this.
-const testBullTheme = BullTheme(
-  primary: Color(0xFFC50909),
-  onPrimary: Color(0xFFFFFFFF),
-  primaryFixed: Color(0xFFC50909),
-  onPrimaryFixed: Color(0xFFFFFFFF),
-  secondary: Color(0xFF15171C),
-  onSecondary: Color(0xFFFFFFFF),
-  secondaryFixed: Color(0xFF15171C),
-  secondaryFixedDim: Color(0xFFC9CACD),
-  onSecondaryFixed: Color(0xFFFFFFFF),
-  tertiary: Color(0xFFFFCC00),
-  onTertiary: Color(0xFFFF9500),
-  tertiaryContainer: Color(0xFFFFF4E6),
-  bitcoinOrange: Color(0xFFF7931A),
-  background: Color(0xFFF5F5F5),
-  surface: Color(0xFFFFFFFF),
-  surfaceContainer: Color(0xFFF5F5F5),
-  surfaceContainerHighest: Color(0xFFE8E8E8),
-  surfaceBright: Color(0xFFFFFFFF),
-  onSurface: Color(0xFF15171C),
-  onSurfaceVariant: Color(0xFF70747D),
-  inverseSurface: Color(0xFF15171C),
-  cardBackground: Color(0xFFFFFFFF),
-  text: Color(0xFF15171C),
-  textMuted: Color(0xFF70747D),
-  border: Color(0xFFC9CACD),
-  outline: Color(0xFFC9CACD),
-  outlineVariant: Color(0xFFE8E8E8),
-  error: Color(0xFFFF3B30),
-  onError: Color(0xFFFFFFFF),
-  errorContainer: Color(0xFFFFEBEE),
-  success: Color(0xFF34C759),
-  warning: Color(0xFFFB9300),
-  warningContainer: Color(0xFFFFF4E6),
-  info: Color(0xFF0063F7),
-  scrim: Color(0x26000000),
-  overlay: Color(0x80000000),
-  transparent: Color(0x00000000),
-  surfaceFixed: Color(0xFFFFFFFF),
-  onSurfaceFixed: Color(0xFF15171C),
-  shimmerBase: Color(0xFFE0E0E0),
-  shimmerHighlight: Color(0xFFF5F5F5),
-);
+const testBullTheme = BullTheme.light;
 
 /// Every theme extension `bull_ui` components read, for tests that build their
 /// own `ThemeData`: `ThemeData(extensions: testBullExtensions)`.

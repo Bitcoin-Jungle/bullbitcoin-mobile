@@ -2,16 +2,8 @@ import 'package:material_ui/material_ui.dart';
 
 /// The `bull_ui` colour palette, injected by the app as a [ThemeExtension].
 ///
-/// [BullTheme] is brightness-agnostic: it never hardcodes a colour. The app
-/// builds one [BullTheme] from its light palette and another from its dark
-/// palette, and registers each on the matching [ThemeData] via `extensions:`.
-/// Components read colours through [BullThemeX.bull] (e.g.
-/// `context.bull.primary`); derived fills use `tokenColor.withValues(alpha: …)`
-/// so they adapt to both brightnesses automatically.
-///
-/// The fields are a 1:1 mirror of the app's `AppColors` palette — same names,
-/// same meaning — so the app can wire every field through without translation.
-/// This declares only the **shape**; no values live here (the keypad values `bull_ui` owns live in `BullKeypadColors`).
+/// [light] and [dark] hold Bull's values; the app, the catalogue and the tests register the one matching their brightness on [ThemeData] via `extensions:` (see `bullUiExtensions`).
+/// Components read colours through [BullThemeX.bull] (e.g. `context.bull.primary`); derived fills use `tokenColor.withValues(alpha: …)` so they adapt to both brightnesses automatically.
 @immutable
 class BullTheme extends ThemeExtension<BullTheme> {
   const BullTheme({
@@ -121,6 +113,100 @@ class BullTheme extends ThemeExtension<BullTheme> {
   // Shimmer / loading colours.
   final Color shimmerBase;
   final Color shimmerHighlight;
+
+  /// Bull's palette on a light theme.
+  static const light = BullTheme(
+    primary: Color(0xFFC50909),
+    onPrimary: Color(0xFFFFFFFF),
+    primaryFixed: Color(0xFFC50909),
+    onPrimaryFixed: Color(0xFFFFFFFF),
+    secondary: Color(0xFF15171C),
+    onSecondary: Color(0xFFFFFFFF),
+    secondaryFixed: Color(0xFF15171C),
+    secondaryFixedDim: Color(0xFFC9CACD),
+    onSecondaryFixed: Color(0xFFFFFFFF),
+    tertiary: Color(0xFFFFCC00),
+    onTertiary: Color(0xFFFF9500),
+    tertiaryContainer: Color(0xFFFFF4E6),
+    bitcoinOrange: Color(0xFFF7931A),
+    background: Color(0xFFF5F5F5),
+    surface: Color(0xFFFFFFFF),
+    surfaceContainer: Color(0xFFF5F5F5),
+    surfaceContainerHighest: Color(0xFFE8E8E8),
+    surfaceBright: Color(0xFFFFFFFF),
+    onSurface: Color(0xFF15171C),
+    onSurfaceVariant: Color(0xFF70747D),
+    inverseSurface: Color(0xFF15171C),
+    cardBackground: Color(0xFFFFFFFF),
+    text: Color(0xFF15171C),
+    textMuted: Color(0xFF70747D),
+    border: Color(0xFFC9CACD),
+    outline: Color(0xFFC9CACD),
+    outlineVariant: Color(0xFFE8E8E8),
+    error: Color(0xFFFF3B30),
+    onError: Color(0xFFFFFFFF),
+    errorContainer: Color(0xFFFFEBEE),
+    success: Color(0xFF34C759),
+    warning: Color(0xFFFB9300),
+    warningContainer: Color(0xFFFFF4E6),
+    info: Color(0xFF0063F7),
+    scrim: Color(0x26000000),
+    overlay: Color(0x80000000),
+    transparent: Color(0x00000000),
+    surfaceFixed: Color(0xFFFFFFFF),
+    onSurfaceFixed: Color(0xFF15171C),
+    shimmerBase: Color(0xFFE0E0E0),
+    shimmerHighlight: Color(0xFFF5F5F5),
+  );
+
+  /// Bull's palette on a dark theme.
+  static const dark = BullTheme(
+    primary: Color(0xFFC50909),
+    onPrimary: Color(0xFFFFFFFF),
+    primaryFixed: Color(0xFFC50909),
+    onPrimaryFixed: Color(0xFFFFFFFF),
+    secondary: Color(0xFFFFFFFF),
+    onSecondary: Color(0xFF15171C),
+    secondaryFixed: Color(0xFF15171C),
+    secondaryFixedDim: Color(0xFF58585A),
+    onSecondaryFixed: Color(0xFFFFFFFF),
+    tertiary: Color(0xFFFFCC00),
+    onTertiary: Color(0xFFFF9F0A),
+    tertiaryContainer: Color(0xFF3D2D00),
+    bitcoinOrange: Color(0xFFF7931A),
+    background: Color(0xFF000000),
+    surface: Color(0xFF1C1C1E),
+    surfaceContainer: Color(0xFF2C2C2E),
+    surfaceContainerHighest: Color(0xFF3C3C3E),
+    surfaceBright: Color(0xFF48484A),
+    onSurface: Color(0xFFFFFFFF),
+    onSurfaceVariant: Color(0xFF8E8E93),
+    inverseSurface: Color(0xFFFFFFFF),
+    cardBackground: Color(0xFF2C2C2E),
+    text: Color(0xFFFFFFFF),
+    textMuted: Color(0xFF8E8E93),
+    border: Color(0xFF58585A),
+    outline: Color(0xFF58585A),
+    outlineVariant: Color(0xFF3C3C3E),
+    error: Color(0xFFFF453A),
+    onError: Color(0xFFFFFFFF),
+    errorContainer: Color(0xFF3D0000),
+    success: Color(0xFF32D74B),
+    warning: Color(0xFFFF9F0A),
+    warningContainer: Color(0xFF3D2D00),
+    info: Color(0xFF0A84FF),
+    scrim: Color(0x26000000),
+    overlay: Color(0x80000000),
+    transparent: Color(0x00000000),
+    surfaceFixed: Color(0xFFFFFFFF),
+    onSurfaceFixed: Color(0xFF15171C),
+    shimmerBase: Color(0xFF3C3C3E),
+    shimmerHighlight: Color(0xFF48484A),
+  );
+
+  /// [light] or [dark] for [brightness].
+  static BullTheme of(Brightness brightness) =>
+      brightness == Brightness.dark ? dark : light;
 
   @override
   BullTheme copyWith({

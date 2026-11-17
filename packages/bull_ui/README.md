@@ -11,11 +11,8 @@ feature-by-feature in later scoped PRs as usages migrate. Nothing is moved or re
 
 ## Theme injection
 
-`bull_ui` is **brightness-agnostic**: the app injects the palette. It builds a `BullTheme` (a `ThemeExtension`) from `AppColors.light` and another from `AppColors.dark`, and registers each on the matching `ThemeData` with `extensions: bullUiExtensions(colors: …, brightness: …)`, which adds every other extension the components read (`BullShapes`, `BullTypography`, `BullKeypadColors`). The one exception to injected colours is `BullKeypadColors`: `bull_ui` holds its `light` and `dark` presets, chosen so each glyph-on-key and key-on-panel pair has the same contrast in both themes.
-Components read colours through `context.bull` (e.g. `context.bull.primary`). `BullTheme` is a
-**1:1 mirror of the app's `AppColors`** — same field names — so the app wires every field through
-without translation. Derived fills use `tokenColor.withValues(alpha: …)` so they adapt to both
-light and dark automatically.
+`bull_ui` holds Bull's palette: `BullTheme.light` and `BullTheme.dark` (a `ThemeExtension`, read with `BullTheme.of(brightness)`), next to the `light` and `dark` presets of `BullKeypadColors`. The app, the catalogue and the tests register the one matching their brightness with `extensions: bullUiExtensions(colors: …, brightness: …)`, which adds every other extension the components read (`BullShapes`, `BullTypography`, `BullKeypadColors`). None of them keeps a palette of its own.
+Components read colours through `context.bull` (e.g. `context.bull.primary`). Derived fills use `tokenColor.withValues(alpha: …)` so they adapt to both light and dark automatically.
 
 ## Foundation tokens
 
