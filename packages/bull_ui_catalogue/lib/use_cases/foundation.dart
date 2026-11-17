@@ -29,6 +29,7 @@ class FoundationColours extends m.StatelessWidget {
     final t = m.Theme.of(context).textTheme;
     final swatches = <(String, m.Color)>[
       ('primary', b.primary),
+      ('primaryText', b.primaryText),
       ('onPrimary', b.onPrimary),
       ('secondary', b.secondary),
       ('onSecondary', b.onSecondary),
@@ -51,10 +52,13 @@ class FoundationColours extends m.StatelessWidget {
       ('outline', b.outline),
       ('outlineVariant', b.outlineVariant),
       ('error', b.error),
+      ('errorText', b.errorText),
       ('onError', b.onError),
       ('errorContainer', b.errorContainer),
       ('success', b.success),
+      ('successText', b.successText),
       ('warning', b.warning),
+      ('warningText', b.warningText),
       ('warningContainer', b.warningContainer),
       ('info', b.info),
       ('scrim', b.scrim),

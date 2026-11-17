@@ -8,6 +8,7 @@ import 'package:material_ui/material_ui.dart';
 class BullTheme extends ThemeExtension<BullTheme> {
   const BullTheme({
     required this.primary,
+    required this.primaryText,
     required this.onPrimary,
     required this.primaryFixed,
     required this.onPrimaryFixed,
@@ -35,10 +36,13 @@ class BullTheme extends ThemeExtension<BullTheme> {
     required this.outline,
     required this.outlineVariant,
     required this.error,
+    required this.errorText,
     required this.onError,
     required this.errorContainer,
     required this.success,
+    required this.successText,
     required this.warning,
+    required this.warningText,
     required this.warningContainer,
     required this.info,
     required this.scrim,
@@ -51,7 +55,11 @@ class BullTheme extends ThemeExtension<BullTheme> {
   });
 
   // Primary colours.
+  /// The accent as a fill: buttons, switches, selection.
   final Color primary;
+
+  /// The accent as text or a standalone icon, at least 4.5:1 on every surface; [primary] stays for fills.
+  final Color primaryText;
   final Color onPrimary;
   final Color primaryFixed;
   final Color onPrimaryFixed;
@@ -92,12 +100,15 @@ class BullTheme extends ThemeExtension<BullTheme> {
   final Color outline;
   final Color outlineVariant;
 
-  // Status colours.
+  // Status colours. [error], [success] and [warning] are fills, badges and borders; their `*Text` role colours text and standalone icons, at least 4.5:1 on every surface and on its container.
   final Color error;
+  final Color errorText;
   final Color onError;
   final Color errorContainer;
   final Color success;
+  final Color successText;
   final Color warning;
+  final Color warningText;
   final Color warningContainer;
   final Color info;
 
@@ -117,6 +128,7 @@ class BullTheme extends ThemeExtension<BullTheme> {
   /// Bull's palette on a light theme.
   static const light = BullTheme(
     primary: Color(0xFFC50909),
+    primaryText: Color(0xFFC50909),
     onPrimary: Color(0xFFFFFFFF),
     primaryFixed: Color(0xFFC50909),
     onPrimaryFixed: Color(0xFFFFFFFF),
@@ -144,10 +156,13 @@ class BullTheme extends ThemeExtension<BullTheme> {
     outline: Color(0xFFC9CACD),
     outlineVariant: Color(0xFFE8E8E8),
     error: Color(0xFFFF3B30),
+    errorText: Color(0xFFD50B00),
     onError: Color(0xFFFFFFFF),
     errorContainer: Color(0xFFFFEBEE),
     success: Color(0xFF34C759),
+    successText: Color(0xFF22813A),
     warning: Color(0xFFFB9300),
+    warningText: Color(0xFFA56000),
     warningContainer: Color(0xFFFFF4E6),
     info: Color(0xFF0063F7),
     scrim: Color(0x26000000),
@@ -162,6 +177,7 @@ class BullTheme extends ThemeExtension<BullTheme> {
   /// Bull's palette on a dark theme.
   static const dark = BullTheme(
     primary: Color(0xFFC50909),
+    primaryText: Color(0xFFFF5C5C),
     onPrimary: Color(0xFFFFFFFF),
     primaryFixed: Color(0xFFC50909),
     onPrimaryFixed: Color(0xFFFFFFFF),
@@ -189,10 +205,13 @@ class BullTheme extends ThemeExtension<BullTheme> {
     outline: Color(0xFF58585A),
     outlineVariant: Color(0xFF3C3C3E),
     error: Color(0xFFFF453A),
+    errorText: Color(0xFFFF5F57),
     onError: Color(0xFFFFFFFF),
     errorContainer: Color(0xFF3D0000),
     success: Color(0xFF32D74B),
+    successText: Color(0xFF32D74B),
     warning: Color(0xFFFF9F0A),
+    warningText: Color(0xFFFF9F0A),
     warningContainer: Color(0xFF3D2D00),
     info: Color(0xFF0A84FF),
     scrim: Color(0x26000000),
@@ -211,6 +230,7 @@ class BullTheme extends ThemeExtension<BullTheme> {
   @override
   BullTheme copyWith({
     Color? primary,
+    Color? primaryText,
     Color? onPrimary,
     Color? primaryFixed,
     Color? onPrimaryFixed,
@@ -238,10 +258,13 @@ class BullTheme extends ThemeExtension<BullTheme> {
     Color? outline,
     Color? outlineVariant,
     Color? error,
+    Color? errorText,
     Color? onError,
     Color? errorContainer,
     Color? success,
+    Color? successText,
     Color? warning,
+    Color? warningText,
     Color? warningContainer,
     Color? info,
     Color? scrim,
@@ -254,6 +277,7 @@ class BullTheme extends ThemeExtension<BullTheme> {
   }) {
     return BullTheme(
       primary: primary ?? this.primary,
+      primaryText: primaryText ?? this.primaryText,
       onPrimary: onPrimary ?? this.onPrimary,
       primaryFixed: primaryFixed ?? this.primaryFixed,
       onPrimaryFixed: onPrimaryFixed ?? this.onPrimaryFixed,
@@ -282,10 +306,13 @@ class BullTheme extends ThemeExtension<BullTheme> {
       outline: outline ?? this.outline,
       outlineVariant: outlineVariant ?? this.outlineVariant,
       error: error ?? this.error,
+      errorText: errorText ?? this.errorText,
       onError: onError ?? this.onError,
       errorContainer: errorContainer ?? this.errorContainer,
       success: success ?? this.success,
+      successText: successText ?? this.successText,
       warning: warning ?? this.warning,
+      warningText: warningText ?? this.warningText,
       warningContainer: warningContainer ?? this.warningContainer,
       info: info ?? this.info,
       scrim: scrim ?? this.scrim,
@@ -303,6 +330,7 @@ class BullTheme extends ThemeExtension<BullTheme> {
     if (other == null) return this;
     return BullTheme(
       primary: Color.lerp(primary, other.primary, t)!,
+      primaryText: Color.lerp(primaryText, other.primaryText, t)!,
       onPrimary: Color.lerp(onPrimary, other.onPrimary, t)!,
       primaryFixed: Color.lerp(primaryFixed, other.primaryFixed, t)!,
       onPrimaryFixed: Color.lerp(onPrimaryFixed, other.onPrimaryFixed, t)!,
@@ -354,10 +382,13 @@ class BullTheme extends ThemeExtension<BullTheme> {
       outline: Color.lerp(outline, other.outline, t)!,
       outlineVariant: Color.lerp(outlineVariant, other.outlineVariant, t)!,
       error: Color.lerp(error, other.error, t)!,
+      errorText: Color.lerp(errorText, other.errorText, t)!,
       onError: Color.lerp(onError, other.onError, t)!,
       errorContainer: Color.lerp(errorContainer, other.errorContainer, t)!,
       success: Color.lerp(success, other.success, t)!,
+      successText: Color.lerp(successText, other.successText, t)!,
       warning: Color.lerp(warning, other.warning, t)!,
+      warningText: Color.lerp(warningText, other.warningText, t)!,
       warningContainer: Color.lerp(
         warningContainer,
         other.warningContainer,

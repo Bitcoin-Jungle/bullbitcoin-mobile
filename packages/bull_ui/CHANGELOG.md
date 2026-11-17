@@ -3,6 +3,7 @@
 ## Unreleased
 
 - Hold Bull's palette in `BullTheme.light` and `BullTheme.dark` (`BullTheme.of(brightness)`); the app, the catalogue and `testBullTheme` read it instead of keeping their own copies.
+- Add `primaryText`, `errorText`, `successText` and `warningText` to `BullTheme`: the accent and status colours as text or a standalone icon, at least 4.5:1 on every surface. `primary`, `error`, `success` and `warning` stay for fills, badges and borders.
 - Size the text of `BullQuickAction`, `BullToolButton`, `BullSwipeAction`, `BullBadge`, `BullLabelChip`, `BullStatTile`, `BullPriceCard`, `BullBitcoinAmountInput` and `LabeledInputFrame` from `BullTypography` roles instead of typed-in sizes; the former 600 weight, which Golos Text does not ship, becomes 700. These components now need `BullTypography` in `ThemeData.extensions`.
 - Add `BullTypography.brandFamily` (Bebas Neue) for the brand wordmark headings, replacing the app's `AppFonts.textTitleTheme`.
 - Add `BullTypography.toTextTheme()`, which projects the type scale onto the 15 Material `TextTheme` slots so widgets reading `Theme.of(context).textTheme` follow the same roles, and expose the family as `BullTypography.fontFamily`.
