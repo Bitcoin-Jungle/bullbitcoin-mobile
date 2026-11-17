@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Add `BullTypography.toTextTheme()`, which projects the type scale onto the 15 Material `TextTheme` slots so widgets reading `Theme.of(context).textTheme` follow the same roles, and expose the family as `BullTypography.fontFamily`.
 - Restyle `BullSwitch` so its state reads at a glance: off is a hollow track ringed in `outline` around a grey thumb with a cross, on a `primary` track around a white thumb with a check. `BullSwitch.themeData` is the app's `switchTheme` too, so every Material `Switch` matches.
 - Redesign `BullMnemonicKeyboard` as a full panel taking 35% of the screen or window height, suggestions and bottom inset included: a suggestion strip (best word in the middle, in bold), national letter rows given by the owner with backspace closing the third row, and a bottom row of language, accent page, scramble and enter keys sharing one function-key look. A disabled letter keeps its fill and shows a muted glyph. Accented letters come from a second page or a long press on their base letter; the language key opens a list of wordlists above it. Other scripts keep a scrolling grid with backspace in a column of their own. `BullKeyCap` takes an optional fill; the PIN pad keeps its look.
 - Remove `BullDialPad`: the PIN screens, its only users, now use `BullPinPad`.
