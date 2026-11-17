@@ -50,7 +50,7 @@ sealed class TransferState with _$TransferState {
     @Default('') String txId,
     @Default(false) bool sendToExternal,
     @Default('') String externalAddress,
-    String? externalAddressError,
+    SwapFailure? externalAddressError,
     @Default(true) bool receiveExactAmount,
     @Default('') String amount,
     String? receiveAddress,

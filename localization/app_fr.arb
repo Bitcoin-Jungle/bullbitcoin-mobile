@@ -4793,5 +4793,7 @@
   "walletTypeBitcoinNetwork": "Réseau Bitcoin",
   "walletTypeLiquidAndLightning": "Liquid et Lightning",
   "walletTypeWatchOnly": "Lecture seule",
-  "walletTypeWatchSigner": "Signataire externe"
+  "walletTypeWatchSigner": "Signataire externe",
+  "swapErrorInvalidBitcoinAddress": "Veuillez entrer une adresse Bitcoin valide",
+  "swapErrorInvalidLiquidAddress": "Veuillez entrer une adresse Liquid valide"
 }
