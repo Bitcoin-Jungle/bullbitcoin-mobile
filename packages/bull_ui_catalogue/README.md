@@ -15,10 +15,7 @@ different text scales.
 functions live in this package (`lib/use_cases/use_cases.dart`), so the design
 system carries no Widgetbook annotations or generated files.
 
-The `BullTheme` colours are normally injected by the app from its `AppColors`.
-This package must not import the app, so `lib/catalogue_theme.dart` holds small
-**catalogue-local** sample light/dark palettes mirroring the app — literals are
-acceptable here in dev-only code, keeping `bull_ui` itself literal-free.
+The catalogue renders the components with the palette the app uses, `BullTheme.light` and `BullTheme.dark` from `bull_ui`, so it keeps no colours of its own.
 
 ## Run locally
 

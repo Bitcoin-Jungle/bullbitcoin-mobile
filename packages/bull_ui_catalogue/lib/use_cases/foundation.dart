@@ -9,7 +9,7 @@ import 'package:material_ui/material_ui.dart' as m;
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 
 // ---------------------------------------------------------------------------
-// Colours — the BullTheme palette (mirrors AppColors), light/dark via the addon
+// Colours — the BullTheme palette, light/dark via the addon
 // ---------------------------------------------------------------------------
 
 @widgetbook.UseCase(
