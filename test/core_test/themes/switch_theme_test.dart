@@ -1,12 +1,12 @@
 import 'package:bb_mobile/core/themes/app_theme.dart';
-import 'package:bb_mobile/core/themes/colors.dart';
+import 'package:bull_ui/bull_ui.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   for (final (type, colors) in [
-    (AppThemeType.light, AppColors.light),
-    (AppThemeType.dark, AppColors.dark),
+    (AppThemeType.light, BullTheme.light),
+    (AppThemeType.dark, BullTheme.dark),
   ]) {
     testWidgets('every Material switch shows its state ($type)', (
       tester,

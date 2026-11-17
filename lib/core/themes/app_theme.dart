@@ -1,76 +1,22 @@
-import 'package:bb_mobile/core/themes/colors.dart';
 import 'package:bull_ui/bull_ui.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter/services.dart';
 
 enum AppThemeType { light, dark }
 
-/// Builds the `bull_ui` [BullTheme] colour extension from an [AppColors]
-/// palette. `bull_ui` is brightness-agnostic — the app hands it the right
-/// palette per brightness, so `AppColors` stays the single source of truth.
-BullTheme _bullThemeFrom(AppColors colors) {
-  return BullTheme(
-    primary: colors.primary,
-    onPrimary: colors.onPrimary,
-    primaryFixed: colors.primaryFixed,
-    onPrimaryFixed: colors.onPrimaryFixed,
-    secondary: colors.secondary,
-    onSecondary: colors.onSecondary,
-    secondaryFixed: colors.secondaryFixed,
-    secondaryFixedDim: colors.secondaryFixedDim,
-    onSecondaryFixed: colors.onSecondaryFixed,
-    tertiary: colors.tertiary,
-    onTertiary: colors.onTertiary,
-    tertiaryContainer: colors.tertiaryContainer,
-    bitcoinOrange: colors.bitcoinOrange,
-    background: colors.background,
-    surface: colors.surface,
-    surfaceContainer: colors.surfaceContainer,
-    surfaceContainerHighest: colors.surfaceContainerHighest,
-    surfaceBright: colors.surfaceBright,
-    onSurface: colors.onSurface,
-    onSurfaceVariant: colors.onSurfaceVariant,
-    inverseSurface: colors.inverseSurface,
-    cardBackground: colors.cardBackground,
-    text: colors.text,
-    textMuted: colors.textMuted,
-    border: colors.border,
-    outline: colors.outline,
-    outlineVariant: colors.outlineVariant,
-    error: colors.error,
-    onError: colors.onError,
-    errorContainer: colors.errorContainer,
-    success: colors.success,
-    warning: colors.warning,
-    warningContainer: colors.warningContainer,
-    info: colors.info,
-    scrim: colors.scrim,
-    overlay: colors.overlay,
-    transparent: colors.transparent,
-    surfaceFixed: colors.surfaceFixed,
-    onSurfaceFixed: colors.onSurfaceFixed,
-    shimmerBase: colors.shimmerBase,
-    shimmerHighlight: colors.shimmerHighlight,
-  );
-}
-
 class AppTheme {
   static ThemeData themeData(AppThemeType themeType) {
-    final colors = themeType == AppThemeType.dark
-        ? AppColors.dark
-        : AppColors.light;
     final brightness = themeType == AppThemeType.dark
         ? Brightness.dark
         : Brightness.light;
+    final colors = BullTheme.of(brightness);
     const type = BullTypography.standard;
     const shapes = BullShapes.standard;
-
-    final bullTheme = _bullThemeFrom(colors);
 
     return ThemeData(
       useMaterial3: true,
       brightness: brightness,
-      extensions: bullUiExtensions(colors: bullTheme, brightness: brightness),
+      extensions: bullUiExtensions(colors: colors, brightness: brightness),
       // Material widgets read Bull's colours, so nothing is derived from the red seed. Roles without a Bull colour use the nearest one.
       colorScheme: ColorScheme.fromSeed(
         seedColor: colors.primary,
@@ -182,7 +128,7 @@ class AppTheme {
         shadowColor: colors.border,
         margin: EdgeInsets.zero,
       ),
-      switchTheme: BullSwitch.themeData(bullTheme),
+      switchTheme: BullSwitch.themeData(colors),
       listTileTheme: ListTileThemeData(
         tileColor: colors.surface,
         shape: RoundedRectangleBorder(
@@ -207,8 +153,7 @@ class AppTheme {
 extension ThemeEx on BuildContext {
   ThemeData get theme => Theme.of(this);
   TextTheme get font => theme.textTheme;
-  AppColors get appColors =>
-      theme.brightness == .dark ? AppColors.dark : AppColors.light;
+  BullTheme get appColors => BullTheme.of(theme.brightness);
 }
 
 class WidgetStyles {

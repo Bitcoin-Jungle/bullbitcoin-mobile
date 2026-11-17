@@ -35,6 +35,18 @@ void main() {
       });
     }
 
+    // The dark keypad was drawn from the dark palette; the two must not drift apart.
+    test('the dark keypad matches the dark palette', () {
+      const keypad = BullKeypadColors.dark;
+      const colors = BullTheme.dark;
+      expect(keypad.panel, colors.surfaceContainerHighest);
+      expect(keypad.key, colors.background);
+      expect(keypad.onKey, colors.onSurface);
+      expect(keypad.functionKey, colors.outline);
+      expect(keypad.onFunctionKeyDisabled, colors.textMuted);
+      expect(keypad.disabledGlyph, colors.outline);
+    });
+
     test('of picks the preset for the brightness', () {
       expect(BullKeypadColors.of(Brightness.light), BullKeypadColors.light);
       expect(BullKeypadColors.of(Brightness.dark), BullKeypadColors.dark);
