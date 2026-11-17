@@ -24,10 +24,13 @@ class AppTheme {
         primary: colors.primary,
         onPrimary: colors.onPrimary,
         primaryContainer: colors.primary.withValues(alpha: 0.12),
-        onPrimaryContainer: colors.primary,
+        onPrimaryContainer: colors.primaryText,
         primaryFixed: colors.primaryFixed,
         onPrimaryFixed: colors.onPrimaryFixed,
-        inversePrimary: colors.primary,
+        // Accent text on inverseSurface, which has the other theme's background.
+        inversePrimary: BullTheme.of(
+          brightness == Brightness.dark ? Brightness.light : Brightness.dark,
+        ).primaryText,
         secondary: colors.secondary,
         onSecondary: colors.onSecondary,
         secondaryContainer: colors.surfaceContainerHighest,
@@ -42,7 +45,7 @@ class AppTheme {
         error: colors.error,
         onError: colors.onError,
         errorContainer: colors.errorContainer,
-        onErrorContainer: colors.error,
+        onErrorContainer: colors.errorText,
         surface: colors.surface,
         onSurface: colors.onSurface,
         surfaceDim: colors.background,
@@ -111,12 +114,15 @@ class AppTheme {
       ),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         backgroundColor: colors.background,
-        selectedIconTheme: IconThemeData(color: colors.primary),
+        selectedIconTheme: IconThemeData(color: colors.primaryText),
         unselectedIconTheme: IconThemeData(color: colors.textMuted),
-        selectedLabelStyle: TextStyle(color: colors.primary),
+        selectedLabelStyle: TextStyle(color: colors.primaryText),
         unselectedLabelStyle: TextStyle(color: colors.textMuted),
-        selectedItemColor: colors.primary,
+        selectedItemColor: colors.primaryText,
         unselectedItemColor: colors.textMuted,
+      ),
+      textButtonTheme: TextButtonThemeData(
+        style: TextButton.styleFrom(foregroundColor: colors.primaryText),
       ),
       cardTheme: CardThemeData(
         color: colors.cardBackground,

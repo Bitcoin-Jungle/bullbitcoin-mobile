@@ -150,7 +150,7 @@ class _CommonCoinSelectionBottomSheetState
             BullText(
               context.loc.sendSelectedUtxosInsufficient,
               style: context.font.bodySmall?.copyWith(
-                color: context.appColors.error,
+                color: context.appColors.errorText,
               ),
             ),
           ],

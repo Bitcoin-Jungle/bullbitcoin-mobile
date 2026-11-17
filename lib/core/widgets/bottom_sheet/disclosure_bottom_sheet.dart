@@ -213,7 +213,7 @@ class _DisclosureBody extends StatelessWidget {
           Icon(
             Icons.warning_amber_rounded,
             size: 22,
-            color: context.appColors.warning,
+            color: context.appColors.warningText,
           ),
           const Gap(12),
           Expanded(

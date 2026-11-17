@@ -171,7 +171,7 @@ class _AppInitErrorScreenState extends State<AppInitErrorScreen> {
                       iconData: Icons.delete_outline,
                       iconFirst: true,
                       bgColor: context.appColors.surface,
-                      textColor: context.appColors.error,
+                      textColor: context.appColors.errorText,
                       borderColor: context.appColors.error,
                       outlined: true,
                       onPressed: () => _deleteLogs(context, loc),

@@ -30,7 +30,11 @@ class ConsolidationRequiredCard extends StatelessWidget {
         ),
         child: Row(
           children: [
-            Icon(Icons.error_outline, color: context.appColors.error, size: 24),
+            Icon(
+              Icons.error_outline,
+              color: context.appColors.errorText,
+              size: 24,
+            ),
             const Gap(14),
             Expanded(
               child: Column(

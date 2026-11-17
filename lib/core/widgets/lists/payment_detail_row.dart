@@ -41,14 +41,14 @@ class PaymentDetailRow extends StatelessWidget {
                     text,
                     textAlign: TextAlign.end,
                     style: context.font.bodyMedium?.copyWith(
-                      color: context.appColors.primary,
+                      color: context.appColors.primaryText,
                     ),
                   ),
                 ),
                 Icon(
                   Icons.chevron_right,
                   size: 20,
-                  color: context.appColors.primary,
+                  color: context.appColors.primaryText,
                 ),
               ],
             ),

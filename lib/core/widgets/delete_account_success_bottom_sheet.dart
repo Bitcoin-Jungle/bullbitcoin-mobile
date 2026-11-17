@@ -41,7 +41,7 @@ class DeleteAccountSuccessBottomSheet extends StatelessWidget {
               Icon(
                 Icons.check_circle_outline,
                 size: 48,
-                color: context.appColors.primary,
+                color: context.appColors.primaryText,
               ),
               const SizedBox(height: 16),
               BullText(

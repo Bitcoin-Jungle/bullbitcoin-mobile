@@ -57,7 +57,7 @@ class TransactionsByDayList<T> extends StatelessWidget {
                 maxLines: 2,
                 textAlign: .center,
                 style: context.bullType.body.copyWith(
-                  color: context.appColors.error,
+                  color: context.appColors.errorText,
                 ),
               ),
             ],

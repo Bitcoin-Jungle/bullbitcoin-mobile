@@ -43,7 +43,7 @@ class PriceInput extends StatelessWidget {
           error ?? '',
           style: context.font.bodyLarge?.copyWith(
             color: error != null
-                ? context.appColors.error
+                ? context.appColors.errorText
                 : context.appColors.transparent,
           ),
           maxLines: 2,

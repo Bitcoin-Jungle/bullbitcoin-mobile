@@ -249,14 +249,14 @@ class CommonOnchainSendInfoSection extends StatelessWidget {
                     BullText(
                       _selectedFeeOptionTitle,
                       style: context.font.bodyLarge?.copyWith(
-                        color: context.appColors.primary,
+                        color: context.appColors.primaryText,
                       ),
                       textAlign: .end,
                     ),
                     const Gap(4),
                     Icon(
                       Icons.arrow_forward_ios_sharp,
-                      color: context.appColors.primary,
+                      color: context.appColors.primaryText,
                       weight: 100,
                       size: 12,
                     ),
@@ -332,7 +332,7 @@ class CommonLnSwapSendInfoSection extends StatelessWidget {
                   },
                   child: Icon(
                     Icons.copy,
-                    color: context.appColors.primary,
+                    color: context.appColors.primaryText,
                     size: 16,
                   ),
                 ),
@@ -459,7 +459,7 @@ class _SwapFeeBreakdownState extends State<_SwapFeeBreakdown> {
                   const Gap(4),
                   Icon(
                     expanded ? Icons.arrow_drop_up : Icons.arrow_drop_down,
-                    color: context.appColors.primary,
+                    color: context.appColors.primaryText,
                   ),
                 ],
               ),
@@ -575,7 +575,7 @@ class CommonChainSwapSendInfoSection extends StatelessWidget {
                         },
                         child: Icon(
                           Icons.copy,
-                          color: context.appColors.primary,
+                          color: context.appColors.primaryText,
                           size: 16,
                         ),
                       ),
@@ -613,7 +613,7 @@ class CommonChainSwapSendInfoSection extends StatelessWidget {
                 InkWell(
                   child: Icon(
                     Icons.copy,
-                    color: context.appColors.primary,
+                    color: context.appColors.primaryText,
                     size: 16,
                   ),
                   onTap: () {
@@ -756,7 +756,7 @@ class CommonConfirmSendErrorSection extends StatelessWidget {
             BullText(
               context.loc.sendErrorBuildFailed,
               style: context.font.bodyLarge,
-              color: context.appColors.error,
+              color: context.appColors.errorText,
               maxLines: 5,
               textAlign: .center,
             ),
@@ -764,7 +764,7 @@ class CommonConfirmSendErrorSection extends StatelessWidget {
             BullText(
               errorMessage!,
               style: context.font.bodyMedium,
-              color: context.appColors.error,
+              color: context.appColors.errorText,
               maxLines: 5,
               textAlign: .center,
             ),

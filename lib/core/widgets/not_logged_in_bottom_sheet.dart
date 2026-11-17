@@ -42,7 +42,7 @@ class NotLoggedInBottomSheet extends StatelessWidget {
               Icon(
                 Icons.account_circle_outlined,
                 size: 48,
-                color: context.appColors.primary,
+                color: context.appColors.primaryText,
               ),
               const SizedBox(height: 16),
               BullText(

@@ -48,7 +48,7 @@ class DeleteAccountConfirmationBottomSheet extends StatelessWidget {
               Icon(
                 Icons.delete_forever,
                 size: 48,
-                color: context.appColors.primary,
+                color: context.appColors.primaryText,
               ),
               const SizedBox(height: 16),
               BullText(

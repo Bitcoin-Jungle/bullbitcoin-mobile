@@ -464,7 +464,7 @@ class _CustomFeeListItemState extends State<CustomFeeListItem> {
                   Icon(
                     Icons.radio_button_checked_outlined,
                     color: showAsSelected
-                        ? context.appColors.primary
+                        ? context.appColors.primaryText
                         : widget.unselectedIconColor,
                   ),
                 ],
@@ -558,7 +558,7 @@ class _CustomFeeListItemState extends State<CustomFeeListItem> {
                 BullText(
                   context.loc.sendSubSatVbyteWarning,
                   style: context.font.labelMedium?.copyWith(
-                    color: context.appColors.warning,
+                    color: context.appColors.warningText,
                   ),
                 ),
               ],
@@ -567,7 +567,7 @@ class _CustomFeeListItemState extends State<CustomFeeListItem> {
                 BullText(
                   context.loc.sendBelowMinFeeRateError,
                   style: context.font.labelMedium?.copyWith(
-                    color: context.appColors.error,
+                    color: context.appColors.errorText,
                   ),
                 ),
               ],

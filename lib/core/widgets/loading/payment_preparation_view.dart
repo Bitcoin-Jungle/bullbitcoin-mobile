@@ -34,7 +34,7 @@ class PaymentPreparationView extends StatelessWidget {
                     message,
                     textAlign: TextAlign.center,
                     style: context.font.bodyMedium?.copyWith(
-                      color: context.appColors.error,
+                      color: context.appColors.errorText,
                     ),
                   ),
                 ),

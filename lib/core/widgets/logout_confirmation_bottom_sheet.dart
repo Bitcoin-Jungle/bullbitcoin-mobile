@@ -42,7 +42,11 @@ class LogoutConfirmationBottomSheet extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 24),
-              Icon(Icons.logout, size: 48, color: context.appColors.primary),
+              Icon(
+                Icons.logout,
+                size: 48,
+                color: context.appColors.primaryText,
+              ),
               const SizedBox(height: 16),
               BullText(
                 context.loc.logoutConfirmationTitle,

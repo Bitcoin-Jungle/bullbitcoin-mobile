@@ -143,7 +143,7 @@ class CopyInput extends StatelessWidget {
             ),
           TextButton(
             style: TextButton.styleFrom(
-              foregroundColor: context.appColors.primary,
+              foregroundColor: context.appColors.primaryText,
               textStyle: theme.textTheme.bodyLarge,
             ),
             onPressed: () => Navigator.of(dialogContext).pop(),

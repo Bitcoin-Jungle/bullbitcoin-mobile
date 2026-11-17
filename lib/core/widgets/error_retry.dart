@@ -17,7 +17,7 @@ class BBErrorRetry extends StatelessWidget {
           message,
           textAlign: TextAlign.center,
           style: context.font.bodyMedium,
-          color: context.appColors.error,
+          color: context.appColors.errorText,
         ),
         const Gap(8),
         BullButton.small(

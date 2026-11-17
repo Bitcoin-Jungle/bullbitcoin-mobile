@@ -61,7 +61,7 @@ class ComingSoonBottomSheet extends StatelessWidget {
                 Icon(
                   Icons.construction,
                   size: 48,
-                  color: context.appColors.primary,
+                  color: context.appColors.primaryText,
                 ),
                 const SizedBox(height: 16),
               ],

@@ -60,7 +60,7 @@ class TranslationWarningBottomSheet extends StatelessWidget {
               Icon(
                 Icons.translate,
                 size: iconSize,
-                color: context.appColors.primary,
+                color: context.appColors.primaryText,
               ),
               SizedBox(height: gapM),
               BullText(

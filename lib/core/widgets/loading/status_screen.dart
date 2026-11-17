@@ -54,7 +54,7 @@ class StatusScreen extends StatelessWidget {
                     Icon(
                       Icons.error_outline_rounded,
                       size: 80,
-                      color: context.appColors.error,
+                      color: context.appColors.errorText,
                     ),
                   ProgressScreen(
                     title: hasError

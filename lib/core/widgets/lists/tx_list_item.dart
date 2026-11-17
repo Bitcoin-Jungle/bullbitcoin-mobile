@@ -130,7 +130,11 @@ class StatusRow extends StatelessWidget {
         ),
         if (icon != null) ...[
           const Gap(4.0),
-          Icon(icon, size: 12.0, color: iconColor ?? context.appColors.success),
+          Icon(
+            icon,
+            size: 12.0,
+            color: iconColor ?? context.appColors.successText,
+          ),
         ],
       ],
     );
