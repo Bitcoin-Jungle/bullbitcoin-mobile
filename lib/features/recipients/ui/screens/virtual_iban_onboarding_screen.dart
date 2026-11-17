@@ -194,7 +194,7 @@ class _IntroStepState extends State<_IntroStep> {
                 description:
                     context.loc.recipientsVirtualIbanNameWarningDescription,
                 bgColor: colors.warningContainer,
-                tagColor: colors.warning,
+                tagColor: colors.warningText,
               ),
               const Gap(20),
               BullText(
@@ -246,7 +246,7 @@ class _IntroStepState extends State<_IntroStep> {
                 BullText(
                   failure.toTranslated(context),
                   style: context.bullText.bodyMedium,
-                  color: colors.error,
+                  color: colors.errorText,
                 ),
               ],
             ],
@@ -323,7 +323,11 @@ class _ActiveStep extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = context.bull;
     return _StatusLayout(
-      icon: BullIcon(BullIcons.checkCircle, size: 48, color: colors.success),
+      icon: BullIcon(
+        BullIcons.checkCircle,
+        size: 48,
+        color: colors.successText,
+      ),
       title: context.loc.recipientsVirtualIbanActivatedTitle,
       description: switch (purpose) {
         VirtualIbanOnboardingPurpose.withdraw =>
@@ -395,7 +399,7 @@ class _StatusLayout extends StatelessWidget {
                 BullText(
                   error!,
                   style: context.bullText.bodyMedium,
-                  color: colors.error,
+                  color: colors.errorText,
                   textAlign: .center,
                 ),
               ],

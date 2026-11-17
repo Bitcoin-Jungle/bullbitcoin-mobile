@@ -120,7 +120,7 @@ class _SellError extends StatelessWidget {
       child: Text(
         sellError.toTranslated(context),
         style: context.font.bodyMedium?.copyWith(
-          color: context.appColors.error,
+          color: context.appColors.errorText,
         ),
         textAlign: TextAlign.center,
       ),

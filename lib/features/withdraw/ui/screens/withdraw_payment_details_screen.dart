@@ -148,7 +148,7 @@ class _WithdrawPaymentDetailsScreenState
                     BullText(
                       _questionError!,
                       style: context.bullText.bodySmall,
-                      color: colors.error,
+                      color: colors.errorText,
                     ),
                   ],
                   const Gap(20),
@@ -182,7 +182,7 @@ class _WithdrawPaymentDetailsScreenState
                     BullText(
                       _answerError!,
                       style: context.bullText.bodySmall,
-                      color: colors.error,
+                      color: colors.errorText,
                     ),
                   ],
                   const Gap(16),
@@ -213,7 +213,7 @@ class _WithdrawPaymentDetailsScreenState
                     BullText(
                       withdrawFailure.toTranslated(context),
                       style: context.bullText.bodySmall,
-                      color: colors.error,
+                      color: colors.errorText,
                     ),
                   ],
                   const Spacer(),

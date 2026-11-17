@@ -16,8 +16,8 @@ extension SpCoinSourceL10n on SpCoinSource {
   /// Badge color for a coin source. `other` falls back to a muted color so an
   /// unexpected variant renders gracefully instead of crashing the page.
   Color sourceColor(BuildContext context) => switch (this) {
-    SpCoinSource.sp => context.appColors.success,
-    SpCoinSource.segwit => context.appColors.primary,
+    SpCoinSource.sp => context.appColors.successText,
+    SpCoinSource.segwit => context.appColors.primaryText,
     SpCoinSource.taproot => context.appColors.tertiary,
     SpCoinSource.other => context.appColors.textMuted,
   };

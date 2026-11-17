@@ -79,7 +79,7 @@ class _ExchangePreferencesScreenState extends State<ExchangePreferencesScreen> {
               state.loadFailure?.toTranslated(context) ??
                   context.loc.exchangeAccountInfoLoadErrorMessage,
               style: context.bullText.bodyMedium?.copyWith(
-                color: context.bull.error,
+                color: context.bull.errorText,
               ),
             ),
             const Gap(BullSpacing.md),
@@ -127,7 +127,7 @@ class _ExchangePreferencesScreenState extends State<ExchangePreferencesScreen> {
               BullText(
                 context.loc.exchangeAppSettingsValidationWarning,
                 style: context.bullText.bodySmall?.copyWith(
-                  color: context.bull.error,
+                  color: context.bull.errorText,
                 ),
               ),
               const Gap(BullSpacing.md),
@@ -135,7 +135,7 @@ class _ExchangePreferencesScreenState extends State<ExchangePreferencesScreen> {
             if (state.saveFailure != null) ...[
               BullInfoCard(
                 description: state.saveFailure!.toTranslated(context),
-                tagColor: context.bull.error,
+                tagColor: context.bull.errorText,
                 bgColor: context.bull.errorContainer,
                 onTap: () =>
                     context.read<ExchangePreferencesCubit>().savePreferences(),

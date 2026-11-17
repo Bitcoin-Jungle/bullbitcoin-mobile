@@ -539,7 +539,7 @@ class ReceiveLnSwapID extends StatelessWidget {
             InkWell(
               child: Icon(
                 Icons.copy,
-                color: context.appColors.primary,
+                color: context.appColors.primaryText,
                 size: 16,
               ),
               onTap: () {
@@ -646,7 +646,7 @@ class _ReceiveLnFeesDetailsState extends State<ReceiveLnFeesDetails> {
               const Gap(4),
               Icon(
                 expanded ? Icons.arrow_drop_up : Icons.arrow_drop_down,
-                color: context.appColors.primary,
+                color: context.appColors.primaryText,
               ),
             ],
           ),

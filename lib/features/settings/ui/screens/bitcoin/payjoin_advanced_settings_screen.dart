@@ -262,7 +262,7 @@ class _ThresholdField extends StatelessWidget {
           BBText(
             error,
             style: context.font.bodySmall?.copyWith(
-              color: context.appColors.error,
+              color: context.appColors.errorText,
             ),
           ),
         ],

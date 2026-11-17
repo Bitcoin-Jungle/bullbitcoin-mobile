@@ -115,7 +115,7 @@ class _AutoSwapSettingsContentState extends State<AutoSwapSettingsContent> {
                                         description: failure.toTranslated(
                                           context,
                                         ),
-                                        tagColor: context.appColors.error,
+                                        tagColor: context.appColors.errorText,
                                         bgColor:
                                             context.appColors.errorContainer,
                                       ),
@@ -306,7 +306,7 @@ class _AmountThresholdField extends StatelessWidget {
           BullText(
             amountThresholdFailure.toTranslated(context, unit: bitcoinUnit),
             style: context.font.bodySmall?.copyWith(
-              color: context.appColors.error,
+              color: context.appColors.errorText,
             ),
           ),
         ],
@@ -392,7 +392,7 @@ class _TriggerBalanceField extends StatelessWidget {
           BullText(
             triggerBalanceFailure.toTranslated(context, unit: bitcoinUnit),
             style: context.font.bodySmall?.copyWith(
-              color: context.appColors.error,
+              color: context.appColors.errorText,
             ),
           ),
         ],
@@ -467,7 +467,7 @@ class _FeeThresholdField extends StatelessWidget {
           BullText(
             feeThresholdFailure.toTranslated(context),
             style: context.font.bodySmall?.copyWith(
-              color: context.appColors.error,
+              color: context.appColors.errorText,
             ),
           ),
         ],
@@ -559,7 +559,7 @@ class _WalletSelectionDropdown extends StatelessWidget {
               BullText(
                 context.loc.autoswapRecipientWalletRequired,
                 style: context.font.bodyLarge?.copyWith(
-                  color: context.appColors.error,
+                  color: context.appColors.errorText,
                 ),
               ),
             ],
@@ -607,7 +607,7 @@ class _WalletSelectionDropdown extends StatelessWidget {
                 : context.loc.autoswapRecipientWalletPlaceholder,
             style: context.font.bodyMedium?.copyWith(
               color: enabled && selectedWalletId == null
-                  ? context.appColors.error
+                  ? context.appColors.errorText
                   : context.appColors.textMuted,
             ),
           ),
@@ -620,7 +620,7 @@ class _WalletSelectionDropdown extends StatelessWidget {
           context.loc.autoswapRecipientWalletInfoText,
           style: context.font.labelSmall?.copyWith(
             color: enabled && selectedWalletId == null
-                ? context.appColors.error
+                ? context.appColors.errorText
                 : context.appColors.textMuted,
           ),
         ),

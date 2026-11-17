@@ -46,7 +46,7 @@ class ErrorReportingConfirmationBottomSheet extends StatelessWidget {
                 Icon(
                   Icons.bug_report,
                   size: 48,
-                  color: context.appColors.primary,
+                  color: context.appColors.primaryText,
                 ),
                 const SizedBox(height: 16),
                 BBText(

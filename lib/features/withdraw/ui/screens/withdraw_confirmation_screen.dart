@@ -244,7 +244,7 @@ class _ConfirmButton extends StatelessWidget {
           Text(
             withdrawFailure.toTranslated(context),
             style: context.font.bodyMedium?.copyWith(
-              color: context.appColors.error,
+              color: context.appColors.errorText,
             ),
           ),
           const Gap(16),

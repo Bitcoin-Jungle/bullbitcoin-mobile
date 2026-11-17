@@ -124,12 +124,15 @@ class _AppStartupFailureScreenState extends State<AppStartupFailureScreen> {
                 tileColor: context.appColors.error.withValues(alpha: 0.1),
                 title: Row(
                   children: [
-                    Icon(Icons.error_outline, color: context.appColors.error),
+                    Icon(
+                      Icons.error_outline,
+                      color: context.appColors.errorText,
+                    ),
                     const Gap(8),
                     Text(
                       context.loc.appStartupErrorTitle,
                       style: context.font.headlineLarge?.copyWith(
-                        color: context.appColors.error,
+                        color: context.appColors.errorText,
                       ),
                     ),
                   ],

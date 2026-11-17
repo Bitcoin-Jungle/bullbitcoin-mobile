@@ -79,7 +79,7 @@ class ExchangeReferralsScreen extends StatelessWidget {
                       child: Text(
                         context.loc.exchangeReferralsMissionLink,
                         style: context.font.bodyLarge?.copyWith(
-                          color: context.appColors.primary,
+                          color: context.appColors.primaryText,
                           decoration: TextDecoration.underline,
                         ),
                       ),

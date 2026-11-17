@@ -83,7 +83,9 @@ class ImportWatchOnlyScreen extends StatelessWidget {
                           padding: const EdgeInsets.only(bottom: 24),
                           child: BullText(
                             failure.toTranslated(context),
-                            style: TextStyle(color: context.appColors.error),
+                            style: TextStyle(
+                              color: context.appColors.errorText,
+                            ),
                           ),
                         ),
                     ],

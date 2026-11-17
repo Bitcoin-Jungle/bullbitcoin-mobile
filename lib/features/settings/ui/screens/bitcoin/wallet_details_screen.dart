@@ -212,11 +212,15 @@ class _CopyField extends StatelessWidget {
                     copyLabel,
                     style: context.bullType.label.copyWith(
                       fontWeight: FontWeight.w400,
-                      color: context.appColors.primary,
+                      color: context.appColors.primaryText,
                     ),
                   ),
                   const Gap(4),
-                  Icon(Icons.copy, size: 16, color: context.appColors.primary),
+                  Icon(
+                    Icons.copy,
+                    size: 16,
+                    color: context.appColors.primaryText,
+                  ),
                 ],
               ),
             ),

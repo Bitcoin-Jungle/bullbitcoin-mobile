@@ -65,7 +65,7 @@ class _AccountInfoScreenState extends State<AccountInfoScreen> {
               state.failure?.toTranslated(context) ??
                   context.loc.exchangeAccountInfoLoadErrorMessage,
               style: context.bullText.bodyMedium?.copyWith(
-                color: context.bull.error,
+                color: context.bull.errorText,
               ),
             ),
             const Gap(BullSpacing.md),
@@ -180,7 +180,7 @@ class _AccountInfoScreenState extends State<AccountInfoScreen> {
                     child: BullIcon(
                       BullIcons.contentCopy,
                       size: 18,
-                      color: context.bull.primary,
+                      color: context.bull.primaryText,
                     ),
                   ),
                 ],

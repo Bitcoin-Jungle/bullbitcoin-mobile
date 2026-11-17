@@ -137,7 +137,7 @@ class _SpBackendConfigFormState<S extends SpBackendFormState<S>>
           Text(
             state.error!.toTranslated(context),
             style: context.font.bodyMedium?.copyWith(
-              color: context.appColors.error,
+              color: context.appColors.errorText,
             ),
           ),
         ],

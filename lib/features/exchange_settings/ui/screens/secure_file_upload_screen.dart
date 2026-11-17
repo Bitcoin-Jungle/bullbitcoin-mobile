@@ -68,20 +68,24 @@ class _ErrorMessage extends StatelessWidget {
       ),
       child: Row(
         children: [
-          BullIcon(BullIcons.errorOutline, color: context.bull.error, size: 20),
+          BullIcon(
+            BullIcons.errorOutline,
+            color: context.bull.errorText,
+            size: 20,
+          ),
           const Gap(BullSpacing.xs),
           Expanded(
             child: BullText(
               failure.toTranslated(context),
               style: context.bullText.bodySmall?.copyWith(
-                color: context.bull.error,
+                color: context.bull.errorText,
               ),
             ),
           ),
           IconButton(
             icon: BullIcon(
               BullIcons.close,
-              color: context.bull.error,
+              color: context.bull.errorText,
               size: 18,
             ),
             onPressed: () {
@@ -268,7 +272,7 @@ class _UploadStatusButton extends StatelessWidget {
             context.loc.exchangeFileUploadStatusInReview,
             style: context.bullText.labelMedium?.copyWith(
               fontWeight: FontWeight.w600,
-              color: context.bull.warning,
+              color: context.bull.warningText,
             ),
           ),
         );
@@ -286,7 +290,7 @@ class _UploadStatusButton extends StatelessWidget {
           child: BullText(
             context.loc.exchangeFileUploadStatusAccepted,
             style: context.bullText.labelMedium?.copyWith(
-              color: context.bull.success,
+              color: context.bull.successText,
               fontWeight: FontWeight.w600,
             ),
           ),
@@ -327,14 +331,14 @@ class _RejectedStatusWithReupload extends StatelessWidget {
               BullIcon(
                 BullIcons.errorOutline,
                 size: 14,
-                color: context.bull.error,
+                color: context.bull.errorText,
               ),
               const Gap(BullSpacing.xxs),
               BullText(
                 context.loc.exchangeFileUploadStatusRejectedBadge,
                 style: context.bullText.labelSmall?.copyWith(
                   fontWeight: FontWeight.w600,
-                  color: context.bull.error,
+                  color: context.bull.errorText,
                 ),
               ),
             ],

@@ -85,8 +85,8 @@ class TransactionDetailsStatusLabel extends StatelessWidget {
         color: failedOrExpired
             ? (orderSwap?.localStatus == OrderSwapLocalStatus.failed ||
                       swap?.status == SwapStatus.failed
-                  ? context.appColors.error
-                  : context.appColors.error.withValues(alpha: 0.7))
+                  ? context.appColors.errorText
+                  : context.appColors.errorText.withValues(alpha: 0.7))
             : null,
       ),
     );

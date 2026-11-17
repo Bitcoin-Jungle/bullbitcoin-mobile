@@ -113,12 +113,12 @@ class MultiRecipientTransactionReview extends StatelessWidget {
                   BullText(
                     feePriorityTitle,
                     style: context.font.bodyLarge,
-                    color: context.appColors.primary,
+                    color: context.appColors.primaryText,
                   ),
                   const Gap(4),
                   Icon(
                     Icons.arrow_forward_ios_sharp,
-                    color: context.appColors.primary,
+                    color: context.appColors.primaryText,
                     size: 12,
                   ),
                 ],

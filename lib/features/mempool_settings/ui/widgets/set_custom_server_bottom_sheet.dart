@@ -322,7 +322,7 @@ class _SetCustomServerBottomSheetState
                         children: [
                           Icon(
                             Icons.error_outline,
-                            color: context.appColors.error,
+                            color: context.appColors.errorText,
                             size: 20,
                           ),
                           const Gap(8),
@@ -330,7 +330,7 @@ class _SetCustomServerBottomSheetState
                             child: Text(
                               _errorMessage!,
                               style: context.font.bodySmall?.copyWith(
-                                color: context.appColors.error,
+                                color: context.appColors.errorText,
                               ),
                             ),
                           ),

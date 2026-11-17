@@ -104,7 +104,7 @@ class _BuyAmountInputFieldsState extends State<BuyAmountInputFields> {
                                 ]
                               : [FilteringTextInputFormatter.digitsOnly],
                           style: context.font.displaySmall?.copyWith(
-                            color: context.appColors.primary,
+                            color: context.appColors.primaryText,
                           ),
                           decoration: InputDecoration(
                             hintText: NumberFormat.decimalPatternDigits(
@@ -121,7 +121,7 @@ class _BuyAmountInputFieldsState extends State<BuyAmountInputFields> {
                       Text(
                         isFiatCurrencyInput ? currency.code : bitcoinUnit.code,
                         style: context.font.displaySmall?.copyWith(
-                          color: context.appColors.primary,
+                          color: context.appColors.primaryText,
                         ),
                       ),
                     ],
@@ -191,7 +191,7 @@ class _BuyAmountInputFieldsState extends State<BuyAmountInputFields> {
                           child: Text(
                             context.loc.buyMax,
                             style: context.font.bodyMedium?.copyWith(
-                              color: context.appColors.primary,
+                              color: context.appColors.primaryText,
                             ),
                           ),
                         ),

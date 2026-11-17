@@ -153,7 +153,7 @@ final class LimitOrderDetailsScreen extends StatelessWidget {
           const Gap(12),
           Text(
             failure.toTranslated(context),
-            style: TextStyle(color: context.bull.error),
+            style: TextStyle(color: context.bull.errorText),
           ),
         ],
       ],

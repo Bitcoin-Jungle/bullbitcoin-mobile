@@ -82,7 +82,7 @@ class _MempoolSettingsScreenState extends State<MempoolSettingsScreen> {
                         const Gap(16),
                         BullInfoCard(
                           description: failure.toTranslated(context),
-                          tagColor: context.appColors.error,
+                          tagColor: context.appColors.errorText,
                           bgColor: context.appColors.errorContainer,
                           onTap: () {
                             context.read<MempoolSettingsCubit>().clearError();

@@ -43,7 +43,7 @@ class WalletDeletionFailedSheet extends StatelessWidget {
               ),
             ),
             const Gap(24),
-            BullIcon(BullIcons.errorOutline, size: 36, color: colors.error),
+            BullIcon(BullIcons.errorOutline, size: 36, color: colors.errorText),
             const Gap(16),
             Text(
               loc.walletDeletionFailedTitle,

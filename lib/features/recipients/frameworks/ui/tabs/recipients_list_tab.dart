@@ -206,7 +206,7 @@ class RecipientsListTabState extends State<RecipientsListTab> {
             child: Text(
               widget.hookError!,
               style: context.font.bodyMedium?.copyWith(
-                color: context.appColors.error,
+                color: context.appColors.errorText,
               ),
             ),
           ),
@@ -220,7 +220,7 @@ class RecipientsListTabState extends State<RecipientsListTab> {
               child: Text(
                 failure.toTranslated(context),
                 style: context.font.bodyMedium?.copyWith(
-                  color: context.appColors.error,
+                  color: context.appColors.errorText,
                 ),
               ),
             );

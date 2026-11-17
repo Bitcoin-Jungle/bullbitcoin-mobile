@@ -19,7 +19,7 @@ class BuyOrderFailureMessage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final errorStyle = context.font.bodyMedium?.copyWith(
-      color: context.appColors.error,
+      color: context.appColors.errorText,
     );
 
     final (String label, double amount, String currency)? limit =

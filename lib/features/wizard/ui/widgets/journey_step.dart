@@ -63,7 +63,7 @@ class _Tip extends StatelessWidget {
             child: Icon(
               Icons.arrow_forward,
               size: 18,
-              color: context.appColors.primary,
+              color: context.appColors.primaryText,
             ),
           ),
           Expanded(

@@ -126,12 +126,12 @@ class DraggableServerList extends StatelessWidget {
           },
           icon: Icon(
             Icons.add_circle_outline,
-            color: context.appColors.primary,
+            color: context.appColors.primaryText,
           ),
           label: Text(
             context.loc.electrumAddCustomServer,
             style: context.font.bodyMedium?.copyWith(
-              color: context.appColors.primary,
+              color: context.appColors.primaryText,
             ),
           ),
         ),

@@ -220,7 +220,7 @@ class UtxoTile extends StatelessWidget {
         BullIcon(
           pending ? BullIcons.schedule : BullIcons.checkCircle,
           size: 13,
-          color: pending ? colors.warning : colors.success,
+          color: pending ? colors.warningText : colors.successText,
         ),
         const SizedBox(width: 4),
         Text(
@@ -231,7 +231,7 @@ class UtxoTile extends StatelessWidget {
               : context.loc.coinsConfsCount(utxo.confirmations),
           style: context.bullType.caption.copyWith(
             fontWeight: pending ? FontWeight.w500 : FontWeight.w400,
-            color: pending ? colors.warning : colors.textMuted,
+            color: pending ? colors.warningText : colors.textMuted,
           ),
         ),
       ],

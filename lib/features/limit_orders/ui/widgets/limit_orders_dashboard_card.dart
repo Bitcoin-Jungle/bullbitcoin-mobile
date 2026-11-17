@@ -50,7 +50,7 @@ final class LimitOrdersDashboardCard extends StatelessWidget {
         children: [
           Text(
             state.failure!.toTranslated(context),
-            style: TextStyle(color: context.bull.error),
+            style: TextStyle(color: context.bull.errorText),
           ),
           const Gap(12),
           BullButton.small(
@@ -96,7 +96,7 @@ final class LimitOrdersDashboardCard extends StatelessWidget {
                 style: Theme.of(context).textTheme.titleMedium,
               ),
             ),
-            Icon(Icons.circle, size: 10, color: context.bull.primary),
+            Icon(Icons.circle, size: 10, color: context.bull.primaryText),
           ],
         ),
         const Gap(12),
@@ -158,7 +158,7 @@ final class LimitOrdersDashboardCard extends StatelessWidget {
         if (state.failure case final failure?)
           Text(
             failure.toTranslated(context),
-            style: TextStyle(color: context.bull.error),
+            style: TextStyle(color: context.bull.errorText),
           ),
       ],
     );

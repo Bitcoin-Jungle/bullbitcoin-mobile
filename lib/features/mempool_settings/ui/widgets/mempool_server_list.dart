@@ -81,12 +81,12 @@ class MempoolServerList extends StatelessWidget {
                     : () => _showAddServerSheet(context),
                 icon: Icon(
                   Icons.add_circle_outline,
-                  color: context.appColors.primary,
+                  color: context.appColors.primaryText,
                 ),
                 label: Text(
                   context.loc.mempoolCustomServerAdd,
                   style: context.font.bodyMedium?.copyWith(
-                    color: context.appColors.primary,
+                    color: context.appColors.primaryText,
                   ),
                 ),
               ),

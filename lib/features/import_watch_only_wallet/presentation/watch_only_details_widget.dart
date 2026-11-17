@@ -188,7 +188,7 @@ class _XpubDetailsWidget extends StatelessWidget {
             title: context.loc.importWatchOnlyDisclaimerTitle,
             description: context.loc.importWatchOnlyDisclaimerDescription,
             bgColor: context.appColors.warning.withValues(alpha: 0.1),
-            tagColor: context.appColors.warning,
+            tagColor: context.appColors.warningText,
           ),
           SizedBox(
             width: 260,

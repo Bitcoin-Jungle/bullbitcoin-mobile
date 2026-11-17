@@ -43,7 +43,7 @@ class AddressCard extends StatelessWidget {
             AddressViewer(
               address,
               style: context.font.headlineMedium,
-              color: context.appColors.primary,
+              color: context.appColors.primaryText,
             ),
             const Gap(8),
             Text(

@@ -150,7 +150,7 @@ class _LoadFailed extends StatelessWidget {
                 failure.toTranslated(context),
                 textAlign: TextAlign.center,
                 style: context.font.bodyMedium?.copyWith(
-                  color: context.appColors.error,
+                  color: context.appColors.errorText,
                 ),
               ),
               const Gap(16),

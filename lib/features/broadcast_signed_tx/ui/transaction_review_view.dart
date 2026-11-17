@@ -130,12 +130,16 @@ class _ErrorView extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(Icons.error_outline, color: context.appColors.error, size: 48),
+            Icon(
+              Icons.error_outline,
+              color: context.appColors.errorText,
+              size: 48,
+            ),
             const Gap(16),
             BullText(
               failure.toTranslated(context),
               style: context.font.bodyMedium?.copyWith(
-                color: context.appColors.error,
+                color: context.appColors.errorText,
               ),
               textAlign: TextAlign.center,
             ),
@@ -269,14 +273,14 @@ class _SummarySection extends StatelessWidget {
                 Icon(
                   Icons.error_outline,
                   size: 14,
-                  color: context.appColors.error,
+                  color: context.appColors.errorText,
                 ),
                 const Gap(4),
                 Expanded(
                   child: BullText(
                     context.loc.coreScreensOutputsExceedInputs,
                     style: context.font.bodySmall?.copyWith(
-                      color: context.appColors.error,
+                      color: context.appColors.errorText,
                     ),
                   ),
                 ),

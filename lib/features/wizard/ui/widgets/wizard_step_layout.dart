@@ -36,7 +36,7 @@ class WizardStepLayout extends StatelessWidget {
           BullText(
             context.loc.wizardPageIndicator(page.number, WizardPage.total),
             style: context.font.labelMedium?.copyWith(
-              color: context.appColors.primary,
+              color: context.appColors.primaryText,
               fontWeight: FontWeight.w700,
               letterSpacing: 1.2,
             ),

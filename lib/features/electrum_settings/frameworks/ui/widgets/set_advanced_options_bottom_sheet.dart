@@ -463,7 +463,7 @@ class _SetAdvancedOptionsBottomSheetState
                               state.advancedOptionsError!.toTranslated(context),
                               style: context.bullType.label.copyWith(
                                 fontWeight: FontWeight.w400,
-                                color: context.appColors.error,
+                                color: context.appColors.errorText,
                               ),
                             ),
                             const SizedBox(height: 8),

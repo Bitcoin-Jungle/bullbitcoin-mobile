@@ -104,7 +104,7 @@ class SepaVirtualPayeeActivationView extends StatelessWidget {
                         BullIcon(
                           BullIcons.checkCircle,
                           size: 48,
-                          color: colors.success,
+                          color: colors.successText,
                         ),
                         const Gap(16),
                       ],
@@ -126,7 +126,7 @@ class SepaVirtualPayeeActivationView extends StatelessWidget {
                         BullText(
                           failure.toTranslated(context),
                           style: context.bullText.bodyMedium,
-                          color: colors.error,
+                          color: colors.errorText,
                           textAlign: .center,
                         ),
                       ],

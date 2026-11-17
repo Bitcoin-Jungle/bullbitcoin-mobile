@@ -630,7 +630,7 @@ class _MnemonicWidgetState extends State<MnemonicWidget>
                       key: _errorKey,
                       errorMessage,
                       style: context.font.bodyMedium,
-                      color: context.appColors.error,
+                      color: context.appColors.errorText,
                     ),
                   ],
 

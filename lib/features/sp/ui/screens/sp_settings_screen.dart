@@ -244,8 +244,8 @@ class _WalletManagementSection extends StatelessWidget {
         BullSettingsEntryItem(
           icon: Icons.delete_outline,
           title: context.loc.spDeleteWalletEntry,
-          iconColor: context.appColors.error,
-          textColor: context.appColors.error,
+          iconColor: context.appColors.errorText,
+          textColor: context.appColors.errorText,
           onTap: disabled
               ? null
               : () async {

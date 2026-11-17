@@ -98,13 +98,13 @@ class _StatusLine extends StatelessWidget {
               Icon(
                 Icons.check_circle,
                 size: 14,
-                color: context.appColors.success,
+                color: context.appColors.successText,
               ),
               const Gap(4),
               Text(
                 context.loc.spConnected,
                 style: context.font.bodySmall?.copyWith(
-                  color: context.appColors.success,
+                  color: context.appColors.successText,
                 ),
               ),
             ],
@@ -116,7 +116,7 @@ class _StatusLine extends StatelessWidget {
           child: Text(
             testError?.toTranslated(context) ?? context.loc.spConnectionFailed,
             style: context.font.bodySmall?.copyWith(
-              color: context.appColors.error,
+              color: context.appColors.errorText,
             ),
           ),
         );

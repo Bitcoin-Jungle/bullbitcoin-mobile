@@ -94,7 +94,7 @@ class ConfirmPinCodeScreen extends StatelessWidget {
                                     context.loc.pinCodeMismatchError,
                                     textAlign: .start,
                                     style: context.font.labelSmall?.copyWith(
-                                      color: context.appColors.error,
+                                      color: context.appColors.errorText,
                                     ),
                                   )
                                 : const SizedBox.shrink();

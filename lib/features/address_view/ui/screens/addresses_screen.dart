@@ -120,7 +120,7 @@ class _AddressesScreenState extends State<AddressesScreen> {
                       child: Text(
                         failure.toTranslated(context),
                         style: context.font.bodyMedium?.copyWith(
-                          color: context.appColors.error,
+                          color: context.appColors.errorText,
                         ),
                         textAlign: TextAlign.center,
                       ),
@@ -161,7 +161,7 @@ class _AddressesScreenState extends State<AddressesScreen> {
                               child: Text(
                                 failure.toTranslated(context),
                                 style: context.font.bodyMedium?.copyWith(
-                                  color: context.appColors.error,
+                                  color: context.appColors.errorText,
                                 ),
                                 textAlign: TextAlign.center,
                               ),

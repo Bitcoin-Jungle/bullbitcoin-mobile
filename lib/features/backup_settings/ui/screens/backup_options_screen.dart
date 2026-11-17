@@ -96,7 +96,7 @@ class _BackupOptionsScreenState extends State<BackupOptionsScreen> {
                 child: BullText(
                   context.loc.backupWalletHowToDecide,
                   style: context.font.headlineLarge?.copyWith(
-                    color: context.appColors.primary,
+                    color: context.appColors.primaryText,
                   ),
                 ),
               ),

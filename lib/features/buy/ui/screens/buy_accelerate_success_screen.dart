@@ -51,7 +51,7 @@ class BuyAccelerateSuccessScreen extends StatelessWidget {
                 Icon(
                   Icons.check_circle,
                   size: 100,
-                  color: context.appColors.success,
+                  color: context.appColors.successText,
                 ),
                 const SizedBox(height: 20),
                 Text(
@@ -78,7 +78,7 @@ class BuyAccelerateSuccessScreen extends StatelessWidget {
                   Text(
                     accelerateFailure.toTranslated(context),
                     style: context.font.bodyMedium?.copyWith(
-                      color: context.appColors.error,
+                      color: context.appColors.errorText,
                     ),
                     textAlign: TextAlign.center,
                   ),

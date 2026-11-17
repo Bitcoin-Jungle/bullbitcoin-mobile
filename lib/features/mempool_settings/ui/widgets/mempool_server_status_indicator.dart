@@ -18,11 +18,11 @@ class MempoolServerStatusIndicator extends StatelessWidget {
     switch (status) {
       case MempoolServerStatus.online:
         icon = Icons.check_circle;
-        color = context.appColors.success;
+        color = context.appColors.successText;
         label = context.loc.mempoolServerStatusOnline;
       case MempoolServerStatus.offline:
         icon = Icons.error;
-        color = context.appColors.error;
+        color = context.appColors.errorText;
         label = context.loc.mempoolServerStatusOffline;
       case MempoolServerStatus.checking:
         icon = Icons.sync;

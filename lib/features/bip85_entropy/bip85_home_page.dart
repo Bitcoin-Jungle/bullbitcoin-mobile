@@ -61,12 +61,17 @@ class _Bip85HomePageView extends StatelessWidget {
                     ),
                     child: Row(
                       children: [
-                        Icon(Icons.warning, color: context.appColors.warning),
+                        Icon(
+                          Icons.warning,
+                          color: context.appColors.warningText,
+                        ),
                         const Gap(8),
                         Expanded(
                           child: Text(
                             context.loc.bip85ExperimentalWarning,
-                            style: TextStyle(color: context.appColors.warning),
+                            style: TextStyle(
+                              color: context.appColors.warningText,
+                            ),
                           ),
                         ),
                       ],

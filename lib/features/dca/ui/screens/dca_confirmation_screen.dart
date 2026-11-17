@@ -105,7 +105,7 @@ class DcaConfirmationScreen extends StatelessWidget {
               Text(
                 failure.toTranslated(context),
                 style: Theme.of(context).textTheme.bodySmall
-                    ?.copyWith(color: context.appColors.error),
+                    ?.copyWith(color: context.appColors.errorText),
               ),
               const Gap(16),
             ],

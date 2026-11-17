@@ -160,7 +160,7 @@ class _ReceiveFailureMessage extends StatelessWidget {
       child: BBText(
         failure.toTranslated(context),
         style: context.font.bodyMedium,
-        color: context.appColors.error,
+        color: context.appColors.errorText,
         textAlign: TextAlign.center,
       ),
     );

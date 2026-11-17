@@ -189,9 +189,9 @@ class _IntroStep extends StatelessWidget {
                   child: Text(
                     context.loc.settingsTermsOfServiceTitle,
                     style: context.font.bodySmall?.copyWith(
-                      color: context.appColors.primary,
+                      color: context.appColors.primaryText,
                       decoration: TextDecoration.underline,
-                      decorationColor: context.appColors.primary,
+                      decorationColor: context.appColors.primaryText,
                     ),
                   ),
                 ),
@@ -203,7 +203,7 @@ class _IntroStep extends StatelessWidget {
                 title: context.loc.fundExchangeRestrictedTitle,
                 description: context.loc.fundExchangeRestrictedMessage,
                 bgColor: context.appColors.error.withValues(alpha: 0.1),
-                tagColor: context.appColors.error,
+                tagColor: context.appColors.errorText,
               )
             else
               BullButton.big(

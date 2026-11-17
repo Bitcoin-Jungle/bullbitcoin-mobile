@@ -92,7 +92,7 @@ class SwapExternalAddressInput extends StatelessWidget {
             child: BullText(
               state.error!,
               style: context.font.labelSmall,
-              color: context.appColors.error,
+              color: context.appColors.errorText,
             ),
           ),
       ],

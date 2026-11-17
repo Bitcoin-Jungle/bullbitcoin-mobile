@@ -83,7 +83,7 @@ class RecipientAddressFields extends StatelessWidget {
             BullText(
               context.loc.sendErrorInvalidAddressOrInvoice,
               style: context.font.bodySmall,
-              color: context.appColors.error,
+              color: context.appColors.errorText,
             ),
           ],
         ],
@@ -235,7 +235,7 @@ class RecipientAmounts extends StatelessWidget {
           BullText(
             message,
             style: context.font.bodySmall,
-            color: context.appColors.error,
+            color: context.appColors.errorText,
             textAlign: TextAlign.center,
           ),
         ],

@@ -179,7 +179,7 @@ class SwapPageState extends State<SwapPage> {
                                   child: IconButton(
                                     icon: Icon(
                                       Icons.swap_vert,
-                                      color: context.appColors.primary,
+                                      color: context.appColors.primaryText,
                                     ),
                                     onPressed:
                                         fromWallet != null && toWallet != null
@@ -257,7 +257,7 @@ class SwapPageState extends State<SwapPage> {
                         return Text(
                           message,
                           style: context.font.labelLarge?.copyWith(
-                            color: context.appColors.error,
+                            color: context.appColors.errorText,
                           ),
                           maxLines: 4,
                         );

@@ -60,7 +60,7 @@ class SpHeaderValidationScreen extends StatelessWidget {
                   Text(
                     context.loc.spHeaderValidationInvalidChainDetail,
                     style: context.font.bodySmall?.copyWith(
-                      color: context.appColors.error,
+                      color: context.appColors.errorText,
                     ),
                   ),
                 ],
@@ -82,7 +82,7 @@ class SpHeaderValidationScreen extends StatelessWidget {
                           _progressLabel(context, state),
                           style: context.font.bodySmall?.copyWith(
                             color: failed
-                                ? context.appColors.error
+                                ? context.appColors.errorText
                                 : context.appColors.textMuted,
                           ),
                         ),
@@ -91,7 +91,7 @@ class SpHeaderValidationScreen extends StatelessWidget {
                         context.loc.spScanPercent('$percent'),
                         style: context.font.bodySmall?.copyWith(
                           color: failed
-                              ? context.appColors.error
+                              ? context.appColors.errorText
                               : context.appColors.textMuted,
                         ),
                       ),

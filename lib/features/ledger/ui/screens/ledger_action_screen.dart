@@ -189,7 +189,11 @@ class _LedgerActionViewState extends State<_LedgerActionView> {
         children: [
           if (widget.parameters?.requestedDeviceType == null ||
               widget.parameters!.requestedDeviceType!.supportsBluetooth)
-            Icon(Icons.bluetooth, size: 60, color: context.appColors.primary),
+            Icon(
+              Icons.bluetooth,
+              size: 60,
+              color: context.appColors.primaryText,
+            ),
         ],
       );
     }
@@ -218,7 +222,7 @@ class _LedgerActionViewState extends State<_LedgerActionView> {
         return Container();
     }
 
-    return Icon(icon, size: 80, color: context.appColors.primary);
+    return Icon(icon, size: 80, color: context.appColors.primaryText);
   }
 
   Widget _buildActionButtons(BuildContext context, LedgerOperationState state) {

@@ -39,7 +39,11 @@ class WalletDeletionConfirmationSheet extends StatelessWidget {
               ),
             ),
             const Gap(24),
-            BullIcon(BullIcons.deleteOutline, size: 36, color: colors.error),
+            BullIcon(
+              BullIcons.deleteOutline,
+              size: 36,
+              color: colors.errorText,
+            ),
             const Gap(16),
             Text(
               loc.walletDeletionConfirmationTitle,

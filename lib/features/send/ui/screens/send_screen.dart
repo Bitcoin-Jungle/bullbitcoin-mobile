@@ -298,7 +298,7 @@ class AddressErrorSection extends StatelessWidget {
             formattedFrozenBalance: frozenBalanceHint,
           ),
           style: context.font.bodyMedium,
-          color: context.appColors.error,
+          color: context.appColors.errorText,
           textAlign: .center,
           maxLines: 2,
         ),
@@ -671,7 +671,7 @@ class _SendAmountScreenState extends State<SendAmountScreen> {
                                             .loc
                                             .sendErrorAmountBelowSwapLimitsBitcoin,
                                         style: context.font.bodySmall,
-                                        color: context.appColors.error,
+                                        color: context.appColors.errorText,
                                         maxLines: 3,
                                         textAlign: TextAlign.center,
                                       ),
@@ -997,7 +997,7 @@ class _SendError extends StatelessWidget {
             formattedFrozenBalance: frozenBalanceHint,
           ),
           style: context.font.bodyLarge,
-          color: context.appColors.error,
+          color: context.appColors.errorText,
           maxLines: 5,
           textAlign: .center,
         ),
@@ -1011,7 +1011,7 @@ class _SendError extends StatelessWidget {
             BullText(
               context.loc.sendErrorConfirmationFailed,
               style: context.font.bodyLarge,
-              color: context.appColors.error,
+              color: context.appColors.errorText,
               maxLines: 5,
               textAlign: .center,
             ),
@@ -1020,7 +1020,7 @@ class _SendError extends StatelessWidget {
               BullText(
                 context.loc.sendErrorBroadcastFailed,
                 style: context.font.bodyMedium,
-                color: context.appColors.error,
+                color: context.appColors.errorText,
                 maxLines: 5,
                 textAlign: .center,
               ),
@@ -1040,7 +1040,7 @@ class _SendError extends StatelessWidget {
             formattedFrozenBalance: frozenBalanceHint,
           ),
           style: context.font.bodyLarge,
-          color: context.appColors.error,
+          color: context.appColors.errorText,
           maxLines: 5,
           textAlign: .center,
         ),
@@ -1062,7 +1062,7 @@ class _HighFeeWarning extends StatelessWidget {
       description: context.loc.sendHighFeeWarningDescription(
         feePercent.toStringAsFixed(2),
       ),
-      tagColor: context.appColors.error,
+      tagColor: context.appColors.errorText,
       bgColor: context.appColors.errorContainer,
     );
   }
@@ -1076,7 +1076,7 @@ class _SlowPaymentWarning extends StatelessWidget {
     return BullInfoCard(
       title: context.loc.sendSlowPaymentWarning,
       description: context.loc.sendSlowPaymentWarningDescription,
-      tagColor: context.appColors.error,
+      tagColor: context.appColors.errorText,
       bgColor: context.appColors.errorContainer,
     );
   }
@@ -1440,7 +1440,7 @@ class _UnconfidentialLiquidWarning extends StatelessWidget {
     return BullInfoCard(
       title: context.loc.sendUnconfidentialLiquidWarning,
       description: context.loc.sendUnconfidentialLiquidWarningDescription,
-      tagColor: context.appColors.error,
+      tagColor: context.appColors.errorText,
       bgColor: context.appColors.errorContainer,
     );
   }
@@ -1516,7 +1516,7 @@ class _LnSwapSendInfoSection extends StatelessWidget {
                   },
                   child: Icon(
                     Icons.copy,
-                    color: context.appColors.primary,
+                    color: context.appColors.primaryText,
                     size: 16,
                   ),
                 ),
@@ -1547,7 +1547,7 @@ class _LnSwapSendInfoSection extends StatelessWidget {
                   },
                   child: Icon(
                     Icons.copy,
-                    color: context.appColors.primary,
+                    color: context.appColors.primaryText,
                     size: 16,
                   ),
                 ),
@@ -1704,7 +1704,7 @@ class _SwapFeeBreakdownState extends State<_SwapFeeBreakdown> {
                   const Gap(4),
                   Icon(
                     expanded ? Icons.arrow_drop_up : Icons.arrow_drop_down,
-                    color: context.appColors.primary,
+                    color: context.appColors.primaryText,
                   ),
                 ],
               ),
@@ -1820,7 +1820,7 @@ class _ChainSwapSendInfoSection extends StatelessWidget {
                   },
                   child: Icon(
                     Icons.copy,
-                    color: context.appColors.primary,
+                    color: context.appColors.primaryText,
                     size: 16,
                   ),
                 ),
@@ -1851,7 +1851,7 @@ class _ChainSwapSendInfoSection extends StatelessWidget {
                   },
                   child: Icon(
                     Icons.copy,
-                    color: context.appColors.primary,
+                    color: context.appColors.primaryText,
                     size: 16,
                   ),
                 ),

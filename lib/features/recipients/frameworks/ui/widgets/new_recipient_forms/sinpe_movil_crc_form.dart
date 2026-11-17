@@ -144,7 +144,7 @@ class SinpeMovilCrcFormState extends State<SinpeMovilCrcForm> {
                 child: Text(
                   failure.toTranslated(context),
                   style: context.font.bodySmall?.copyWith(
-                    color: context.appColors.error,
+                    color: context.appColors.errorText,
                   ),
                 ),
               );
@@ -160,7 +160,10 @@ class SinpeMovilCrcFormState extends State<SinpeMovilCrcForm> {
                 controller: _ownerNameController,
                 disabled: true,
                 suffix: _ownerNameController.text.isNotEmpty
-                    ? Icon(Icons.check_circle, color: context.appColors.primary)
+                    ? Icon(
+                        Icons.check_circle,
+                        color: context.appColors.primaryText,
+                      )
                     : isChecking
                     ? SizedBox(
                         width: 20,

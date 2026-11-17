@@ -139,7 +139,7 @@ class MempoolServerItem extends StatelessWidget {
                   IconButton(
                     icon: Icon(
                       Icons.edit_outlined,
-                      color: context.appColors.primary,
+                      color: context.appColors.primaryText,
                       size: 20,
                     ),
                     padding: EdgeInsets.zero,
@@ -154,7 +154,7 @@ class MempoolServerItem extends StatelessWidget {
                   IconButton(
                     icon: Icon(
                       Icons.delete_outline,
-                      color: context.appColors.error,
+                      color: context.appColors.errorText,
                       size: 20,
                     ),
                     padding: EdgeInsets.zero,

@@ -65,7 +65,7 @@ class _Screen extends StatelessWidget {
               child: BullText(
                 failure.toTranslated(context),
                 style: context.font.bodyLarge,
-                color: context.appColors.error,
+                color: context.appColors.errorText,
               ),
             ),
           ),

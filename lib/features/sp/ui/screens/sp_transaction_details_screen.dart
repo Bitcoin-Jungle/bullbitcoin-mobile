@@ -119,7 +119,7 @@ class _SpDetailsStatusLabel extends StatelessWidget {
         payment.status == SpPaymentStatus.verifyFailed;
     final style = context.font.titleMedium?.copyWith(
       color: payment.status == SpPaymentStatus.verifyFailed
-          ? context.appColors.error
+          ? context.appColors.errorText
           : null,
       decoration: clickable ? TextDecoration.underline : null,
     );

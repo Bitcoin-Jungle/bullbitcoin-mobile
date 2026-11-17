@@ -68,7 +68,7 @@ class BroadcastSignedTxPage extends StatelessWidget {
                     BullText(
                       state.failure!.toTranslated(context),
                       style: context.font.bodyMedium,
-                      color: context.appColors.error,
+                      color: context.appColors.errorText,
                     ),
                   ],
 
@@ -217,13 +217,17 @@ class _BroadcastError extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Icon(Icons.error_outline, color: context.appColors.error, size: 20),
+          Icon(
+            Icons.error_outline,
+            color: context.appColors.errorText,
+            size: 20,
+          ),
           const Gap(8),
           Expanded(
             child: BullText(
               failure.toTranslated(context),
               style: context.font.bodyMedium,
-              color: context.appColors.error,
+              color: context.appColors.errorText,
             ),
           ),
         ],

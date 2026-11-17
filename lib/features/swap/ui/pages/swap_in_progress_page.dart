@@ -132,7 +132,7 @@ class SwapInProgressPage extends StatelessWidget {
                               ? context.loc.transactionStatusSwapFailed
                               : context.loc.transactionStatusSwapExpired,
                           style: context.font.headlineLarge?.copyWith(
-                            color: context.appColors.error,
+                            color: context.appColors.errorText,
                           ),
                         ),
                         const Gap(8),

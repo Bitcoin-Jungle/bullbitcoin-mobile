@@ -80,12 +80,12 @@ class SwapAmountInput extends StatelessWidget {
                             BullAmountInputFormatter(bitcoinUnit.code),
                           ],
                           style: context.font.displaySmall?.copyWith(
-                            color: context.appColors.primary,
+                            color: context.appColors.primaryText,
                           ),
                           decoration: InputDecoration(
                             hintText: '0',
                             hintStyle: context.font.displaySmall?.copyWith(
-                              color: context.appColors.primary,
+                              color: context.appColors.primaryText,
                             ),
                             border: InputBorder.none,
                           ),
@@ -100,7 +100,7 @@ class SwapAmountInput extends StatelessWidget {
                       Text(
                         fromCurrency,
                         style: context.font.displaySmall?.copyWith(
-                          color: context.appColors.primary,
+                          color: context.appColors.primaryText,
                         ),
                       ),
                     ],
@@ -130,7 +130,7 @@ class SwapAmountInput extends StatelessWidget {
               null => context.loc.swapInsufficientFunds,
             },
             style: context.font.labelLarge?.copyWith(
-              color: context.appColors.error,
+              color: context.appColors.errorText,
             ),
           ),
         ],

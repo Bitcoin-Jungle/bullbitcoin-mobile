@@ -59,7 +59,7 @@ class BBSegmentedButton extends StatelessWidget {
                   labels?[item] ?? item,
                   style: item == selected
                       ? context.font.labelLarge?.copyWith(
-                          color: context.appColors.primary,
+                          color: context.appColors.primaryText,
                         )
                       : disabledItems.contains(item)
                       ? context.font.labelMedium?.copyWith(

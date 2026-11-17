@@ -182,7 +182,7 @@ class _DcaInitialContent extends StatelessWidget {
             Text(
               failure!.toTranslated(context),
               style: context.font.bodySmall?.copyWith(
-                color: context.appColors.error,
+                color: context.appColors.errorText,
               ),
               textAlign: TextAlign.center,
             ),

@@ -166,7 +166,7 @@ class _BroadcastPayjoinOriginalTxButtonState
           Text(
             broadcastFailure.toTranslated(context),
             style: context.font.bodyMedium?.copyWith(
-              color: context.appColors.error,
+              color: context.appColors.errorText,
             ),
             textAlign: .center,
           ),

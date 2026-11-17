@@ -51,7 +51,7 @@ class SwapStatusDescription extends StatelessWidget {
                     color:
                         swap.status == SwapStatus.failed ||
                             swap.status == SwapStatus.expired
-                        ? context.appColors.error
+                        ? context.appColors.errorText
                         : context.appColors.secondary,
                   ),
                   const Gap(8),
@@ -71,7 +71,7 @@ class SwapStatusDescription extends StatelessWidget {
                       color:
                           swap.status == SwapStatus.failed ||
                               swap.status == SwapStatus.expired
-                          ? context.appColors.error
+                          ? context.appColors.errorText
                           : context.appColors.secondary,
                       fontWeight: .bold,
                     ),
@@ -85,7 +85,7 @@ class SwapStatusDescription extends StatelessWidget {
                   color:
                       swap.status == SwapStatus.failed ||
                           swap.status == SwapStatus.expired
-                      ? context.appColors.error
+                      ? context.appColors.errorText
                       : context.appColors.onSurfaceVariant,
                 ),
               ),
@@ -97,7 +97,7 @@ class SwapStatusDescription extends StatelessWidget {
                     color:
                         swap.status == SwapStatus.failed ||
                             swap.status == SwapStatus.expired
-                        ? context.appColors.error.withValues(alpha: 0.8)
+                        ? context.appColors.errorText.withValues(alpha: 0.8)
                         : context.appColors.outline,
                     fontStyle: .italic,
                   ),

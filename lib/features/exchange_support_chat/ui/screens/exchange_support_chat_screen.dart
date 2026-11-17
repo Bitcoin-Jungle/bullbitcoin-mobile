@@ -332,7 +332,7 @@ class _MessageInputState extends State<_MessageInput> {
               BBText(
                 sendFailure.toTranslated(context),
                 style: context.font.labelSmall?.copyWith(
-                  color: context.appColors.error,
+                  color: context.appColors.errorText,
                 ),
               ),
               const Gap(8),
@@ -696,7 +696,7 @@ class _AttachmentPreviewWidget extends StatelessWidget {
           right: -4,
           child: IconButton(
             icon: const Icon(Icons.cancel, size: 20),
-            color: context.appColors.primary,
+            color: context.appColors.primaryText,
             padding: EdgeInsets.zero,
             constraints: const BoxConstraints(),
             onPressed: onRemove,

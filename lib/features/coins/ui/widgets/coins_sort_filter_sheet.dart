@@ -145,7 +145,7 @@ class _CoinsSortFilterSheetState extends State<CoinsSortFilterSheet> {
                     widget.onReset();
                   },
                   bgColor: colors.transparent,
-                  textColor: colors.primary,
+                  textColor: colors.primaryText,
                   outlined: true,
                   borderColor: colors.primary,
                 ),
@@ -245,7 +245,7 @@ class _CoinsSortFilterSheetState extends State<CoinsSortFilterSheet> {
           overflow: TextOverflow.ellipsis,
           textAlign: TextAlign.center,
           style: context.bullText.labelMedium?.copyWith(
-            color: active ? colors.primary : colors.text,
+            color: active ? colors.primaryText : colors.text,
             fontWeight: active ? FontWeight.w600 : FontWeight.w400,
           ),
         ),
@@ -271,14 +271,14 @@ class _CoinsSortFilterSheetState extends State<CoinsSortFilterSheet> {
           BullIcon(
             BullIcons.sell,
             size: 12,
-            color: active ? colors.primary : colors.textMuted,
+            color: active ? colors.primaryText : colors.textMuted,
           ),
           const SizedBox(width: 5),
           Text(
             label,
             style: context.bullText.labelMedium?.copyWith(
               fontWeight: FontWeight.w500,
-              color: active ? colors.primary : colors.text,
+              color: active ? colors.primaryText : colors.text,
             ),
           ),
         ],

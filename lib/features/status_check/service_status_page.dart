@@ -51,7 +51,7 @@ class _ServiceStatusPageState extends State<ServiceStatusPage> {
                       BullText(
                         state.failure!.toTranslated(context),
                         style: context.font.bodyMedium,
-                        color: context.appColors.error,
+                        color: context.appColors.errorText,
                       ),
                       const SizedBox(height: 16),
                     ],
@@ -97,7 +97,7 @@ class _ServiceStatusPageState extends State<ServiceStatusPage> {
                           BullText(
                             context.loc.statusCheckResultsMayBeOutdated,
                             style: context.font.bodySmall,
-                            color: context.appColors.warning,
+                            color: context.appColors.warningText,
                           ),
                         ],
                       ),

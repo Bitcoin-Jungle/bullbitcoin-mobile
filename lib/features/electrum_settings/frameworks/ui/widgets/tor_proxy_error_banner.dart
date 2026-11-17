@@ -41,7 +41,7 @@ class TorProxyErrorBanner extends StatelessWidget {
       padding: const EdgeInsets.only(top: 8),
       child: BullInfoCard(
         description: context.loc.torSettingsDescDisconnected,
-        tagColor: context.appColors.error,
+        tagColor: context.appColors.errorText,
         bgColor: context.appColors.errorContainer,
       ),
     );

@@ -66,7 +66,7 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
             BullText(
               state.failure!.toTranslated(context),
               style: context.bullText.bodyMedium?.copyWith(
-                color: context.bull.error,
+                color: context.bull.errorText,
               ),
             ),
             const Gap(BullSpacing.md),
@@ -168,7 +168,7 @@ class _OrderStatsSection extends StatelessWidget {
         _StatSectionCard(
           title: context.loc.exchangeStatisticsBuyStats,
           icon: Icons.arrow_downward,
-          iconColor: context.bull.success,
+          iconColor: context.bull.successText,
           stats: [
             _StatRow(
               label: context.loc.exchangeStatisticsVolume,
@@ -191,7 +191,7 @@ class _OrderStatsSection extends StatelessWidget {
         _StatSectionCard(
           title: context.loc.exchangeStatisticsSellStats,
           icon: Icons.arrow_upward,
-          iconColor: context.bull.error,
+          iconColor: context.bull.errorText,
           stats: [
             _StatRow(
               label: context.loc.exchangeStatisticsVolume,
@@ -334,7 +334,7 @@ class _MultiValueStatCard extends StatelessWidget {
               color: context.bull.primary.withValues(alpha: 0.1),
               borderRadius: BorderRadius.circular(context.bullShapes.card),
             ),
-            child: Icon(icon, color: context.bull.primary, size: 24),
+            child: Icon(icon, color: context.bull.primaryText, size: 24),
           ),
           const Gap(BullSpacing.md),
           Expanded(

@@ -208,7 +208,7 @@ class _BitBoxActionViewState extends State<_BitBoxActionView> {
         icon = Icons.error;
     }
 
-    return Icon(icon, size: 80, color: context.appColors.primary);
+    return Icon(icon, size: 80, color: context.appColors.primaryText);
   }
 
   Widget _buildPairingCodeDisplay(
@@ -240,7 +240,7 @@ class _BitBoxActionViewState extends State<_BitBoxActionView> {
             style: context.font.headlineMedium?.copyWith(
               fontFamily: 'monospace',
               fontWeight: .bold,
-              color: context.appColors.primary,
+              color: context.appColors.primaryText,
               letterSpacing: 2,
             ),
           ),

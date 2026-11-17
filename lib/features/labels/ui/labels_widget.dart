@@ -141,7 +141,7 @@ class LabelChip extends StatelessWidget {
                 child: Icon(
                   Icons.close,
                   size: 16,
-                  color: context.appColors.primary,
+                  color: context.appColors.primaryText,
                 ),
               ),
           ],

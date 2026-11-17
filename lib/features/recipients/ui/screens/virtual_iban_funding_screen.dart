@@ -127,7 +127,7 @@ class _VirtualIbanDetails extends StatelessWidget {
                     description:
                         context.loc.recipientsVirtualIbanNameWarningDescription,
                     bgColor: colors.warningContainer,
-                    tagColor: colors.warning,
+                    tagColor: colors.warningText,
                   ),
                   const Gap(24),
                   BullDetailsTable(

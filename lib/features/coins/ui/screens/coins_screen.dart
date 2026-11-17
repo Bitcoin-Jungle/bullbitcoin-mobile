@@ -231,7 +231,7 @@ class _SelectionTopBar extends StatelessWidget {
               context.loc.coinsSelectAll,
               style: context.bullText.labelLarge?.copyWith(
                 fontWeight: FontWeight.w600,
-                color: colors.primary,
+                color: colors.primaryText,
               ),
             ),
           ),
@@ -286,13 +286,13 @@ class _SubHeader extends StatelessWidget {
                       BullIcon(
                         BullIcons.tune,
                         size: 16,
-                        color: filtered ? colors.primary : colors.text,
+                        color: filtered ? colors.primaryText : colors.text,
                       ),
                       const SizedBox(width: 6),
                       Text(
                         loc.coinsSortFilter,
                         style: context.bullType.caption.copyWith(
-                          color: filtered ? colors.primary : colors.text,
+                          color: filtered ? colors.primaryText : colors.text,
                           fontWeight: FontWeight.w700,
                         ),
                       ),
@@ -607,7 +607,7 @@ class _FilteredEmptyState extends StatelessWidget {
                   context.loc.coinsClearFilters,
                   style: context.bullType.label.copyWith(
                     fontWeight: FontWeight.w700,
-                    color: colors.primary,
+                    color: colors.primaryText,
                   ),
                 ),
               ),

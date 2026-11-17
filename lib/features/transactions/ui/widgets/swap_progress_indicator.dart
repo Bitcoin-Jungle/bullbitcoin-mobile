@@ -208,11 +208,13 @@ class SwapProgressIndicator extends StatelessWidget {
         swap.status == SwapStatus.failed || swap.status == SwapStatus.expired;
 
     if (isFailedOrExpired) {
-      return index == 0 ? context.appColors.error : context.appColors.outline;
+      return index == 0
+          ? context.appColors.errorText
+          : context.appColors.outline;
     }
 
     if (index <= currentStep) {
-      return context.appColors.primary;
+      return context.appColors.primaryText;
     }
 
     return context.appColors.outline;

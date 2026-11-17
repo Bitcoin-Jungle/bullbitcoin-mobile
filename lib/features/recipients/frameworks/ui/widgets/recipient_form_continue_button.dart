@@ -35,7 +35,7 @@ class RecipientFormContinueButton extends StatelessWidget {
             child: Text(
               hookError!,
               style: context.font.bodyMedium?.copyWith(
-                color: context.appColors.error,
+                color: context.appColors.errorText,
               ),
             ),
           ),
@@ -45,7 +45,7 @@ class RecipientFormContinueButton extends StatelessWidget {
             child: Text(
               failedToAddRecipient.toTranslated(context),
               style: context.font.bodyMedium?.copyWith(
-                color: context.appColors.error,
+                color: context.appColors.errorText,
               ),
             ),
           ),

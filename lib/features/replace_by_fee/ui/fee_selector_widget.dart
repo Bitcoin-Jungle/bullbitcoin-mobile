@@ -133,7 +133,7 @@ class _FastestTile extends StatelessWidget {
               Icon(
                 Icons.radio_button_checked_outlined,
                 color: isSelected
-                    ? context.appColors.primary
+                    ? context.appColors.primaryText
                     : context.appColors.surface,
               ),
             ],

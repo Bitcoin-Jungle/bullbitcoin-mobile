@@ -108,12 +108,15 @@ class _Bip85DerivationWidgetState extends State<Bip85DerivationWidget> {
               ),
               if (isRevoked && widget.onDerivationActivated != null)
                 IconButton(
-                  icon: Icon(Icons.replay, color: context.appColors.success),
+                  icon: Icon(
+                    Icons.replay,
+                    color: context.appColors.successText,
+                  ),
                   onPressed: _activateDerivation,
                 )
               else if (widget.onDerivationRevoked != null && !isRevoked)
                 IconButton(
-                  icon: Icon(Icons.block, color: context.appColors.error),
+                  icon: Icon(Icons.block, color: context.appColors.errorText),
                   onPressed: _revokeDerivation,
                 ),
             ],

@@ -44,7 +44,7 @@ class ImportQrDevicePage extends StatelessWidget {
               Gap(Device.screen.height * 0.03),
               BullInfoCard(
                 description: context.loc.importQrDeviceJadeFirmwareWarning,
-                tagColor: context.appColors.warning,
+                tagColor: context.appColors.warningText,
                 bgColor: context.appColors.warningContainer,
               ),
             ],

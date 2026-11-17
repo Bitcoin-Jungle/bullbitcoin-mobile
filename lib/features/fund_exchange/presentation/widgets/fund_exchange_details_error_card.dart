@@ -26,7 +26,7 @@ class FundExchangeDetailsErrorCard extends StatelessWidget {
         final failure => failure.toTranslated(context),
       },
       bgColor: context.appColors.error.withValues(alpha: 0.1),
-      tagColor: context.appColors.primary,
+      tagColor: context.appColors.primaryText,
     );
   }
 }

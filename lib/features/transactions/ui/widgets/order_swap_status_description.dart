@@ -49,7 +49,7 @@ class OrderSwapStatusDescription extends StatelessWidget {
                         : Icons.info_outline,
                     size: 20,
                     color: failedOrExpired
-                        ? context.appColors.error
+                        ? context.appColors.errorText
                         : context.appColors.secondary,
                   ),
                   const Gap(8),
@@ -59,7 +59,7 @@ class OrderSwapStatusDescription extends StatelessWidget {
                         : context.loc.transactionSwapStatusSwapStatus,
                     style: context.font.titleSmall?.copyWith(
                       color: failedOrExpired
-                          ? context.appColors.error
+                          ? context.appColors.errorText
                           : context.appColors.secondary,
                       fontWeight: .bold,
                     ),
@@ -71,7 +71,7 @@ class OrderSwapStatusDescription extends StatelessWidget {
                 _description(context, isChainSwap: isChainSwap),
                 style: context.font.bodySmall?.copyWith(
                   color: failedOrExpired
-                      ? context.appColors.error
+                      ? context.appColors.errorText
                       : context.appColors.onSurfaceVariant,
                 ),
               ),

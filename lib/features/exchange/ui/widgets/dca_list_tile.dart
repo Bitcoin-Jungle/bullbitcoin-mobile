@@ -73,9 +73,9 @@ class _DcaListTileState extends State<DcaListTile> {
                           : context.loc.exchangeDcaViewSettings,
                       style: context.bullType.label.copyWith(
                         fontWeight: FontWeight.w400,
-                        color: context.appColors.primary,
+                        color: context.appColors.primaryText,
                         decoration: TextDecoration.underline,
-                        decorationColor: context.appColors.primary,
+                        decorationColor: context.appColors.primaryText,
                       ),
                     ),
                   ),

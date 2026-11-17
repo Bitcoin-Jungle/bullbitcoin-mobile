@@ -265,7 +265,7 @@ class _LabelEntryBottomSheetState extends State<LabelEntryBottomSheet> {
             BullText(
               failure.toTranslated(context),
               style: context.font.bodySmall,
-              color: context.appColors.error,
+              color: context.appColors.errorText,
             ),
           ],
           Gap(gap),

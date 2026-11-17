@@ -110,7 +110,7 @@ class _PayError extends StatelessWidget {
       child: Text(
         payError.toTranslated(context),
         style: context.font.bodyMedium?.copyWith(
-          color: context.appColors.error,
+          color: context.appColors.errorText,
         ),
         textAlign: TextAlign.center,
       ),

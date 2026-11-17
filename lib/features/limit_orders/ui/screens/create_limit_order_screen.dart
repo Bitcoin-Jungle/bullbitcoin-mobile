@@ -212,7 +212,7 @@ final class _CreateLimitOrderScreenState extends State<CreateLimitOrderScreen> {
     crossAxisAlignment: CrossAxisAlignment.center,
     children: [
       const Spacer(),
-      Icon(Icons.multiline_chart, size: 64, color: context.bull.primary),
+      Icon(Icons.multiline_chart, size: 64, color: context.bull.primaryText),
       const Gap(24),
       Text(
         context.loc.limitOrdersIntroTitle,
@@ -381,7 +381,7 @@ final class _CreateLimitOrderScreenState extends State<CreateLimitOrderScreen> {
                 state.wallet == wallet
                     ? Icons.radio_button_checked
                     : Icons.radio_button_unchecked,
-                color: context.bull.primary,
+                color: context.bull.primaryText,
               ),
               title: Text(_walletName(context, wallet.type)),
               subtitle: Text(wallet.address, maxLines: 2),
@@ -405,7 +405,7 @@ final class _CreateLimitOrderScreenState extends State<CreateLimitOrderScreen> {
                 state.selectedAppWalletId == appWallet.id
                     ? Icons.radio_button_checked
                     : Icons.radio_button_unchecked,
-                color: context.bull.primary,
+                color: context.bull.primaryText,
               ),
               title: Text(_appWalletName(context, appWallet)),
               subtitle: Text(
@@ -448,7 +448,7 @@ final class _CreateLimitOrderScreenState extends State<CreateLimitOrderScreen> {
           const Gap(12),
           Text(
             _amountLimitMessage(context, violation),
-            style: TextStyle(color: context.bull.error),
+            style: TextStyle(color: context.bull.errorText),
           ),
         ],
         if (state.wallets.isEmpty && state.appWallets.isEmpty) ...[
@@ -535,7 +535,7 @@ final class _CreateLimitOrderScreenState extends State<CreateLimitOrderScreen> {
             child: Text(
               context.loc.limitOrdersTermsNotice,
               style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                color: context.bull.primary,
+                color: context.bull.primaryText,
                 decoration: TextDecoration.underline,
               ),
             ),
@@ -545,7 +545,7 @@ final class _CreateLimitOrderScreenState extends State<CreateLimitOrderScreen> {
           const Gap(12),
           Text(
             failure.toTranslated(context),
-            style: TextStyle(color: context.bull.error),
+            style: TextStyle(color: context.bull.errorText),
           ),
         ],
       ],
@@ -558,7 +558,7 @@ final class _CreateLimitOrderScreenState extends State<CreateLimitOrderScreen> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const Spacer(),
-          Icon(Icons.check_circle, size: 72, color: context.bull.primary),
+          Icon(Icons.check_circle, size: 72, color: context.bull.primaryText),
           const Gap(24),
           Text(
             context.loc.limitOrdersCreatedTitle,

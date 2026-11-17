@@ -148,7 +148,7 @@ class PinCodeUnlockInputScreen extends StatelessWidget {
                                 context.loc.appUnlockTryAgainIn(timeoutSeconds),
                                 textAlign: .start,
                                 style: context.font.labelSmall?.copyWith(
-                                  color: context.appColors.error,
+                                  color: context.appColors.errorText,
                                 ),
                               );
                             }
@@ -162,7 +162,7 @@ class PinCodeUnlockInputScreen extends StatelessWidget {
                                     ),
                                     textAlign: .start,
                                     style: context.font.labelSmall?.copyWith(
-                                      color: context.appColors.error,
+                                      color: context.appColors.errorText,
                                     ),
                                   )
                                 : const SizedBox.shrink();

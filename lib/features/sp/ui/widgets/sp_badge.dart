@@ -30,17 +30,17 @@ class SpBadge extends StatelessWidget {
       SpAddressKind.silentPaymentTestnet ||
       SpAddressKind.silentPaymentRegtest => (
         context.loc.spAddressTypeSilentPayment,
-        context.appColors.success,
+        context.appColors.successText,
       ),
       SpAddressKind.bitcoinMainnet ||
       SpAddressKind.bitcoinTestnet ||
       SpAddressKind.bitcoinRegtest ||
       SpAddressKind.bitcoinLegacyNonMainnet => (
         context.loc.spAddressTypeBitcoin,
-        context.appColors.primary,
+        context.appColors.primaryText,
       ),
       SpAddressKind.unrecognized => (
         context.loc.spAddressTypeUnrecognized,
-        context.appColors.error,
+        context.appColors.errorText,
       ),
     };

@@ -98,7 +98,7 @@ class _SellSuccessScreenState extends State<SellSuccessScreen> {
                     succeededLabel: context.loc.payjoinViaPayjoin,
                     fallbackLabel: context.loc.payjoinViaRegularSend,
                     inProgressColor: context.appColors.secondary,
-                    successColor: context.appColors.success,
+                    successColor: context.appColors.successText,
                     textStyle: context.font.bodyMedium,
                   ),
               ],

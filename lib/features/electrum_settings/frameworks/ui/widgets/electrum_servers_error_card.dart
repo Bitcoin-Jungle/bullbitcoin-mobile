@@ -18,7 +18,7 @@ class ElectrumServersErrorCard extends StatelessWidget {
     children: [
       BullInfoCard(
         description: failure.toTranslated(context),
-        tagColor: context.appColors.error,
+        tagColor: context.appColors.errorText,
         bgColor: context.appColors.errorContainer,
       ),
       if (failure is ElectrumServersExternalTorProxyUnavailableFailure) ...[

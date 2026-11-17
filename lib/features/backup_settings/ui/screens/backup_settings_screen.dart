@@ -73,7 +73,7 @@ class _Screen extends StatelessWidget {
                           .byId(SettingsItemId.startBackup)
                           .buildTile(
                             context,
-                            iconColor: context.appColors.primary,
+                            iconColor: context.appColors.primaryText,
                           ),
                       if (state.lastEncryptedBackup != null ||
                           state.lastPhysicalBackup != null)
@@ -166,8 +166,8 @@ class _StatusRow extends StatelessWidget {
               : context.loc.backupSettingsNotTested,
           style: context.font.bodyMedium?.copyWith(
             color: isTested
-                ? context.appColors.success
-                : context.appColors.error,
+                ? context.appColors.successText
+                : context.appColors.errorText,
           ),
         ),
       ],

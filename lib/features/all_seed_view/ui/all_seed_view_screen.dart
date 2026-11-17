@@ -167,7 +167,7 @@ class _AllSeedViewScreenState extends State<AllSeedViewScreen>
                     child: BullText(
                       state.failure!.toTranslated(context),
                       style: context.font.bodyLarge,
-                      color: context.appColors.error,
+                      color: context.appColors.errorText,
                     ),
                   );
                 }
@@ -185,7 +185,7 @@ class _AllSeedViewScreenState extends State<AllSeedViewScreen>
                             : context.loc.allSeedViewNoSeedsFound,
                         style: context.font.bodyLarge,
                         color: state.unreadableEntries > 0
-                            ? context.appColors.error
+                            ? context.appColors.errorText
                             : context.appColors.onSurface,
                         textAlign: .center,
                         maxLines: 3,
@@ -232,7 +232,7 @@ class _AllSeedViewScreenState extends State<AllSeedViewScreen>
                             state.unreadableEntries,
                           ),
                           style: context.font.bodyMedium,
-                          color: context.appColors.error,
+                          color: context.appColors.errorText,
                           textAlign: .center,
                           maxLines: 3,
                         ),
@@ -333,7 +333,7 @@ class _AllSeedViewScreenState extends State<AllSeedViewScreen>
             child: Text(
               context.loc.allSeedViewIUnderstandButton,
               style: context.font.bodyMedium?.copyWith(
-                color: context.appColors.primary,
+                color: context.appColors.primaryText,
                 fontWeight: .bold,
               ),
             ),
@@ -355,7 +355,7 @@ class _AllSeedViewScreenState extends State<AllSeedViewScreen>
         title: Text(
           context.loc.allSeedViewDeleteWarningTitle,
           style: context.font.headlineSmall?.copyWith(
-            color: context.appColors.error,
+            color: context.appColors.errorText,
             fontWeight: .bold,
           ),
         ),
@@ -385,7 +385,7 @@ class _AllSeedViewScreenState extends State<AllSeedViewScreen>
             child: Text(
               context.loc.delete,
               style: context.font.bodyMedium?.copyWith(
-                color: context.appColors.error,
+                color: context.appColors.errorText,
                 fontWeight: .bold,
               ),
             ),
@@ -407,7 +407,7 @@ class _AllSeedViewScreenState extends State<AllSeedViewScreen>
         title: Text(
           context.loc.allSeedViewDeleteSwapMnemonicTitle,
           style: context.font.headlineSmall?.copyWith(
-            color: context.appColors.error,
+            color: context.appColors.errorText,
             fontWeight: .bold,
           ),
         ),
@@ -437,7 +437,7 @@ class _AllSeedViewScreenState extends State<AllSeedViewScreen>
             child: Text(
               context.loc.delete,
               style: context.font.bodyMedium?.copyWith(
-                color: context.appColors.error,
+                color: context.appColors.errorText,
                 fontWeight: .bold,
               ),
             ),
@@ -468,7 +468,7 @@ class _AllSeedViewScreenState extends State<AllSeedViewScreen>
                 IconButton(
                   icon: Icon(
                     Icons.delete_outline,
-                    color: context.appColors.error,
+                    color: context.appColors.errorText,
                   ),
                   onPressed: () => _showDeleteSwapWarningDialog(context),
                   padding: EdgeInsets.zero,
@@ -542,7 +542,7 @@ class _AllSeedViewScreenState extends State<AllSeedViewScreen>
                               AllSeedViewFetchFailure(failure.logMessage)
                                   .toTranslated(context),
                               style: context.font.bodyMedium,
-                              color: context.appColors.error,
+                              color: context.appColors.errorText,
                             ),
                             const Gap(16),
                             BullButton.small(
@@ -573,7 +573,7 @@ class _AllSeedViewScreenState extends State<AllSeedViewScreen>
                   IconButton(
                     icon: Icon(
                       Icons.delete_outline,
-                      color: context.appColors.error,
+                      color: context.appColors.errorText,
                     ),
                     onPressed: () => _showDeleteWarningDialog(context, seed),
                     padding: EdgeInsets.zero,
@@ -620,7 +620,7 @@ class _SwapMnemonicViewState extends State<_SwapMnemonicView> {
             return BullText(
               context.loc.oopsSomethingWentWrong,
               style: context.font.bodyMedium,
-              color: context.appColors.error,
+              color: context.appColors.errorText,
             );
           }
           return BullText(

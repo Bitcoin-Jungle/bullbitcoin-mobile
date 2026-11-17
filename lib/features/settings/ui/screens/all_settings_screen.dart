@@ -70,8 +70,8 @@ class _AllSettingsScreenState extends State<AllSettingsScreen> {
                         ? serviceStatusLoading
                               ? context.appColors.textMuted
                               : serviceStatus.allServicesOnline
-                              ? context.appColors.success
-                              : context.appColors.error
+                              ? context.appColors.successText
+                              : context.appColors.errorText
                         : null,
                   ),
               ],

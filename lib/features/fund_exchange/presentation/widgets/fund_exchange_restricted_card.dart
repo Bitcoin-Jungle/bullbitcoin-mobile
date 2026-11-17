@@ -12,7 +12,7 @@ class FundExchangeRestrictedCard extends StatelessWidget {
       title: context.loc.fundExchangeRestrictedTitle,
       description: context.loc.fundExchangeRestrictedMessage,
       bgColor: context.appColors.error.withValues(alpha: 0.1),
-      tagColor: context.appColors.error,
+      tagColor: context.appColors.errorText,
     );
   }
 }

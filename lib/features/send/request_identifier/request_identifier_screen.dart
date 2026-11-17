@@ -142,7 +142,7 @@ class RequestErrorWidget extends StatelessWidget {
       return BullText(
         failure.toTranslated(context),
         style: context.font.bodyMedium,
-        color: context.appColors.error,
+        color: context.appColors.errorText,
         textAlign: .center,
         maxLines: 2,
       );

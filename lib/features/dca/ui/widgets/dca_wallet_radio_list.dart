@@ -72,7 +72,7 @@ class DcaWalletRadioList extends StatelessWidget {
           Text(
             errorText!,
             style: Theme.of(context).textTheme.bodySmall
-                ?.copyWith(color: Theme.of(context).colorScheme.error),
+                ?.copyWith(color: context.appColors.errorText),
           ),
         ],
       ],

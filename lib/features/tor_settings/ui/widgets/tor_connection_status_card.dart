@@ -217,11 +217,11 @@ class _StatusIndicator extends StatelessWidget {
   Color _getStatusColor(BuildContext context, _VisualStatus status) {
     switch (status) {
       case _VisualStatus.online:
-        return context.appColors.success;
+        return context.appColors.successText;
       case _VisualStatus.connecting:
-        return context.appColors.warning;
+        return context.appColors.warningText;
       case _VisualStatus.offline:
-        return context.appColors.error;
+        return context.appColors.errorText;
       case _VisualStatus.unknown:
         return context.appColors.onSurface.withValues(alpha: 0.5);
     }

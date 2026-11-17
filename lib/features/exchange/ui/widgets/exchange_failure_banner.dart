@@ -22,7 +22,7 @@ class ExchangeFailureBanner extends StatelessWidget {
   Widget build(BuildContext context) {
     return InfoCard(
       description: failure.toTranslated(context),
-      tagColor: context.appColors.error,
+      tagColor: context.appColors.errorText,
       bgColor: context.appColors.errorContainer,
       onTap: onRetry,
     );

@@ -274,7 +274,7 @@ class _AddCustomServerBottomSheetState
                     const Gap(8),
                     BullInfoCard(
                       description: context.loc.electrumOnionUsesTorDescription,
-                      tagColor: context.appColors.primary,
+                      tagColor: context.appColors.primaryText,
                       bgColor: context.appColors.surfaceContainer,
                     ),
                     const Gap(8),

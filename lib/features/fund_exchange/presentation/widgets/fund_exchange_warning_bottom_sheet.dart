@@ -160,7 +160,7 @@ class _FundExchangeWarningBottomSheetState
                   // sheet cannot drift from the failure's own message.
                   _submitConsentFailure!.toTranslated(context),
                   style: theme.textTheme.bodyMedium,
-                  color: theme.colorScheme.error,
+                  color: context.appColors.errorText,
                   textAlign: TextAlign.center,
                 ),
                 const Gap(8.0),

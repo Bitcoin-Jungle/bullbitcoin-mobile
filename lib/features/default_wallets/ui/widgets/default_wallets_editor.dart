@@ -95,7 +95,7 @@ class _EditorContent extends StatelessWidget {
             BullText(
               state.loadError!,
               style: context.font.bodyMedium?.copyWith(
-                color: context.appColors.error,
+                color: context.appColors.errorText,
               ),
             ),
             const SizedBox(height: 16),
@@ -198,7 +198,7 @@ class _WalletAddressField extends StatelessWidget {
                 child: BullText(
                   context.loc.delete,
                   style: context.font.bodySmall?.copyWith(
-                    color: context.appColors.error,
+                    color: context.appColors.errorText,
                   ),
                 ),
               ),

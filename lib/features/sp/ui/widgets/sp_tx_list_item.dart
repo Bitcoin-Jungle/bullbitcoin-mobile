@@ -72,7 +72,7 @@ class SpPaymentStatusLabel extends StatelessWidget {
           ? Icons.check_circle
           : null,
       textColor: payment.status == SpPaymentStatus.verifyFailed
-          ? context.appColors.error
+          ? context.appColors.errorText
           : context.appColors.textMuted,
       decoration: clickable ? TextDecoration.underline : null,
     );

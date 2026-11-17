@@ -48,7 +48,7 @@ class RetrySwapButton extends StatelessWidget {
           Text(
             retryFailure.toTranslated(context),
             style: context.font.bodyMedium?.copyWith(
-              color: context.appColors.error,
+              color: context.appColors.errorText,
             ),
             textAlign: TextAlign.center,
           ),

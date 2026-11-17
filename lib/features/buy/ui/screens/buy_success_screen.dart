@@ -113,7 +113,7 @@ class _BuySuccessScreenState extends State<BuySuccessScreen> {
             succeededLabel: context.loc.payjoinSucceeded,
             fallbackLabel: context.loc.payjoinBuyRegularSend,
             inProgressColor: context.appColors.secondary,
-            successColor: context.appColors.success,
+            successColor: context.appColors.successText,
             textStyle: context.font.bodyMedium,
           ),
           if (payoutTime != null)

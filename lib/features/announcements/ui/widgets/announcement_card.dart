@@ -24,8 +24,8 @@ class AnnouncementCard extends StatelessWidget {
     final colors = context.bull;
     final tone = switch (announcement.tone) {
       AnnouncementTone.info => colors.info,
-      AnnouncementTone.warning => colors.warning,
-      AnnouncementTone.success => colors.success,
+      AnnouncementTone.warning => colors.warningText,
+      AnnouncementTone.success => colors.successText,
     };
 
     return Stack(

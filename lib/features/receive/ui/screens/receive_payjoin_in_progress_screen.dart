@@ -355,7 +355,7 @@ class ReceiveBroadcastPayjoinButton extends StatelessWidget {
             Text(
               broadcastFailure.toTranslated(context),
               style: context.font.bodyMedium?.copyWith(
-                color: context.appColors.error,
+                color: context.appColors.errorText,
               ),
               textAlign: .center,
             ),

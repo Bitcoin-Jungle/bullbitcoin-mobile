@@ -309,7 +309,7 @@ class PayReceivePaymentScreen extends StatelessWidget {
                     maxLines: 2,
                     style: context.font.bodyMedium?.copyWith(
                       color: isError
-                          ? context.appColors.error
+                          ? context.appColors.errorText
                           : context.appColors.secondary,
                     ),
                   ),
@@ -326,7 +326,7 @@ class PayReceivePaymentScreen extends StatelessWidget {
                     },
                     child: Icon(
                       Icons.copy,
-                      color: context.appColors.primary,
+                      color: context.appColors.primaryText,
                       size: 16,
                     ),
                   ),

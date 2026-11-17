@@ -180,8 +180,8 @@ class _HeaderValidationCard extends StatelessWidget {
               Icon(
                 failed ? Icons.warning_amber_rounded : Icons.verified_outlined,
                 color: failed
-                    ? context.appColors.error
-                    : context.appColors.primary,
+                    ? context.appColors.errorText
+                    : context.appColors.primaryText,
               ),
               const Gap(12),
               Expanded(
@@ -195,7 +195,9 @@ class _HeaderValidationCard extends StatelessWidget {
                           child: Text(
                             _title(context),
                             style: context.font.bodyMedium?.copyWith(
-                              color: failed ? context.appColors.error : null,
+                              color: failed
+                                  ? context.appColors.errorText
+                                  : null,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
@@ -214,7 +216,7 @@ class _HeaderValidationCard extends StatelessWidget {
                       Text(
                         context.loc.spHeaderValidationInvalidChainDetail,
                         style: context.font.bodySmall?.copyWith(
-                          color: context.appColors.error,
+                          color: context.appColors.errorText,
                         ),
                       ),
                     ],

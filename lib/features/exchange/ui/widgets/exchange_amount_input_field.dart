@@ -83,14 +83,14 @@ class ExchangeAmountInputField extends StatelessWidget {
                             BullAmountInputFormatter(inputCurrency),
                           ],
                           style: context.font.displaySmall?.copyWith(
-                            color: context.appColors.primary,
+                            color: context.appColors.primaryText,
                           ),
                           decoration: InputDecoration(
                             hintText: NumberFormat.decimalPatternDigits(
                               decimalDigits: amountInputDecimals,
                             ).format(0),
                             hintStyle: context.font.displaySmall?.copyWith(
-                              color: context.appColors.primary,
+                              color: context.appColors.primaryText,
                             ),
                             border: InputBorder.none,
                           ),
@@ -145,7 +145,7 @@ class ExchangeAmountInputField extends StatelessWidget {
                             ? _fiatCurrency!.code
                             : _bitcoinUnit.code,
                         style: context.font.displaySmall?.copyWith(
-                          color: context.appColors.primary,
+                          color: context.appColors.primaryText,
                         ),
                       ),
                     ],

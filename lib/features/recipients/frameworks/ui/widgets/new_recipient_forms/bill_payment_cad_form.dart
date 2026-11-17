@@ -134,7 +134,7 @@ class BillPaymentCadFormState extends State<BillPaymentCadForm> {
                 child: Text(
                   failure.toTranslated(context),
                   style: context.font.bodySmall?.copyWith(
-                    color: context.appColors.error,
+                    color: context.appColors.errorText,
                   ),
                 ),
               );

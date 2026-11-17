@@ -367,17 +367,17 @@ class _MnemonicDisplayState extends State<_MnemonicDisplay>
                       _WarningItem(
                         icon: CupertinoIcons.check_mark,
                         text: context.loc.testBackupTranscribe,
-                        iconColor: context.appColors.success,
+                        iconColor: context.appColors.successText,
                       ),
                       _WarningItem(
                         icon: CupertinoIcons.xmark,
                         text: context.loc.testBackupDigitalCopy,
-                        iconColor: context.appColors.error,
+                        iconColor: context.appColors.errorText,
                       ),
                       _WarningItem(
                         icon: CupertinoIcons.xmark,
                         text: context.loc.testBackupScreenshot,
-                        iconColor: context.appColors.error,
+                        iconColor: context.appColors.errorText,
                       ),
                     ],
                   ),
@@ -404,7 +404,9 @@ class _DisplayError extends StatelessWidget {
       BullText(
         failure?.toTranslated(context) ?? context.loc.oopsSomethingWentWrong,
         textAlign: .center,
-        style: context.font.bodyLarge?.copyWith(color: context.appColors.error),
+        style: context.font.bodyLarge?.copyWith(
+          color: context.appColors.errorText,
+        ),
       ),
       if (onRetry case final retry?) ...[
         const Gap(16),

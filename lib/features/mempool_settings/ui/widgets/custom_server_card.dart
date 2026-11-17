@@ -87,8 +87,8 @@ class CustomServerCard extends StatelessWidget {
                               style: context.bullType.caption.copyWith(
                                 fontWeight: FontWeight.w500,
                                 color: customServer!.enableSsl
-                                    ? context.appColors.success
-                                    : context.appColors.warning,
+                                    ? context.appColors.successText
+                                    : context.appColors.warningText,
                               ),
                             ),
                           ),
@@ -154,10 +154,10 @@ class CustomServerCard extends StatelessWidget {
                   onPressed: isProcessing
                       ? null
                       : () => _showDeleteConfirmation(context),
-                  icon: Icon(Icons.delete, color: context.appColors.error),
+                  icon: Icon(Icons.delete, color: context.appColors.errorText),
                   label: Text(
                     context.loc.mempoolCustomServerDelete,
-                    style: TextStyle(color: context.appColors.error),
+                    style: TextStyle(color: context.appColors.errorText),
                   ),
                 ),
               ],
@@ -192,7 +192,7 @@ class CustomServerCard extends StatelessWidget {
         title: Text(
           context.loc.mempoolCustomServerDeleteTitle,
           style: context.font.headlineSmall?.copyWith(
-            color: context.appColors.error,
+            color: context.appColors.errorText,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -220,7 +220,7 @@ class CustomServerCard extends StatelessWidget {
             child: Text(
               context.loc.delete,
               style: context.font.bodyMedium?.copyWith(
-                color: context.appColors.error,
+                color: context.appColors.errorText,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -257,12 +257,15 @@ class _AddCustomServerButton extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.add_circle_outline, color: context.appColors.primary),
+              Icon(
+                Icons.add_circle_outline,
+                color: context.appColors.primaryText,
+              ),
               const SizedBox(width: 8),
               Text(
                 context.loc.mempoolCustomServerAdd,
                 style: context.font.bodyMedium?.copyWith(
-                  color: context.appColors.primary,
+                  color: context.appColors.primaryText,
                   fontWeight: FontWeight.w500,
                 ),
               ),

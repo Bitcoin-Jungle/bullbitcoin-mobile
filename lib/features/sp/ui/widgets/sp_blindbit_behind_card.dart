@@ -14,7 +14,7 @@ class SpBlindbitBehindCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InfoCard(
       description: context.loc.spBlindbitBehindWarning(blocksBehind),
-      tagColor: context.appColors.warning,
+      tagColor: context.appColors.warningText,
       bgColor: context.appColors.warningContainer,
     );
   }

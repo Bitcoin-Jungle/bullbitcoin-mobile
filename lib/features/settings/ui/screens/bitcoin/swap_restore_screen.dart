@@ -135,8 +135,9 @@ class _SwapRow extends StatelessWidget {
       ? context.loc.coreSwapsStatusPending
       : context.loc.coreSwapsStatusCompleted;
 
-  Color _statusColor(BuildContext context) =>
-      restorable.isRescuable ? context.bull.warning : context.bull.success;
+  Color _statusColor(BuildContext context) => restorable.isRescuable
+      ? context.bull.warningText
+      : context.bull.successText;
 
   String _formatDate(DateTime d) {
     final l = d.toLocal();

@@ -23,7 +23,7 @@ class FundExchangeErrorText extends StatelessWidget {
       return BBText(
         message,
         style: context.font.bodyMedium,
-        color: Theme.of(context).colorScheme.error,
+        color: context.appColors.errorText,
         textAlign: textAlign,
       );
     }
@@ -35,7 +35,7 @@ class FundExchangeErrorText extends StatelessWidget {
           title,
           style: context.font.bodyLarge?.copyWith(
             fontWeight: FontWeight.bold,
-            color: Theme.of(context).colorScheme.error,
+            color: context.appColors.errorText,
           ),
           textAlign: textAlign,
         ),
@@ -43,7 +43,7 @@ class FundExchangeErrorText extends StatelessWidget {
         BBText(
           message,
           style: context.font.bodyMedium,
-          color: Theme.of(context).colorScheme.error,
+          color: context.appColors.errorText,
           textAlign: textAlign,
         ),
       ],

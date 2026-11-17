@@ -283,7 +283,9 @@ class _ErrorRetryV2 extends StatelessWidget {
             ? '${context.loc.oopsSomethingWentWrong}\n${failure.toTranslated(context)}'
             : failure.toTranslated(context),
         textAlign: .center,
-        style: context.bullText.bodyMedium?.copyWith(color: context.bull.error),
+        style: context.bullText.bodyMedium?.copyWith(
+          color: context.bull.errorText,
+        ),
       ),
       const Gap(8),
       BullButton.small(

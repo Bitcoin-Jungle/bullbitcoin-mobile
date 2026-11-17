@@ -109,14 +109,14 @@ class _ErrorView extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Icon(Icons.error, color: context.appColors.error, size: 72),
+                Icon(Icons.error, color: context.appColors.errorText, size: 72),
                 const Gap(24),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: Text(
                     message,
                     style: context.font.bodyMedium?.copyWith(
-                      color: context.appColors.error,
+                      color: context.appColors.errorText,
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -159,7 +159,7 @@ class _CaughtUpView extends StatelessWidget {
                 children: [
                   Icon(
                     Icons.check_circle,
-                    color: context.appColors.success,
+                    color: context.appColors.successText,
                     size: 72,
                   ),
                   const Gap(24),
@@ -168,7 +168,7 @@ class _CaughtUpView extends StatelessWidget {
                         ? context.loc.spScanSyncedAutoOn
                         : context.loc.spScanSyncedManual,
                     style: context.font.titleMedium?.copyWith(
-                      color: context.appColors.success,
+                      color: context.appColors.successText,
                     ),
                   ),
                   if (duration != null) ...[
@@ -215,7 +215,11 @@ class _ResumeView extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Icon(Icons.search, color: context.appColors.primary, size: 72),
+                Icon(
+                  Icons.search,
+                  color: context.appColors.primaryText,
+                  size: 72,
+                ),
                 const Gap(24),
                 Text(
                   context.loc.spScanBlocksBehind(gap),

@@ -68,7 +68,7 @@ class _ReplaceByFeeHomePageState extends State<ReplaceByFeeHomePage> {
                       BullText(
                         failure.toTranslated(context),
                         style: context.font.bodyMedium,
-                        color: context.appColors.error,
+                        color: context.appColors.errorText,
                       ),
                       if (failure
                           is ReplaceByFeeManipulatedTransactionFailure) ...[
@@ -111,7 +111,7 @@ class _ReplaceByFeeHomePageState extends State<ReplaceByFeeHomePage> {
                       BullText(
                         state.failure!.toTranslated(context),
                         style: context.font.bodyMedium,
-                        color: context.appColors.error,
+                        color: context.appColors.errorText,
                       ),
                       const Gap(16),
                     ],

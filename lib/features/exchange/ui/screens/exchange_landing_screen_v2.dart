@@ -50,7 +50,7 @@ class ExchangeLandingScreenV2 extends StatelessWidget {
                       context.loc.exchangeBrandName,
                       style: TextStyle(
                         fontFamily: BullTypography.brandFamily,
-                        color: context.appColors.primary,
+                        color: context.appColors.primaryText,
                         fontSize: 64, // Brand wordmark: a layout size, not a role (bull-ui-check allowlist).
                       ),
                     ),

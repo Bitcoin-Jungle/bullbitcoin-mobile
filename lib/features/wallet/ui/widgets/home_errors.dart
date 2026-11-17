@@ -39,7 +39,7 @@ class HomeWarnings extends StatelessWidget {
             BullInfoCard(
               title: homeWarningTitle(context, warning),
               description: homeWarningDescription(context, warning),
-              tagColor: context.appColors.error,
+              tagColor: context.appColors.errorText,
               bgColor: context.appColors.errorContainer,
               onTap: () => context.pushNamed(switch (warning.action) {
                 WalletWarningAction.electrumSettings =>
@@ -59,7 +59,7 @@ class HomeWarnings extends StatelessWidget {
             BullInfoCard(
               title: loadFailure.toTranslated(context),
               description: context.loc.walletLoadFailedRetryHint,
-              tagColor: context.appColors.error,
+              tagColor: context.appColors.errorText,
               bgColor: context.appColors.errorContainer,
             ),
         ];

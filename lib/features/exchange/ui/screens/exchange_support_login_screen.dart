@@ -133,7 +133,7 @@ class _ExchangeSupportLoginScreenState
                             Icon(
                               Icons.chat_bubble_outline,
                               size: 48,
-                              color: context.appColors.primary,
+                              color: context.appColors.primaryText,
                             ),
                             const Gap(16),
                             BBText(

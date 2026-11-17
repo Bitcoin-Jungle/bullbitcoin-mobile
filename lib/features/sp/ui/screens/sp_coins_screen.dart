@@ -84,7 +84,7 @@ class _SpCoinTile extends StatelessWidget {
       ),
       SpCoinStatus.unspent => (
         Icons.check_circle,
-        context.appColors.success,
+        context.appColors.successText,
         context.loc.spCoinStatusUnspent,
       ),
       SpCoinStatus.spent => (

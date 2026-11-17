@@ -148,7 +148,7 @@ class InteracEmailCadFormState extends State<InteracEmailCadForm> {
                 context.loc.recipientsCharCounter(_securityQuestion.length),
                 style: context.bullType.caption.copyWith(
                   color: _securityQuestion.length < 10
-                      ? context.appColors.error
+                      ? context.appColors.errorText
                       : context.appColors.onSurface.withValues(alpha: 0.6),
                 ),
               ),

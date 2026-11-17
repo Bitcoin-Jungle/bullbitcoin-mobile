@@ -100,13 +100,13 @@ class TransactionDetailsTable extends StatelessWidget {
                 : isLiquid
                 ? TransactionViewer.liquid(
                     txId,
-                    style: TextStyle(color: context.appColors.primary),
+                    style: TextStyle(color: context.appColors.primaryText),
                     isTestnet: isTestnet,
                     unblindedUrl: transaction?.walletTransaction?.unblindedUrl,
                   )
                 : TransactionViewer.bitcoin(
                     txId,
-                    style: TextStyle(color: context.appColors.primary),
+                    style: TextStyle(color: context.appColors.primaryText),
                     isTestnet: isTestnet,
                     explorerUrlFragment: transaction?.payjoinOwnershipFragment,
                   ),

@@ -274,7 +274,7 @@ class _VerifyMnemonicScreenState extends State<VerifyMnemonicScreen>
                           BullText(
                             error,
                             style: context.font.bodyMedium,
-                            color: context.appColors.error,
+                            color: context.appColors.errorText,
                           ),
                         const Gap(16),
                         BullButton.small(
@@ -353,7 +353,7 @@ class _Challenge extends StatelessWidget {
             failure.toTranslated(context),
             textAlign: .center,
             style: context.font.bodyLarge?.copyWith(
-              color: context.appColors.error,
+              color: context.appColors.errorText,
             ),
           );
         }
@@ -377,7 +377,7 @@ class _Challenge extends StatelessWidget {
                 context.loc.oopsSomethingWentWrong,
                 textAlign: .center,
                 style: context.font.bodyLarge?.copyWith(
-                  color: context.appColors.error,
+                  color: context.appColors.errorText,
                 ),
               ),
               const Gap(16),
