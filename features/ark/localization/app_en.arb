@@ -279,5 +279,9 @@
   "boardSourceDebitInSats": "Source debit (sats)",
   "@boardSourceDebitInSats": {},
   "boardValidUntil": "Review valid until (UTC)",
-  "@boardValidUntil": {}
+  "@boardValidUntil": {},
+  "exitMaximumClaimFee": "Maximum claim fee (sats)",
+  "@exitMaximumClaimFee": {},
+  "abandonedBoardState": "Abandoned board (never signed)",
+  "@abandonedBoardState": {}
 }

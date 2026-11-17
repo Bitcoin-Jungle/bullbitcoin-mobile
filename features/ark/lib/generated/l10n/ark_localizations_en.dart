@@ -431,4 +431,10 @@ class ArkLocalizationsEn extends ArkLocalizations {
 
   @override
   String get boardValidUntil => 'Review valid until (UTC)';
+
+  @override
+  String get exitMaximumClaimFee => 'Maximum claim fee (sats)';
+
+  @override
+  String get abandonedBoardState => 'Abandoned board (never signed)';
 }
