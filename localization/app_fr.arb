@@ -4789,5 +4789,9 @@
   "networkWalletReuseNoRecoveryPhrase": "Ce portefeuille n'a pas de phrase de récupération, il ne peut donc pas être réutilisé ici. Importez une phrase de récupération ou créez un nouveau portefeuille.",
   "transactionOrderTypeSellUsdt": "Vendre des USDT",
   "transactionOrderTypeFiatPayment": "Paiement fiat",
-  "transactionOrderTypeBalanceAdjustment": "Ajustement de solde"
+  "transactionOrderTypeBalanceAdjustment": "Ajustement de solde",
+  "walletTypeBitcoinNetwork": "Réseau Bitcoin",
+  "walletTypeLiquidAndLightning": "Liquid et Lightning",
+  "walletTypeWatchOnly": "Lecture seule",
+  "walletTypeWatchSigner": "Signataire externe"
 }
