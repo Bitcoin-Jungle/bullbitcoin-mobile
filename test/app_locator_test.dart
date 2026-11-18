@@ -1,3 +1,7 @@
+import 'package:bb_mobile/features/send/presentation/send_ark_cubit.dart';
+import 'package:bb_mobile/features/wallet/data/wallet_metadata_datasource.dart';
+import 'package:bb_mobile/features/wallet/data/models/wallet_metadata_model.dart';
+import 'package:bb_mobile/core/storage/tables/wallet_metadata_table.dart';
 import 'package:ark/ark.dart';
 import 'package:bull_ark/ark_setup.dart';
 import 'package:bb_mobile/features/wallet/public/ark_funding_setup.dart';
@@ -30,6 +34,17 @@ import 'package:get_it/get_it.dart';
 import 'package:path_provider_platform_interface/path_provider_platform_interface.dart';
 import 'package:secrets/testing.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+class _RoutingPreferences implements ArkPreferencesRepository {
+  @override
+  Future<Result<bool, ArkFailure>> isEnabled(ArkAccountId account) async =>
+      const Ok(true);
+  @override
+  Future<Result<void, ArkFailure>> setEnabled(
+    ArkAccountId account,
+    bool enabled,
+  ) async => const Ok(null);
+}
 
 class _SecureStorage extends FakeSecureStoragePlatform {
   final Fingerprint parent;
@@ -148,6 +163,67 @@ void main() {
         registry.close();
       }
     }
+
+    test(
+      'composed regtest Send reaches ArkReady through the current host',
+      () async {
+        await compose(initialize: true);
+        await database.managers.settings.update(
+          (row) => row(
+            environment: const Value('regtest'),
+            isSuperuser: const Value(true),
+            isDevModeEnabled: const Value(true),
+          ),
+        );
+        await locator<WalletMetadataDatasource>().insert(
+          WalletMetadataModel(
+            id: 'routing-source',
+            networkCode: 'bitcoinRegtest',
+            masterFingerprint: parent.hex,
+            xpubFingerprint: '00112233',
+            isEncryptedVaultTested: false,
+            isPhysicalBackupTested: false,
+            xpub: 'public-routing-fixture',
+            externalPublicDescriptor: 'public-routing-fixture',
+            internalPublicDescriptor: 'public-routing-fixture',
+            signer: Signer.local,
+            isDefault: true,
+          ),
+        );
+        await setupArkForeground(
+          locator,
+          arkUrl: Uri.parse('http://ark.regtest'),
+          primaryEsploraUrl: Uri.parse('http://chain.regtest'),
+          initializeNew: true,
+          preferences: _RoutingPreferences(),
+        );
+        await publishAccount();
+        final cubit = locator<SendArkCubit>();
+        addTearDown(cubit.close);
+        Future<void> resolve() => cubit.resolve(
+          input: 'tark1pwh9vsmezqqpharv69q4z8m6x364d5m5prnmcalcalq9pdmzw0y7mpveck4pcfhezqypczkrrj3lkx5ue4qrf4jc7ztpt9htdttmh2judhqnu7aue8p0y9mq47jn9z',
+          network: BitcoinNetwork.regtest,
+          coinControl: false,
+          sweep: false,
+          silentPayments: false,
+          multipleRecipients: false,
+        );
+        await resolve();
+        expect(
+          cubit.state,
+          isA<SendArkReady>().having(
+            (state) => state.request.accounts.single.parent,
+            'current account',
+            parent,
+          ),
+        );
+        await database.managers.settings.update(
+          (row) => row(environment: const Value('mainnet')),
+        );
+        await resolve();
+        expect(cubit.state, isA<SendArkUnavailable>());
+      },
+    );
 
     test('profile initialization cannot recreate a lost registry over surviving custody', () async {
       final funding = sourceOk(
