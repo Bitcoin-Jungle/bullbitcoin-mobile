@@ -70,7 +70,6 @@ import 'package:bb_mobile/features/swap/domain/usecases/watch_order_swap_usecase
 import 'package:bb_mobile/features/swap/domain/usecases/watch_swap_app_update_required_usecase.dart';
 import 'package:bb_mobile/features/swap/order_swap_watcher.dart';
 import 'package:bb_mobile/features/swap/public/swap_facade.dart';
-import 'package:bb_mobile/features/exchange/data/regtest_exchange_routing.dart';
 import 'package:dio/dio.dart';
 import 'package:bull_pricer/bull_pricer.dart';
 import 'package:get_it/get_it.dart';
@@ -96,12 +95,8 @@ class SwapLocator {
         ),
       );
       // The non-mainnet slot also serves regtest, bound to the simulator.
-      addRegtestExchangeRouting(
-        dio,
-        () async =>
-            (await locator<settings_domain.SettingsRepository>().fetch())
-                .environment
-                .networkEnv,
+      dio.interceptors.add(
+        locator<Interceptor>(instanceName: 'regtestExchangeRoutingInterceptor'),
       );
       return ExchangePublicApiDatasource(dio);
     }, instanceName: _testnetExchangeDatasource);

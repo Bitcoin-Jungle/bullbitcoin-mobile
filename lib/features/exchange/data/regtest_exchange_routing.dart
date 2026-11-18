@@ -42,14 +42,33 @@ void addRegtestExchangeRouting(
   Dio dio,
   Future<NetworkEnv> Function() readEnvironment, {
   String? regtestHost,
+}) => dio.interceptors.add(
+  regtestExchangeRoutingInterceptor(readEnvironment, regtestHost: regtestHost),
+);
+
+/// The rebinding half of [addRegtestExchangeRouting], for clients built by a
+/// feature that must not import this one.
+Interceptor regtestExchangeRoutingInterceptor(
+  Future<NetworkEnv> Function() readEnvironment, {
+  String? regtestHost,
 }) {
-  dio.interceptors.add(
-    InterceptorsWrapper(
-      onRequest: (options, handler) async {
-        final NetworkEnv environment;
-        try {
-          environment = await readEnvironment();
-        } on Exception {
+  return InterceptorsWrapper(
+    onRequest: (options, handler) async {
+      final NetworkEnv environment;
+      try {
+        environment = await readEnvironment();
+      } on Exception {
+        handler.reject(
+          DioException(
+            requestOptions: options,
+            error: const RegtestExchangeRoutingException(),
+          ),
+        );
+        return;
+      }
+      if (environment == NetworkEnv.regtest) {
+        final regtest = RegtestExchangeProfile.tryBaseUri(host: regtestHost);
+        if (regtest == null || Uri.parse(options.path).hasScheme) {
           handler.reject(
             DioException(
               requestOptions: options,
@@ -58,23 +77,11 @@ void addRegtestExchangeRouting(
           );
           return;
         }
-        if (environment == NetworkEnv.regtest) {
-          final regtest = RegtestExchangeProfile.tryBaseUri(host: regtestHost);
-          if (regtest == null || Uri.parse(options.path).hasScheme) {
-            handler.reject(
-              DioException(
-                requestOptions: options,
-                error: const RegtestExchangeRoutingException(),
-              ),
-            );
-            return;
-          }
-          final path = Uri.parse(options.baseUrl).path;
-          options.baseUrl = regtest.replace(path: path).toString();
-        }
-        handler.next(options);
-      },
-    ),
+        final path = Uri.parse(options.baseUrl).path;
+        options.baseUrl = regtest.replace(path: path).toString();
+      }
+      handler.next(options);
+    },
   );
 }
 

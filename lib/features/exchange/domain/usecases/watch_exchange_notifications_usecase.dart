@@ -7,6 +7,8 @@ import 'package:bb_mobile/core/exchange/domain/entity/notification_message.dart'
 import 'package:bb_mobile/core/exchange/domain/repositories/exchange_notification_repository.dart';
 import 'package:primitives/primitives.dart';
 import 'package:bb_mobile/features/exchange/domain/exchange_failure.dart';
+import 'package:bb_mobile/features/settings/domain/settings_entity.dart'
+    show Environment;
 import 'package:meta/meta.dart';
 
 /// The notification socket, as the cubit needs it.
@@ -56,6 +58,12 @@ class WatchExchangeNotificationsUsecase {
     if (allowed case Err(:final failure)) {
       _exchangeNotificationRepository.disconnect();
       return Err(failure);
+    }
+    // The simulator has no socket, and the non-mainnet socket must never see
+    // the regtest development key.
+    if (allowed case Ok(value: Environment.regtest)) {
+      _exchangeNotificationRepository.disconnect();
+      return const Err(ExchangeUnsupportedNetworkFailure());
     }
     final result = reconnect
         ? await _exchangeNotificationRepository.reconnect()

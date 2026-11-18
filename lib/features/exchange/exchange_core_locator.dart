@@ -65,7 +65,15 @@ class ExchangeLocator {
   static Future<NetworkEnv> _readNetworkEnv(GetIt locator) async =>
       (await locator<SettingsRepository>().fetch()).environment.networkEnv;
 
+  /// Name under which other features fetch the rebinding interceptor without
+  /// importing the exchange feature.
+  static const regtestRoutingInterceptor = 'regtestExchangeRoutingInterceptor';
+
   static void registerDatasources(GetIt locator) {
+    locator.registerLazySingleton<Interceptor>(
+      () => regtestExchangeRoutingInterceptor(() => _readNetworkEnv(locator)),
+      instanceName: regtestRoutingInterceptor,
+    );
     for (final isTestnet in [false, true]) {
       final environment = isTestnet ? 'testnet' : 'mainnet';
       locator.registerLazySingleton<BullbitcoinApiDatasource>(
