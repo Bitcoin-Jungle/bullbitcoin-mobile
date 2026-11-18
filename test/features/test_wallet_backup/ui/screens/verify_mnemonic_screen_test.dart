@@ -196,15 +196,22 @@ void main() {
   // does real asynchronous work (PBKDF2), so frames alternate with the real
   // clock until no spinner is left, within a bound generous enough for a
   // suite running in parallel.
-  Future<void> flush(WidgetTester tester) async {
-    for (var i = 0; i < 25; i++) {
+  // Passphrase verification has no spinner, so its callers supply a completion condition.
+  Future<void> flush(WidgetTester tester, {bool Function()? until}) async {
+    final maxAttempts = until == null ? 25 : 100;
+    for (var i = 0; i < maxAttempts; i++) {
       await tester.runAsync(
         () => Future<void>.delayed(const Duration(milliseconds: 100)),
       );
       await tester.pump();
-      if (i >= 2 && find.byType(CircularProgressIndicator).evaluate().isEmpty) {
+      if (i >= 2 &&
+          (until?.call() ??
+              find.byType(CircularProgressIndicator).evaluate().isEmpty)) {
         return;
       }
+    }
+    if (until != null) {
+      fail('Timed out waiting for the expected backup verification state.');
     }
   }
 
@@ -286,13 +293,20 @@ void main() {
     tester.binding.handleAppLifecycleStateChanged(AppLifecycleState.resumed);
     await tester.enterText(find.byType(TextField), 'Mixed');
     await tester.tap(find.text('Continue'));
-    await flush(tester);
+    await flush(
+      tester,
+      until: () => find.text('Incorrect passphrase.').evaluate().isNotEmpty,
+    );
     expect(find.text('Incorrect passphrase.'), findsOneWidget);
     verifyNever(() => completeUsecase.execute());
 
     await tester.enterText(find.byType(TextField), ' Mixed ');
     await tester.tap(find.text('Continue'));
-    await flush(tester);
+    await flush(
+      tester,
+      until: () =>
+          find.text('Test completed successfully!').evaluate().isNotEmpty,
+    );
     verify(() => completeUsecase.execute()).called(1);
   });
 
