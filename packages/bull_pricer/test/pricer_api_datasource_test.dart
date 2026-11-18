@@ -124,14 +124,39 @@ void main() {
       expect(api.requests.single.host, 'api05.bullbitcoin.dev');
     });
 
-    test('a network without a price service is never asked', () async {
-      for (final network in [BitcoinNetwork.signet, BitcoinNetwork.regtest]) {
-        await expectLater(
-          datasource.indexPrice(network, SupportedCurrency.cad),
-          throwsA(isA<PricerUnsupportedNetworkException>()),
-          reason: network.name,
+    test(
+      'regtest asks the stack simulator on its port, never a Bull host',
+      () async {
+        await datasource.indexPrice(
+          BitcoinNetwork.regtest,
+          SupportedCurrency.cad,
         );
-      }
+        await datasource.indexPriceHistory(
+          BitcoinNetwork.regtest,
+          SupportedCurrency.cad,
+          PriceHistoryInterval.day,
+          from: DateTime.utc(2026, 8, 6),
+          to: DateTime.utc(2026, 11, 4),
+        );
+
+        expect(api.requests.map((r) => r.host).toSet(), {'127.0.0.1'});
+        expect(api.requests.map((r) => r.port).toSet(), {8088});
+      },
+    );
+
+    test('regtest follows the shared regtest host profile', () async {
+      await const PricerApiDatasource(regtestHost: '10.1.2.3')
+          .indexPrice(BitcoinNetwork.regtest, SupportedCurrency.cad);
+
+      expect(api.requests.single.host, '10.1.2.3');
+      expect(api.requests.single.port, 8088);
+    });
+
+    test('a network without a price service is never asked', () async {
+      await expectLater(
+        datasource.indexPrice(BitcoinNetwork.signet, SupportedCurrency.cad),
+        throwsA(isA<PricerUnsupportedNetworkException>()),
+      );
       expect(api.requests, isEmpty);
     });
   });

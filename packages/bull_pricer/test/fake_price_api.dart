@@ -7,6 +7,9 @@ final class FakePriceRequest {
   /// The host the request was addressed to, e.g. `api.bullbitcoin.com`.
   final String host;
 
+  /// The port the request was addressed to.
+  final int? port;
+
   /// The JSON-RPC method, e.g. `getRate`.
   final String method;
 
@@ -18,6 +21,7 @@ final class FakePriceRequest {
 
   const FakePriceRequest({
     required this.host,
+    this.port,
     required this.method,
     required this.params,
     required this.apiKey,
@@ -121,6 +125,7 @@ final class FakePriceApi {
     ) as Map<String, Object?>;
     final request = FakePriceRequest(
       host: httpRequest.headers.host ?? '',
+      port: httpRequest.headers.port,
       method: rpc['method'] as String,
       params: ((rpc['params'] as Map)['element'] as Map).cast(),
       apiKey: httpRequest.headers.value('X-API-Key'),

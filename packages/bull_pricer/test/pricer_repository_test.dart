@@ -88,7 +88,7 @@ void main() {
     test(
       'a network without a price service is a failure, never asked',
       () async {
-        for (final network in [BitcoinNetwork.signet, BitcoinNetwork.regtest]) {
+        for (final network in [BitcoinNetwork.signet]) {
           expect(
             failure(
               await atNow(
