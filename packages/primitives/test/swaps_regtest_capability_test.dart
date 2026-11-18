@@ -28,7 +28,6 @@ void main() {
       LiquidNetwork.regtest,
     ]) {
       for (final capability in [
-        NetworkCapability.exchange,
         NetworkCapability.publicExplorer,
         NetworkCapability.publicFeeEstimates,
         NetworkCapability.hardwareWallet,
