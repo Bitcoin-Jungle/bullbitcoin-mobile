@@ -143,7 +143,7 @@ void main() {
       locator.registerFactoryParam<
         CompleteExchangeAuthenticationUsecase,
         Future<Object> Function(String),
-        ({bool isTestnet, bool Function() isOpen})
+        ({bool isTestnet, bool isRegtest, bool Function() isOpen})
       >(
         (_, session) => CompleteExchangeAuthenticationUsecase(
           authRepository: ExchangeAuthRepositoryImpl(

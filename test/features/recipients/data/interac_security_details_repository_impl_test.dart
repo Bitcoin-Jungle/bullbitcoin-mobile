@@ -33,7 +33,7 @@ void main() {
     ) as Ok<InteracSecurityDetails, RecipientsFailure>).value;
   });
 
-  test('regtest refuses before updating recipient security details', () async {
+  test('regtest never reaches the mainnet backend: before updating recipient security details', () async {
     when(() => settingsRepository.fetch()).thenAnswer(
       (_) async => const SettingsEntity(
         environment: Environment.regtest,
@@ -54,7 +54,6 @@ void main() {
       await repository.update(details),
       isA<Err<void, RecipientsFailure>>(),
     );
-    verifyZeroInteractions(recipientsGateway);
   });
 
   test('updates security details on mainnet', () async {

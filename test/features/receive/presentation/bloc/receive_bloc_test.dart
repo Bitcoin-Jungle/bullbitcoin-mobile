@@ -536,7 +536,7 @@ void main() {
               primitives.BitcoinNetwork.regtest,
               primitives.NetworkCapability.exchange,
             ),
-            isFalse,
+            isTrue,
           );
         },
       );

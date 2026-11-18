@@ -97,7 +97,7 @@ void main() {
         primitives.LiquidNetwork.regtest,
         primitives.NetworkCapability.exchange,
       ),
-      isFalse,
+      isTrue,
     );
   });
 

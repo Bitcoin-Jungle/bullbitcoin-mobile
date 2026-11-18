@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:bb_mobile/features/exchange/domain/exchange_access.dart';
 import 'package:bb_mobile/features/exchange/domain/repositories/exchange_access_repository.dart';
-import 'package:bb_mobile/features/exchange/domain/usecases/get_exchange_web_settings_usecase.dart';
 import 'package:bb_mobile/core/exchange/domain/entity/announcement.dart';
 import 'package:bb_mobile/core/exchange/domain/entity/user_summary.dart';
 import 'package:bb_mobile/core/exchange/domain/exchange_support_chat_failure.dart';
@@ -97,41 +96,6 @@ void main() {
       expect(failure.logMessage, reason);
     });
   });
-
-  test(
-    'regtest refuses exchange operations without historical side effects',
-    () async {
-      when(settings.fetch)
-          .thenAnswer((_) async => _settings(Environment.regtest));
-      final support = _MockSendSupportChat();
-      final results = [
-        await GetExchangeAnnouncementsUsecase(
-          mainnetExchangeUserRepository: mainnetUsers,
-          testnetExchangeUserRepository: testnetUsers,
-          settingsRepository: settings,
-          access: access,
-        ).execute(),
-        await SaveExchangePreferencesUsecase(
-          mainnetExchangeUserRepository: mainnetUsers,
-          testnetExchangeUserRepository: testnetUsers,
-          settingsRepository: settings,
-          access: access,
-        ).execute(language: 'fr'),
-        await GetExchangeWebSettingsUsecase(settingsRepository: settings)
-            .execute(),
-        await RequestExchangeAccountDeletionUsecase(
-          sendSupportChatMessageUsecase: support,
-          settingsRepository: settings,
-        ).execute(),
-      ];
-      for (final result in results) {
-        expect(_failureOf(result), isA<ExchangeUnsupportedNetworkFailure>());
-      }
-      verifyZeroInteractions(mainnetUsers);
-      verifyZeroInteractions(testnetUsers);
-      verifyZeroInteractions(support);
-    },
-  );
 
   group('SaveExchangePreferencesUsecase', () {
     // An account whose stored preferences all differ from the test inputs,
