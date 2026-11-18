@@ -15,7 +15,12 @@ final class PricerApiDatasource {
 
   static const _timeout = Duration(seconds: 10);
 
-  const PricerApiDatasource();
+  static const _regtestSimulatorPort = 8088;
+
+  /// Overrides the shared regtest host profile; regtest requests only.
+  final String? regtestHost;
+
+  const PricerApiDatasource({this.regtestHost});
 
   /// Public price: no auth needed.
   Future<PriceResponseModel> indexPrice(
@@ -60,12 +65,23 @@ final class PricerApiDatasource {
     );
   }
 
-  static String _baseUrl(BitcoinNetwork network) => switch (network) {
+  String _baseUrl(BitcoinNetwork network) => switch (network) {
     BitcoinNetwork.mainnet => _mainnetBaseUrl,
     BitcoinNetwork.testnet => _testnetBaseUrl,
-    BitcoinNetwork.signet ||
-    BitcoinNetwork.regtest => throw PricerUnsupportedNetworkException(network),
+    BitcoinNetwork.regtest => _regtestBaseUrl(),
+    BitcoinNetwork.signet => throw PricerUnsupportedNetworkException(network),
   };
+
+  /// The stack simulator answers the public price calls on regtest only.
+  String _regtestBaseUrl() {
+    final host =
+        regtestHost ?? RegtestHostProfile.forNetwork(NetworkEnv.regtest)!.host;
+    return Uri(
+      scheme: 'http',
+      host: host,
+      port: _regtestSimulatorPort,
+    ).toString();
+  }
 
   Future<Object?> _request(
     Dio clientHttp,
