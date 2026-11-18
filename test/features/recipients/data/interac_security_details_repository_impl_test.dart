@@ -33,7 +33,7 @@ void main() {
     ) as Ok<InteracSecurityDetails, RecipientsFailure>).value;
   });
 
-  test('regtest never reaches the mainnet backend: before updating recipient security details', () async {
+  test('regtest uses the non-mainnet backend slot, never mainnet', () async {
     when(() => settingsRepository.fetch()).thenAnswer(
       (_) async => const SettingsEntity(
         environment: Environment.regtest,
@@ -52,8 +52,17 @@ void main() {
     ).thenAnswer((_) async => const Ok(null));
     expect(
       await repository.update(details),
-      isA<Err<void, RecipientsFailure>>(),
+      isA<Ok<void, RecipientsFailure>>(),
     );
+    verify(
+      () => recipientsGateway.updateInteracSecurityDetails(
+        recipientId: any(named: 'recipientId'),
+        email: any(named: 'email'),
+        securityQuestion: any(named: 'securityQuestion'),
+        securityAnswer: any(named: 'securityAnswer'),
+        isTestnet: true,
+      ),
+    ).called(1);
   });
 
   test('updates security details on mainnet', () async {
