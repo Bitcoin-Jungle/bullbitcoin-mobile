@@ -1,3 +1,5 @@
+import 'package:background_tasks/background_tasks.dart'
+    show backgroundSyncAvailable;
 import 'package:primitives/primitives.dart';
 import 'package:bb_mobile/core/utils/build_context_x.dart';
 import 'package:bb_mobile/core/utils/constants.dart';
@@ -64,6 +66,7 @@ enum SettingsItemId {
   devMode,
   testnetCredentials,
   errorReporting,
+  permissions,
 }
 
 enum SettingsItemSection { root, backup, wallet, app }
@@ -183,9 +186,9 @@ List<SettingsItem> settingsItemsOf(
     isDevModeEnabled: isDevModeEnabled,
     isSpWalletSetup: isSpWalletSetup,
     accountReady: accountReady,
+    backgroundTasksAvailable: backgroundSyncAvailable,
     environment: context.select(
-      (SettingsCubit cubit) =>
-          cubit.state.storedSettings?.activeNetwork ?? NetworkEnv.mainnet,
+      (SettingsCubit cubit) => cubit.state.storedSettings?.activeNetwork,
     ),
   );
 }
@@ -196,7 +199,8 @@ List<SettingsItem> buildSettingsItems({
   bool isDevModeEnabled = false,
   bool isSpWalletSetup = false,
   bool accountReady = false,
-  NetworkEnv environment = NetworkEnv.mainnet,
+  bool backgroundTasksAvailable = false,
+  required NetworkEnv? environment,
 }) {
   final english = AppLocalizationsEn();
   final rootSection = localization.settingsScreenTitle;
@@ -730,6 +734,20 @@ List<SettingsItem> buildSettingsItems({
       ),
       isInlineControl: true,
     ),
+    if (backgroundTasksAvailable)
+      SettingsItem(
+        id: SettingsItemId.permissions,
+        section: SettingsItemSection.app,
+        title: localization.permissionsTitle,
+        path: path(SettingsItemSection.app, localization.permissionsTitle),
+        icon: Icons.verified_user_outlined,
+        open: (context) => context.pushNamed(SettingsRoute.permissions.name),
+        keywords: _keywords(
+          localization.settingsSearchPermissionsKeywords,
+          english.settingsSearchPermissionsKeywords,
+          [english.permissionsTitle],
+        ),
+      ),
     if (isSuperuser)
       SettingsItem(
         id: SettingsItemId.devMode,
@@ -787,7 +805,7 @@ List<SettingsItem> buildSettingsItems({
       SettingsItemId.exchange ||
       SettingsItemId.exchangeAccountSettings ||
       SettingsItemId.testnetCredentials => NetworkCapability.exchange,
-      SettingsItemId.autoswap => NetworkCapability.swaps,
+      SettingsItemId.autoswap => NetworkCapability.automaticSwaps,
       SettingsItemId.payjoin => NetworkCapability.payjoin,
       SettingsItemId.sp => NetworkCapability.silentPayments,
       SettingsItemId.mempool ||
@@ -795,6 +813,7 @@ List<SettingsItem> buildSettingsItems({
       _ => null,
     };
     if (capability == null) return true;
+    if (environment == null) return false;
     final network = switch (environment) {
       NetworkEnv.mainnet => BitcoinNetwork.mainnet,
       NetworkEnv.testnet => BitcoinNetwork.testnet,
