@@ -68,14 +68,21 @@ final class PricerApiDatasource {
   String _baseUrl(BitcoinNetwork network) => switch (network) {
     BitcoinNetwork.mainnet => _mainnetBaseUrl,
     BitcoinNetwork.testnet => _testnetBaseUrl,
-    BitcoinNetwork.regtest => _regtestBaseUrl(),
+    BitcoinNetwork.regtest => _regtestBaseUrl(network),
     BitcoinNetwork.signet => throw PricerUnsupportedNetworkException(network),
   };
 
   /// The stack simulator answers the public price calls on regtest only.
-  String _regtestBaseUrl() {
-    final host =
-        regtestHost ?? RegtestHostProfile.forNetwork(NetworkEnv.regtest)!.host;
+  String _regtestBaseUrl(BitcoinNetwork network) {
+    final String host;
+    try {
+      host =
+          regtestHost ??
+          RegtestHostProfile.forNetwork(NetworkEnv.regtest)!.host;
+    } on ArgumentError {
+      // A build without a regtest host has no price service for it.
+      throw PricerUnsupportedNetworkException(network);
+    }
     return Uri(
       scheme: 'http',
       host: host,

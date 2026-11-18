@@ -10,11 +10,21 @@ abstract final class RegtestExchangeProfile {
   static const developmentApiKey = 'regtest-exchange-development-key';
 
   /// Fixed to the shared host profile; there is no way to pass another URL.
+  /// Throws [ArgumentError] on a build without a configured regtest host.
   static Uri baseUri({String? host}) => Uri(
     scheme: 'http',
     host: host ?? RegtestHostProfile.forNetwork(NetworkEnv.regtest)!.host,
     port: simulatorPort,
   );
+
+  /// [baseUri], or null when this build has no regtest host.
+  static Uri? tryBaseUri({String? host}) {
+    try {
+      return baseUri(host: host);
+    } on ArgumentError {
+      return null;
+    }
+  }
 }
 
 /// A refused request: regtest traffic left the simulator, or the active
@@ -33,7 +43,6 @@ void addRegtestExchangeRouting(
   Future<NetworkEnv> Function() readEnvironment, {
   String? regtestHost,
 }) {
-  final regtest = RegtestExchangeProfile.baseUri(host: regtestHost);
   dio.interceptors.add(
     InterceptorsWrapper(
       onRequest: (options, handler) async {
@@ -50,7 +59,8 @@ void addRegtestExchangeRouting(
           return;
         }
         if (environment == NetworkEnv.regtest) {
-          if (Uri.parse(options.path).hasScheme) {
+          final regtest = RegtestExchangeProfile.tryBaseUri(host: regtestHost);
+          if (regtest == null || Uri.parse(options.path).hasScheme) {
             handler.reject(
               DioException(
                 requestOptions: options,
@@ -72,12 +82,13 @@ void addRegtestExchangeRouting(
 /// environment. Add it after the authentication interceptor so it sees the
 /// final URL and the key the client attached.
 void addRegtestKeyGuard(Dio dio, {String? regtestHost}) {
-  final regtest = RegtestExchangeProfile.baseUri(host: regtestHost);
   dio.interceptors.add(
     InterceptorsWrapper(
       onRequest: (options, handler) {
         final key = options.headers['X-API-Key'];
+        final regtest = RegtestExchangeProfile.tryBaseUri(host: regtestHost);
         final toSimulator =
+            regtest != null &&
             options.uri.host == regtest.host &&
             options.uri.port == regtest.port;
         if (key == RegtestExchangeProfile.developmentApiKey && !toSimulator) {
