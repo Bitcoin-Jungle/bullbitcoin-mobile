@@ -39,6 +39,12 @@ class CreateReceiveOrderSwapUsecase {
       log.warning('Capability refused feature=receive_swap reason=unsupported');
       return const Err(ReceiveSwapUnavailableFailure());
     }
+    // The regtest exchange simulator settles on-chain only: no Lightning leg.
+    if (wallet.network.shared == BitcoinNetwork.regtest ||
+        wallet.network.shared == LiquidNetwork.regtest) {
+      log.warning('Capability refused feature=receive_swap reason=lightning');
+      return const Err(ReceiveSwapUnavailableFailure());
+    }
     if (!wallet.isLiquid || amountSat <= 0) {
       return const Err(ReceiveSwapUnavailableFailure());
     }

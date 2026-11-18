@@ -64,7 +64,7 @@ class CreateSendSwapUsecase {
       final inNetwork = wallet.network.isLiquid
           ? OrderSwapNetwork.liquid
           : OrderSwapNetwork.bitcoin;
-      if (invoice.isTestnet != wallet.network.requireHistoricalTestnet()) {
+      if (invoice.isTestnet != wallet.network.exchangeSlotIsTestnet()) {
         return const Err(
           SendInvalidPaymentRequestFailure(
             logMessage: 'Invoice network does not match wallet network',
@@ -84,7 +84,7 @@ class CreateSendSwapUsecase {
         destinationAddress: invoice.invoice,
         fallbackAddress: fallback.address,
         purpose: OrderSwapPurpose.sendLightning,
-        environment: wallet.network.requireHistoricalTestnet()
+        environment: wallet.network.exchangeSlotIsTestnet()
             ? OrderSwapEnvironment.testnet
             : OrderSwapEnvironment.mainnet,
         sourceWalletId: walletId,

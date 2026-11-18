@@ -29,7 +29,7 @@ class WatchSepaVirtualPayeeActivationUsecase {
     final bool isTestnet;
     switch (await _getRecipientsEnvironmentUsecase.execute()) {
       case Ok(:final value):
-        isTestnet = value.requireHistoricalTestnet();
+        isTestnet = value.exchangeSlotIsTestnet();
       case Err(:final failure):
         yield Err(failure);
         return;

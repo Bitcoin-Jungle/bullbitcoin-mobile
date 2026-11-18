@@ -61,7 +61,7 @@ class CreateWithdrawOrderUsecase {
         log.warning('Capability refused feature=withdraw reason=unsupported');
         return const Err(WithdrawUnsupportedNetworkFailure());
       }
-      final isTestnet = settings.environment.requireHistoricalTestnet();
+      final isTestnet = settings.environment.exchangeSlotIsTestnet();
       final repo = isTestnet
           ? _testnetExchangeOrderRepository
           : _mainnetExchangeOrderRepository;

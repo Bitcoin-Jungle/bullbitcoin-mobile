@@ -4,6 +4,7 @@ import 'package:bb_mobile/core/exchange/data/datasources/exchange_notification_d
 import 'package:bb_mobile/core/exchange/data/models/notification_message_model.dart';
 import 'package:bb_mobile/core/exchange/domain/entity/notification_message.dart';
 import 'package:bb_mobile/core/settings/data/settings_repository.dart';
+import 'package:bb_mobile/features/settings/domain/settings_entity.dart';
 
 /// Primary/driving adapter that receives WebSocket notification events
 /// and exposes them as a stream for the application to consume.
@@ -50,12 +51,16 @@ class ExchangeNotificationService {
 
   Future<ExchangeNotificationDatasource> _getDatasource() async {
     final settings = await _settingsRepository.fetch();
-    _isTestnet = settings.environment.requireHistoricalTestnet();
+    _isTestnet = settings.environment.exchangeSlotIsTestnet();
     return _isTestnet ? _testnetDatasource : _mainnetDatasource;
   }
 
   /// Connect to the WebSocket for the current environment (mainnet/testnet)
   Future<void> connect() async {
+    // Notifications have no regtest counterpart: the simulator has no socket,
+    // and the non-mainnet socket must never see the development key.
+    final settings = await _settingsRepository.fetch();
+    if (settings.environment == Environment.regtest) return;
     final datasource = await _getDatasource();
     await datasource.connect();
   }

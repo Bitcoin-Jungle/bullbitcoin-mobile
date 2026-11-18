@@ -37,7 +37,7 @@ class GetSendCrossChainQuoteUsecase {
         ? OrderSwapNetwork.bitcoin
         : OrderSwapNetwork.liquid;
     final result = await _swapFacade.getQuote(
-      environment: wallet.network.requireHistoricalTestnet()
+      environment: wallet.network.exchangeSlotIsTestnet()
           ? OrderSwapEnvironment.testnet
           : OrderSwapEnvironment.mainnet,
       amountSat: amountSat,

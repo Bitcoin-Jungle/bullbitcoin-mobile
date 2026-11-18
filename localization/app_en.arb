@@ -15710,5 +15710,13 @@
   "serverUnencrypted": "Unencrypted",
   "@serverUnencrypted": {
     "description": "Badge on a server row: the connection to the server is not encrypted"
+  },
+  "exchangeRegtestAccountButton": "Use the regtest exchange account",
+  "@exchangeRegtestAccountButton": {
+    "description": "Button that signs in the development exchange account on regtest, replacing the web login"
+  },
+  "exchangeRegtestAccountDescription": "Regtest uses a development exchange account backed by the local simulator. No Bull Bitcoin login is needed and nothing leaves your regtest stack.",
+  "@exchangeRegtestAccountDescription": {
+    "description": "Explains the regtest development exchange account"
   }
 }

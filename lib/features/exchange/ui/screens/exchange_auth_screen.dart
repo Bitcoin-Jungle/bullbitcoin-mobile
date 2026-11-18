@@ -39,6 +39,7 @@ class _ExchangeAuthScreenState extends State<ExchangeAuthScreen> {
   String? _basicAuthPassword;
   bool _isGeneratingApiKey = false;
   bool _isClosing = false;
+  bool _isRegtest = false;
 
   bool _isLoadingConfiguration = true;
   ExchangeFailure? _configurationFailure;
@@ -72,11 +73,24 @@ class _ExchangeAuthScreenState extends State<ExchangeAuthScreen> {
         });
         return;
     }
-    final isTestnet = settingsState.environment == Environment.testnet;
+    final isRegtest = settingsState.environment == Environment.regtest;
+    final isTestnet = settingsState.environment.exchangeSlotIsTestnet();
     _authentication = locator<CompleteExchangeAuthenticationUsecase>(
       param1: _controller.runJavaScriptReturningResult,
-      param2: (isTestnet: isTestnet, isOpen: () => mounted && !_isClosing),
+      param2: (
+        isTestnet: isTestnet,
+        isRegtest: isRegtest,
+        isOpen: () => mounted && !_isClosing,
+      ),
     );
+    if (isRegtest) {
+      // No web login on regtest: the development account replaces it.
+      setState(() {
+        _isRegtest = true;
+        _isLoadingConfiguration = false;
+      });
+      return;
+    }
     _bbAuthUrl = isTestnet
         ? ApiServiceConstants.bbAuthTestUrl
         : ApiServiceConstants.bbAuthUrl;
@@ -257,11 +271,49 @@ class _ExchangeAuthScreenState extends State<ExchangeAuthScreen> {
         ),
       );
     }
+    if (_isRegtest) {
+      return SafeArea(
+        child: _isGeneratingApiKey
+            ? const Center(child: CircularProgressIndicator())
+            : Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CloseButton(onPressed: widget.onExit),
+                  Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Text(context.loc.exchangeRegtestAccountDescription),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: FilledButton(
+                      onPressed: _signInRegtest,
+                      child: Text(context.loc.exchangeRegtestAccountButton),
+                    ),
+                  ),
+                ],
+              ),
+      );
+    }
     return SafeArea(
       child: _isGeneratingApiKey
           ? const Center(child: CircularProgressIndicator())
           : WebViewWidget(controller: _controller),
     );
+  }
+
+  Future<void> _signInRegtest() async {
+    if (!mounted || _isClosing || _isGeneratingApiKey) return;
+    setState(() => _isGeneratingApiKey = true);
+    try {
+      final result = await context.read<ExchangeCubit>().completeAuthentication(
+        _authentication,
+        isCurrent: () => mounted && !_isClosing,
+      );
+      if (!mounted || _isClosing) return;
+      if (result case Err(:final failure)) await _handleLoginError(failure);
+    } finally {
+      if (mounted) setState(() => _isGeneratingApiKey = false);
+    }
   }
 
   Future<bool> _hasBBSessionCookie(String url) async {

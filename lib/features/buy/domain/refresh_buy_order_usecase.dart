@@ -40,7 +40,7 @@ class RefreshBuyOrderUsecase {
       )) {
         return const Err(BuyUnsupportedNetworkFailure());
       }
-      final isTestnet = environment == NetworkEnv.testnet;
+      final isTestnet = environment != NetworkEnv.mainnet;
       final repo = isTestnet
           ? _testnetExchangeOrderRepository
           : _mainnetExchangeOrderRepository;

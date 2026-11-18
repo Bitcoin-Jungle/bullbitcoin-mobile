@@ -23,7 +23,7 @@ class GetSupportChatMessageAttachmentUsecase {
     final ExchangeSupportChatRepository repository;
     try {
       final settings = await _settingsRepository.fetch();
-      repository = settings.environment.requireHistoricalTestnet()
+      repository = settings.environment.exchangeSlotIsTestnet()
           ? _testnetRepository
           : _mainnetRepository;
     } catch (e, st) {

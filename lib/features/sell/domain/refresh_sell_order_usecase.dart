@@ -34,7 +34,7 @@ class RefreshSellOrderUsecase {
       )) {
         return const Err(SellUnsupportedNetworkFailure());
       }
-      final isTestnet = settings.environment.requireHistoricalTestnet();
+      final isTestnet = settings.environment.exchangeSlotIsTestnet();
       final repo = isTestnet
           ? _testnetExchangeOrderRepository
           : _mainnetExchangeOrderRepository;

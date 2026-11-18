@@ -1055,7 +1055,7 @@ class TransferBloc extends Bloc<TransferEvent, TransferState>
     if (fromWallet.isHardwareWallet) {
       throw SwapCreationException('hardware_wallet_swap_unavailable');
     }
-    final orderEnvironment = fromWallet.network.requireHistoricalTestnet()
+    final orderEnvironment = fromWallet.network.exchangeSlotIsTestnet()
         ? OrderSwapEnvironment.testnet
         : OrderSwapEnvironment.mainnet;
 
@@ -1151,7 +1151,7 @@ class TransferBloc extends Bloc<TransferEvent, TransferState>
           ? SwapType.liquidToBitcoin
           : SwapType.bitcoinToLiquid,
       status: SwapStatus.pending,
-      environment: fromWallet.network.requireHistoricalTestnet()
+      environment: fromWallet.network.exchangeSlotIsTestnet()
           ? SwapEnvironment.testnet
           : SwapEnvironment.mainnet,
       creationTime: created.createdAt,

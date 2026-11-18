@@ -86,7 +86,7 @@ final class LimitOrderRepositoryImpl implements LimitOrderRepository {
       )) {
         return const Err(LimitOrdersUnsupportedNetworkFailure());
       }
-      final datasource = settings.environment.requireHistoricalTestnet()
+      final datasource = settings.environment.exchangeSlotIsTestnet()
           ? _testnetDatasource
           : _mainnetDatasource;
       return Ok(await action(datasource));

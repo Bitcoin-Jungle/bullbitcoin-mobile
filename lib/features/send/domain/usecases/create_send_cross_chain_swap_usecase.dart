@@ -52,7 +52,7 @@ class CreateSendCrossChainSwapUsecase {
           )) {
         return const Err(SendSwapRouteUnavailableFailure());
       }
-      if (destinationIsTestnet != wallet.network.requireHistoricalTestnet()) {
+      if (destinationIsTestnet != wallet.network.exchangeSlotIsTestnet()) {
         return const Err(
           SendInvalidPaymentRequestFailure(
             logMessage: 'Destination network does not match wallet network',
@@ -78,7 +78,7 @@ class CreateSendCrossChainSwapUsecase {
         destinationAddress: destinationAddress,
         fallbackAddress: fallback.address,
         purpose: OrderSwapPurpose.sendCrossChain,
-        environment: wallet.network.requireHistoricalTestnet()
+        environment: wallet.network.exchangeSlotIsTestnet()
             ? OrderSwapEnvironment.testnet
             : OrderSwapEnvironment.mainnet,
         sourceWalletId: walletId,

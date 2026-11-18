@@ -70,6 +70,7 @@ import 'package:bb_mobile/features/swap/domain/usecases/watch_order_swap_usecase
 import 'package:bb_mobile/features/swap/domain/usecases/watch_swap_app_update_required_usecase.dart';
 import 'package:bb_mobile/features/swap/order_swap_watcher.dart';
 import 'package:bb_mobile/features/swap/public/swap_facade.dart';
+import 'package:bb_mobile/features/exchange/data/regtest_exchange_routing.dart';
 import 'package:dio/dio.dart';
 import 'package:bull_pricer/bull_pricer.dart';
 import 'package:get_it/get_it.dart';
@@ -85,19 +86,25 @@ class SwapLocator {
   }
 
   static void registerOrderSwapFoundation(GetIt locator) {
-    locator.registerLazySingleton<ExchangePublicApiDatasource>(
-      () => ExchangePublicApiDatasource(
-        Dio(
-          BaseOptions(
-            baseUrl: ApiServiceConstants.swapApiStagingUrl,
-            connectTimeout: const Duration(seconds: 15),
-            sendTimeout: const Duration(seconds: 15),
-            receiveTimeout: const Duration(seconds: 30),
-          ),
+    locator.registerLazySingleton<ExchangePublicApiDatasource>(() {
+      final dio = Dio(
+        BaseOptions(
+          baseUrl: ApiServiceConstants.swapApiStagingUrl,
+          connectTimeout: const Duration(seconds: 15),
+          sendTimeout: const Duration(seconds: 15),
+          receiveTimeout: const Duration(seconds: 30),
         ),
-      ),
-      instanceName: _testnetExchangeDatasource,
-    );
+      );
+      // The non-mainnet slot also serves regtest, bound to the simulator.
+      addRegtestExchangeRouting(
+        dio,
+        () async =>
+            (await locator<settings_domain.SettingsRepository>().fetch())
+                .environment
+                .networkEnv,
+      );
+      return ExchangePublicApiDatasource(dio);
+    }, instanceName: _testnetExchangeDatasource);
     locator.registerLazySingleton<ExchangePublicApiDatasource>(
       () => ExchangePublicApiDatasource(
         Dio(

@@ -33,7 +33,7 @@ class ListCadBillersUsecase {
     final bool isTestnet;
     switch (await _getRecipientsEnvironmentUsecase.execute()) {
       case Ok(:final value):
-        isTestnet = value.requireHistoricalTestnet();
+        isTestnet = value.exchangeSlotIsTestnet();
       case Err(:final failure):
         return Err(failure);
     }

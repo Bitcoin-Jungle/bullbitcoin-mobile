@@ -27,6 +27,7 @@ import 'package:bb_mobile/features/exchange/domain/usecases/save_exchange_prefer
 import 'package:bb_mobile/features/exchange/domain/usecases/complete_exchange_authentication_usecase.dart';
 import 'package:bb_mobile/features/exchange/data/exchange_auth_repository_impl.dart';
 import 'package:bb_mobile/features/exchange/data/exchange_web_auth_datasource.dart';
+import 'package:bb_mobile/features/exchange/data/regtest_exchange_auth_repository.dart';
 import 'package:bb_mobile/features/exchange/domain/usecases/watch_exchange_notifications_usecase.dart';
 import 'package:bb_mobile/features/exchange/presentation/exchange_cubit.dart';
 import 'package:bb_mobile/features/exchange/public/exchange_facade.dart';
@@ -46,7 +47,7 @@ class ExchangeLocator {
         readEnvironment: () async =>
             (await locator<settings_contract.SettingsRepository>().fetch())
                 .environment
-                .requireHistoricalTestnet(),
+                .exchangeSlotIsTestnet(),
         platformAllowed: platformAllowed,
         disconnectNotifications: () async =>
             locator<ExchangeNotificationRepository>().disconnect(),
@@ -148,16 +149,18 @@ class ExchangeLocator {
     locator.registerFactoryParam<
       CompleteExchangeAuthenticationUsecase,
       Future<Object> Function(String),
-      ({bool isTestnet, bool Function() isOpen})
+      ({bool isTestnet, bool isRegtest, bool Function() isOpen})
     >(
       (evaluateJavaScript, session) => CompleteExchangeAuthenticationUsecase(
-        authRepository: ExchangeAuthRepositoryImpl(
-          datasource: ExchangeWebAuthDatasource(
-            isTestnet: session.isTestnet,
-            evaluateJavaScript: evaluateJavaScript,
-            isOpen: session.isOpen,
-          ),
-        ),
+        authRepository: session.isRegtest
+            ? const RegtestExchangeAuthRepository()
+            : ExchangeAuthRepositoryImpl(
+                datasource: ExchangeWebAuthDatasource(
+                  isTestnet: session.isTestnet,
+                  evaluateJavaScript: evaluateJavaScript,
+                  isOpen: session.isOpen,
+                ),
+              ),
         access: locator<ExchangeAccessRepository>(),
         isTestnet: session.isTestnet,
       ),

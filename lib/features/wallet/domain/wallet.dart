@@ -54,6 +54,12 @@ enum Network {
     bitcoinRegtest ||
     liquidRegtest => throw const UnsupportedNetworkException(),
   };
+
+  /// Exchange slot of this wallet's network; regtest rides the non-mainnet one.
+  bool exchangeSlotIsTestnet() => switch (this) {
+    bitcoinMainnet || liquidMainnet => false,
+    _ => true,
+  };
 }
 
 final class UnsupportedNetworkException implements Exception {

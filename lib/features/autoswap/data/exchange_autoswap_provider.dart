@@ -125,7 +125,7 @@ class ExchangeAutoswapProvider implements AutoswapProviderPort {
         return const Err(AutoswapInsufficientBalanceFailure());
       }
 
-      final orderEnvironment = environment.requireHistoricalTestnet()
+      final orderEnvironment = environment.exchangeSlotIsTestnet()
           ? OrderSwapEnvironment.testnet
           : OrderSwapEnvironment.mainnet;
       final quoteResult = await _swapFacade.getQuote(
@@ -311,7 +311,7 @@ class ExchangeAutoswapProvider implements AutoswapProviderPort {
     }
     final txid = await _broadcastLiquidTransaction.execute(
       signedTransaction,
-      isTestnet: wallet.network.requireHistoricalTestnet(),
+      isTestnet: wallet.network.exchangeSlotIsTestnet(),
     );
     final paidResult = await _swapFacade.markPayinBroadcast(
       localId: record.localId,

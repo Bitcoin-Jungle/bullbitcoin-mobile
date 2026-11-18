@@ -111,7 +111,7 @@ class SetDcaUsecase {
     // by writing it — and saveUserPreferences replaces the whole stored set,
     // so the enabling write must carry the current values. Aborting here is
     // clean: nothing exists on the exchange yet.
-    final userRepository = environment.requireHistoricalTestnet()
+    final userRepository = environment.exchangeSlotIsTestnet()
         ? _testnetExchangeUserRepository
         : _mainnetExchangeUserRepository;
 

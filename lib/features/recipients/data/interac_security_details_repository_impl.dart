@@ -31,7 +31,7 @@ final class InteracSecurityDetailsRepositoryImpl
       )) {
         return const Err(RecipientsUnsupportedNetworkFailure());
       }
-      isTestnet = environment.requireHistoricalTestnet();
+      isTestnet = environment.exchangeSlotIsTestnet();
     } on Exception catch (e, st) {
       log.warning(
         'Could not read the environment',

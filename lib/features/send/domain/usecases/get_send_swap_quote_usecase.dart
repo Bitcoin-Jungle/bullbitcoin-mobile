@@ -33,7 +33,7 @@ class GetSendSwapQuoteUsecase {
         ? OrderSwapNetwork.liquid
         : OrderSwapNetwork.bitcoin;
     final result = await _swapFacade.getQuote(
-      environment: wallet.network.requireHistoricalTestnet()
+      environment: wallet.network.exchangeSlotIsTestnet()
           ? OrderSwapEnvironment.testnet
           : OrderSwapEnvironment.mainnet,
       amountSat: amountSat,

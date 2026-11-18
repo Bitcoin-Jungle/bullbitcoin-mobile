@@ -19,7 +19,7 @@ class SaveDefaultWalletUsecase {
     String? existingRecipientId,
   }) async {
     final settings = await _settingsRepository.fetch();
-    final isTestnet = settings.environment.requireHistoricalTestnet();
+    final isTestnet = settings.environment.exchangeSlotIsTestnet();
 
     final repository = isTestnet ? _testnetRepository : _mainnetRepository;
     return repository.saveDefaultWallet(

@@ -41,6 +41,14 @@ enum Environment {
     Environment.testnet => true,
     Environment.regtest => throw const UnsupportedEnvironmentException(),
   };
+
+  /// Exchange backends keep a mainnet slot and a non-mainnet slot. Regtest uses
+  /// the second one, and that slot's transport is bound to the regtest
+  /// simulator while regtest is active (see `regtest_exchange_routing.dart`).
+  bool exchangeSlotIsTestnet() => switch (this) {
+    Environment.mainnet => false,
+    Environment.testnet || Environment.regtest => true,
+  };
 }
 
 final class UnsupportedEnvironmentException implements Exception {

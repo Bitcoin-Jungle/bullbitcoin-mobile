@@ -37,7 +37,7 @@ class SetAutoBuyUsecase {
       )) {
         return const Err(AutoBuyUnsupportedNetworkFailure());
       }
-      userRepository = settings.environment.requireHistoricalTestnet()
+      userRepository = settings.environment.exchangeSlotIsTestnet()
           ? _testnetExchangeUserRepository
           : _mainnetExchangeUserRepository;
     } on Error {

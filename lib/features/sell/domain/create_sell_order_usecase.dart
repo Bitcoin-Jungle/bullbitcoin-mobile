@@ -70,7 +70,7 @@ class CreateSellOrderUsecase {
         Ok(:final value) => value.sellEnabled,
         Err() => false,
       };
-      final isTestnet = settings.environment.requireHistoricalTestnet();
+      final isTestnet = settings.environment.exchangeSlotIsTestnet();
       final repo = isTestnet
           ? _testnetExchangeOrderRepository
           : _mainnetExchangeOrderRepository;

@@ -1,4 +1,6 @@
+import 'package:bb_mobile/core/exchange/data/http/bullbitcoin_api_dio_factory.dart';
 import 'package:bb_mobile/core/exchange/data/http/exchange_authentication_interceptor.dart';
+import 'package:bb_mobile/features/exchange/data/regtest_exchange_routing.dart';
 import 'package:bb_mobile/core/exchange/data/datasources/bullbitcoin_api_datasource.dart';
 import 'package:bb_mobile/core/exchange/data/http/authenticated_bullbitcoin_dio_factory.dart';
 import 'package:bb_mobile/core/exchange/data/datasources/exchange_notification_datasource.dart';
@@ -25,6 +27,7 @@ import 'package:bb_mobile/core/settings/data/settings_repository.dart';
 import 'package:bb_mobile/core/storage/data/datasources/key_value_storage/key_value_storage_datasource.dart';
 import 'package:bb_mobile/core/utils/constants.dart';
 import 'package:dio/dio.dart';
+import 'package:primitives/primitives.dart' show NetworkEnv;
 import 'package:get_it/get_it.dart';
 
 class ExchangeLocator {
@@ -46,14 +49,21 @@ class ExchangeLocator {
         sendTimeout: timeout,
       ),
     );
+    if (isTestnet) {
+      addRegtestExchangeRouting(dio, () => _readNetworkEnv(locator));
+    }
     addExchangeAuthentication(
       dio,
       () => locator<ExchangeApiKeyRepository>().readActiveApiKey(
         isTestnet: isTestnet,
       ),
     );
+    if (isTestnet) addRegtestKeyGuard(dio);
     return dio;
   }
+
+  static Future<NetworkEnv> _readNetworkEnv(GetIt locator) async =>
+      (await locator<SettingsRepository>().fetch()).environment.networkEnv;
 
   static void registerDatasources(GetIt locator) {
     for (final isTestnet in [false, true]) {
@@ -97,15 +107,18 @@ class ExchangeLocator {
       ),
       instanceName: 'authenticatedBullBitcoinApiClient',
     );
-    locator.registerLazySingleton<Dio>(
-      () => AuthenticatedBullBitcoinDioFactory.create(
-        isTestnet: true,
-        readApiKey: () => locator<ExchangeApiKeyRepository>().readActiveApiKey(
+    locator.registerLazySingleton<Dio>(() {
+      final dio = BullBitcoinApiDioFactory.create(isTestnet: true);
+      addRegtestExchangeRouting(dio, () => _readNetworkEnv(locator));
+      addExchangeAuthentication(
+        dio,
+        () => locator<ExchangeApiKeyRepository>().readActiveApiKey(
           isTestnet: true,
         ),
-      ),
-      instanceName: 'authenticatedBullBitcoinApiTestClient',
-    );
+      );
+      addRegtestKeyGuard(dio);
+      return dio;
+    }, instanceName: 'authenticatedBullBitcoinApiTestClient');
   }
 
   static void registerRepositories(GetIt locator) {
@@ -120,6 +133,8 @@ class ExchangeLocator {
         secureStorage: locator<KeyValueStorageDatasource<String>>(
           instanceName: LocatorInstanceNameConstants.secureStorageDatasource,
         ),
+        isRegtest: () async =>
+            await _readNetworkEnv(locator) == NetworkEnv.regtest,
       ),
     );
 

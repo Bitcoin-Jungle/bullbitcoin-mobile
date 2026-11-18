@@ -50,7 +50,7 @@ class SyncExchangeCurrencyUsecase {
     )) {
       return Err(SettingsNetworkUnavailableFailure(environment.networkEnv));
     }
-    final userRepository = environment.requireHistoricalTestnet()
+    final userRepository = environment.exchangeSlotIsTestnet()
         ? _testnetExchangeUserRepository
         : _mainnetExchangeUserRepository;
 

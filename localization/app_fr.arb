@@ -4836,5 +4836,7 @@
   "sendSilentPaymentAddress": "Adresse de paiement silencieux",
   "sendPsbtRequest": "PSBT",
   "serverEncrypted": "Chiffré",
-  "serverUnencrypted": "Non chiffré"
+  "serverUnencrypted": "Non chiffré",
+  "exchangeRegtestAccountButton": "Utiliser le compte exchange regtest",
+  "exchangeRegtestAccountDescription": "Regtest utilise un compte exchange de développement fourni par le simulateur local. Aucune connexion Bull Bitcoin n’est nécessaire et rien ne quitte votre stack regtest."
 }

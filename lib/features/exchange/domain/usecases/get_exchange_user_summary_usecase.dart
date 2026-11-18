@@ -37,7 +37,7 @@ class GetExchangeUserSummaryUsecase {
         'settings fetch failed: ${e.runtimeType}',
       );
     }
-    final repo = settings.environment.requireHistoricalTestnet()
+    final repo = settings.environment.exchangeSlotIsTestnet()
         ? _testnetExchangeUserRepository
         : _mainnetExchangeUserRepository;
 

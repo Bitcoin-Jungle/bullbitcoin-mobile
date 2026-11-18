@@ -18,7 +18,7 @@ class GetOrderUsecase {
   Future<Order> execute({required String orderId}) async {
     try {
       final settings = await _settingsRepository.fetch();
-      final isTestnet = settings.environment.requireHistoricalTestnet();
+      final isTestnet = settings.environment.exchangeSlotIsTestnet();
       final repo = isTestnet
           ? _testnetExchangeOrderRepository
           : _mainnetExchangeOrderRepository;

@@ -16,10 +16,20 @@ class ExchangeApiKeyRepositoryImpl implements ExchangeApiKeyRepository {
   final _testnetMutationLock = Lock();
   final _readFailureTypes = <bool, Type>{};
 
-  ExchangeApiKeyRepositoryImpl({required this._secureStorage});
+  /// Regtest rides the non-mainnet slot: while [_isRegtest] says so, that slot
+  /// reads and writes its own credential, never the testnet one.
+  final Future<bool> Function() _isRegtest;
 
-  static String _storageKey(bool isTestnet) =>
-      isTestnet ? 'exchange_api_key_testnet' : 'exchange_api_key';
+  ExchangeApiKeyRepositoryImpl({
+    required this._secureStorage,
+    Future<bool> Function()? isRegtest,
+  }) : _isRegtest = isRegtest ?? (() async => false);
+
+  Future<String> _storageKey(bool isTestnet) async => !isTestnet
+      ? 'exchange_api_key'
+      : await _isRegtest()
+      ? 'exchange_api_key_regtest'
+      : 'exchange_api_key_testnet';
 
   Lock _mutationLock(bool isTestnet) =>
       isTestnet ? _testnetMutationLock : _mainnetMutationLock;
@@ -49,7 +59,7 @@ class ExchangeApiKeyRepositoryImpl implements ExchangeApiKeyRepository {
   }) async {
     final String? stored;
     try {
-      stored = await _secureStorage.getValue(_storageKey(isTestnet));
+      stored = await _secureStorage.getValue(await _storageKey(isTestnet));
     } on Exception {
       return const Err(ExchangeApiKeyReadFailure());
     }
@@ -77,7 +87,7 @@ class ExchangeApiKeyRepositoryImpl implements ExchangeApiKeyRepository {
       final apiKeyModel = ExchangeApiKeyMapper.toModel(apiKey);
 
       await _secureStorage.saveValue(
-        key: _storageKey(isTestnet),
+        key: await _storageKey(isTestnet),
         value: jsonEncode(apiKeyModel.toJson()),
       );
       log.fine(
@@ -99,7 +109,7 @@ class ExchangeApiKeyRepositoryImpl implements ExchangeApiKeyRepository {
     required bool isTestnet,
   }) => _mutationLock(isTestnet).synchronized(() async {
     try {
-      await _secureStorage.deleteValue(_storageKey(isTestnet));
+      await _secureStorage.deleteValue(await _storageKey(isTestnet));
       log.fine(
         'Exchange credential removed: env=${isTestnet ? 'testnet' : 'mainnet'}',
       );

@@ -18,6 +18,6 @@ class SettingsExchangeEnvironmentAdapter implements ExchangeEnvironmentPort {
     )) {
       throw const UnsupportedExchangeNetworkException();
     }
-    return settings.environment.requireHistoricalTestnet();
+    return settings.environment.exchangeSlotIsTestnet();
   }
 }
