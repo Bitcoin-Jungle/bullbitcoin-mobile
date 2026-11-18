@@ -57,11 +57,11 @@ Dio _client(
   String? key,
 }) {
   final dio = Dio(BaseOptions(baseUrl: baseUrl))..httpClientAdapter = recorder;
-  addRegtestExchangeRouting(dio, environment);
+  addRegtestExchangeRouting(dio, environment, regtestHost: '127.0.0.1');
   if (key != null) {
     addExchangeAuthentication(dio, () async => Ok(key));
   }
-  addRegtestKeyGuard(dio);
+  addRegtestKeyGuard(dio, regtestHost: '127.0.0.1');
   return dio;
 }
 
@@ -88,12 +88,25 @@ void main() {
       },
     );
 
+    test('a build without a regtest host refuses regtest requests', () async {
+      final recorder = _Recorder();
+      final dio = Dio(BaseOptions(baseUrl: 'https://api05.bullbitcoin.dev'))
+        ..httpClientAdapter = recorder;
+      addRegtestExchangeRouting(dio, () async => NetworkEnv.regtest);
+
+      await expectLater(
+        dio.post<Object?>('/price'),
+        throwsA(isA<DioException>()),
+      );
+      expect(recorder.uris, isEmpty);
+    });
+
     test('the shared host profile decides the host', () {
       expect(
         RegtestExchangeProfile.baseUri(host: '10.1.2.3').toString(),
         'http://10.1.2.3:8088',
       );
-      expect(RegtestExchangeProfile.baseUri().port, 8088);
+      expect(RegtestExchangeProfile.baseUri(host: '127.0.0.1').port, 8088);
     });
 
     test('testnet and mainnet requests are left untouched', () async {

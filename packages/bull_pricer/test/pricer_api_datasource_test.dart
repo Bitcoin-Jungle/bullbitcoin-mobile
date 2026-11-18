@@ -127,11 +127,9 @@ void main() {
     test(
       'regtest asks the stack simulator on its port, never a Bull host',
       () async {
-        await datasource.indexPrice(
-          BitcoinNetwork.regtest,
-          SupportedCurrency.cad,
-        );
-        await datasource.indexPriceHistory(
+        const regtest = PricerApiDatasource(regtestHost: '127.0.0.1');
+        await regtest.indexPrice(BitcoinNetwork.regtest, SupportedCurrency.cad);
+        await regtest.indexPriceHistory(
           BitcoinNetwork.regtest,
           SupportedCurrency.cad,
           PriceHistoryInterval.day,
@@ -151,6 +149,17 @@ void main() {
       expect(api.requests.single.host, '10.1.2.3');
       expect(api.requests.single.port, 8088);
     });
+
+    test(
+      'regtest without a configured host is unsupported, never asked',
+      () async {
+        await expectLater(
+          datasource.indexPrice(BitcoinNetwork.regtest, SupportedCurrency.cad),
+          throwsA(isA<PricerUnsupportedNetworkException>()),
+        );
+        expect(api.requests, isEmpty);
+      },
+    );
 
     test('a network without a price service is never asked', () async {
       await expectLater(
