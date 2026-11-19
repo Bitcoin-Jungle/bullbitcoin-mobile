@@ -21,6 +21,14 @@ SAT = Decimal("0.00000001")
 NETWORKS = {"bitcoin": "BTC", "liquid": "LBTC"}
 
 
+def received_amount(node, address, minconf):
+    """Elements answers with an amount per asset label; Bitcoin with a number."""
+    value = node.call("getreceivedbyaddress", address=address, minconf=minconf)
+    if isinstance(value, dict):
+        value = value.get("bitcoin", 0)
+    return Decimal(str(value))
+
+
 class Node:
     """Wallet JSON-RPC of a regtest bitcoind or elementsd (public dev credentials)."""
 
@@ -129,10 +137,10 @@ class Exchange:
         if incoming and order["payinStatus"] != "Completed":
             address = order[f"{incoming}Address"]
             node = self.nodes[incoming]
-            received = Decimal(str(node.call("getreceivedbyaddress", address=address, minconf=1)))
+            received = received_amount(node, address, 1)
             if received >= job["payin"].quantize(SAT):
                 order.update(payinStatus="Completed", orderStatus="In progress")
-            elif Decimal(str(node.call("getreceivedbyaddress", address=address, minconf=0))) >= job["payin"].quantize(SAT):
+            elif received_amount(node, address, 0) >= job["payin"].quantize(SAT):
                 order.update(payinStatus="In progress", orderStatus="In progress")
         if job["kind"] == "buy" and job["confirmed"] and not job["paid_out"]:
             order["payinStatus"] = "Completed"
