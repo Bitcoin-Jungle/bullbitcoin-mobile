@@ -21,6 +21,11 @@ SAT = Decimal("0.00000001")
 NETWORKS = {"bitcoin": "BTC", "liquid": "LBTC"}
 
 
+def plain(value):
+    """A decimal without exponent: the app's swap models read amounts as text."""
+    return format(Decimal(str(value)).quantize(SAT), "f")
+
+
 def received_amount(node, address, minconf):
     """Elements answers with an amount per asset label; Bitcoin with a number."""
     value = node.call("getreceivedbyaddress", address=address, minconf=minconf)
@@ -105,8 +110,8 @@ class Exchange:
         order_id = str(uuid4())
         order = {"orderId": order_id, "orderNumber": len(self.orders) + 1,
                  "orderType": {"buy": "Buy Bitcoin", "swap": "Swap", "sell": "Sell Bitcoin", "pay": "Fiat Payment"}[kind],
-                 "payinAmount": float(payin.quantize(SAT) if incoming else payin.quantize(Decimal("0.01"))),
-                 "payoutAmount": float(payout.quantize(SAT) if outgoing else payout.quantize(Decimal("0.01"))),
+                 "payinAmount": plain(payin) if kind == "swap" else float(payin.quantize(SAT) if incoming else payin.quantize(Decimal("0.01"))),
+                 "payoutAmount": plain(payout) if kind == "swap" else float(payout.quantize(SAT) if outgoing else payout.quantize(Decimal("0.01"))),
                  "payinCurrency": payin_label, "payoutCurrency": payout_label,
                  "payinMethod": labels[incoming] if incoming else f"{fiat} Balance",
                  "payoutMethod": labels[outgoing] if outgoing else (
@@ -220,7 +225,7 @@ class Exchange:
             incoming = amount if fixed_in else amount / Decimal("0.99")
             outgoing = amount * Decimal("0.99") if fixed_in else amount
             currency = lambda network: "LBTC" if network == "liquid" else "BTC"
-            return {"inAmount": float(incoming), "outAmount": float(outgoing),
+            return {"inAmount": plain(incoming), "outAmount": plain(outgoing),
                     "inPaymentProcessorCurrencyCode": currency(params["inNetwork"]),
                     "outPaymentProcessorCurrencyCode": currency(params["outNetwork"]),
                     "orderFees": [{"percent": 1}], "warning": []}
