@@ -107,7 +107,7 @@ class Exchange:
                  "payoutStatus": "Not started", "message": {"code": "created"},
                  "createdAt": now(), "confirmationDeadline":
                      (datetime.now(timezone.utc) + timedelta(minutes=30)).isoformat(),
-                 "exchangeRateAmount": int(self.price(fiat) * 100), "exchangeRateCurrency": fiat}
+                 "exchangeRateAmount": int(self.price(fiat)), "exchangeRateCurrency": fiat}
         if incoming:
             order[f"{incoming}Address"] = self.nodes[incoming].call("getnewaddress")
         self.orders[order_id] = order
@@ -174,6 +174,15 @@ class Exchange:
                     "payjoinReceiveEnabled": False, **self.preferences}
         if method in ("listAnnouncements", "listMyRecipients"):
             return {"elements": []}
+        if method in ("listRecipientsFiat", "listRecipients"):
+            wanted = (params.get("filters") or {}).get("recipientTypeFiat")
+            demo = {"recipientId": "regtest-demo-recipient", "userId": "dummy-user", "userNbr": 1,
+                    "isArchived": False, "createdAt": now(), "updatedAt": now(),
+                    "recipientTypeFiat": "INTERAC_EMAIL_CAD", "isOwner": True,
+                    "label": "Regtest demo", "isDefault": True, "email": "demo@example.invalid",
+                    "name": "Regtest Demo", "securityQuestion": "Regtest?", "securityAnswer": "regtest"}
+            elements = [demo] if not wanted or "INTERAC_EMAIL_CAD" in wanted else []
+            return {"elements": elements, "totalElements": len(elements)}
         if method == "listOrderSummaries":
             if self.scenario == "settle":
                 for order in self.orders.values():
@@ -290,6 +299,8 @@ class Handler(BaseHTTPRequestHandler):
             if self.exchange.scenario == "unavailable":
                 self.send_json(503, {"error": "Simulated service outage"})
                 return
+            if os.environ.get("DUMMY_LOG_METHODS"):
+                print("method", request.get("method"), self.path, flush=True)  # names only
             result = self.exchange.dispatch(request["method"], request.get("params", {}))
             self.send_json(200, {"jsonrpc": "2.0", "id": request_id, "result": result})
         except LookupError:
