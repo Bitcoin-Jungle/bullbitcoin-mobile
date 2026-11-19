@@ -1,0 +1,1140 @@
+{
+  "openingHead": "4f5809d9272ad4d077a9bbb7937c717b0728a560",
+  "fullConformityAsserted": false,
+  "canvasRows": 46,
+  "sourceFiles": 47,
+  "transferArtboardsIncluded": 4,
+  "openingPhoneCoverage": "Not run; existing 972→a5 phone evidence published separately.",
+  "rows": [
+    {
+      "index": 1,
+      "artboard": "ArkInfo",
+      "prototypeSha256": "f6530568c0420c9137c9e7f7e0f413d43c9f986c34d79ceddd902851b02cf2bf",
+      "historicalVisualStatus": "partial",
+      "historicalSnapshot": "Pre-phone synthetic study, not a final opening verdict",
+      "openingStatus": "Needs integrated visual recheck; no conformity claim",
+      "phoneEvidence": "See PHONE-PROVENANCE.json for exact source/device/state; no row-level equivalence inferred.",
+      "historicalRemainingDifferences": "Compact boarding/timing rows and number grouping improved. Grouped-card hierarchy still differs and the server key wraps instead of a one-line shortened display.",
+      "historicalDecidedDifferences": [
+        "Keep current factual blocks/seconds instead of fabricated wall-clock guarantees."
+      ],
+      "historicalDataLimits": [
+        {
+          "kind": "fixture",
+          "fact": "Nonces/HTLC deltas/vtxoExitDelta exist in native/DTO/UI; Unavailable in these fixture observations is not missing production API. For 050403 the lead identified serverUri=null and omitted new fields."
+        },
+        {
+          "kind": "dart_binding",
+          "fact": "Mailbox public key remains absent from the exposed Dart binding; do not invent the prototype key."
+        },
+        {
+          "kind": "timing_contract",
+          "fact": "An exact countdown was deliberately removed because end-to-end RPC locking has no finite bound; available native schedule facts do not establish a safe live countdown."
+        }
+      ],
+      "currentFollowUp": "See FOLLOW_UP.md. Historical fixture observations are not evidence that a production API or route is missing."
+    },
+    {
+      "index": 2,
+      "artboard": "ArkInfoDark",
+      "prototypeSha256": "cc6f7d3cf9f24eca67292fa8a2b84153c1811c73ac7c872e05262e58cb4f47d0",
+      "historicalVisualStatus": "partial",
+      "historicalSnapshot": "Pre-phone synthetic study, not a final opening verdict",
+      "openingStatus": "Needs integrated visual recheck; no conformity claim",
+      "phoneEvidence": "See PHONE-PROVENANCE.json for exact source/device/state; no row-level equivalence inferred.",
+      "historicalRemainingDifferences": "Compact boarding/timing rows and number grouping improved. Grouped-card hierarchy still differs and the server key wraps instead of a one-line shortened display.",
+      "historicalDecidedDifferences": [
+        "Keep current factual blocks/seconds instead of fabricated wall-clock guarantees."
+      ],
+      "historicalDataLimits": [
+        {
+          "kind": "fixture",
+          "fact": "Nonces/HTLC deltas/vtxoExitDelta exist in native/DTO/UI; Unavailable in these fixture observations is not missing production API. For 050403 the lead identified serverUri=null and omitted new fields."
+        },
+        {
+          "kind": "dart_binding",
+          "fact": "Mailbox public key remains absent from the exposed Dart binding; do not invent the prototype key."
+        },
+        {
+          "kind": "timing_contract",
+          "fact": "An exact countdown was deliberately removed because end-to-end RPC locking has no finite bound; available native schedule facts do not establish a safe live countdown."
+        }
+      ],
+      "currentFollowUp": "See FOLLOW_UP.md. Historical fixture observations are not evidence that a production API or route is missing."
+    },
+    {
+      "index": 3,
+      "artboard": "ArkSettings",
+      "prototypeSha256": "54ac4017f9178276b57de8605b81b51287b8aa6c44c7b78c79927de4b380e9f3",
+      "historicalVisualStatus": "partial",
+      "historicalSnapshot": "Pre-phone synthetic study, not a final opening verdict",
+      "openingStatus": "Needs integrated visual recheck; no conformity claim",
+      "phoneEvidence": "See PHONE-PROVENANCE.json for exact source/device/state; no row-level equivalence inferred.",
+      "historicalRemainingDifferences": "Off-state illustration exists, but recovery/VTXOs/open-wallet/technical actions and their explanation make this a different off-state hierarchy.",
+      "historicalDecidedDifferences": [
+        "Ark stays under Settings > Wallet.",
+        "Disabling new payments retains existing-fund renewal/recovery; required access is not removed for visual parity.",
+        "Technical details is the approved red underlined action."
+      ],
+      "historicalDataLimits": [
+        {
+          "kind": "fixture",
+          "fact": "Off fixture does not establish never-provisioned/no-existing-funds state; no native provisioning is exercised."
+        },
+        {
+          "kind": "timing_contract",
+          "fact": "Enabled/round supplementary states do not restore the deliberately removed unbounded-RPC countdown. No extra countdown artboard is invented."
+        }
+      ],
+      "currentFollowUp": "See FOLLOW_UP.md. Historical fixture observations are not evidence that a production API or route is missing."
+    },
+    {
+      "index": 4,
+      "artboard": "ArkSettingsDark",
+      "prototypeSha256": "7d4606caeefb19850c542946853d59e9b0cc4597b4f7a423a34f177c20ce1ee0",
+      "historicalVisualStatus": "partial",
+      "historicalSnapshot": "Pre-phone synthetic study, not a final opening verdict",
+      "openingStatus": "Needs integrated visual recheck; no conformity claim",
+      "phoneEvidence": "See PHONE-PROVENANCE.json for exact source/device/state; no row-level equivalence inferred.",
+      "historicalRemainingDifferences": "Off-state illustration exists, but recovery/VTXOs/open-wallet/technical actions and their explanation make this a different off-state hierarchy.",
+      "historicalDecidedDifferences": [
+        "Ark stays under Settings > Wallet.",
+        "Disabling new payments retains existing-fund renewal/recovery; required access is not removed for visual parity.",
+        "Technical details is the approved red underlined action."
+      ],
+      "historicalDataLimits": [
+        {
+          "kind": "fixture",
+          "fact": "Off fixture does not establish never-provisioned/no-existing-funds state; no native provisioning is exercised."
+        },
+        {
+          "kind": "timing_contract",
+          "fact": "Enabled/round supplementary states do not restore the deliberately removed unbounded-RPC countdown. No extra countdown artboard is invented."
+        }
+      ],
+      "currentFollowUp": "See FOLLOW_UP.md. Historical fixture observations are not evidence that a production API or route is missing."
+    },
+    {
+      "index": 5,
+      "artboard": "BoardAmount",
+      "prototypeSha256": "ea6645c915b66dad5853969a34a0a05c9df7e55e5b5371e7e3caaef1d4d82b31",
+      "historicalVisualStatus": "partial",
+      "historicalSnapshot": "Pre-phone synthetic study, not a final opening verdict",
+      "openingStatus": "Needs integrated visual recheck; no conformity claim",
+      "phoneEvidence": "See PHONE-PROVENANCE.json for exact source/device/state; no row-level equivalence inferred.",
+      "historicalRemainingDifferences": "Sats suffix now visible in empty input. Input/Max geometry and extra unavailable-estimate/helper section differ from the shorter prototype.",
+      "historicalDecidedDifferences": [
+        "Keep unavailable estimate/disabled Max; Golos line wrapping alone is not a defect."
+      ],
+      "historicalDataLimits": [
+        {
+          "kind": "exposed_native_capability",
+          "fact": "A nonmutating fee-aware Board MAX/preview is not exposed by the available contract. No mutating quote or invented estimate is substituted; this is scoped to the exposed capability, not an assertion about every Bark release."
+        },
+        {
+          "kind": "fixture",
+          "fact": "184250-sat source balance is a supplied synthetic observation, not current wallet funds."
+        }
+      ],
+      "currentFollowUp": "See FOLLOW_UP.md. Historical fixture observations are not evidence that a production API or route is missing."
+    },
+    {
+      "index": 6,
+      "artboard": "BoardAmountError",
+      "prototypeSha256": "27cb0f500d01386f52fd0c6f920e3bff8d0e8c5082838bfa2d63d3925a2ef0a8",
+      "historicalVisualStatus": "partial",
+      "historicalSnapshot": "Pre-phone synthetic study, not a final opening verdict",
+      "openingStatus": "Needs integrated visual recheck; no conformity claim",
+      "phoneEvidence": "See PHONE-PROVENANCE.json for exact source/device/state; no row-level equivalence inferred.",
+      "historicalRemainingDifferences": "30,000 grouping and units fixed; fiat/error/helper ordering and estimate section differ.",
+      "historicalDecidedDifferences": [
+        "Keep actual minimum validation and supplied price; no invented fee estimate."
+      ],
+      "historicalDataLimits": [
+        {
+          "kind": "exposed_native_capability",
+          "fact": "A nonmutating fee-aware Board MAX/preview is not exposed by the available contract. No mutating quote or invented estimate is substituted; this is scoped to the exposed capability, not an assertion about every Bark release."
+        },
+        {
+          "kind": "fixture",
+          "fact": "30000 amount/50000 minimum and fiat are explicit synthetic fixtures, not native observations."
+        }
+      ],
+      "currentFollowUp": "See FOLLOW_UP.md. Historical fixture observations are not evidence that a production API or route is missing."
+    },
+    {
+      "index": 7,
+      "artboard": "BoardConfirm",
+      "prototypeSha256": "2bb845f0a48e55632eb803a49f8c1d725ad68e5a9202a827faa3d618afb2ad0e",
+      "historicalVisualStatus": "partial",
+      "historicalSnapshot": "Pre-phone synthetic study, not a final opening verdict",
+      "openingStatus": "Needs integrated visual recheck; no conformity claim",
+      "phoneEvidence": "See PHONE-PROVENANCE.json for exact source/device/state; no row-level equivalence inferred.",
+      "historicalRemainingDifferences": "Financial values right-aligned and fiat in Amount. Higher hero plus Ark fee/Total/Ark-receives/details extend the summary.",
+      "historicalDecidedDifferences": [
+        "Red confirmation and complete bound financial disclosure are retained rather than copying a shorter prototype."
+      ],
+      "historicalDataLimits": [
+        {
+          "kind": "fixture",
+          "fact": "60000 net/1848 fee/61848 total and fiat are supplied typed quote facts; no current native quote or confirmation was executed."
+        }
+      ],
+      "currentFollowUp": "See FOLLOW_UP.md. Historical fixture observations are not evidence that a production API or route is missing."
+    },
+    {
+      "index": 8,
+      "artboard": "BoardNoFunds",
+      "prototypeSha256": "9f97a412a3e0f2e8321537e08cc08085c1bc09d3507077a1f3fadb40b2859728",
+      "historicalVisualStatus": "partial",
+      "historicalSnapshot": "Pre-phone synthetic study, not a final opening verdict",
+      "openingStatus": "Needs integrated visual recheck; no conformity claim",
+      "phoneEvidence": "See PHONE-PROVENANCE.json for exact source/device/state; no row-level equivalence inferred.",
+      "historicalRemainingDifferences": "190,000 grouping fixed; the larger insufficiency banner replaces prototype inline error.",
+      "historicalDecidedDifferences": [
+        "Keep explicit insufficient-funds refusal and disabled Board/Max."
+      ],
+      "historicalDataLimits": [
+        {
+          "kind": "exposed_native_capability",
+          "fact": "A nonmutating fee-aware Board MAX/preview is not exposed by the available contract. No mutating quote or invented estimate is substituted; this is scoped to the exposed capability, not an assertion about every Bark release."
+        },
+        {
+          "kind": "fixture",
+          "fact": "190000 exceeds the supplied 184250 balance; no funds are injected to make continuation available."
+        }
+      ],
+      "currentFollowUp": "See FOLLOW_UP.md. Historical fixture observations are not evidence that a production API or route is missing."
+    },
+    {
+      "index": 9,
+      "artboard": "BoardPending",
+      "prototypeSha256": "ef91a8358e1a9b945773137b925589e81cce34b981c6925e7596a31c11078f98",
+      "historicalVisualStatus": "partial",
+      "historicalSnapshot": "Pre-phone synthetic study, not a final opening verdict",
+      "openingStatus": "Needs integrated visual recheck; no conformity claim",
+      "phoneEvidence": "See PHONE-PROVENANCE.json for exact source/device/state; no row-level equivalence inferred.",
+      "historicalRemainingDifferences": "Started/Done hierarchy present; header/hero/card geometry and prominent filled copy affordance differ.",
+      "historicalDecidedDifferences": [
+        "Copy visual weight is a presentation observation, not a primary-token violation inferred from pixels."
+      ],
+      "historicalDataLimits": [
+        {
+          "kind": "fixture",
+          "fact": "Repeated-digit funding ID is synthetic; boarding started is not native broadcast, confirmation or spendability proof."
+        }
+      ],
+      "currentFollowUp": "See FOLLOW_UP.md. Historical fixture observations are not evidence that a production API or route is missing."
+    },
+    {
+      "index": 10,
+      "artboard": "BoardToArk",
+      "prototypeSha256": "19fb7d4abf8d4a8ad0100d6989338639ef4ae80e9e7c551b6f53040b2a9f4bfa",
+      "historicalVisualStatus": "partial",
+      "historicalSnapshot": "Pre-phone synthetic study, not a final opening verdict",
+      "openingStatus": "Needs integrated visual recheck; no conformity claim",
+      "phoneEvidence": "See PHONE-PROVENANCE.json for exact source/device/state; no row-level equivalence inferred.",
+      "historicalRemainingDifferences": "Sats suffix now visible in empty input. Input/Max geometry and extra unavailable-estimate/helper section differ from the shorter prototype.",
+      "historicalDecidedDifferences": [
+        "Keep unavailable estimate/disabled Max; Golos line wrapping alone is not a defect."
+      ],
+      "historicalDataLimits": [
+        {
+          "kind": "exposed_native_capability",
+          "fact": "A nonmutating fee-aware Board MAX/preview is not exposed by the available contract. No mutating quote or invented estimate is substituted; this is scoped to the exposed capability, not an assertion about every Bark release."
+        },
+        {
+          "kind": "fixture",
+          "fact": "184250-sat source balance is a supplied synthetic observation, not current wallet funds."
+        }
+      ],
+      "currentFollowUp": "See FOLLOW_UP.md. Historical fixture observations are not evidence that a production API or route is missing."
+    },
+    {
+      "index": 11,
+      "artboard": "BoardToArkDark",
+      "prototypeSha256": "b5174320a6d9d1ff0afb51c2262b4cede31a5861b87da8680ed4f368363f0c12",
+      "historicalVisualStatus": "partial",
+      "historicalSnapshot": "Pre-phone synthetic study, not a final opening verdict",
+      "openingStatus": "Needs integrated visual recheck; no conformity claim",
+      "phoneEvidence": "See PHONE-PROVENANCE.json for exact source/device/state; no row-level equivalence inferred.",
+      "historicalRemainingDifferences": "Sats suffix now visible in empty input. Input/Max geometry and extra unavailable-estimate/helper section differ from the shorter prototype.",
+      "historicalDecidedDifferences": [
+        "Keep unavailable estimate/disabled Max; Golos line wrapping alone is not a defect."
+      ],
+      "historicalDataLimits": [
+        {
+          "kind": "exposed_native_capability",
+          "fact": "A nonmutating fee-aware Board MAX/preview is not exposed by the available contract. No mutating quote or invented estimate is substituted; this is scoped to the exposed capability, not an assertion about every Bark release."
+        },
+        {
+          "kind": "fixture",
+          "fact": "184250-sat source balance is a supplied synthetic observation, not current wallet funds."
+        }
+      ],
+      "currentFollowUp": "See FOLLOW_UP.md. Historical fixture observations are not evidence that a production API or route is missing."
+    },
+    {
+      "index": 12,
+      "artboard": "EmergencyExit",
+      "prototypeSha256": "f7ef0c15b0847020db8da19e86b33b271b02b9355b616b5f7547a9caf7e8c445",
+      "historicalVisualStatus": "partial",
+      "historicalSnapshot": "Pre-phone synthetic study, not a final opening verdict",
+      "openingStatus": "Needs integrated visual recheck; no conformity claim",
+      "phoneEvidence": "See PHONE-PROVENANCE.json for exact source/device/state; no row-level equivalence inferred.",
+      "historicalRemainingDifferences": "Action labels now distinguish Progress from new Start. Separate rows and generic warning/metadata hierarchy differ from grouped prototype.",
+      "historicalDecidedDifferences": [
+        "Both overview actions use secondary/onSecondary per lead source check; no two-primary violation is inferred.",
+        "Filled Start replaces prohibited outline; manual foreground progress/claim consent is retained."
+      ],
+      "historicalDataLimits": [
+        {
+          "kind": "fixture",
+          "fact": "Synthetic exit amounts/statuses are not current native/phone observations."
+        },
+        {
+          "kind": "projection",
+          "fact": "Dates/counts and a scoped online/send shortcut are not supplied by these frames; do not invent them."
+        }
+      ],
+      "currentFollowUp": "See FOLLOW_UP.md. Historical fixture observations are not evidence that a production API or route is missing."
+    },
+    {
+      "index": 13,
+      "artboard": "EmergencyExitDark",
+      "prototypeSha256": "3061aaa0c946f5bc5b2544339977f2d4c473958234dcd9fa3d61afeca19dcfe9",
+      "historicalVisualStatus": "partial",
+      "historicalSnapshot": "Pre-phone synthetic study, not a final opening verdict",
+      "openingStatus": "Needs integrated visual recheck; no conformity claim",
+      "phoneEvidence": "See PHONE-PROVENANCE.json for exact source/device/state; no row-level equivalence inferred.",
+      "historicalRemainingDifferences": "Action labels now distinguish Progress from new Start. Separate rows and generic warning/metadata hierarchy differ from grouped prototype.",
+      "historicalDecidedDifferences": [
+        "Both overview actions use secondary/onSecondary per lead source check; no two-primary violation is inferred.",
+        "Filled Start replaces prohibited outline; manual foreground progress/claim consent is retained."
+      ],
+      "historicalDataLimits": [
+        {
+          "kind": "fixture",
+          "fact": "Synthetic exit amounts/statuses are not current native/phone observations."
+        },
+        {
+          "kind": "projection",
+          "fact": "Dates/counts and a scoped online/send shortcut are not supplied by these frames; do not invent them."
+        }
+      ],
+      "currentFollowUp": "See FOLLOW_UP.md. Historical fixture observations are not evidence that a production API or route is missing."
+    },
+    {
+      "index": 14,
+      "artboard": "ExitEmpty",
+      "prototypeSha256": "1224e48a3f186a465a393099a8a15a218cf3c145eddcdc24124540a9f02748cb",
+      "historicalVisualStatus": "partial",
+      "historicalSnapshot": "Pre-phone synthetic study, not a final opening verdict",
+      "openingStatus": "Needs integrated visual recheck; no conformity claim",
+      "phoneEvidence": "See PHONE-PROVENANCE.json for exact source/device/state; no row-level equivalence inferred.",
+      "historicalRemainingDifferences": "Unnecessary disabled Review removed; warning/empty spacing/glyphs differ from prototype.",
+      "historicalDecidedDifferences": [
+        "Filled Start instead of prohibited outline; no fake online/send shortcut."
+      ],
+      "historicalDataLimits": [
+        {
+          "kind": "fixture",
+          "fact": "Empty exit observation is synthetic; no final APK/device or native state proof."
+        },
+        {
+          "kind": "projection",
+          "fact": "Scoped connection/online action facts absent from this observation must not be invented."
+        }
+      ],
+      "currentFollowUp": "See FOLLOW_UP.md. Historical fixture observations are not evidence that a production API or route is missing."
+    },
+    {
+      "index": 15,
+      "artboard": "ExitEmptyDark",
+      "prototypeSha256": "02d541f04d5da91a1f246a7abf0d501ba40560eff20af387e4fc61e8bc3df4e8",
+      "historicalVisualStatus": "partial",
+      "historicalSnapshot": "Pre-phone synthetic study, not a final opening verdict",
+      "openingStatus": "Needs integrated visual recheck; no conformity claim",
+      "phoneEvidence": "See PHONE-PROVENANCE.json for exact source/device/state; no row-level equivalence inferred.",
+      "historicalRemainingDifferences": "Unnecessary disabled Review removed; warning/empty spacing/glyphs differ from prototype.",
+      "historicalDecidedDifferences": [
+        "Filled Start instead of prohibited outline; no fake online/send shortcut."
+      ],
+      "historicalDataLimits": [
+        {
+          "kind": "fixture",
+          "fact": "Empty exit observation is synthetic; no final APK/device or native state proof."
+        },
+        {
+          "kind": "projection",
+          "fact": "Scoped connection/online action facts absent from this observation must not be invented."
+        }
+      ],
+      "currentFollowUp": "See FOLLOW_UP.md. Historical fixture observations are not evidence that a production API or route is missing."
+    },
+    {
+      "index": 16,
+      "artboard": "Main",
+      "prototypeSha256": "b49e0f83a3f93e50d234de759bc07b9857f1557624f500834b7dbd9671ebcb14",
+      "historicalVisualStatus": "partial",
+      "historicalSnapshot": "Pre-phone synthetic study, not a final opening verdict",
+      "openingStatus": "Needs integrated visual recheck; no conformity claim",
+      "phoneEvidence": "See PHONE-PROVENANCE.json for exact source/device/state; no row-level equivalence inferred.",
+      "historicalRemainingDifferences": "Shared Settings fixture has fewer profile/capability-dependent options and a different footer than the prototype. Only historical Cage PNGs are reused here; no latest maintained-CI image is qualified.",
+      "historicalDecidedDifferences": [
+        "Ark remains under Settings > Wallet, not a new top-level Settings entry.",
+        "Missing fixture options are not declared missing production features."
+      ],
+      "historicalDataLimits": [
+        {
+          "kind": "fixture",
+          "fact": "Historical regtest/shared Settings fixture omits options from the drawing. Current maintained-CI candidates and their lead-reported pre-existing 1.46% baseline delta are outside this matrix qualification."
+        }
+      ],
+      "currentFollowUp": "See FOLLOW_UP.md. Historical fixture observations are not evidence that a production API or route is missing."
+    },
+    {
+      "index": 17,
+      "artboard": "MainDark",
+      "prototypeSha256": "371bece177cf7250742fa06720caa106bbd88753e2bbbf2c10f9c31e096799ec",
+      "historicalVisualStatus": "partial",
+      "historicalSnapshot": "Pre-phone synthetic study, not a final opening verdict",
+      "openingStatus": "Needs integrated visual recheck; no conformity claim",
+      "phoneEvidence": "See PHONE-PROVENANCE.json for exact source/device/state; no row-level equivalence inferred.",
+      "historicalRemainingDifferences": "Shared Settings fixture has fewer profile/capability-dependent options and a different footer than the prototype. Only historical Cage PNGs are reused here; no latest maintained-CI image is qualified.",
+      "historicalDecidedDifferences": [
+        "Ark remains under Settings > Wallet, not a new top-level Settings entry.",
+        "Missing fixture options are not declared missing production features."
+      ],
+      "historicalDataLimits": [
+        {
+          "kind": "fixture",
+          "fact": "Historical regtest/shared Settings fixture omits options from the drawing. Current maintained-CI candidates and their lead-reported pre-existing 1.46% baseline delta are outside this matrix qualification."
+        }
+      ],
+      "currentFollowUp": "See FOLLOW_UP.md. Historical fixture observations are not evidence that a production API or route is missing."
+    },
+    {
+      "index": 18,
+      "artboard": "SendArk",
+      "prototypeSha256": "a4e2fc57c9bb881eb7f1144b47c80d41161516cde85cffe459373cd15d726884",
+      "historicalVisualStatus": "nonéquivalent",
+      "historicalSnapshot": "Pre-phone synthetic study, not a final opening verdict",
+      "openingStatus": "Needs integrated visual recheck; no conformity claim",
+      "phoneEvidence": "See PHONE-PROVENANCE.json for exact source/device/state; no row-level equivalence inferred.",
+      "historicalRemainingDifferences": "The real shared Home fixture has 1234 sats/CAD and Ark unavailable, different actions/navigation and no Liquid fixture. The requested Card FRESH design is definitively unimplemented; this is not excused by missing native API.",
+      "historicalDecidedDifferences": [
+        "No prototype funds, extra wallets or live fiat are fabricated to match Home.",
+        "SendArk is a real canvas row whose default reference pixels alias SendArkHome; this does not create another application state."
+      ],
+      "historicalDataLimits": [
+        {
+          "kind": "implementation",
+          "fact": "Lead NIGHT 07:02 confirms requested Card FRESH remains unimplemented, superseding earlier deferred wording. Not a Bark API absence."
+        },
+        {
+          "kind": "application_policy_projection",
+          "fact": "Ark selection in the production composition is currently regtest-only; the actual price provider refuses regtest, so no real cold-path price is available. Synthetic positive-price fixtures do not prove live fiat. This is not a missing Bark price API."
+        },
+        {
+          "kind": "fixture",
+          "fact": "Funded standalone Card supplements and 1234-sat shared shell do not qualify a complete funded production Home."
+        }
+      ],
+      "currentFollowUp": "See FOLLOW_UP.md. Historical fixture observations are not evidence that a production API or route is missing."
+    },
+    {
+      "index": 19,
+      "artboard": "SendArkAmount",
+      "prototypeSha256": "a7ea099df89c94ed5b1c44ff6bf5ca19cb0ae75506f2d6e2ebb0aed5dd3a2492",
+      "historicalVisualStatus": "partial",
+      "historicalSnapshot": "Pre-phone synthetic study, not a final opening verdict",
+      "openingStatus": "Needs integrated visual recheck; no conformity claim",
+      "phoneEvidence": "See PHONE-PROVENANCE.json for exact source/device/state; no row-level equivalence inferred.",
+      "historicalRemainingDifferences": "Selector/amount/note/balance/Continue hierarchy close; disabled note/explanation and MAX button differ from editable note/toggle drawing.",
+      "historicalDecidedDifferences": [
+        "MAX is an input shortcut, not an invented persistent mode or send-all quote."
+      ],
+      "historicalDataLimits": [
+        {
+          "kind": "application_projection",
+          "fact": "Note persistence is not exposed; no fake enabled note is added. MAX still needs a final bound quote/fees."
+        },
+        {
+          "kind": "fixture",
+          "fact": "Balance and optional price are explicitly supplied; missing-price cases omit fiat."
+        },
+        {
+          "kind": "application_policy_projection",
+          "fact": "Ark selection in the production composition is currently regtest-only; the actual price provider refuses regtest, so no real cold-path price is available. Synthetic positive-price fixtures do not prove live fiat. This is not a missing Bark price API."
+        }
+      ],
+      "currentFollowUp": "See FOLLOW_UP.md. Historical fixture observations are not evidence that a production API or route is missing."
+    },
+    {
+      "index": 20,
+      "artboard": "SendArkConfirm",
+      "prototypeSha256": "373feec922b160e61947da0ca6fb03075914f658815b9c3bf4650eafb8a0fe48",
+      "historicalVisualStatus": "partial",
+      "historicalSnapshot": "Pre-phone synthetic study, not a final opening verdict",
+      "openingStatus": "Needs integrated visual recheck; no conformity claim",
+      "phoneEvidence": "See PHONE-PROVENANCE.json for exact source/device/state; no row-level equivalence inferred.",
+      "historicalRemainingDifferences": "Fiat now in Amount and horizontal direction retained. Chevron and summary size differ because full destination and Total are shown.",
+      "historicalDecidedDifferences": [
+        "Red Confirm and complete bound destination/fee/total are retained."
+      ],
+      "historicalDataLimits": [
+        {
+          "kind": "fixture",
+          "fact": "100000 net+100 fee=100100 debit is the typed fixture, not prototype 5000/zero fee. No confirmation was executed."
+        },
+        {
+          "kind": "application_policy_projection",
+          "fact": "Ark selection in the production composition is currently regtest-only; the actual price provider refuses regtest, so no real cold-path price is available. Synthetic positive-price fixtures do not prove live fiat. This is not a missing Bark price API."
+        }
+      ],
+      "currentFollowUp": "See FOLLOW_UP.md. Historical fixture observations are not evidence that a production API or route is missing."
+    },
+    {
+      "index": 21,
+      "artboard": "SendArkHome",
+      "prototypeSha256": "ecae9e3b0f9dc2cc44f46099e96eff43f2ce5b84d3b6c4b4f29ca778bd32719e",
+      "historicalVisualStatus": "nonéquivalent",
+      "historicalSnapshot": "Pre-phone synthetic study, not a final opening verdict",
+      "openingStatus": "Needs integrated visual recheck; no conformity claim",
+      "phoneEvidence": "See PHONE-PROVENANCE.json for exact source/device/state; no row-level equivalence inferred.",
+      "historicalRemainingDifferences": "The real shared Home fixture has 1234 sats/CAD and Ark unavailable, different actions/navigation and no Liquid fixture. The requested Card FRESH design is definitively unimplemented; this is not excused by missing native API.",
+      "historicalDecidedDifferences": [
+        "No prototype funds, extra wallets or live fiat are fabricated to match Home.",
+        "SendArk is a real canvas row whose default reference pixels alias SendArkHome; this does not create another application state."
+      ],
+      "historicalDataLimits": [
+        {
+          "kind": "implementation",
+          "fact": "Lead NIGHT 07:02 confirms requested Card FRESH remains unimplemented, superseding earlier deferred wording. Not a Bark API absence."
+        },
+        {
+          "kind": "application_policy_projection",
+          "fact": "Ark selection in the production composition is currently regtest-only; the actual price provider refuses regtest, so no real cold-path price is available. Synthetic positive-price fixtures do not prove live fiat. This is not a missing Bark price API."
+        },
+        {
+          "kind": "fixture",
+          "fact": "Funded standalone Card supplements and 1234-sat shared shell do not qualify a complete funded production Home."
+        }
+      ],
+      "currentFollowUp": "See FOLLOW_UP.md. Historical fixture observations are not evidence that a production API or route is missing."
+    },
+    {
+      "index": 22,
+      "artboard": "SendArkScan",
+      "prototypeSha256": "4e3ef668db72fab6498a44757c80c351f79d003a7b0abee79fa2a51f307f00c0",
+      "historicalVisualStatus": "partial",
+      "historicalSnapshot": "Pre-phone synthetic study, not a final opening verdict",
+      "openingStatus": "Needs integrated visual recheck; no conformity claim",
+      "phoneEvidence": "See PHONE-PROVENANCE.json for exact source/device/state; no row-level equivalence inferred.",
+      "historicalRemainingDifferences": "Nominal camera 52 geometry and lower input panel are close. QR illustration differs; camera uses a filled action.",
+      "historicalDecidedDifferences": [
+        "Filled camera action deliberately replaces a prohibited outline.",
+        "Lead-qualified French 1.5 text scale/camera ratio is separate test evidence, not inferred from nominal English PNGs."
+      ],
+      "historicalDataLimits": [
+        {
+          "kind": "fixture",
+          "fact": "Fake scanner/local address input does not prove actual camera operation, native parsing or final-APK routing."
+        }
+      ],
+      "currentFollowUp": "See FOLLOW_UP.md. Historical fixture observations are not evidence that a production API or route is missing."
+    },
+    {
+      "index": 23,
+      "artboard": "SendArkSent",
+      "prototypeSha256": "10311103e4c2116d4749f94dc1b02e13fbc690ee93aedf3b9a38b0650e8b25dc",
+      "historicalVisualStatus": "partial",
+      "historicalSnapshot": "Pre-phone synthetic study, not a final opening verdict",
+      "openingStatus": "Needs integrated visual recheck; no conformity claim",
+      "phoneEvidence": "See PHONE-PROVENANCE.json for exact source/device/state; no row-level equivalence inferred.",
+      "historicalRemainingDifferences": "Success icon/title/Done hierarchy retained; absent amount changes group centering.",
+      "historicalDecidedDifferences": [
+        "Do not copy 5000 from the prototype when the submitted operation lacks an amount."
+      ],
+      "historicalDataLimits": [
+        {
+          "kind": "projection",
+          "fact": "Operation result does not supply amount here; this is a projected-data limit, not proof that native payment APIs have no amount."
+        },
+        {
+          "kind": "fixture",
+          "fact": "Synthetic succeeded operation is not a real sent payment or proof of finality."
+        }
+      ],
+      "currentFollowUp": "See FOLLOW_UP.md. Historical fixture observations are not evidence that a production API or route is missing."
+    },
+    {
+      "index": 24,
+      "artboard": "Vtxos",
+      "prototypeSha256": "5a6815f9f0de66524252cb07ffd1e12f5e30cea985920b7c4390bfa3133bd802",
+      "historicalVisualStatus": "partial",
+      "historicalSnapshot": "Pre-phone synthetic study, not a final opening verdict",
+      "openingStatus": "Needs integrated visual recheck; no conformity claim",
+      "phoneEvidence": "See PHONE-PROVENANCE.json for exact source/device/state; no row-level equivalence inferred.",
+      "historicalRemainingDifferences": "Contiguous compact rows now provide comparable density. Chips, borders/glyphs and summary arrangement differ.",
+      "historicalDecidedDifferences": [
+        "Total excludes expired observations;13 nonexpired versus 14 All is intentional.",
+        "Show true blocks, not invented 18 hours/1 day or a guessed locked reason."
+      ],
+      "historicalDataLimits": [
+        {
+          "kind": "fixture",
+          "fact": "Amounts/phases/tip are public synthetic observations."
+        },
+        {
+          "kind": "projection",
+          "fact": "Detailed lock/recovery reasons and wall-clock completion are not established by the displayed projection; this is not a blanket native API absence."
+        }
+      ],
+      "currentFollowUp": "See FOLLOW_UP.md. Historical fixture observations are not evidence that a production API or route is missing."
+    },
+    {
+      "index": 25,
+      "artboard": "VtxosDark",
+      "prototypeSha256": "d5583c6d8480e8c95aa289c4e3b531a66eb94edee3f858267ab6dd71f104e271",
+      "historicalVisualStatus": "partial",
+      "historicalSnapshot": "Pre-phone synthetic study, not a final opening verdict",
+      "openingStatus": "Needs integrated visual recheck; no conformity claim",
+      "phoneEvidence": "See PHONE-PROVENANCE.json for exact source/device/state; no row-level equivalence inferred.",
+      "historicalRemainingDifferences": "Contiguous compact rows now provide comparable density. Chips, borders/glyphs and summary arrangement differ.",
+      "historicalDecidedDifferences": [
+        "Total excludes expired observations;13 nonexpired versus 14 All is intentional.",
+        "Show true blocks, not invented 18 hours/1 day or a guessed locked reason."
+      ],
+      "historicalDataLimits": [
+        {
+          "kind": "fixture",
+          "fact": "Amounts/phases/tip are public synthetic observations."
+        },
+        {
+          "kind": "projection",
+          "fact": "Detailed lock/recovery reasons and wall-clock completion are not established by the displayed projection; this is not a blanket native API absence."
+        }
+      ],
+      "currentFollowUp": "See FOLLOW_UP.md. Historical fixture observations are not evidence that a production API or route is missing."
+    },
+    {
+      "index": 26,
+      "artboard": "VtxosEmpty",
+      "prototypeSha256": "bb286301a90ed95ceb595ec3d51ca365e810747a1cda2314a990cf44b31440f2",
+      "historicalVisualStatus": "partial",
+      "historicalSnapshot": "Pre-phone synthetic study, not a final opening verdict",
+      "openingStatus": "Needs integrated visual recheck; no conformity claim",
+      "phoneEvidence": "See PHONE-PROVENANCE.json for exact source/device/state; no row-level equivalence inferred.",
+      "historicalRemainingDifferences": "Empty group centered in remaining body and compact Board CTA restored; illustration, chips and remaining vertical offset differ.",
+      "historicalDecidedDifferences": [
+        "Use an allowed compact filled action instead of restoring the prohibited prototype outline."
+      ],
+      "historicalDataLimits": [
+        {
+          "kind": "fixture",
+          "fact": "Empty observed inventory and Board capability are supplied; no funds or new native action are manufactured."
+        }
+      ],
+      "currentFollowUp": "See FOLLOW_UP.md. Historical fixture observations are not evidence that a production API or route is missing."
+    },
+    {
+      "index": 27,
+      "artboard": "VtxosEmptyDark",
+      "prototypeSha256": "77b72ab1ef53facf650afbdb828880e66a98e1071e4285ebe5c11a26d816186b",
+      "historicalVisualStatus": "partial",
+      "historicalSnapshot": "Pre-phone synthetic study, not a final opening verdict",
+      "openingStatus": "Needs integrated visual recheck; no conformity claim",
+      "phoneEvidence": "See PHONE-PROVENANCE.json for exact source/device/state; no row-level equivalence inferred.",
+      "historicalRemainingDifferences": "Empty group centered in remaining body and compact Board CTA restored; illustration, chips and remaining vertical offset differ.",
+      "historicalDecidedDifferences": [
+        "Use an allowed compact filled action instead of restoring the prohibited prototype outline."
+      ],
+      "historicalDataLimits": [
+        {
+          "kind": "fixture",
+          "fact": "Empty observed inventory and Board capability are supplied; no funds or new native action are manufactured."
+        }
+      ],
+      "currentFollowUp": "See FOLLOW_UP.md. Historical fixture observations are not evidence that a production API or route is missing."
+    },
+    {
+      "index": 28,
+      "artboard": "SendArkWallet",
+      "prototypeSha256": "519c80ac73318a27da9cb9a7cc6291e9c377a62bd950ca3d1af4e7fe0118ecf8",
+      "historicalVisualStatus": "partial",
+      "historicalSnapshot": "Pre-phone synthetic study, not a final opening verdict",
+      "openingStatus": "Needs integrated visual recheck; no conformity claim",
+      "phoneEvidence": "See PHONE-PROVENANCE.json for exact source/device/state; no row-level equivalence inferred.",
+      "historicalRemainingDifferences": "Fiat chip/badges/pills and scan-corner Send glyph restored. Generic Payment/history glyph, local-time/year presentation and minor spacing differ.",
+      "historicalDecidedDifferences": [
+        "Use typed movement direction/status and actual calendar observations rather than invented Sent/relative-age labels."
+      ],
+      "historicalDataLimits": [
+        {
+          "kind": "fixture",
+          "fact": "245000/184.73 USD and dated movements are synthetic, optional-price observations."
+        },
+        {
+          "kind": "application_policy_projection",
+          "fact": "Ark selection in the production composition is currently regtest-only; the actual price provider refuses regtest, so no real cold-path price is available. Synthetic positive-price fixtures do not prove live fiat. This is not a missing Bark price API."
+        },
+        {
+          "kind": "projection",
+          "fact": "A generic payment observation is not silently promoted into known outgoing direction or complete history."
+        }
+      ],
+      "currentFollowUp": "See FOLLOW_UP.md. Historical fixture observations are not evidence that a production API or route is missing."
+    },
+    {
+      "index": 29,
+      "artboard": "SendArkWalletEmpty",
+      "prototypeSha256": "5ad6280afa939fee644eed1bfadee0d6997d7cf057cc64ff66186edb796b8b37",
+      "historicalVisualStatus": "partial",
+      "historicalSnapshot": "Pre-phone synthetic study, not a final opening verdict",
+      "openingStatus": "Needs integrated visual recheck; no conformity claim",
+      "phoneEvidence": "See PHONE-PROVENANCE.json for exact source/device/state; no row-level equivalence inferred.",
+      "historicalRemainingDifferences": "Hero/fiat/empty-state/actions close to reference; longer honest activity status and glyph differences remain.",
+      "historicalDecidedDifferences": [
+        "Activity observations unavailable is retained instead of claiming No transactions yet without history completeness."
+      ],
+      "historicalDataLimits": [
+        {
+          "kind": "projection",
+          "fact": "No history-completeness observation is supplied; absent movements do not establish a never-used account."
+        },
+        {
+          "kind": "fixture",
+          "fact": "Zero balance/price is explicit fixture input, not current final-APK observation."
+        },
+        {
+          "kind": "application_policy_projection",
+          "fact": "Ark selection in the production composition is currently regtest-only; the actual price provider refuses regtest, so no real cold-path price is available. Synthetic positive-price fixtures do not prove live fiat. This is not a missing Bark price API."
+        }
+      ],
+      "currentFollowUp": "See FOLLOW_UP.md. Historical fixture observations are not evidence that a production API or route is missing."
+    },
+    {
+      "index": 30,
+      "artboard": "SendArkReceive",
+      "prototypeSha256": "38ca5928c9a4295d040490511bcf3a7c552601eb2a0dbbe44bd35643125b5977",
+      "historicalVisualStatus": "partial",
+      "historicalSnapshot": "Pre-phone synthetic study, not a final opening verdict",
+      "openingStatus": "Needs integrated visual recheck; no conformity claim",
+      "phoneEvidence": "See PHONE-PROVENANCE.json for exact source/device/state; no row-level equivalence inferred.",
+      "historicalRemainingDifferences": "QR/address/Additional Information order and card geometry close. Inline copy affordance and small card/icon offsets differ.",
+      "historicalDecidedDifferences": [
+        "QR payload changes with the supplied public address; a different pattern is not a visual defect."
+      ],
+      "historicalDataLimits": [
+        {
+          "kind": "fixture",
+          "fact": "Ready address/invoice comes from an explicitly requested fake-client fixture; no native request or real address validity is established."
+        },
+        {
+          "kind": "projection_contract",
+          "fact": "Raw address has no exposed metadata URI contract; do not fabricate optional amount/message enrichment or sharing proof."
+        }
+      ],
+      "currentFollowUp": "See FOLLOW_UP.md. Historical fixture observations are not evidence that a production API or route is missing."
+    },
+    {
+      "index": 31,
+      "artboard": "VtxoFlowList",
+      "prototypeSha256": "88c10a302abf99d858219ca668d9c3e856b56bc7e73646ed483ecd0bcfcd68d6",
+      "historicalVisualStatus": "partial",
+      "historicalSnapshot": "Pre-phone synthetic study, not a final opening verdict",
+      "openingStatus": "Needs integrated visual recheck; no conformity claim",
+      "phoneEvidence": "See PHONE-PROVENANCE.json for exact source/device/state; no row-level equivalence inferred.",
+      "historicalRemainingDifferences": "Contiguous compact rows now provide comparable density. Chips, borders/glyphs and summary arrangement differ.",
+      "historicalDecidedDifferences": [
+        "Total excludes expired observations;13 nonexpired versus 14 All is intentional.",
+        "Show true blocks, not invented 18 hours/1 day or a guessed locked reason."
+      ],
+      "historicalDataLimits": [
+        {
+          "kind": "fixture",
+          "fact": "Amounts/phases/tip are public synthetic observations."
+        },
+        {
+          "kind": "projection",
+          "fact": "Detailed lock/recovery reasons and wall-clock completion are not established by the displayed projection; this is not a blanket native API absence."
+        }
+      ],
+      "currentFollowUp": "See FOLLOW_UP.md. Historical fixture observations are not evidence that a production API or route is missing."
+    },
+    {
+      "index": 32,
+      "artboard": "VtxoFlowDetails",
+      "prototypeSha256": "f738df0a5c45d768c19c0587ec686d908ca85c27bf1b79dc1ace64715a8fcfd4",
+      "historicalVisualStatus": "partial",
+      "historicalSnapshot": "Pre-phone synthetic study, not a final opening verdict",
+      "openingStatus": "Needs integrated visual recheck; no conformity claim",
+      "phoneEvidence": "See PHONE-PROVENANCE.json for exact source/device/state; no row-level equivalence inferred.",
+      "historicalRemainingDifferences": "Block 974,568 and threshold 1,008 are correctly formatted. Anchor wraps; row/graphic/notice arrangement differs.",
+      "historicalDecidedDifferences": [
+        "Keep actual 1,008 configuration rather than prototype 144.",
+        "Only actual due state may show the local note; no automatic successful renewal is claimed."
+      ],
+      "historicalDataLimits": [
+        {
+          "kind": "projection",
+          "fact": "Created date and trusted explorer association are unavailable in the delivered projection; no invented date/link or assertion that Bark lacks these universally."
+        },
+        {
+          "kind": "fixture",
+          "fact": "Nominal 156<1008 supports this positive due-note frame only; strict equality/outside/unknown behavior belongs to the separate lead-qualified tests, not one PNG."
+        }
+      ],
+      "currentFollowUp": "See FOLLOW_UP.md. Historical fixture observations are not evidence that a production API or route is missing."
+    },
+    {
+      "index": 33,
+      "artboard": "VtxoFlowConfirm",
+      "prototypeSha256": "ff896152c8b2095898a73fd967571352106c5960de208cddcaeea9d1b2acdc75",
+      "historicalVisualStatus": "partial",
+      "historicalSnapshot": "Pre-phone synthetic study, not a final opening verdict",
+      "openingStatus": "Needs integrated visual recheck; no conformity claim",
+      "phoneEvidence": "See PHONE-PROVENANCE.json for exact source/device/state; no row-level equivalence inferred.",
+      "historicalRemainingDifferences": "Review renewal/title/grouped quote fixed; tall sheet differs from compact Renew VTXO dialog and count/fiat summary.",
+      "historicalDecidedDifferences": [
+        "Red explicit confirmation, no invented fiat/count."
+      ],
+      "historicalDataLimits": [
+        {
+          "kind": "fixture",
+          "fact": "Typed 120000 gross/250 fee/119750 net supplied, optional fiat not supplied."
+        },
+        {
+          "kind": "not_established_from_png",
+          "fact": "Selected count is not shown; whether the bound projection exposes it is not established by PNGs. Do not call this a native API absence."
+        }
+      ],
+      "currentFollowUp": "See FOLLOW_UP.md. Historical fixture observations are not evidence that a production API or route is missing."
+    },
+    {
+      "index": 34,
+      "artboard": "VtxoFlowRenewed",
+      "prototypeSha256": "b03f252e22760661e0ebc008683bd3226c778a8d47ea9abffa58ca575c663617",
+      "historicalVisualStatus": "partial",
+      "historicalSnapshot": "Pre-phone synthetic study, not a final opening verdict",
+      "openingStatus": "Needs integrated visual recheck; no conformity claim",
+      "phoneEvidence": "See PHONE-PROVENANCE.json for exact source/device/state; no row-level equivalence inferred.",
+      "historicalRemainingDifferences": "Legitimate renewal-started result with operation fields/mid-page Done differs from centered amount/Done drawing.",
+      "historicalDecidedDifferences": [
+        "Renewal started is not completed round or final spendability; State Completed is scoped to the operation."
+      ],
+      "historicalDataLimits": [
+        {
+          "kind": "projection",
+          "fact": "Submitted operation has no amount to display; do not invent 119750 from prototype."
+        },
+        {
+          "kind": "fixture",
+          "fact": "Synthetic result is not native renewal/finality proof."
+        }
+      ],
+      "currentFollowUp": "See FOLLOW_UP.md. Historical fixture observations are not evidence that a production API or route is missing."
+    },
+    {
+      "index": 35,
+      "artboard": "ExitFlowHome",
+      "prototypeSha256": "5d8ced907ada516571688d625712885d77d444db692f12cd5a3ab39d7ce8f9f0",
+      "historicalVisualStatus": "partial",
+      "historicalSnapshot": "Pre-phone synthetic study, not a final opening verdict",
+      "openingStatus": "Needs integrated visual recheck; no conformity claim",
+      "phoneEvidence": "See PHONE-PROVENANCE.json for exact source/device/state; no row-level equivalence inferred.",
+      "historicalRemainingDifferences": "Action labels now distinguish Progress from new Start. Separate rows and generic warning/metadata hierarchy differ from grouped prototype.",
+      "historicalDecidedDifferences": [
+        "Both overview actions use secondary/onSecondary per lead source check; no two-primary violation is inferred.",
+        "Filled Start replaces prohibited outline; manual foreground progress/claim consent is retained."
+      ],
+      "historicalDataLimits": [
+        {
+          "kind": "fixture",
+          "fact": "Synthetic exit amounts/statuses are not current native/phone observations."
+        },
+        {
+          "kind": "projection",
+          "fact": "Dates/counts and a scoped online/send shortcut are not supplied by these frames; do not invent them."
+        }
+      ],
+      "currentFollowUp": "See FOLLOW_UP.md. Historical fixture observations are not evidence that a production API or route is missing."
+    },
+    {
+      "index": 36,
+      "artboard": "ExitFlowChoose",
+      "prototypeSha256": "2b67ff4def7340dc15fbc38a54527891e8aca5c90a3aa0a64de5256fbad9f490",
+      "historicalVisualStatus": "nonéquivalent",
+      "historicalSnapshot": "Pre-phone synthetic study, not a final opening verdict",
+      "openingStatus": "Needs integrated visual recheck; no conformity claim",
+      "phoneEvidence": "See PHONE-PROVENANCE.json for exact source/device/state; no row-level equivalence inferred.",
+      "historicalRemainingDifferences": "Only context: actual initial request lacks the populated pre-review fee preview in the reference; consent/IDs/input viewport differs.",
+      "historicalDecidedDifferences": [
+        "Keep explicit foreground account-wide reserve consent and no standing authorization."
+      ],
+      "historicalDataLimits": [
+        {
+          "kind": "workflow_projection",
+          "fact": "Fees/exposure become available at explicit native review, not a nonmutating populated pre-review preview in this request state."
+        },
+        {
+          "kind": "fixture",
+          "fact": "Choose and ChooseFilled capture identical viewport; name alone is not proof of a visibly filled destination state."
+        }
+      ],
+      "currentFollowUp": "See FOLLOW_UP.md. Historical fixture observations are not evidence that a production API or route is missing."
+    },
+    {
+      "index": 37,
+      "artboard": "ExitFlowReview",
+      "prototypeSha256": "c0762deb2966eab9e67a6993d670cb80c5316b23d29ef19e1c34eff9e2583562",
+      "historicalVisualStatus": "nonéquivalent",
+      "historicalSnapshot": "Pre-phone synthetic study, not a final opening verdict",
+      "openingStatus": "Needs integrated visual recheck; no conformity claim",
+      "phoneEvidence": "See PHONE-PROVENANCE.json for exact source/device/state; no row-level equivalence inferred.",
+      "historicalRemainingDifferences": "Own-wallet destination route from the prototype has no corresponding executed PNG/capability; external-wallet review is context only.",
+      "historicalDecidedDifferences": [
+        "No trusted own-wallet choice/address is fabricated.",
+        "Manual claim/foreground consent prevails over automatic-claim prototype copy."
+      ],
+      "historicalDataLimits": [
+        {
+          "kind": "application_routing_projection",
+          "fact": "Own-wallet destination selection is absent from this flow; arbitrary explicit on-chain destination support is not proof of an integrated own-wallet provider. Not a claim Bark cannot target that wallet."
+        }
+      ],
+      "currentFollowUp": "See FOLLOW_UP.md. Historical fixture observations are not evidence that a production API or route is missing."
+    },
+    {
+      "index": 38,
+      "artboard": "ExitFlowStarted",
+      "prototypeSha256": "cce9e6497a01018bf8c6b9769beee35dd3df5eb92a04b299dc22309f36d42f7a",
+      "historicalVisualStatus": "partial",
+      "historicalSnapshot": "Pre-phone synthetic study, not a final opening verdict",
+      "openingStatus": "Needs integrated visual recheck; no conformity claim",
+      "phoneEvidence": "See PHONE-PROVENANCE.json for exact source/device/state; no row-level equivalence inferred.",
+      "historicalRemainingDifferences": "Opened unrolling details are embedded below overview rather than a dedicated hero/timeline screen. Submission result alone is not used as this phase.",
+      "historicalDecidedDifferences": [
+        "Manual explicit claim and no guessed completion ETA/automatic claim."
+      ],
+      "historicalDataLimits": [
+        {
+          "kind": "projection",
+          "fact": "Per-transaction confirmation counts/wall-clock finish are not established by these displayed observations; no invented 0-of 3."
+        },
+        {
+          "kind": "fixture",
+          "fact": "Actual unrolling phase is synthetic, not native/chain finality proof."
+        }
+      ],
+      "currentFollowUp": "See FOLLOW_UP.md. Historical fixture observations are not evidence that a production API or route is missing."
+    },
+    {
+      "index": 39,
+      "artboard": "ExitFlowClaimable",
+      "prototypeSha256": "dbe3ceeff8b7aec046aea70bbd9b844583535680aabde3e0bace8b25b83278c3",
+      "historicalVisualStatus": "nonéquivalent",
+      "historicalSnapshot": "Pre-phone synthetic study, not a final opening verdict",
+      "openingStatus": "Needs integrated visual recheck; no conformity claim",
+      "phoneEvidence": "See PHONE-PROVENANCE.json for exact source/device/state; no row-level equivalence inferred.",
+      "historicalRemainingDifferences": "Prototype name says Claimable but its PNG is CLAIMING with claim transaction sent; actual scene is ready for manual claim, not the same state.",
+      "historicalDecidedDifferences": [
+        "No automatic claim or promotion from ready to submitted/claimed."
+      ],
+      "historicalDataLimits": [
+        {
+          "kind": "workflow_state",
+          "fact": "Manual claim requires fresh review. Delay, claimable and claim-sent phases are distinct; a list row alone is not a matching expanded claim-sent frame."
+        }
+      ],
+      "currentFollowUp": "See FOLLOW_UP.md. Historical fixture observations are not evidence that a production API or route is missing."
+    },
+    {
+      "index": 40,
+      "artboard": "ExitFlowDone",
+      "prototypeSha256": "1d2d0ccbd0bb664f3882cc450db1057f18e65d41f4bd7e16b3c1f25d2a037f80",
+      "historicalVisualStatus": "partial",
+      "historicalSnapshot": "Pre-phone synthetic study, not a final opening verdict",
+      "openingStatus": "Needs integrated visual recheck; no conformity claim",
+      "phoneEvidence": "See PHONE-PROVENANCE.json for exact source/device/state; no row-level equivalence inferred.",
+      "historicalRemainingDifferences": "Claimed projection present, but embedded detail/Start footer differs from dedicated net-received hero/Done.",
+      "historicalDecidedDifferences": [
+        "Claimed observation is not inferred from an earlier submitted operation."
+      ],
+      "historicalDataLimits": [
+        {
+          "kind": "projection",
+          "fact": "Net recovered amount, receiver label and exact claimed date are not supplied here; do not invent 508328 or a wallet receipt."
+        },
+        {
+          "kind": "fixture",
+          "fact": "Synthetic claimed projection is not current native/chain finality proof."
+        }
+      ],
+      "currentFollowUp": "See FOLLOW_UP.md. Historical fixture observations are not evidence that a production API or route is missing."
+    },
+    {
+      "index": 41,
+      "artboard": "ExitFlowNoFunds",
+      "prototypeSha256": "e4ce48ad3aba1bde2ba53ae7a96bc8038bb2390cbc0a128c3a1430f5826a9ba2",
+      "historicalVisualStatus": "nonéquivalent",
+      "historicalSnapshot": "Pre-phone synthetic study, not a final opening verdict",
+      "openingStatus": "Needs integrated visual recheck; no conformity claim",
+      "phoneEvidence": "See PHONE-PROVENANCE.json for exact source/device/state; no row-level equivalence inferred.",
+      "historicalRemainingDifferences": "Actual quote refusal/retry is not a populated review sheet with disabled hold; context only.",
+      "historicalDecidedDifferences": [
+        "Preserve early refusal, no fake admissible quote or financial summary after failure."
+      ],
+      "historicalDataLimits": [
+        {
+          "kind": "workflow_state",
+          "fact": "No bound quote exists in this refusal state; this is not a general absence of native quote APIs."
+        }
+      ],
+      "currentFollowUp": "See FOLLOW_UP.md. Historical fixture observations are not evidence that a production API or route is missing."
+    },
+    {
+      "index": 42,
+      "artboard": "TransferForm",
+      "prototypeSha256": "0eaa03789bef6cf18fdc698eaa2bbf9705a4c92759e0bc672dd1193fba9c65a5",
+      "historicalVisualStatus": "partial",
+      "historicalSnapshot": "Pre-phone synthetic study, not a final opening verdict",
+      "openingStatus": "Needs integrated visual recheck; no conformity claim",
+      "phoneEvidence": "See PHONE-PROVENANCE.json for exact source/device/state; no row-level equivalence inferred.",
+      "historicalRemainingDifferences": "Selection/amount containers and grouping restored; Pick replaces its selected To row. Remaining stack offsets/glyphs/helper layout differ; actual Internal Transfer is on while drawing is off.",
+      "historicalDecidedDifferences": [
+        "Keep true route semantics, validation and honest unavailable controls.",
+        "Do not invent exact-receive or new fee-aware MAX capability to mimic enabled prototype controls."
+      ],
+      "historicalDataLimits": [
+        {
+          "kind": "exposed_native_capability",
+          "fact": "A nonmutating fee-aware Board MAX/preview is not exposed by the available contract. No mutating quote or invented estimate is substituted; this is scoped to the exposed capability, not an assertion about every Bark release."
+        },
+        {
+          "kind": "application_projection",
+          "fact": "No exposed exact-receive mode/flag for this form; do not silently synthesize it."
+        },
+        {
+          "kind": "fixture",
+          "fact": "184250 source,100000 filled/20000 low and 50000 minimum are supplied synthetic observations; no Continue/native transfer executed."
+        }
+      ],
+      "currentFollowUp": "See FOLLOW_UP.md. Historical fixture observations are not evidence that a production API or route is missing."
+    },
+    {
+      "index": 43,
+      "artboard": "TransferPick",
+      "prototypeSha256": "6c0ca66b0e38af55a8e52ee71bbd03a5ac653ff606fbdb617044cf57d07201e5",
+      "historicalVisualStatus": "partial",
+      "historicalSnapshot": "Pre-phone synthetic study, not a final opening verdict",
+      "openingStatus": "Needs integrated visual recheck; no conformity claim",
+      "phoneEvidence": "See PHONE-PROVENANCE.json for exact source/device/state; no row-level equivalence inferred.",
+      "historicalRemainingDifferences": "Selection/amount containers and grouping restored; Pick replaces its selected To row. Remaining stack offsets/glyphs/helper layout differ; actual Internal Transfer is on while drawing is off.",
+      "historicalDecidedDifferences": [
+        "Keep true route semantics, validation and honest unavailable controls.",
+        "Do not invent exact-receive or new fee-aware MAX capability to mimic enabled prototype controls."
+      ],
+      "historicalDataLimits": [
+        {
+          "kind": "exposed_native_capability",
+          "fact": "A nonmutating fee-aware Board MAX/preview is not exposed by the available contract. No mutating quote or invented estimate is substituted; this is scoped to the exposed capability, not an assertion about every Bark release."
+        },
+        {
+          "kind": "application_projection",
+          "fact": "No exposed exact-receive mode/flag for this form; do not silently synthesize it."
+        },
+        {
+          "kind": "fixture",
+          "fact": "184250 source,100000 filled/20000 low and 50000 minimum are supplied synthetic observations; no Continue/native transfer executed."
+        }
+      ],
+      "currentFollowUp": "See FOLLOW_UP.md. Historical fixture observations are not evidence that a production API or route is missing."
+    },
+    {
+      "index": 44,
+      "artboard": "TransferLow",
+      "prototypeSha256": "c79c68a988e16ef377623a8614ed80ddf86ed6ad496cde6a61939617be1f1fb6",
+      "historicalVisualStatus": "partial",
+      "historicalSnapshot": "Pre-phone synthetic study, not a final opening verdict",
+      "openingStatus": "Needs integrated visual recheck; no conformity claim",
+      "phoneEvidence": "See PHONE-PROVENANCE.json for exact source/device/state; no row-level equivalence inferred.",
+      "historicalRemainingDifferences": "Selection/amount containers and grouping restored; Pick replaces its selected To row. Remaining stack offsets/glyphs/helper layout differ; actual Internal Transfer is on while drawing is off.",
+      "historicalDecidedDifferences": [
+        "Keep true route semantics, validation and honest unavailable controls.",
+        "Do not invent exact-receive or new fee-aware MAX capability to mimic enabled prototype controls."
+      ],
+      "historicalDataLimits": [
+        {
+          "kind": "exposed_native_capability",
+          "fact": "A nonmutating fee-aware Board MAX/preview is not exposed by the available contract. No mutating quote or invented estimate is substituted; this is scoped to the exposed capability, not an assertion about every Bark release."
+        },
+        {
+          "kind": "application_projection",
+          "fact": "No exposed exact-receive mode/flag for this form; do not silently synthesize it."
+        },
+        {
+          "kind": "fixture",
+          "fact": "184250 source,100000 filled/20000 low and 50000 minimum are supplied synthetic observations; no Continue/native transfer executed."
+        }
+      ],
+      "currentFollowUp": "See FOLLOW_UP.md. Historical fixture observations are not evidence that a production API or route is missing."
+    },
+    {
+      "index": 45,
+      "artboard": "TransferFilled",
+      "prototypeSha256": "10d70a4503f84d206256203f99b9eaadd8bd5286f0ed2a3158d75471a5e55ef6",
+      "historicalVisualStatus": "partial",
+      "historicalSnapshot": "Pre-phone synthetic study, not a final opening verdict",
+      "openingStatus": "Needs integrated visual recheck; no conformity claim",
+      "phoneEvidence": "See PHONE-PROVENANCE.json for exact source/device/state; no row-level equivalence inferred.",
+      "historicalRemainingDifferences": "Selection/amount containers and grouping restored; Pick replaces its selected To row. Remaining stack offsets/glyphs/helper layout differ; actual Internal Transfer is on while drawing is off.",
+      "historicalDecidedDifferences": [
+        "Keep true route semantics, validation and honest unavailable controls.",
+        "Do not invent exact-receive or new fee-aware MAX capability to mimic enabled prototype controls."
+      ],
+      "historicalDataLimits": [
+        {
+          "kind": "exposed_native_capability",
+          "fact": "A nonmutating fee-aware Board MAX/preview is not exposed by the available contract. No mutating quote or invented estimate is substituted; this is scoped to the exposed capability, not an assertion about every Bark release."
+        },
+        {
+          "kind": "application_projection",
+          "fact": "No exposed exact-receive mode/flag for this form; do not silently synthesize it."
+        },
+        {
+          "kind": "fixture",
+          "fact": "184250 source,100000 filled/20000 low and 50000 minimum are supplied synthetic observations; no Continue/native transfer executed."
+        }
+      ],
+      "currentFollowUp": "See FOLLOW_UP.md. Historical fixture observations are not evidence that a production API or route is missing."
+    },
+    {
+      "index": 46,
+      "artboard": "ExitFlowReviewOther",
+      "prototypeSha256": "8d974aee4307ef5afddedcd01c24d700218906ac8c25c6cd1e725613eebd11ae",
+      "historicalVisualStatus": "partial",
+      "historicalSnapshot": "Pre-phone synthetic study, not a final opening verdict",
+      "openingStatus": "Needs integrated visual recheck; no conformity claim",
+      "phoneEvidence": "See PHONE-PROVENANCE.json for exact source/device/state; no row-level equivalence inferred.",
+      "historicalRemainingDifferences": "Review exit/grouped quote fixed; tall required warning/hero sheet still differs and some bound details are below initial fold.",
+      "historicalDecidedDifferences": [
+        "Keep reserve exposure, real quote accounting, full bound destination and mandatory warnings.",
+        "No automatic claim; one foreground attempt is not standing consent."
+      ],
+      "historicalDataLimits": [
+        {
+          "kind": "fixture",
+          "fact": "Actual synthetic net 498804/gross 509400/fee 10596 differs from prototype 508328; no quote/arithmetic is substituted."
+        },
+        {
+          "kind": "application_routing_projection",
+          "fact": "Own-wallet integration remains absent; this row qualifies only the external-destination review phase."
+        }
+      ],
+      "currentFollowUp": "See FOLLOW_UP.md. Historical fixture observations are not evidence that a production API or route is missing."
+    }
+  ]
+}

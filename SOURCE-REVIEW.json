@@ -1,0 +1,481 @@
+{
+  "head": "4f5809d9272ad4d077a9bbb7937c717b0728a560",
+  "integratedBase": "e4dd3cbb7042f2eeff3a2a8048acadd590e38a90",
+  "currentSharedTarget": "eb9e414a316d4b1b77f0b8549477d416deda2bb0",
+  "commits": [
+    {
+      "sha": "1d8620f8a091bfe39f2ff8e3de1eb4bc00703459",
+      "subject": "fix(l10n): repair malformed French and Spanish catalogs",
+      "group": "source/localization"
+    },
+    {
+      "sha": "b83b3bcf4496e587e232e730a94dfa1399a50371",
+      "subject": "test(settings): pass the required environment to settings fixtures",
+      "group": "tests"
+    },
+    {
+      "sha": "7bdd2395bdb0dce0ddc4adbd6e88aec3e6eb633d",
+      "subject": "fix(send): resolve Ark routing from the local account inventory",
+      "group": "source/localization"
+    },
+    {
+      "sha": "d3378ce1f0d1069eb764dc6dcf09822f667b4178",
+      "subject": "test(send): cover composed Ark routing without native startup",
+      "group": "tests"
+    },
+    {
+      "sha": "1be4b184803f02a21f1de8c0e5bb73b732ce7706",
+      "subject": "fix(ark): exclude retired VTXOs from current totals",
+      "group": "source/localization"
+    },
+    {
+      "sha": "07cace83d1615a6a4cc506388f5675459e43a70b",
+      "subject": "test(ark): cover retired inventory totals and counts",
+      "group": "tests"
+    },
+    {
+      "sha": "1978f7b0065e91b488b52551bc07f8d1da9551f4",
+      "subject": "fix(wallet): recover interrupted Ark funding delivery",
+      "group": "source/localization"
+    },
+    {
+      "sha": "ee71692449279bcb3871558b1ed167a23c70de3d",
+      "subject": "test(wallet): cover persisted Ark funding recovery windows",
+      "group": "tests"
+    },
+    {
+      "sha": "c0e9f8544d16ddf5eb87ec02df5642da8f10196c",
+      "subject": "fix(ark): open Board from a confirmed empty VTXO list",
+      "group": "source/localization"
+    },
+    {
+      "sha": "789f9958f801019b306ebb85e8aeaec47388d13e",
+      "subject": "test(ark): cover empty inventory Board capability lifetime",
+      "group": "tests"
+    },
+    {
+      "sha": "c825b9a08ee0ff6a7ca7dd54a6ec0b3d7262b18f",
+      "subject": "fix(wallet): expose the home logo as a named 48 dp control",
+      "group": "source/localization"
+    },
+    {
+      "sha": "a47b8f9aef351c627b4003cae1695c9bb0486674",
+      "subject": "test(wallet): cover localized logo semantics and shared tap counter",
+      "group": "tests"
+    },
+    {
+      "sha": "3da6a02dc52037d50bd7c89920be693564274d38",
+      "subject": "Merge remote-tracking branch 'upstream/develop' into work/ark-final-20261118",
+      "group": "source/localization"
+    },
+    {
+      "sha": "508d1e6ed6d2c8bad9c81743b703a2929486c815",
+      "subject": "fix(ark): keep Board confirmation reachable above system insets",
+      "group": "source/localization"
+    },
+    {
+      "sha": "bc815a893f7d3bf716c849da45ac19e6eee51894",
+      "subject": "test(ark): cover Board confirmation hit targets and visual states",
+      "group": "tests"
+    },
+    {
+      "sha": "91b5d92f75eebea426118cb87b92d119b2110e0b",
+      "subject": "chore(ark): regenerate Board review translations and snapshots",
+      "group": "generated/references"
+    },
+    {
+      "sha": "3c12107725a355a12c75cf4bc237a9e9ea9e9563",
+      "subject": "feat(ark): simplify account activity and guard action sheet routes",
+      "group": "source/localization"
+    },
+    {
+      "sha": "08a6bf2ec7f8dbde1a667ff55f7d9889eaefc4d5",
+      "subject": "test(ark): cover account actions, stale sheets and visual states",
+      "group": "tests"
+    },
+    {
+      "sha": "ea5cf0f3faef130383a6aab1102e40e1f8a68a52",
+      "subject": "chore(ark): regenerate account action labels and snapshots",
+      "group": "generated/references"
+    },
+    {
+      "sha": "fce6ecfd95afab0c8aef0ff09eb3ba4c132cbec5",
+      "subject": "Merge remote-tracking branch 'upstream/develop' into work/ark-final-20261118",
+      "group": "source/localization"
+    },
+    {
+      "sha": "092e7d5673a78d85e3e7e089047921a52916eadd",
+      "subject": "test: migrate remaining native bindings imports",
+      "group": "tests"
+    },
+    {
+      "sha": "ad090e715d297916bc3a1653a94c553ce8d72e29",
+      "subject": "test(ark): navigate account actions through the current menu",
+      "group": "tests"
+    },
+    {
+      "sha": "34211d275e4710e3630f5fc7a3b721c1dc873f6b",
+      "subject": "Merge remote-tracking branch 'upstream/develop' into work/ark-final-20261118",
+      "group": "source/localization"
+    },
+    {
+      "sha": "bdfd141e422230a48892c3c8ed9b4e8178ef93f6",
+      "subject": "fix(ark): scan the selected source on ordinary Board entry",
+      "group": "source/localization"
+    },
+    {
+      "sha": "e57679e8c339a6779f6de9ed09646171db228813",
+      "subject": "test(ark): cover Board source refresh and passive transfers",
+      "group": "tests"
+    },
+    {
+      "sha": "57ae625231aaa7c4f3d171e9d4f42d38627facb7",
+      "subject": "Merge remote-tracking branch 'upstream/develop' into work/ark-final-20261118",
+      "group": "source/localization"
+    },
+    {
+      "sha": "9d42c3035bd508795af4df7ab12cf25610847b57",
+      "subject": "feat(bull-ui): expose sailing and info icon aliases",
+      "group": "source/localization"
+    },
+    {
+      "sha": "ddcb63afd1d0a6deeae382b223960e55a6cc5383",
+      "subject": "feat(bull-ui): support centered unfilled amount inputs",
+      "group": "source/localization"
+    },
+    {
+      "sha": "a8deac5594b3a866b2745aadf9bfa7c1e6825a09",
+      "subject": "test(bull-ui): preserve input defaults and controlled amount edits",
+      "group": "tests"
+    },
+    {
+      "sha": "b5b0c8c8448d2ed45f9eb54a35b97923b413d0dc",
+      "subject": "feat(bull-ui): allow flat detail tables",
+      "group": "source/localization"
+    },
+    {
+      "sha": "11883a50e430bca5863fbdd1cebacacbe2ec9a79",
+      "subject": "test(bull-ui): preserve flat table rows and exact clipboard writes",
+      "group": "tests"
+    },
+    {
+      "sha": "7f6560a5b2a0af29fc2c6931440767749c653326",
+      "subject": "feat(ark): retain native exit phases and cached server facts",
+      "group": "source/localization"
+    },
+    {
+      "sha": "c886e896f0e433bd9e75092edd72059eb0927cca",
+      "subject": "test(ark): preserve legacy observations and optional server bindings",
+      "group": "tests"
+    },
+    {
+      "sha": "b8d754a1d5ffac937fffc69e58cdaac7e6c5efad",
+      "subject": "feat(bull-ui): expose bounded amount layout primitives",
+      "group": "source/localization"
+    },
+    {
+      "sha": "cce68234505444d04f780b26c4443800ab25c263",
+      "subject": "feat(ark): localize wallet inventory and exit presentations",
+      "group": "source/localization"
+    },
+    {
+      "sha": "f44846e83b964af397bddcd69ceb00e58f955108",
+      "subject": "chore(ark): regenerate presentation localizations",
+      "group": "generated/references"
+    },
+    {
+      "sha": "6b1cf7371ec256a48b129457a1f7f30ffbfcb768",
+      "subject": "feat(ark): present settings server facts and VTXO inventory",
+      "group": "source/localization"
+    },
+    {
+      "sha": "d61fed969debed4b963ff96ac52ef50af8611469",
+      "subject": "test(ark): cover inventory consent and scoped server observations",
+      "group": "tests"
+    },
+    {
+      "sha": "4be6a4593a1513a07c0dbc5a560675077384d3d3",
+      "subject": "fix(bull-ui): restore the inline copy touch target",
+      "group": "source/localization"
+    },
+    {
+      "sha": "742058e109a2ecbd70f18bd5e168ac863b3d1ec2",
+      "subject": "test(bull-ui): exercise the copy target at its edge",
+      "group": "tests"
+    },
+    {
+      "sha": "56c054eb8b98e25b5a082cef6861f9fa55962dad",
+      "subject": "feat(bull-ui): support compact headings and covering dropdown menus",
+      "group": "source/localization"
+    },
+    {
+      "sha": "79554135137ec48b2a2b47a9a5f28eb10722c8d1",
+      "subject": "test(bull-ui): preserve field defaults and accessible layout variants",
+      "group": "tests"
+    },
+    {
+      "sha": "da680369f98c20da444b43a80ad48935ef61556f",
+      "subject": "feat(ark): present Board amounts reviews and durable submission results",
+      "group": "source/localization"
+    },
+    {
+      "sha": "3ae9d9dae6118239641baf7fcc2512043c6046bb",
+      "subject": "test(ark): cover Board presentation and retired funding actions",
+      "group": "tests"
+    },
+    {
+      "sha": "325ba04f1de834c3130468fe5113d80b32b35683",
+      "subject": "feat(ark): align wallet receive send and transfer presentations",
+      "group": "source/localization"
+    },
+    {
+      "sha": "630a4b433e01d2213e1974676f63e64b887f0a8a",
+      "subject": "test(ark): preserve exact amounts privacy and wallet action ownership",
+      "group": "tests"
+    },
+    {
+      "sha": "80b66b5c41c78319365ebafaad229ef8162a9495",
+      "subject": "feat(ark): present observed exits with explicit reviewed navigation",
+      "group": "source/localization"
+    },
+    {
+      "sha": "2f6cc97ab1764ba72883e6a20bd90bd6c533d9ed",
+      "subject": "test(ark): bind exit holds cancellation and completion to current reviews",
+      "group": "tests"
+    },
+    {
+      "sha": "9474cf9eb7e8716c66bf5ebc5148710e6ed5866e",
+      "subject": "feat(wallet): connect live Ark sharing and optional source labels",
+      "group": "source/localization"
+    },
+    {
+      "sha": "a1518f9da319d98ae1d6d3420cf02ce267e58918",
+      "subject": "test(wallet): cover Ark host sharing and nonblocking source labels",
+      "group": "tests"
+    },
+    {
+      "sha": "57040547c642e6d027a657a4e11d664437a5b2f7",
+      "subject": "fix(ark): expire displayed reviews without an automatic quote",
+      "group": "source/localization"
+    },
+    {
+      "sha": "cdb5e67c749d18703728bb0286ae5eb0195513a5",
+      "subject": "test(ark): cover elapsed reviews and accessible confirmation expiry",
+      "group": "tests"
+    },
+    {
+      "sha": "a9f74d6b71643005d63146b545c532d53d6230f5",
+      "subject": "feat(bull-ui): add accessible compact detail rows",
+      "group": "source/localization"
+    },
+    {
+      "sha": "9f3670c5ca373169ed00c36f6d44052effc31578",
+      "subject": "test(bull-ui): preserve legacy details and compact action semantics",
+      "group": "tests"
+    },
+    {
+      "sha": "87defcaa5ebea59b9f438359d863ac076aa8b699",
+      "subject": "feat(l10n): distinguish absolute Ark expiry block heights",
+      "group": "source/localization"
+    },
+    {
+      "sha": "b968d0ec15877ca488c6ff384d157b842a10add5",
+      "subject": "chore(l10n): generate absolute Ark block labels",
+      "group": "generated/references"
+    },
+    {
+      "sha": "4812cebf8183b2038e566690cdbed9efc769c3d8",
+      "subject": "feat(ark): align inventory density and accessible server details",
+      "group": "source/localization"
+    },
+    {
+      "sha": "f61786e8b3109acad5a543cc83226853c8c198a1",
+      "subject": "test(ark): verify inventory geometry copying and localized block heights",
+      "group": "tests"
+    },
+    {
+      "sha": "ce76dde4961d15882250f2c91336be8c1c212143",
+      "subject": "feat(ark): refine wallet receive and transfer layouts",
+      "group": "source/localization"
+    },
+    {
+      "sha": "be9d79874cc5e12ecfe5c5edeb72011fb3bfd058",
+      "subject": "test(ark): verify wallet layout privacy and real action targets",
+      "group": "tests"
+    },
+    {
+      "sha": "b8eff56e7686d980fe1fbae0ea9e9c60c2d850d7",
+      "subject": "feat(ark): group observed amounts without changing Board input",
+      "group": "source/localization"
+    },
+    {
+      "sha": "a9c66df61d894058c4a676d22f704586f163851f",
+      "subject": "test(ark): preserve exact Board edits across localized display changes",
+      "group": "tests"
+    },
+    {
+      "sha": "9e09b83ded48670d30e04b397ddc743b40368392",
+      "subject": "feat(ark): identify exit reviews and format their bound amounts",
+      "group": "source/localization"
+    },
+    {
+      "sha": "494f9e6445bc06ceb321f7c55040eb3c1b58bc8d",
+      "subject": "test(ark): preserve exit review facts titles and explicit action guards",
+      "group": "tests"
+    },
+    {
+      "sha": "87612e20e06a192541477aab58940f600707c5e9",
+      "subject": "test(ark): select the explicit claim action in composition",
+      "group": "tests"
+    },
+    {
+      "sha": "2279a75e1da33ba56ff6116bfa08fda1dbcc1aa9",
+      "subject": "fix(bull-ui): reserve readable space for copyable compact values",
+      "group": "source/localization"
+    },
+    {
+      "sha": "a7b5371163226dec77af00f827be9ccc50f78dd8",
+      "subject": "test(ark): capture whole server status and the actual fee reserve section",
+      "group": "tests"
+    },
+    {
+      "sha": "eb3399ab799d57cdfedd517d932c68e38241ed35",
+      "subject": "chore(goldens): refresh the existing Settings typography baseline",
+      "group": "generated/references"
+    },
+    {
+      "sha": "82c8a211ff9b70680d2a5a948c16dce2fdddfa3e",
+      "subject": "chore(goldens): refresh reviewed Ark presentation references",
+      "group": "generated/references"
+    },
+    {
+      "sha": "3e69845233bacceba699b96eb2bfa8083d5f8c67",
+      "subject": "feat(bull_ui): add themed action button roles",
+      "group": "source/localization"
+    },
+    {
+      "sha": "39062440484b08ac4abe7605ad4839955e13ce9b",
+      "subject": "test(bull_ui): cover button roles and activation semantics",
+      "group": "tests"
+    },
+    {
+      "sha": "d4c81ba787305a0c65aba113964ba8e8b9334613",
+      "subject": "chore(bull_ui): regenerate the action button catalogue",
+      "group": "generated/references"
+    },
+    {
+      "sha": "6eb417715feea162e7cb79bea579a295085c22b6",
+      "subject": "fix(bull_ui): support intrinsic compact dialog actions",
+      "group": "source/localization"
+    },
+    {
+      "sha": "28d778ee5ca37f16c6fd665e24b749e7345a1f21",
+      "subject": "test(bull_ui): cover compact dialog intrinsic sizing",
+      "group": "tests"
+    },
+    {
+      "sha": "16ebd2dfc6206433edf4b659b95b8ce55f6338a4",
+      "subject": "test(ark): keep root visual scenarios in their owning feature",
+      "group": "tests"
+    },
+    {
+      "sha": "24fecc593ac34603cfe3002de6a2ebafa4e66223",
+      "subject": "test(ark): move inventory layout contracts to their owner",
+      "group": "tests"
+    },
+    {
+      "sha": "453d84ed548d534aa52676811dd07bebd9815ee9",
+      "subject": "test(ark): isolate wallet visual contracts behind test helpers",
+      "group": "tests"
+    },
+    {
+      "sha": "2c9ab88a6d2942d1c7143359eb30da2923292c5e",
+      "subject": "feat(l10n): label operation result details",
+      "group": "source/localization"
+    },
+    {
+      "sha": "de75463494158b32fc33c9231bac5f55ef0df0c8",
+      "subject": "chore(l10n): generate operation result labels",
+      "group": "generated/references"
+    },
+    {
+      "sha": "16e9cbb9a3812cd694a0fd3c88e286c26a11fe16",
+      "subject": "feat(ark): separate accepted results from operation details",
+      "group": "source/localization"
+    },
+    {
+      "sha": "686ff7bddd98cb7721d1edec236436a4c4c3c471",
+      "subject": "test(ark): cover result navigation and guarded completion",
+      "group": "tests"
+    },
+    {
+      "sha": "5a7e68c4a2c52ad2830fe958100bc4c2b7f2fb98",
+      "subject": "feat(ark): open exits in dedicated local details",
+      "group": "source/localization"
+    },
+    {
+      "sha": "d1018b2ec75a049d55a6f35cc97513a307012247",
+      "subject": "test(ark): cover exit detail ownership and scroll resets",
+      "group": "tests"
+    },
+    {
+      "sha": "a5c75e0ada1a5732729928d085f514b2ff79fbd6",
+      "subject": "chore(goldens): refresh reviewed exit result and detail references",
+      "group": "generated/references"
+    },
+    {
+      "sha": "55a141c2031f2fe757f1186f5e497900ffd03825",
+      "subject": "fix(ark): keep exit inputs visible before explicit review",
+      "group": "source/localization"
+    },
+    {
+      "sha": "27b5333e5864ecd0ad8fd41fe41a139b8fd0d0cc",
+      "subject": "test(ark): cover exit selection and persistent fee inputs",
+      "group": "tests"
+    },
+    {
+      "sha": "6792120e9a821bb100558f7d3082d65a17183786",
+      "subject": "feat(l10n): name emergency exits refused before confirmation",
+      "group": "source/localization"
+    },
+    {
+      "sha": "31a67bfe6cd86d7c45b7784e9a945a386e2f9d1b",
+      "subject": "chore(l10n): regenerate initial exit refusal heading",
+      "group": "generated/references"
+    },
+    {
+      "sha": "21dc6c83dd76a056a8adf0f9b2029bf0d7727498",
+      "subject": "fix(ark): retry initial exit refusal only from its current page",
+      "group": "source/localization"
+    },
+    {
+      "sha": "d99593eb2a8cee0228f6e43ddecbf411b8967d75",
+      "subject": "test(ark): cover initial exit refusal and reserve comparison",
+      "group": "tests"
+    },
+    {
+      "sha": "4f5809d9272ad4d077a9bbb7937c717b0728a560",
+      "subject": "merge: integrate develop amount flows with Ark UI parity",
+      "group": "merge"
+    }
+  ],
+  "fileCounts": {
+    "source/docs": 56,
+    "generated": 4,
+    "localization": 4,
+    "tests": 80,
+    "references": 68
+  },
+  "volumes": {
+    "source/docs added": 5634,
+    "source/docs removed": 1297,
+    "generated added": 1255,
+    "generated removed": 7,
+    "localization added": 556,
+    "localization removed": 3,
+    "tests added": 11140,
+    "tests removed": 843
+  },
+  "allCommitIdentitiesVerified": true,
+  "leadReview": "Own source/docs/tests/localization/generated deltas read across the frozen tranche, C1/C2 and five merge resolutions; upstream 50 commits and later PIN source are not claimed as a new lead review."
+}

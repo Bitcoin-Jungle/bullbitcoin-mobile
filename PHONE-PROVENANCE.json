@@ -1,0 +1,390 @@
+{
+  "createdAt": "2026-11-19T16:30:06.173174+00:00",
+  "openingHead": "4f5809d9272ad4d077a9bbb7937c717b0728a560",
+  "beforeSource": "972efcf8a19b325448dc34eca3e9bbbc75cb4f40",
+  "beforeApkSha256": "8d7782b0cca9dbbefacfbd0e886b108aeba3f2fbd771c0a06ce2135d2993a274",
+  "afterSource": "a5c75e0ada1a5732729928d085f514b2ff79fbd6",
+  "afterApkSha256": "709344a1f6d0e410528f55e9774f8fca46f5594b283cf1c1945cb3222d9041fc",
+  "applicationId": "com.bullbitcoin.mobile.arkui.debug",
+  "device": "Pixel 6a",
+  "network": "regtest",
+  "sourceOverlay": "Uncommitted production applicationIdSuffix .arkui only",
+  "openingHeadExercisedOnPhone": false,
+  "C1C2ExercisedOnPhone": false,
+  "pairs": [
+    {
+      "id": "home-dark",
+      "label": "Home \u2014 dark",
+      "before": {
+        "file": "phone/home-dark-before.png",
+        "originalFile": "baseline-home-ark-funded-dark.png",
+        "originalSha256": "9984bf79a861aa5fedd34eede3af4d52097a8f96694747338d4a4502d28e4dc8",
+        "sha256": "2f2c67b2ff59db41cd39ada0476e7810e7c42ed4432e0d7f24d957d2a5ddac2f",
+        "dimensions": [
+          390,
+          867
+        ],
+        "crop": false
+      },
+      "after": {
+        "file": "phone/home-dark-after.png",
+        "originalFile": "candidate-home-ark-funded-dark.png",
+        "originalSha256": "cc20a93663be301a7a594abe3c1daae0f5c956d3439e2554fcacd65bcd27d034",
+        "sha256": "d36c6d0bd5aa3b05cd7e1d9beef31d20feb03acebfb9ac4e1c6bee0b006a9599",
+        "dimensions": [
+          390,
+          867
+        ],
+        "crop": false
+      },
+      "limit": "Same actual Board-funded Ark balance; global layout and fiat follow-ups remain."
+    },
+    {
+      "id": "account-dark",
+      "label": "Account \u2014 dark",
+      "before": {
+        "file": "phone/account-dark-before.png",
+        "originalFile": "baseline-ark-wallet-funded-dark.png",
+        "originalSha256": "54ebbfc7498514fa54c2f19a3783bb628ec74342cb21884bad5010763aca1b0f",
+        "sha256": "3bb27de58bbabd68622f20a433c36492401bee24657e8aa5df9e3608f6d1ce6e",
+        "dimensions": [
+          390,
+          867
+        ],
+        "crop": false
+      },
+      "after": {
+        "file": "phone/account-dark-after.png",
+        "originalFile": "candidate-ark-wallet-funded-dark.png",
+        "originalSha256": "36c37fada5c63a0da5ec435a472d99e951d0cd40ab7c3e18fa599d558c5f22c9",
+        "sha256": "c37b1b86bcccc8e398c05c2577d571181b563897cbbbef1bf342ab1865d71c35",
+        "dimensions": [
+          390,
+          867
+        ],
+        "crop": false
+      },
+      "limit": "Actual funded account before the later renewal and exit."
+    },
+    {
+      "id": "account-light",
+      "label": "Account \u2014 light",
+      "before": {
+        "file": "phone/account-light-before.png",
+        "originalFile": "baseline-ark-wallet-funded-light.png",
+        "originalSha256": "a2345c010a43a56f93c18f84fedc768c862ea57dbe24ad6a93cc5b3236ccb5b6",
+        "sha256": "14b7b887caf568ea3d0dfe5930a6807417f5557ebab3f57771b372de2a463999",
+        "dimensions": [
+          390,
+          867
+        ],
+        "crop": false
+      },
+      "after": {
+        "file": "phone/account-light-after.png",
+        "originalFile": "candidate-account-incoming100k-light.png",
+        "originalSha256": "99894c98b52375655da370ade8527b05298bcfd54c62b2c0af8ab8b64e77e9d1",
+        "sha256": "e8a7263f1d1494f81b6ba3e71a185d21b4aad9284c92814218c0c8f3caa13ae6",
+        "dimensions": [
+          390,
+          867
+        ],
+        "crop": false
+      },
+      "limit": "Different observed balances: 249650 before; 100000 new incoming after an actual exit. Layout evidence, not balance equality."
+    },
+    {
+      "id": "receive-dark",
+      "label": "Receive \u2014 dark",
+      "before": {
+        "file": "phone/receive-dark-before.png",
+        "originalFile": "baseline-ark-receive-ready-dark.png",
+        "originalSha256": "437b5a6ab10b3d5c5660724ad0bfd0fc819fe9b8d9304b776ff15c905d9afc6c",
+        "sha256": "f6ae547308e9739a423fa0e0c1f380efdc3555d2291d56fd59a9a417c4f49f49",
+        "dimensions": [
+          390,
+          867
+        ],
+        "crop": false
+      },
+      "after": {
+        "file": "phone/receive-dark-after.png",
+        "originalFile": "candidate-ark-receive-ready-dark.png",
+        "originalSha256": "c7e8a82c75541c35a270c27c36c447294c7f36d8fd62fe24fa7d6c0705bd7bd0",
+        "sha256": "3e40fc907e60126ac09a1fd258408e015f81255a6cf2cdb4c207924bc2fa86a5",
+        "dimensions": [
+          390,
+          867
+        ],
+        "crop": false
+      },
+      "limit": "Real generated Ark destination, not a Bitcoin Receive fixture."
+    },
+    {
+      "id": "settings-dark",
+      "label": "Settings \u2014 dark",
+      "before": {
+        "file": "phone/settings-dark-before.png",
+        "originalFile": "baseline-ark-settings-on-dark.png",
+        "originalSha256": "2fc07681ce74aec97e80de8b474ac9c5ba8f38050b89004ccb1532501896a2d7",
+        "sha256": "8b22a3506e88eb07fadd88a2837521dfd29af73d70c244accaa643a0be593f56",
+        "dimensions": [
+          390,
+          867
+        ],
+        "crop": false
+      },
+      "after": {
+        "file": "phone/settings-dark-after.png",
+        "originalFile": "candidate-ark-settings-on-dark.png",
+        "originalSha256": "b9a554bfb97a7ed957265055a77e9e43681a4e4a07de4039f98c4ec58cc7ae45",
+        "sha256": "089364e6ad97262425c3ce9773654b5a7e752d16944f358f013e0172a320ee8d",
+        "dimensions": [
+          390,
+          867
+        ],
+        "crop": false
+      },
+      "limit": "Settings remain under Settings > Wallet."
+    },
+    {
+      "id": "send-scan-light",
+      "label": "Send \u2014 light",
+      "before": {
+        "file": "phone/send-scan-light-before.png",
+        "originalFile": "baseline-ark-send-scan-light.png",
+        "originalSha256": "ff57b4891d663e8fd09941c688da90959ed8a617ecd8396def9f83f2bb44f6b4",
+        "sha256": "9876f71854cad4997aa3ca549dccaa5fae48c35f862aab2e78e0dd2b32835224",
+        "dimensions": [
+          390,
+          867
+        ],
+        "crop": false
+      },
+      "after": {
+        "file": "phone/send-scan-light-after.png",
+        "originalFile": "candidate-send-scan-light.png",
+        "originalSha256": "21b327900417d87e9c1d62891cecd891e80d229e5311d21b835c612258e558e1",
+        "sha256": "dbab12b07fcb3c599a3de476e25afaefbec4cfc94c23482348cdd7de8ffdef3b",
+        "dimensions": [
+          390,
+          867
+        ],
+        "crop": false
+      },
+      "limit": "Real route; no camera scanning proof."
+    },
+    {
+      "id": "send-amount-light",
+      "label": "Send amount \u2014 light",
+      "before": {
+        "file": "phone/send-amount-light-before.png",
+        "originalFile": "baseline-ark-send-amount-light.png",
+        "originalSha256": "c727b76328d5fb0c76171accb6e8e1f89cada4b104347a6abeba0d6b48ae4600",
+        "sha256": "29060e28ea77381d2fbff257c69cc88e7dff91f6b7c5652b626bb26f6185ab0a",
+        "dimensions": [
+          390,
+          867
+        ],
+        "crop": false
+      },
+      "after": {
+        "file": "phone/send-amount-light-after.png",
+        "originalFile": "candidate-send-peer-amount10000-light-verified.png",
+        "originalSha256": "612501fa3ea2be82fc0d3e43ec83cf9d59a99526e6c9fef55da03609ec5c3528",
+        "sha256": "764342a05f99dd9f50bc062c23d61912ea4d49be130be880dbfe4009f8960584",
+        "dimensions": [
+          390,
+          867
+        ],
+        "crop": false
+      },
+      "limit": "10000 sats entered; the before self-address and after isolated regtest peer differ."
+    },
+    {
+      "id": "send-review-light",
+      "label": "Send review \u2014 light",
+      "before": {
+        "file": "phone/send-review-light-before.png",
+        "originalFile": "baseline-ark-send-confirm-light.png",
+        "originalSha256": "07bb505ff01395c45b0c7de161fa3a5f6a4497bf4c8c59023653da2396addff1",
+        "sha256": "5bf860857bf3781e8354414d0bff783156497f5615e70c750746f1381b9d30a6",
+        "dimensions": [
+          390,
+          867
+        ],
+        "crop": false
+      },
+      "after": {
+        "file": "phone/send-review-light-after.png",
+        "originalFile": "candidate-send-peer-review10000-light.png",
+        "originalSha256": "73d0eaf668a6e7523a1449fef7e498dd97897b0e51df38d971b81056f5900b1c",
+        "sha256": "eadd7d969deaea705e34c06917ea16d0ac5d19cf1748fe7872b54988bceda5fb",
+        "dimensions": [
+          390,
+          867
+        ],
+        "crop": false
+      },
+      "limit": "Different actual quotes and destinations; exact quote-bound amount, fee, total and full address remain visible."
+    },
+    {
+      "id": "vtxos-dark",
+      "label": "VTXOs \u2014 dark",
+      "before": {
+        "file": "phone/vtxos-dark-before.png",
+        "originalFile": "baseline-vtxos-funded-locked-dark.png",
+        "originalSha256": "299cb364e738049b538207e7aa44ff00432091bdc50f48026e4638ba250fda17",
+        "sha256": "091220cfd8d5d761d63bfe9d73f46082c9978299163720a446e8732aff67aa74",
+        "dimensions": [
+          390,
+          867
+        ],
+        "crop": false
+      },
+      "after": {
+        "file": "phone/vtxos-dark-after.png",
+        "originalFile": "candidate-vtxos-funded-dark.png",
+        "originalSha256": "ed1ad656a9a92ada41e9507fbed1a33e6354cfd573c7805ca3f3318905e8dcb5",
+        "sha256": "a8c6f2e8d9bdc43ee79183ca19ad1263ecfb12bcdd929d21d96fd90841a3255c",
+        "dimensions": [
+          390,
+          867
+        ],
+        "crop": false
+      },
+      "limit": "Before locked and after spendable are different real states; no state equivalence claim."
+    },
+    {
+      "id": "choose-dark",
+      "label": "Choose exit \u2014 dark",
+      "before": {
+        "file": "phone/choose-dark-before.png",
+        "originalFile": "baseline-exit-choose-filled-dark.png",
+        "originalSha256": "34c1ac46b2dc69704c0a020b412f0b7bd5da021f0484b6f739256e53860ea7a1",
+        "sha256": "22d717eddb6c88400f315045f5f84db7b7c80e1b76581937f3f1d7e07fd21a9a",
+        "dimensions": [
+          390,
+          867
+        ],
+        "crop": false
+      },
+      "after": {
+        "file": "phone/choose-dark-after.png",
+        "originalFile": "candidate-exit-choose-filled-dark.png",
+        "originalSha256": "04265800d6d779ac1570e23c13ed15ae5689aa27abbdd2b245d3b7659feb8f5a",
+        "sha256": "8669d979da3c7727423fc436f7c36d136244f980a320bb3cf965fd4c68a2083d",
+        "dimensions": [
+          390,
+          867
+        ],
+        "crop": false
+      },
+      "limit": "Both phone versions precede C1 persistent labels in the opening source."
+    },
+    {
+      "id": "review-exit-dark",
+      "label": "Review exit \u2014 dark",
+      "before": {
+        "file": "phone/review-exit-dark-before.png",
+        "originalFile": "baseline-exit-review-dark.png",
+        "originalSha256": "321884cbc456412e7d41b001633be871a73e0ed8aed406353ba58a70ab6cecbe",
+        "sha256": "860edaf35583384169be7461eced9452057c310ee98b4580490ffa96bbcd664b",
+        "dimensions": [
+          390,
+          867
+        ],
+        "crop": false
+      },
+      "after": {
+        "file": "phone/review-exit-dark-after.png",
+        "originalFile": "candidate-exit-review-dark.png",
+        "originalSha256": "d0af71c83e95e73408d5a4339ecf84b80b09fcc314b41240caf0295117068403",
+        "sha256": "ea03cf4e0af645bf0c88e332110d3efa3120fdb3715b87c4b2c7bc426590a13d",
+        "dimensions": [
+          390,
+          867
+        ],
+        "crop": false
+      },
+      "limit": "Different actual balances and quotes after renewal; no submission implied by a review picture."
+    },
+    {
+      "id": "exits-empty-dark",
+      "label": "Exits empty \u2014 dark",
+      "before": {
+        "file": "phone/exits-empty-dark-before.png",
+        "originalFile": "baseline-exits-empty-dark.png",
+        "originalSha256": "ed852ef3f7cf5cdb4d9a059bb4730c316b42cd97eb51d5f48ace39c7cdf71e31",
+        "sha256": "a04996df03a2993e55b029968e311107ff56855e2d606e4b1b5b8d294ba5c90b",
+        "dimensions": [
+          390,
+          867
+        ],
+        "crop": false
+      },
+      "after": {
+        "file": "phone/exits-empty-dark-after.png",
+        "originalFile": "candidate-exits-empty-dark.png",
+        "originalSha256": "9381af1225ae5346412be014835391aef04bd29c4ec5c84f8debfcef26dd707b",
+        "sha256": "436ea9f3ef8c3addeb21c8e10e85a38d3585f4039b830f300b6446aa282fc58c",
+        "dimensions": [
+          390,
+          867
+        ],
+        "crop": false
+      },
+      "limit": "Actual empty list, never substituted for a NoFunds state."
+    }
+  ],
+  "extras": [
+    {
+      "label": "Actual native initial high-fee refusal on a5; no Confirm",
+      "file": "phone/candidate-exit-initial-insufficient-dark.png",
+      "originalFile": "candidate-exit-initial-insufficient-dark.png",
+      "originalSha256": "fc75693fc4057c7318a92879efe02e5d992795ab5817eee65e55dc1aac4aaa0a",
+      "sha256": "04c3eade3bd7fa23f514528af19251a0ef303c492aadc7d42801efba74f52cdf",
+      "dimensions": [
+        390,
+        867
+      ],
+      "crop": false
+    },
+    {
+      "label": "Observed CSV delay; Claim remains manual",
+      "file": "phone/candidate-exit-delay-details-dark.png",
+      "originalFile": "candidate-exit-delay-details-dark.png",
+      "originalSha256": "224ae18da39a209afd34da5fd578814650256c7954ce9d7c0ebdab7e0d032d6f",
+      "sha256": "4784ec32b3732eab1a40cb263f380eaa9c1b9eb69dd0eefe6a9be6bc6a88a271",
+      "dimensions": [
+        390,
+        867
+      ],
+      "crop": false
+    },
+    {
+      "label": "Actual explicit renewal quote",
+      "file": "phone/candidate-renew-review-dark.png",
+      "originalFile": "candidate-renew-review-dark.png",
+      "originalSha256": "b13a69a0996531702a9b48216fb46000b24a099e1a9b9d4937561d01ab90f215",
+      "sha256": "2cfc09373056ee5f7842cb9f20489e19ce8944502be656f685fe9d187ae685ea",
+      "dimensions": [
+        390,
+        867
+      ],
+      "crop": false
+    },
+    {
+      "label": "Actual Copy/Share address sheet",
+      "file": "phone/candidate-ark-address-sheet-dark.png",
+      "originalFile": "candidate-ark-address-sheet-dark.png",
+      "originalSha256": "155566500622df1d7c6004b07379e0b1160fad795d1ab4f498d6cd9f96f1572b",
+      "sha256": "09fa65abf7b3e9632db0685c252891656a01a5ca6d89ca6fb520b1bc1c37d283",
+      "dimensions": [
+        390,
+        867
+      ],
+      "crop": false
+    }
+  ]
+}
