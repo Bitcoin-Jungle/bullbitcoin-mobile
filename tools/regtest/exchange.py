@@ -70,7 +70,7 @@ class Exchange:
 
     def create_settled(self, method, params):
         """A real regtest order: fake fiat, real coins through the stack nodes."""
-        kind = {"createOrderBuy": "buy", "createOrderSwap": "swap"}.get(method, "sell")
+        kind = {"createOrderBuy": "buy", "createOrderSwap": "swap", "sellToRecipient": "pay"}.get(method, "sell")
         fiat = params.get("fiatCurrency", self.preferences["currency"])
         if kind == "swap":
             incoming, outgoing = params["inNetwork"], params["outNetwork"]
@@ -104,18 +104,25 @@ class Exchange:
         labels = {"bitcoin": "Bitcoin On-Chain", "liquid": "Liquid Network"}
         order_id = str(uuid4())
         order = {"orderId": order_id, "orderNumber": len(self.orders) + 1,
-                 "orderType": {"buy": "Buy Bitcoin", "swap": "Swap", "sell": "Sell Bitcoin"}[kind],
+                 "orderType": {"buy": "Buy Bitcoin", "swap": "Swap", "sell": "Sell Bitcoin", "pay": "Fiat Payment"}[kind],
                  "payinAmount": float(payin.quantize(SAT) if incoming else payin.quantize(Decimal("0.01"))),
                  "payoutAmount": float(payout.quantize(SAT) if outgoing else payout.quantize(Decimal("0.01"))),
                  "payinCurrency": payin_label, "payoutCurrency": payout_label,
                  "payinMethod": labels[incoming] if incoming else f"{fiat} Balance",
-                 "payoutMethod": labels[outgoing] if outgoing else f"{fiat} Balance",
+                 "payoutMethod": labels[outgoing] if outgoing else (
+                     "Interac e-Transfer (CAD)" if kind == "pay" and fiat == "CAD" else f"{fiat} Balance"),
                  "orderStatus": "Awaiting confirmation",
                  "payinStatus": "Awaiting payment" if incoming else "Not started",
                  "payoutStatus": "Not started", "message": {"code": "created"},
                  "createdAt": now(), "confirmationDeadline":
                      (datetime.now(timezone.utc) + timedelta(minutes=30)).isoformat(),
                  "exchangeRateAmount": int(self.price(fiat)), "exchangeRateCurrency": fiat}
+        if kind == "pay":
+            order.update(beneficiaryName="Regtest Demo", beneficiaryLabel="Regtest demo",
+                         beneficiaryETransferAddress="demo@example.invalid",
+                         securityQuestion="Regtest?", securityAnswer="regtest")
+            if params.get("paymentDescription"):
+                order["paymentDescription"] = params["paymentDescription"]
         if incoming:
             order[f"{incoming}Address"] = self.nodes[incoming].call("getnewaddress")
         self.orders[order_id] = order
@@ -155,7 +162,8 @@ class Exchange:
                 order.update(payoutStatus="Completed")
         if not outgoing and order["payinStatus"] == "Completed" and not job["credited"]:
             job["credited"] = True
-            self.balances[job["fiat"]] += job["payout"].quantize(Decimal("0.01"), rounding="ROUND_DOWN")
+            if job["kind"] != "pay":  # a payment leaves the account, it does not credit it
+                self.balances[job["fiat"]] += job["payout"].quantize(Decimal("0.01"), rounding="ROUND_DOWN")
             order["payoutStatus"] = "Completed"
         if order["payinStatus"] in ("Completed", "Not started") and order["payoutStatus"] == "Completed":
             order.update(orderStatus="Completed", completedAt=now(), message={"code": "completed"})
