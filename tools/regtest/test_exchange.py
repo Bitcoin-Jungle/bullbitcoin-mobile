@@ -101,13 +101,20 @@ class SettlementTest(unittest.TestCase):
         self.nodes["liquid"].confirmations = 1
         self.assertEqual(self.order(created["orderId"])["orderStatus"], "Completed")
 
-    def test_pay_a_recipient_is_settled_like_a_sell(self):
+    def test_pay_a_recipient_is_a_fiat_payment_that_credits_no_balance(self):
         created = self.exchange.dispatch("sellToRecipient", {
-            "recipientId": "r", "bitcoinNetwork": "liquid", "bitcoinAmount": 0.002})
+            "recipientId": "r", "bitcoinNetwork": "liquid", "bitcoinAmount": 0.002,
+            "paymentDescription": "rent"})
+        self.assertEqual(created["orderType"], "Fiat Payment")
+        self.assertEqual(created["payoutMethod"], "Interac e-Transfer (CAD)")
+        self.assertEqual(created["paymentDescription"], "rent")
         self.assertEqual(created["liquidAddress"], "liquid-payin-1")
         self.nodes["liquid"].received["liquid-payin-1"] = Decimal("0.002")
         self.nodes["liquid"].confirmations = 1
         self.assertEqual(self.order(created["orderId"])["orderStatus"], "Completed")
+        balances = {b["currencyCode"]: b["amount"]
+                    for b in self.exchange.dispatch("getUserSummary", {})["balances"]}
+        self.assertEqual(balances["CAD"], 10000)
 
     def test_swap_pays_out_on_the_other_network_after_the_payin(self):
         created = self.exchange.dispatch("createOrderSwap", {
