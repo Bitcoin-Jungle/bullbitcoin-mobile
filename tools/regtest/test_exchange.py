@@ -33,6 +33,14 @@ class FakeNode:
         raise AssertionError(method)
 
 
+class AssetMapNode(FakeNode):
+    """Elements answers getreceivedbyaddress with an amount per asset label."""
+
+    def call(self, method, **params):
+        value = super().call(method, **params)
+        return {"bitcoin": value} if method == "getreceivedbyaddress" else value
+
+
 class SettlementTest(unittest.TestCase):
     def setUp(self):
         self.nodes = {"bitcoin": FakeNode("bitcoin"), "liquid": FakeNode("liquid")}
@@ -82,6 +90,16 @@ class SettlementTest(unittest.TestCase):
         self.order(created["orderId"])
         summary = self.exchange.dispatch("getUserSummary", {})
         self.assertEqual(summary["balances"][0]["amount"], 10099, "credited once")
+
+    def test_liquid_payin_is_read_from_the_policy_asset_amount(self):
+        self.nodes["liquid"] = AssetMapNode("liquid")
+        self.exchange.nodes = self.nodes
+        created = self.exchange.dispatch("sellToBalance", {
+            "fiatCurrency": "CAD", "bitcoinNetwork": "liquid", "bitcoinAmount": 0.001})
+        self.assertEqual(self.order(created["orderId"])["payinStatus"], "Awaiting payment")
+        self.nodes["liquid"].received[created["liquidAddress"]] = Decimal("0.001")
+        self.nodes["liquid"].confirmations = 1
+        self.assertEqual(self.order(created["orderId"])["orderStatus"], "Completed")
 
     def test_pay_a_recipient_is_settled_like_a_sell(self):
         created = self.exchange.dispatch("sellToRecipient", {
