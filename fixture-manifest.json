@@ -1,0 +1,366 @@
+[
+  {
+    "path": "fixtures/after/dark/buy-confirm-loading.png",
+    "sha256": "1bf20fef5adc6650247a364a97e30147c484653a09b4d98d6d52b2a95ec27c0c",
+    "kind": "source widget with mocked state",
+    "eligibleForPhoneProof": false,
+    "safeForPublic": true
+  },
+  {
+    "path": "fixtures/after/dark/buy-confirm-quote.png",
+    "sha256": "e08c3e9813f45f49bb279cc7c2b5d4adcfc2729e83e55bd2b8746b2ebde04fcc",
+    "kind": "source widget with mocked state",
+    "eligibleForPhoneProof": false,
+    "safeForPublic": true
+  },
+  {
+    "path": "fixtures/after/dark/choose-empty.png",
+    "sha256": "32d61d8466d47cfdc2926c7e7c6a1a86a662a65232fae7bc5cb3b2f93200d87f",
+    "kind": "source widget with mocked state",
+    "eligibleForPhoneProof": false,
+    "safeForPublic": true
+  },
+  {
+    "path": "fixtures/after/dark/choose-ready.png",
+    "sha256": "c033896b686a0363da5c4f5eafcb4cf07a88fa36d3efcd30ce34d0faac26d964",
+    "kind": "source widget with mocked state",
+    "eligibleForPhoneProof": false,
+    "safeForPublic": true
+  },
+  {
+    "path": "fixtures/after/dark/confirm-busy.png",
+    "sha256": "7fd40254f6dc04fb9fdfe48fd25112de39b371a3a36b66cd2223d9e9f4b4c59c",
+    "kind": "source widget with mocked state",
+    "eligibleForPhoneProof": false,
+    "safeForPublic": true
+  },
+  {
+    "path": "fixtures/after/dark/consent-none.png",
+    "sha256": "9ef9854910c4155fa1afdce98cc04ca2e84654a2b14cffddfe13bd3dcfa0b45e",
+    "kind": "source widget with mocked state",
+    "eligibleForPhoneProof": false,
+    "safeForPublic": true
+  },
+  {
+    "path": "fixtures/after/dark/consent-yes.png",
+    "sha256": "c15802eefd9d37f000a79a9a6eb53ba0885ff9d200fb2f3dbb5ce3d8e16e17b5",
+    "kind": "source widget with mocked state",
+    "eligibleForPhoneProof": false,
+    "safeForPublic": true
+  },
+  {
+    "path": "fixtures/after/dark/exchange-account-error.png",
+    "sha256": "7b1b89917a1a03161c8cf3d7749d67e516147b60bce398bfc62c7d9e0c1be9a6",
+    "kind": "source widget with mocked state",
+    "eligibleForPhoneProof": false,
+    "safeForPublic": true
+  },
+  {
+    "path": "fixtures/after/dark/exchange-support-login.png",
+    "sha256": "2cf64d68d59f1d607d74e516b01fc66302cc402b8d71221e4af9071870d0cf40",
+    "kind": "source widget with mocked state",
+    "eligibleForPhoneProof": false,
+    "safeForPublic": true
+  },
+  {
+    "path": "fixtures/after/dark/pay-payment-expired.png",
+    "sha256": "40344ecbe12997461606e4bf75b4ab0f0aa31d23ca34a113226f9e655fa0c9ef",
+    "kind": "source widget with mocked state",
+    "eligibleForPhoneProof": false,
+    "safeForPublic": true
+  },
+  {
+    "path": "fixtures/after/dark/pay-payment-preparing.png",
+    "sha256": "3d4887866c2a25367b802b62fffd15f2cab49ed5c5db0550350abeb0b38544ac",
+    "kind": "source widget with mocked state",
+    "eligibleForPhoneProof": false,
+    "safeForPublic": true
+  },
+  {
+    "path": "fixtures/after/dark/sell-payment-expired.png",
+    "sha256": "ac3b7bf566b7c0a798711491dae63ab4a2f8e267e5378a8a1bf99fdc830141f5",
+    "kind": "source widget with mocked state",
+    "eligibleForPhoneProof": false,
+    "safeForPublic": true
+  },
+  {
+    "path": "fixtures/after/dark/sell-payment-preparing.png",
+    "sha256": "00519eb36850f2b0f9168fb393a82cec90170c8b348ed6901581f79091de732b",
+    "kind": "source widget with mocked state",
+    "eligibleForPhoneProof": false,
+    "safeForPublic": true
+  },
+  {
+    "path": "fixtures/after/light/buy-confirm-loading.png",
+    "sha256": "c7137a4e252ac1bbbaa2cf20f9c27cbded1d9cd81b5aa150fcd3289e112e8d1b",
+    "kind": "source widget with mocked state",
+    "eligibleForPhoneProof": false,
+    "safeForPublic": true
+  },
+  {
+    "path": "fixtures/after/light/buy-confirm-quote.png",
+    "sha256": "7b2d9f013d0835e15ab2072b3c4cee996c3e6fd1a715c80a71f1f1e461c34af3",
+    "kind": "source widget with mocked state",
+    "eligibleForPhoneProof": false,
+    "safeForPublic": true
+  },
+  {
+    "path": "fixtures/after/light/choose-empty.png",
+    "sha256": "26e34c1e2d7f892e45e010bf1fb761dcf4564b253fd9a9ef523253bc596a9a96",
+    "kind": "source widget with mocked state",
+    "eligibleForPhoneProof": false,
+    "safeForPublic": true
+  },
+  {
+    "path": "fixtures/after/light/choose-ready.png",
+    "sha256": "f4a5a0456ecad55599779a118cce93b81fdbb139b8e3c8994256d6b6616a2fb5",
+    "kind": "source widget with mocked state",
+    "eligibleForPhoneProof": false,
+    "safeForPublic": true
+  },
+  {
+    "path": "fixtures/after/light/confirm-busy.png",
+    "sha256": "c20402b321679644e166ee998a6a901f3148eb4ffcb8604711dca0ba6b64d2b5",
+    "kind": "source widget with mocked state",
+    "eligibleForPhoneProof": false,
+    "safeForPublic": true
+  },
+  {
+    "path": "fixtures/after/light/consent-none.png",
+    "sha256": "c23a8d083e932dd4b6720753d2bf6da5d7ae74b95157bccbfb3b4b582d416861",
+    "kind": "source widget with mocked state",
+    "eligibleForPhoneProof": false,
+    "safeForPublic": true
+  },
+  {
+    "path": "fixtures/after/light/consent-yes.png",
+    "sha256": "b374965a908f822fdc5023d4d18656523611a918e97381f506902712de84eb01",
+    "kind": "source widget with mocked state",
+    "eligibleForPhoneProof": false,
+    "safeForPublic": true
+  },
+  {
+    "path": "fixtures/after/light/exchange-account-error.png",
+    "sha256": "9e282b8c54d74a939efff329cb50496c0f60fc4d246068bced262633ba80d7d6",
+    "kind": "source widget with mocked state",
+    "eligibleForPhoneProof": false,
+    "safeForPublic": true
+  },
+  {
+    "path": "fixtures/after/light/exchange-support-login.png",
+    "sha256": "420fd8b43f2cd98d9e320b6cdce669665bb375fa63cb0fb16e4cfa17e7480811",
+    "kind": "source widget with mocked state",
+    "eligibleForPhoneProof": false,
+    "safeForPublic": true
+  },
+  {
+    "path": "fixtures/after/light/pay-payment-expired.png",
+    "sha256": "fd3792438099cf2cbc6f4c3fa1e463c05886087bd98b1d42d28beac4a992419c",
+    "kind": "source widget with mocked state",
+    "eligibleForPhoneProof": false,
+    "safeForPublic": true
+  },
+  {
+    "path": "fixtures/after/light/pay-payment-preparing.png",
+    "sha256": "fd0db163c4e922e00fe11a674fabeb4fae9e1560f0f6276044a8a743818ef49a",
+    "kind": "source widget with mocked state",
+    "eligibleForPhoneProof": false,
+    "safeForPublic": true
+  },
+  {
+    "path": "fixtures/after/light/sell-payment-expired.png",
+    "sha256": "5ea6664da556925b801e9d552a2ad894c16f0536ddfe90d4446ef4b2236e1e1c",
+    "kind": "source widget with mocked state",
+    "eligibleForPhoneProof": false,
+    "safeForPublic": true
+  },
+  {
+    "path": "fixtures/after/light/sell-payment-preparing.png",
+    "sha256": "8425abf178d25de513c11a9e1595de1e225ad7a83b9aeb531c255144f55e74bc",
+    "kind": "source widget with mocked state",
+    "eligibleForPhoneProof": false,
+    "safeForPublic": true
+  },
+  {
+    "path": "fixtures/before/dark/buy-confirm-loading.png",
+    "sha256": "f220de639d5d535d6854aa1547409d7d7528fa4247bed064c3df203ec4875a1d",
+    "kind": "source widget with mocked state",
+    "eligibleForPhoneProof": false,
+    "safeForPublic": true
+  },
+  {
+    "path": "fixtures/before/dark/buy-confirm-quote.png",
+    "sha256": "1e88de2fab24b9fbc9458a20537e5146385456fa3c1fcdcb6606d1365298b954",
+    "kind": "source widget with mocked state",
+    "eligibleForPhoneProof": false,
+    "safeForPublic": true
+  },
+  {
+    "path": "fixtures/before/dark/choose-empty.png",
+    "sha256": "b5a69cb58d5d9188a8efeca0fdf1c49e0ba7e271e3bd503c9d5963cf0fdd1401",
+    "kind": "source widget with mocked state",
+    "eligibleForPhoneProof": false,
+    "safeForPublic": true
+  },
+  {
+    "path": "fixtures/before/dark/choose-ready.png",
+    "sha256": "c033896b686a0363da5c4f5eafcb4cf07a88fa36d3efcd30ce34d0faac26d964",
+    "kind": "source widget with mocked state",
+    "eligibleForPhoneProof": false,
+    "safeForPublic": true
+  },
+  {
+    "path": "fixtures/before/dark/confirm-busy.png",
+    "sha256": "2f1d0ca321bd7367ebb7a8ef1049b1838f5d16f94e3f447696e1214282530fa6",
+    "kind": "source widget with mocked state",
+    "eligibleForPhoneProof": false,
+    "safeForPublic": true
+  },
+  {
+    "path": "fixtures/before/dark/consent-none.png",
+    "sha256": "e0ef2419841446f0111602b228f5892e496911fa2550774681a80e8bbc2f9759",
+    "kind": "source widget with mocked state",
+    "eligibleForPhoneProof": false,
+    "safeForPublic": true
+  },
+  {
+    "path": "fixtures/before/dark/consent-yes.png",
+    "sha256": "fb5141816ae0ba8d2eb6ce09c0356391acb5f68b2137b10dec1d98b208b62cf8",
+    "kind": "source widget with mocked state",
+    "eligibleForPhoneProof": false,
+    "safeForPublic": true
+  },
+  {
+    "path": "fixtures/before/dark/exchange-account-error.png",
+    "sha256": "53ab68e4ad3b174fcfddd5978926fe987090a3947027ca93e307a35bd2fafff0",
+    "kind": "source widget with mocked state",
+    "eligibleForPhoneProof": false,
+    "safeForPublic": true
+  },
+  {
+    "path": "fixtures/before/dark/exchange-support-login.png",
+    "sha256": "0d04297a5d5e0251fd21eb1213cd88d5489bfcd84ab6bb8a657a7dfc12849152",
+    "kind": "source widget with mocked state",
+    "eligibleForPhoneProof": false,
+    "safeForPublic": true
+  },
+  {
+    "path": "fixtures/before/dark/pay-payment-expired.png",
+    "sha256": "40344ecbe12997461606e4bf75b4ab0f0aa31d23ca34a113226f9e655fa0c9ef",
+    "kind": "source widget with mocked state",
+    "eligibleForPhoneProof": false,
+    "safeForPublic": true
+  },
+  {
+    "path": "fixtures/before/dark/pay-payment-preparing.png",
+    "sha256": "262ecf23d4bb67f70342b7f395b507390aed71580ce2e16465a0ae988c95966b",
+    "kind": "source widget with mocked state",
+    "eligibleForPhoneProof": false,
+    "safeForPublic": true
+  },
+  {
+    "path": "fixtures/before/dark/sell-payment-expired.png",
+    "sha256": "ac3b7bf566b7c0a798711491dae63ab4a2f8e267e5378a8a1bf99fdc830141f5",
+    "kind": "source widget with mocked state",
+    "eligibleForPhoneProof": false,
+    "safeForPublic": true
+  },
+  {
+    "path": "fixtures/before/dark/sell-payment-preparing.png",
+    "sha256": "c9a866a5e7076d5f5b7c2e7c408f1008f10c31dbe1a410cdc6541720d4796092",
+    "kind": "source widget with mocked state",
+    "eligibleForPhoneProof": false,
+    "safeForPublic": true
+  },
+  {
+    "path": "fixtures/before/light/buy-confirm-loading.png",
+    "sha256": "a3eab425d7fdf2c5f42d41e39e29be2b8ba259a39ad749d986c9b727d864753e",
+    "kind": "source widget with mocked state",
+    "eligibleForPhoneProof": false,
+    "safeForPublic": true
+  },
+  {
+    "path": "fixtures/before/light/buy-confirm-quote.png",
+    "sha256": "004ddadc877dfe38fd4e8cdd10bd9ee7c16e60c29fe01a67edf71dfa32f1262b",
+    "kind": "source widget with mocked state",
+    "eligibleForPhoneProof": false,
+    "safeForPublic": true
+  },
+  {
+    "path": "fixtures/before/light/choose-empty.png",
+    "sha256": "42d40bcdaa1d4eecf3e4e2109e82aee2b936fbf1e951f80531e9115acb65d672",
+    "kind": "source widget with mocked state",
+    "eligibleForPhoneProof": false,
+    "safeForPublic": true
+  },
+  {
+    "path": "fixtures/before/light/choose-ready.png",
+    "sha256": "f4a5a0456ecad55599779a118cce93b81fdbb139b8e3c8994256d6b6616a2fb5",
+    "kind": "source widget with mocked state",
+    "eligibleForPhoneProof": false,
+    "safeForPublic": true
+  },
+  {
+    "path": "fixtures/before/light/confirm-busy.png",
+    "sha256": "a1e6c90cbb9c9b95740613c76c69b9c1f6916a1228c426e65d7f8492767cee8e",
+    "kind": "source widget with mocked state",
+    "eligibleForPhoneProof": false,
+    "safeForPublic": true
+  },
+  {
+    "path": "fixtures/before/light/consent-none.png",
+    "sha256": "57ad67ec620d67e4a32d6a565f125571d722321a260787a9027f15f1be629822",
+    "kind": "source widget with mocked state",
+    "eligibleForPhoneProof": false,
+    "safeForPublic": true
+  },
+  {
+    "path": "fixtures/before/light/consent-yes.png",
+    "sha256": "8159b900bab8a96a60fcff10027f3e0606ee87ff4f8e79ebaefda988429aa155",
+    "kind": "source widget with mocked state",
+    "eligibleForPhoneProof": false,
+    "safeForPublic": true
+  },
+  {
+    "path": "fixtures/before/light/exchange-account-error.png",
+    "sha256": "bc8294d8c7bbf459dfac70451b2973420b6ffd5ccf89d72a96b488252cf358a5",
+    "kind": "source widget with mocked state",
+    "eligibleForPhoneProof": false,
+    "safeForPublic": true
+  },
+  {
+    "path": "fixtures/before/light/exchange-support-login.png",
+    "sha256": "e39f537938a7fec0928c09afb34e7fbab5965241e1fe778fadee6ae0c5521277",
+    "kind": "source widget with mocked state",
+    "eligibleForPhoneProof": false,
+    "safeForPublic": true
+  },
+  {
+    "path": "fixtures/before/light/pay-payment-expired.png",
+    "sha256": "fd3792438099cf2cbc6f4c3fa1e463c05886087bd98b1d42d28beac4a992419c",
+    "kind": "source widget with mocked state",
+    "eligibleForPhoneProof": false,
+    "safeForPublic": true
+  },
+  {
+    "path": "fixtures/before/light/pay-payment-preparing.png",
+    "sha256": "e21cf1e3de966417f217be04b00c25102dbc7b87e2b91f2dfc68f964c5e78dca",
+    "kind": "source widget with mocked state",
+    "eligibleForPhoneProof": false,
+    "safeForPublic": true
+  },
+  {
+    "path": "fixtures/before/light/sell-payment-expired.png",
+    "sha256": "5ea6664da556925b801e9d552a2ad894c16f0536ddfe90d4446ef4b2236e1e1c",
+    "kind": "source widget with mocked state",
+    "eligibleForPhoneProof": false,
+    "safeForPublic": true
+  },
+  {
+    "path": "fixtures/before/light/sell-payment-preparing.png",
+    "sha256": "9685f4598e0531d5173f59d24b679532be87976e6cac3d9db9d8147d217ba35c",
+    "kind": "source widget with mocked state",
+    "eligibleForPhoneProof": false,
+    "safeForPublic": true
+  }
+]
