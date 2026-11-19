@@ -1,10 +1,60 @@
 # Button standardization evidence
 
-Source candidate:05d3a15c1b0f57aca1caa5a200c7001e7afbd956. Historical baseline:972efcf8a19b325448dc34eca3e9bbbc75cb4f40. This gallery does not represent integration with newer e4dd develop.
+Integrated candidate: `cfc9bb0d3b15f74c9b258668532321c8096be8b6`, compared with exact integration base `e4dd3cbb7042f2eeff3a2a8048acadd590e38a90`. This base was verified on 19 November 2026; it is not a claim about a later remote tip.
 
-Real images are unretouched phone captures on the dedicated buttons.debug app. Most unchanged-screen after images are from5ca6b47d; corrected restart images are from05d3a15c1. Exact revisions and APK hashes are in phone-manifest.json. Pixel6a wizard and GalaxyS10e funded comparisons are paired on the same physical phone. Onboarding light/dark subsets used different devices as recorded. Image totals are not complete source-site or touched-screen coverage.
+The integrated Pixel 5 corpus below is separate from the historical `972efcf8` → `5ca6b47d` / corrected `05d3a15c` corpus. Exact source revisions and APK hashes are recorded in their separate manifests. All real phone images retain original PNG bytes. Mocked fixtures are listed separately. Counts describe images and named observed states, never complete source-site, screen, state or service coverage.
 
-## Real phone comparisons
+## Integrated Pixel 5 comparisons
+
+Baseline: `e4dd3cbb7042f2eeff3a2a8048acadd590e38a90` (APK SHA256 `9d0d432e9bd1adf2c365c79271878d5828a5e9a33cdea5b8cba1d2a32db0fb10`). Candidate: `cfc9bb0d3b15f74c9b258668532321c8096be8b6` (APK SHA256 `b14fe2dd5535a1982a6fc921cef208ee5f1b897a1eceae643d393a72e2ac0c1b`). All captures use the same Pixel 5 and dedicated `com.bullbitcoin.mobile.buttons.debug` app, with a fresh baseline wallet preserved across the candidate update.
+
+The own Bitcoin regtest wallet was funded once with 200,000 sats. Receive requests and a 10,000-sat Send draft were inspected; Send stopped before Confirm; no outgoing broadcast was performed. No outgoing payment is claimed for this integrated batch. The historical S10e transfer is separate.
+
+These 38 unretouched phone PNGs comprise nine named states × before/after × light/dark (36 images), plus two extra light inline Swap failures. All were visually reviewed; image counts do not imply exhaustive source-site or screen/state coverage.
+
+### Light theme
+
+| State | Before | After |
+| --- | --- | --- |
+| Amount preference / theme control (context only) | [View](phone-integrated/before/light/p5-amount-settings-theme-control.png) | [View](phone-integrated/after/light/p5-amount-settings-theme-control.png) |
+| Receive amount: 10,000 sats | [View](phone-integrated/before/light/p5-receive-amount.png) | [View](phone-integrated/after/light/p5-receive-amount.png) |
+| Receive QR / amount request | [View](phone-integrated/before/light/p5-receive-qr-amount.png) | [View](phone-integrated/after/light/p5-receive-qr-amount.png) |
+| Send amount: 10,000 sats | [View](phone-integrated/before/light/p5-send-amount.png) | [View](phone-integrated/after/light/p5-send-amount.png) |
+| Send confirmation draft | [View](phone-integrated/before/light/p5-send-confirm.png) | [View](phone-integrated/after/light/p5-send-confirm.png) |
+| Send Advanced Options | [View](phone-integrated/before/light/p5-send-advanced.png) | [View](phone-integrated/after/light/p5-send-advanced.png) |
+| Swap amount: 10,000 sats | [View](phone-integrated/before/light/p5-swap-amount.png) | [View](phone-integrated/after/light/p5-swap-amount.png) |
+| Swap Max: 199,987 sats | [View](phone-integrated/before/light/p5-swap-max.png) | [View](phone-integrated/after/light/p5-swap-max.png) |
+| Swap Advanced Options | [View](phone-integrated/before/light/p5-swap-advanced.png) | [View](phone-integrated/after/light/p5-swap-advanced.png) |
+
+### Dark theme
+
+| State | Before | After |
+| --- | --- | --- |
+| Amount preference / theme control (context only) | [View](phone-integrated/before/dark/p5-amount-settings-theme-control.png) | [View](phone-integrated/after/dark/p5-amount-settings-theme-control.png) |
+| Receive amount: 10,000 sats | [View](phone-integrated/before/dark/p5-receive-amount.png) | [View](phone-integrated/after/dark/p5-receive-amount.png) |
+| Receive QR / amount request | [View](phone-integrated/before/dark/p5-receive-qr-amount.png) | [View](phone-integrated/after/dark/p5-receive-qr-amount.png) |
+| Send amount: 10,000 sats | [View](phone-integrated/before/dark/p5-send-amount.png) | [View](phone-integrated/after/dark/p5-send-amount.png) |
+| Send confirmation draft | [View](phone-integrated/before/dark/p5-send-confirm.png) | [View](phone-integrated/after/dark/p5-send-confirm.png) |
+| Send Advanced Options | [View](phone-integrated/before/dark/p5-send-advanced.png) | [View](phone-integrated/after/dark/p5-send-advanced.png) |
+| Swap amount: 10,000 sats | [View](phone-integrated/before/dark/p5-swap-amount.png) | [View](phone-integrated/after/dark/p5-swap-amount.png) |
+| Swap Max: 199,987 sats | [View](phone-integrated/before/dark/p5-swap-max.png) | [View](phone-integrated/after/dark/p5-swap-max.png) |
+| Swap Advanced Options | [View](phone-integrated/before/dark/p5-swap-advanced.png) | [View](phone-integrated/after/dark/p5-swap-advanced.png) |
+
+### Extra inline Swap failure — light only
+
+| State | Before | After |
+| --- | --- | --- |
+| Generic inline error on Swap form; no review | [View](phone-integrated/before/light/p5-swap-continue-error.png) | [View](phone-integrated/after/light/p5-swap-continue-error.png) |
+
+Swap Continue returned the same generic inline message at 10,000 sats on the baseline and 100,000 sats on the candidate. These two error frames have different inputs and are not a like-for-like amount comparison. Exact semantic tap/backend request counts were not instrumented. No Swap review/confirmation, successful quote/order or completed swap was reached; the exact failure type/backend cause is unknown. A remote swap order may have been created before the failure; these frames do not exclude that effect.
+
+Max shows 199,987 sats from a 200,000-sat available balance. In both versions/themes, the lower Subtract fees from amount row/switch is partly hidden by the pinned footer; its full label/control state is not verified by these frames.
+
+The thin lime frame is present in the raw candidate PNGs and retained unchanged. Its origin is undiagnosed; it is not an added comparison outline. Originals also retain status-bar times, native cursor handles/blink and scroll-position differences. The candidate Swap form has an approximately 11-pixel vertical layout offset relative to baseline; its origin was not diagnosed.
+
+The observed role changes are red primary Continue/Confirm actions, red underlined advanced links and filled secondary Swap Max. Sheet Done remains secondary. No visible mnemonic/private key/PIN/password/token/personal message was found; public regtest addresses/QRs and test amounts remain visible. QR scan/decode, physical-display contrast and accessibility were not tested by this visual review.
+
+## Historical real phone comparisons
 
 | State | Before light | After light | Before dark | After dark |
 | --- | --- | --- | --- | --- |
@@ -46,7 +96,7 @@ Real images are unretouched phone captures on the dedicated buttons.debug app. M
 | wizard-theme-control | [View](phone/before/light/wizard-theme-control.png) | [View](phone/after/light/wizard-theme-control.png) | [View](phone/before/dark/wizard-theme-control.png) | [View](phone/after/dark/wizard-theme-control.png) |
 | wizard-welcome | [View](phone/before/light/wizard-welcome.png) | [View](phone/after/light/wizard-welcome.png) | [View](phone/before/dark/wizard-welcome.png) | [View](phone/after/dark/wizard-welcome.png) |
 
-## Real Bitcoin regtest operation
+## Historical Bitcoin regtest operation
 
 The dedicated wallet was funded200000sats once and broadcast one10000sat self-transfer with16sat fee. Resulting balance199984sats. Transaction hashes: funding c54006a4cae13d340f2572cc755aa456949e0f7e7206d5ead2f098183ea3ff21; self-transfer5394d4ba1d2b54abba7f1105ffb4dc2d245f89bfc58df788a64b4d2f9e815824. Self-transfer independently node-confirmed. No manual mining; no claim of Liquid/Exchange/hardware signing completion.
 
@@ -75,4 +125,4 @@ These52images are synthetic source-rendered states, not phone captures and not e
 Dark primary links retain develop colors by explicit maintainer decision. Screenshot-pixel contrast is3.417:1 on black and5.637:1 on the actual light background; not physical-display luminance. Secret-reveal states are excluded. One wrong-route capture and the superseded clipped-label intermediate image are excluded from this gallery. Hardware/recovery-provider flows and unavailable Exchange completion states remain unexecuted.
 
 
-The thin lime frame is present in the original ADB screencap PNGs and retained unchanged; its origin was not diagnosed. It appears in both baseline and corrected captures and is not an added comparison outline. The background network row differs because changing the network triggers this mandatory dialog: the dark corrected capture follows Regtest→Mainnet and the light corrected capture restores Regtest. No mainnet funding or transaction is performed; the same funded regtest wallet is preserved.
+The thin lime frame is present in the original ADB screencap PNGs and retained unchanged; its origin was not diagnosed. In the historical restart corpus specifically, it appears in both baseline and corrected captures and is not an added comparison outline. The background network row differs because changing the network triggers this mandatory dialog: the dark corrected capture follows Regtest→Mainnet and the light corrected capture restores Regtest. No mainnet funding or transaction is performed; the same funded regtest wallet is preserved.

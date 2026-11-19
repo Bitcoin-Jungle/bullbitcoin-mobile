@@ -1,0 +1,774 @@
+[
+  {
+    "screen": "p5-amount-settings-theme-control",
+    "phase": "before",
+    "theme": "light",
+    "scenario": "Exact e4dd fresh-install amount preference with Bitcoin selected; light theme disabled Dark Mode control visible",
+    "sha256": "1f3b74d8f72eaaff01106ba930c942c48abf845429a13d883aabad97808be2de",
+    "sourceRevision": "e4dd3cbb7042f2eeff3a2a8048acadd590e38a90",
+    "installedApkSha256": "9d0d432e9bd1adf2c365c79271878d5828a5e9a33cdea5b8cba1d2a32db0fb10",
+    "appId": "com.bullbitcoin.mobile.buttons.debug",
+    "realDevice": true,
+    "files": [
+      "lib/features/settings/ui/widgets/amount_input_mode_setting.dart",
+      "lib/features/settings/ui/screens/app_settings/app_settings_screen.dart"
+    ],
+    "safeForPublic": true,
+    "device": "Pixel 5",
+    "path": "phone-integrated/before/light/p5-amount-settings-theme-control.png",
+    "kind": "real phone",
+    "evidenceScope": "Named observed state only; no exhaustive caller or completion coverage",
+    "publicationEligible": true
+  },
+  {
+    "screen": "p5-receive-amount",
+    "phase": "before",
+    "theme": "light",
+    "scenario": "Exact e4dd canonical Bitcoin receive request amount10000sats, keyboard dismissed, before request confirmation",
+    "sha256": "28af4a4d35f4fa8bfb83cf8df58d87879532e626a0b46cfbbf918358f797df53",
+    "sourceRevision": "e4dd3cbb7042f2eeff3a2a8048acadd590e38a90",
+    "installedApkSha256": "9d0d432e9bd1adf2c365c79271878d5828a5e9a33cdea5b8cba1d2a32db0fb10",
+    "appId": "com.bullbitcoin.mobile.buttons.debug",
+    "realDevice": true,
+    "files": [
+      "lib/features/receive/ui/screens/receive_amount_screen.dart"
+    ],
+    "safeForPublic": true,
+    "device": "Pixel 5",
+    "path": "phone-integrated/before/light/p5-receive-amount.png",
+    "kind": "real phone",
+    "evidenceScope": "Named observed state only; no exhaustive caller or completion coverage",
+    "publicationEligible": true
+  },
+  {
+    "screen": "p5-receive-qr-amount",
+    "phase": "before",
+    "theme": "light",
+    "scenario": "Exact e4dd Bitcoin receive QR after confirming10000sats canonical amount; request only, not an additional payment",
+    "sha256": "d4c25697565450007d8b29388caef762c21a97bda5441876e74a740aa3e0c4fb",
+    "sourceRevision": "e4dd3cbb7042f2eeff3a2a8048acadd590e38a90",
+    "installedApkSha256": "9d0d432e9bd1adf2c365c79271878d5828a5e9a33cdea5b8cba1d2a32db0fb10",
+    "appId": "com.bullbitcoin.mobile.buttons.debug",
+    "realDevice": true,
+    "files": [
+      "lib/features/receive/ui/screens/receive_qr_screen.dart"
+    ],
+    "safeForPublic": true,
+    "device": "Pixel 5",
+    "path": "phone-integrated/before/light/p5-receive-qr-amount.png",
+    "kind": "real phone",
+    "evidenceScope": "Named observed state only; no exhaustive caller or completion coverage",
+    "publicationEligible": true
+  },
+  {
+    "screen": "p5-send-amount",
+    "phase": "before",
+    "theme": "light",
+    "scenario": "Exact e4dd Send canonical10000sats to own previously validated regtest receive address; Max toggle off and Continue available",
+    "sha256": "b729db09ec417def6f93e0fdf4c3b49f0246ae93b4e9908786030d574d3d249e",
+    "sourceRevision": "e4dd3cbb7042f2eeff3a2a8048acadd590e38a90",
+    "installedApkSha256": "9d0d432e9bd1adf2c365c79271878d5828a5e9a33cdea5b8cba1d2a32db0fb10",
+    "appId": "com.bullbitcoin.mobile.buttons.debug",
+    "realDevice": true,
+    "files": [
+      "lib/features/send/ui/screens/send_screen.dart"
+    ],
+    "safeForPublic": true,
+    "device": "Pixel 5",
+    "path": "phone-integrated/before/light/p5-send-amount.png",
+    "kind": "real phone",
+    "evidenceScope": "Named observed state only; no exhaustive caller or completion coverage",
+    "publicationEligible": true
+  },
+  {
+    "screen": "p5-send-confirm",
+    "phase": "before",
+    "theme": "light",
+    "scenario": "Exact e4dd actual native-built10000sat self-transfer review with16sat fee; stopped before Confirm; no outgoing broadcast",
+    "sha256": "47ac55d054f3a442bb491e63ca8e914be8cec6ee622ff81f9cff18d29a9a0d8a",
+    "sourceRevision": "e4dd3cbb7042f2eeff3a2a8048acadd590e38a90",
+    "installedApkSha256": "9d0d432e9bd1adf2c365c79271878d5828a5e9a33cdea5b8cba1d2a32db0fb10",
+    "appId": "com.bullbitcoin.mobile.buttons.debug",
+    "realDevice": true,
+    "files": [
+      "lib/features/send/ui/screens/send_screen.dart"
+    ],
+    "safeForPublic": true,
+    "device": "Pixel 5",
+    "path": "phone-integrated/before/light/p5-send-confirm.png",
+    "kind": "real phone",
+    "evidenceScope": "Named observed state only; no exhaustive caller or completion coverage",
+    "publicationEligible": true
+  },
+  {
+    "screen": "p5-send-advanced",
+    "phase": "before",
+    "theme": "light",
+    "scenario": "Exact e4dd advanced options on native-built10000sat Bitcoin self-transfer draft; RBF enabled and manual coin selection available, no settings changed",
+    "sha256": "4d68d4d773c5ee952a9f45259fc7a43575c9b8776a7ecbd6a8839416699a0a30",
+    "sourceRevision": "e4dd3cbb7042f2eeff3a2a8048acadd590e38a90",
+    "installedApkSha256": "9d0d432e9bd1adf2c365c79271878d5828a5e9a33cdea5b8cba1d2a32db0fb10",
+    "appId": "com.bullbitcoin.mobile.buttons.debug",
+    "realDevice": true,
+    "files": [
+      "lib/features/send/ui/widgets/advanced_options_bottom_sheet.dart",
+      "lib/features/send/ui/screens/send_screen.dart"
+    ],
+    "safeForPublic": true,
+    "device": "Pixel 5",
+    "path": "phone-integrated/before/light/p5-send-advanced.png",
+    "kind": "real phone",
+    "evidenceScope": "Named observed state only; no exhaustive caller or completion coverage",
+    "publicationEligible": true
+  },
+  {
+    "screen": "p5-swap-amount",
+    "phase": "before",
+    "theme": "light",
+    "scenario": "BTC to Liquid form: 10000 sats, actual 200000 sat Bitcoin balance; Continue not pressed in this state",
+    "sha256": "c7ea32013fa866e1c4ebb383759845716fd7e729e2ad6c561b62355c7dd0c7ae",
+    "sourceRevision": "e4dd3cbb7042f2eeff3a2a8048acadd590e38a90",
+    "installedApkSha256": "9d0d432e9bd1adf2c365c79271878d5828a5e9a33cdea5b8cba1d2a32db0fb10",
+    "appId": "com.bullbitcoin.mobile.buttons.debug",
+    "realDevice": true,
+    "files": [
+      "lib/features/swap/ui/pages/swap_page.dart",
+      "lib/features/swap/ui/widgets/swap_balance_row.dart"
+    ],
+    "safeForPublic": true,
+    "device": "Pixel 5",
+    "path": "phone-integrated/before/light/p5-swap-amount.png",
+    "kind": "real phone",
+    "evidenceScope": "Named observed state only; no exhaustive caller or completion coverage",
+    "publicationEligible": true
+  },
+  {
+    "screen": "p5-swap-max",
+    "phase": "before",
+    "theme": "light",
+    "scenario": "BTC Swap Max selected: 199987 sats from actual 200000 sat balance; Continue not pressed in this state",
+    "sha256": "8567bd3693bb6a40fa73dd2d517129ab33eefc72450d2a10e43ccdc11dc4c778",
+    "sourceRevision": "e4dd3cbb7042f2eeff3a2a8048acadd590e38a90",
+    "installedApkSha256": "9d0d432e9bd1adf2c365c79271878d5828a5e9a33cdea5b8cba1d2a32db0fb10",
+    "appId": "com.bullbitcoin.mobile.buttons.debug",
+    "realDevice": true,
+    "files": [
+      "lib/features/swap/ui/widgets/swap_balance_row.dart"
+    ],
+    "safeForPublic": true,
+    "device": "Pixel 5",
+    "path": "phone-integrated/before/light/p5-swap-max.png",
+    "kind": "real phone",
+    "evidenceScope": "Named observed state only; no exhaustive caller or completion coverage",
+    "publicationEligible": true
+  },
+  {
+    "screen": "p5-swap-advanced",
+    "phase": "before",
+    "theme": "light",
+    "scenario": "BTC Swap Advanced Options, 10000 sats form; review not reached",
+    "sha256": "1245565e42932931fc2ce6f2ffa745724cb5e59229b58db99b062fcc9676908a",
+    "sourceRevision": "e4dd3cbb7042f2eeff3a2a8048acadd590e38a90",
+    "installedApkSha256": "9d0d432e9bd1adf2c365c79271878d5828a5e9a33cdea5b8cba1d2a32db0fb10",
+    "appId": "com.bullbitcoin.mobile.buttons.debug",
+    "realDevice": true,
+    "files": [
+      "lib/features/swap/ui/widgets/swap_advanced_options_bottom_sheet.dart"
+    ],
+    "safeForPublic": true,
+    "device": "Pixel 5",
+    "path": "phone-integrated/before/light/p5-swap-advanced.png",
+    "kind": "real phone",
+    "evidenceScope": "Named observed state only; no exhaustive caller or completion coverage",
+    "publicationEligible": true
+  },
+  {
+    "screen": "p5-swap-continue-error",
+    "phase": "before",
+    "theme": "light",
+    "scenario": "Actual before Swap inline Oops! Something went wrong at 10000 sats; no review reached. Error inputs differ between versions; not a same-input comparison.",
+    "sha256": "f1a75e1c43e0245277a563ffac171b1f8870ba9703aeb84e74f93e10b4fc3650",
+    "sourceRevision": "e4dd3cbb7042f2eeff3a2a8048acadd590e38a90",
+    "installedApkSha256": "9d0d432e9bd1adf2c365c79271878d5828a5e9a33cdea5b8cba1d2a32db0fb10",
+    "appId": "com.bullbitcoin.mobile.buttons.debug",
+    "realDevice": true,
+    "files": [
+      "lib/features/swap/ui/pages/swap_page.dart"
+    ],
+    "safeForPublic": true,
+    "device": "Pixel 5",
+    "path": "phone-integrated/before/light/p5-swap-continue-error.png",
+    "kind": "real phone",
+    "evidenceScope": "Named observed state only; no exhaustive caller or completion coverage",
+    "publicationEligible": true,
+    "observedAmountSat": 10000,
+    "attemptCountLimit": "Exact semantic Continue/backend request count not instrumented; coordinate taps can encounter the native keyboard. At least one processed Continue produced this inline failure."
+  },
+  {
+    "screen": "p5-amount-settings-theme-control",
+    "phase": "before",
+    "theme": "dark",
+    "scenario": "Canonical amount preference Bitcoin selected and Dark Mode enabled",
+    "sha256": "aac411a29b1be1a8a95c6932ac8c6cb583e6cf2a9fdba7cb404dd9609a134c84",
+    "sourceRevision": "e4dd3cbb7042f2eeff3a2a8048acadd590e38a90",
+    "installedApkSha256": "9d0d432e9bd1adf2c365c79271878d5828a5e9a33cdea5b8cba1d2a32db0fb10",
+    "appId": "com.bullbitcoin.mobile.buttons.debug",
+    "realDevice": true,
+    "files": [
+      "lib/features/settings/ui/screens/app_settings/app_settings_screen.dart"
+    ],
+    "safeForPublic": true,
+    "device": "Pixel 5",
+    "path": "phone-integrated/before/dark/p5-amount-settings-theme-control.png",
+    "kind": "real phone",
+    "evidenceScope": "Named observed state only; no exhaustive caller or completion coverage",
+    "publicationEligible": true
+  },
+  {
+    "screen": "p5-receive-amount",
+    "phase": "before",
+    "theme": "dark",
+    "scenario": "Canonical receive amount 10000 sats, keyboard dismissed",
+    "sha256": "40cdcc648771de3d47e1637ecee843795a89c629b171b8cb21fb20cffd5876db",
+    "sourceRevision": "e4dd3cbb7042f2eeff3a2a8048acadd590e38a90",
+    "installedApkSha256": "9d0d432e9bd1adf2c365c79271878d5828a5e9a33cdea5b8cba1d2a32db0fb10",
+    "appId": "com.bullbitcoin.mobile.buttons.debug",
+    "realDevice": true,
+    "files": [
+      "lib/features/receive/ui/screens/receive_amount_screen.dart"
+    ],
+    "safeForPublic": true,
+    "device": "Pixel 5",
+    "path": "phone-integrated/before/dark/p5-receive-amount.png",
+    "kind": "real phone",
+    "evidenceScope": "Named observed state only; no exhaustive caller or completion coverage",
+    "publicationEligible": true
+  },
+  {
+    "screen": "p5-receive-qr-amount",
+    "phase": "before",
+    "theme": "dark",
+    "scenario": "Receive Bitcoin QR request 10000 sats, no payment created",
+    "sha256": "49f5ba7d001559eccef22eee8dbcc6ffd54ac5a6d7dc2ab869c7dae35d4e4d3d",
+    "sourceRevision": "e4dd3cbb7042f2eeff3a2a8048acadd590e38a90",
+    "installedApkSha256": "9d0d432e9bd1adf2c365c79271878d5828a5e9a33cdea5b8cba1d2a32db0fb10",
+    "appId": "com.bullbitcoin.mobile.buttons.debug",
+    "realDevice": true,
+    "files": [
+      "lib/features/receive/ui/screens/receive_qr_screen.dart"
+    ],
+    "safeForPublic": true,
+    "device": "Pixel 5",
+    "path": "phone-integrated/before/dark/p5-receive-qr-amount.png",
+    "kind": "real phone",
+    "evidenceScope": "Named observed state only; no exhaustive caller or completion coverage",
+    "publicationEligible": true
+  },
+  {
+    "screen": "p5-send-amount",
+    "phase": "before",
+    "theme": "dark",
+    "scenario": "Send 10000 sats to own public regtest address; Max off",
+    "sha256": "90e9dcffc5b81b601f057dac59f3d29384d32f2c563d21a0add65aa1a3c92abd",
+    "sourceRevision": "e4dd3cbb7042f2eeff3a2a8048acadd590e38a90",
+    "installedApkSha256": "9d0d432e9bd1adf2c365c79271878d5828a5e9a33cdea5b8cba1d2a32db0fb10",
+    "appId": "com.bullbitcoin.mobile.buttons.debug",
+    "realDevice": true,
+    "files": [
+      "lib/features/send/ui/screens/send_screen.dart"
+    ],
+    "safeForPublic": true,
+    "device": "Pixel 5",
+    "path": "phone-integrated/before/dark/p5-send-amount.png",
+    "kind": "real phone",
+    "evidenceScope": "Named observed state only; no exhaustive caller or completion coverage",
+    "publicationEligible": true
+  },
+  {
+    "screen": "p5-send-confirm",
+    "phase": "before",
+    "theme": "dark",
+    "scenario": "Native Send review 10000 sats plus 16 sat fee; stopped before Confirm",
+    "sha256": "ae1dc39993d54dca364f95f8de0e0f95bee740d00a848ab82f018b56f2524f68",
+    "sourceRevision": "e4dd3cbb7042f2eeff3a2a8048acadd590e38a90",
+    "installedApkSha256": "9d0d432e9bd1adf2c365c79271878d5828a5e9a33cdea5b8cba1d2a32db0fb10",
+    "appId": "com.bullbitcoin.mobile.buttons.debug",
+    "realDevice": true,
+    "files": [
+      "lib/features/send/ui/screens/send_screen.dart"
+    ],
+    "safeForPublic": true,
+    "device": "Pixel 5",
+    "path": "phone-integrated/before/dark/p5-send-confirm.png",
+    "kind": "real phone",
+    "evidenceScope": "Named observed state only; no exhaustive caller or completion coverage",
+    "publicationEligible": true
+  },
+  {
+    "screen": "p5-send-advanced",
+    "phase": "before",
+    "theme": "dark",
+    "scenario": "Send Advanced Options: RBF enabled, manual coin selection available; no changes",
+    "sha256": "4540baaf205d2a7d3327d1bef9663eadf1b0d92282c1ca77c387f63bde9ee0f2",
+    "sourceRevision": "e4dd3cbb7042f2eeff3a2a8048acadd590e38a90",
+    "installedApkSha256": "9d0d432e9bd1adf2c365c79271878d5828a5e9a33cdea5b8cba1d2a32db0fb10",
+    "appId": "com.bullbitcoin.mobile.buttons.debug",
+    "realDevice": true,
+    "files": [
+      "lib/features/send/ui/widgets/advanced_options_bottom_sheet.dart"
+    ],
+    "safeForPublic": true,
+    "device": "Pixel 5",
+    "path": "phone-integrated/before/dark/p5-send-advanced.png",
+    "kind": "real phone",
+    "evidenceScope": "Named observed state only; no exhaustive caller or completion coverage",
+    "publicationEligible": true
+  },
+  {
+    "screen": "p5-swap-amount",
+    "phase": "before",
+    "theme": "dark",
+    "scenario": "BTC to Liquid form 10000 sats, actual funded balance; no review claimed",
+    "sha256": "254304591a500099d889f634ea64e41576ca4771db630123bf9c88d992e29db8",
+    "sourceRevision": "e4dd3cbb7042f2eeff3a2a8048acadd590e38a90",
+    "installedApkSha256": "9d0d432e9bd1adf2c365c79271878d5828a5e9a33cdea5b8cba1d2a32db0fb10",
+    "appId": "com.bullbitcoin.mobile.buttons.debug",
+    "realDevice": true,
+    "files": [
+      "lib/features/swap/ui/pages/swap_page.dart",
+      "lib/features/swap/ui/widgets/swap_balance_row.dart"
+    ],
+    "safeForPublic": true,
+    "device": "Pixel 5",
+    "path": "phone-integrated/before/dark/p5-swap-amount.png",
+    "kind": "real phone",
+    "evidenceScope": "Named observed state only; no exhaustive caller or completion coverage",
+    "publicationEligible": true
+  },
+  {
+    "screen": "p5-swap-max",
+    "phase": "before",
+    "theme": "dark",
+    "scenario": "BTC Swap Max 199987 sats; actual 200000 balance; Continue not pressed in this state",
+    "sha256": "aac649f2eb43a2dc4b372b95070acc2e2b47f760b463a8d1fe7f7b175a7cbf64",
+    "sourceRevision": "e4dd3cbb7042f2eeff3a2a8048acadd590e38a90",
+    "installedApkSha256": "9d0d432e9bd1adf2c365c79271878d5828a5e9a33cdea5b8cba1d2a32db0fb10",
+    "appId": "com.bullbitcoin.mobile.buttons.debug",
+    "realDevice": true,
+    "files": [
+      "lib/features/swap/ui/widgets/swap_balance_row.dart"
+    ],
+    "safeForPublic": true,
+    "device": "Pixel 5",
+    "path": "phone-integrated/before/dark/p5-swap-max.png",
+    "kind": "real phone",
+    "evidenceScope": "Named observed state only; no exhaustive caller or completion coverage",
+    "publicationEligible": true
+  },
+  {
+    "screen": "p5-swap-advanced",
+    "phase": "before",
+    "theme": "dark",
+    "scenario": "BTC Swap Advanced Options, 10000 sats form; review not reached",
+    "sha256": "dbe3ae80f13faa3fa50b2dc90ae36747e00725027ce662964730d2550c17ea9b",
+    "sourceRevision": "e4dd3cbb7042f2eeff3a2a8048acadd590e38a90",
+    "installedApkSha256": "9d0d432e9bd1adf2c365c79271878d5828a5e9a33cdea5b8cba1d2a32db0fb10",
+    "appId": "com.bullbitcoin.mobile.buttons.debug",
+    "realDevice": true,
+    "files": [
+      "lib/features/swap/ui/widgets/swap_advanced_options_bottom_sheet.dart"
+    ],
+    "safeForPublic": true,
+    "device": "Pixel 5",
+    "path": "phone-integrated/before/dark/p5-swap-advanced.png",
+    "kind": "real phone",
+    "evidenceScope": "Named observed state only; no exhaustive caller or completion coverage",
+    "publicationEligible": true
+  },
+  {
+    "screen": "p5-amount-settings-theme-control",
+    "phase": "after",
+    "theme": "dark",
+    "scenario": "Same wallet retained after update, Bitcoin amount preference and Dark Mode enabled",
+    "sha256": "8b75fa78db098a6d7f8d19094b90af7c43c734d4be4b68bdf672ea829529fd36",
+    "sourceRevision": "cfc9bb0d3b15f74c9b258668532321c8096be8b6",
+    "installedApkSha256": "b14fe2dd5535a1982a6fc921cef208ee5f1b897a1eceae643d393a72e2ac0c1b",
+    "appId": "com.bullbitcoin.mobile.buttons.debug",
+    "realDevice": true,
+    "files": [
+      "lib/features/settings/ui/screens/app_settings/app_settings_screen.dart",
+      "lib/features/settings/ui/widgets/amount_input_mode_setting.dart"
+    ],
+    "safeForPublic": true,
+    "device": "Pixel 5",
+    "path": "phone-integrated/after/dark/p5-amount-settings-theme-control.png",
+    "kind": "real phone",
+    "evidenceScope": "Named observed state only; no exhaustive caller or completion coverage",
+    "publicationEligible": true
+  },
+  {
+    "screen": "p5-receive-amount",
+    "phase": "after",
+    "theme": "dark",
+    "scenario": "Canonical receive amount 10000 sats, keyboard dismissed",
+    "sha256": "824ded677495621c6620e1b7db0b4f9260eca0c5ca024cc96cbb49d4b68eaad3",
+    "sourceRevision": "cfc9bb0d3b15f74c9b258668532321c8096be8b6",
+    "installedApkSha256": "b14fe2dd5535a1982a6fc921cef208ee5f1b897a1eceae643d393a72e2ac0c1b",
+    "appId": "com.bullbitcoin.mobile.buttons.debug",
+    "realDevice": true,
+    "files": [
+      "lib/features/receive/ui/screens/receive_amount_screen.dart"
+    ],
+    "safeForPublic": true,
+    "device": "Pixel 5",
+    "path": "phone-integrated/after/dark/p5-receive-amount.png",
+    "kind": "real phone",
+    "evidenceScope": "Named observed state only; no exhaustive caller or completion coverage",
+    "publicationEligible": true
+  },
+  {
+    "screen": "p5-receive-qr-amount",
+    "phase": "after",
+    "theme": "dark",
+    "scenario": "Receive Bitcoin QR request 10000 sats, no payment created",
+    "sha256": "7b6104401b484a16afe79a764a7df4634c9b6c7749dd51acc9d84602957597fc",
+    "sourceRevision": "cfc9bb0d3b15f74c9b258668532321c8096be8b6",
+    "installedApkSha256": "b14fe2dd5535a1982a6fc921cef208ee5f1b897a1eceae643d393a72e2ac0c1b",
+    "appId": "com.bullbitcoin.mobile.buttons.debug",
+    "realDevice": true,
+    "files": [
+      "lib/features/receive/ui/screens/receive_qr_screen.dart"
+    ],
+    "safeForPublic": true,
+    "device": "Pixel 5",
+    "path": "phone-integrated/after/dark/p5-receive-qr-amount.png",
+    "kind": "real phone",
+    "evidenceScope": "Named observed state only; no exhaustive caller or completion coverage",
+    "publicationEligible": true
+  },
+  {
+    "screen": "p5-send-amount",
+    "phase": "after",
+    "theme": "dark",
+    "scenario": "Send 10000 sats to same own public regtest address; Max off",
+    "sha256": "59489f124c67b6b87b2aff7adff3ee86d91d8bf4b92e336fb9ce98ce8dd17bff",
+    "sourceRevision": "cfc9bb0d3b15f74c9b258668532321c8096be8b6",
+    "installedApkSha256": "b14fe2dd5535a1982a6fc921cef208ee5f1b897a1eceae643d393a72e2ac0c1b",
+    "appId": "com.bullbitcoin.mobile.buttons.debug",
+    "realDevice": true,
+    "files": [
+      "lib/features/send/ui/screens/send_screen.dart"
+    ],
+    "safeForPublic": true,
+    "device": "Pixel 5",
+    "path": "phone-integrated/after/dark/p5-send-amount.png",
+    "kind": "real phone",
+    "evidenceScope": "Named observed state only; no exhaustive caller or completion coverage",
+    "publicationEligible": true
+  },
+  {
+    "screen": "p5-send-confirm",
+    "phase": "after",
+    "theme": "dark",
+    "scenario": "Native Send review 10000 sats plus 16 sat fee; stopped before Confirm",
+    "sha256": "662e2d863aba8ef6a17ec46bee613ff5f2bc8292ce9dc679a572fbe9ef65b3a8",
+    "sourceRevision": "cfc9bb0d3b15f74c9b258668532321c8096be8b6",
+    "installedApkSha256": "b14fe2dd5535a1982a6fc921cef208ee5f1b897a1eceae643d393a72e2ac0c1b",
+    "appId": "com.bullbitcoin.mobile.buttons.debug",
+    "realDevice": true,
+    "files": [
+      "lib/features/send/ui/screens/send_screen.dart"
+    ],
+    "safeForPublic": true,
+    "device": "Pixel 5",
+    "path": "phone-integrated/after/dark/p5-send-confirm.png",
+    "kind": "real phone",
+    "evidenceScope": "Named observed state only; no exhaustive caller or completion coverage",
+    "publicationEligible": true
+  },
+  {
+    "screen": "p5-send-advanced",
+    "phase": "after",
+    "theme": "dark",
+    "scenario": "Send Advanced Options: RBF enabled, manual coin selection available; no changes",
+    "sha256": "27bd9b7c869aaad2041d02e9d47a8ab69d61441cc987cd3436215a24210b5721",
+    "sourceRevision": "cfc9bb0d3b15f74c9b258668532321c8096be8b6",
+    "installedApkSha256": "b14fe2dd5535a1982a6fc921cef208ee5f1b897a1eceae643d393a72e2ac0c1b",
+    "appId": "com.bullbitcoin.mobile.buttons.debug",
+    "realDevice": true,
+    "files": [
+      "lib/features/send/ui/widgets/advanced_options_bottom_sheet.dart"
+    ],
+    "safeForPublic": true,
+    "device": "Pixel 5",
+    "path": "phone-integrated/after/dark/p5-send-advanced.png",
+    "kind": "real phone",
+    "evidenceScope": "Named observed state only; no exhaustive caller or completion coverage",
+    "publicationEligible": true
+  },
+  {
+    "screen": "p5-swap-amount",
+    "phase": "after",
+    "theme": "dark",
+    "scenario": "BTC to Liquid form 10000 sats, same funded wallet; no review claimed",
+    "sha256": "65aa50944e429785d28b2e9f85f1bda196ca0ce2c27e26ee7ed4ee7cb919ab18",
+    "sourceRevision": "cfc9bb0d3b15f74c9b258668532321c8096be8b6",
+    "installedApkSha256": "b14fe2dd5535a1982a6fc921cef208ee5f1b897a1eceae643d393a72e2ac0c1b",
+    "appId": "com.bullbitcoin.mobile.buttons.debug",
+    "realDevice": true,
+    "files": [
+      "lib/features/swap/ui/pages/swap_page.dart",
+      "lib/features/swap/ui/widgets/swap_balance_row.dart"
+    ],
+    "safeForPublic": true,
+    "device": "Pixel 5",
+    "path": "phone-integrated/after/dark/p5-swap-amount.png",
+    "kind": "real phone",
+    "evidenceScope": "Named observed state only; no exhaustive caller or completion coverage",
+    "publicationEligible": true
+  },
+  {
+    "screen": "p5-swap-max",
+    "phase": "after",
+    "theme": "dark",
+    "scenario": "BTC Swap Max 199987 sats; same actual 200000 sat balance; Continue not pressed in this state",
+    "sha256": "060c9ce8ad0688782a95dc001f8f8470449b8f3a9cbc6511b0929d7e915e55a8",
+    "sourceRevision": "cfc9bb0d3b15f74c9b258668532321c8096be8b6",
+    "installedApkSha256": "b14fe2dd5535a1982a6fc921cef208ee5f1b897a1eceae643d393a72e2ac0c1b",
+    "appId": "com.bullbitcoin.mobile.buttons.debug",
+    "realDevice": true,
+    "files": [
+      "lib/features/swap/ui/widgets/swap_balance_row.dart"
+    ],
+    "safeForPublic": true,
+    "device": "Pixel 5",
+    "path": "phone-integrated/after/dark/p5-swap-max.png",
+    "kind": "real phone",
+    "evidenceScope": "Named observed state only; no exhaustive caller or completion coverage",
+    "publicationEligible": true
+  },
+  {
+    "screen": "p5-swap-advanced",
+    "phase": "after",
+    "theme": "dark",
+    "scenario": "BTC Swap Advanced Options, 10000 sats form; review not reached",
+    "sha256": "8452f7ae7f58bf2d4476d97ace8b4d4aeac6cc9b21978bcb6a5e12f279c40a8d",
+    "sourceRevision": "cfc9bb0d3b15f74c9b258668532321c8096be8b6",
+    "installedApkSha256": "b14fe2dd5535a1982a6fc921cef208ee5f1b897a1eceae643d393a72e2ac0c1b",
+    "appId": "com.bullbitcoin.mobile.buttons.debug",
+    "realDevice": true,
+    "files": [
+      "lib/features/swap/ui/widgets/swap_advanced_options_bottom_sheet.dart"
+    ],
+    "safeForPublic": true,
+    "device": "Pixel 5",
+    "path": "phone-integrated/after/dark/p5-swap-advanced.png",
+    "kind": "real phone",
+    "evidenceScope": "Named observed state only; no exhaustive caller or completion coverage",
+    "publicationEligible": true
+  },
+  {
+    "screen": "p5-amount-settings-theme-control",
+    "phase": "after",
+    "theme": "light",
+    "scenario": "Same wallet retained after update, Bitcoin amount preference and Dark Mode disabled",
+    "sha256": "b78971a06df022b17f2fc70ab37cb8698bc2965d494a54eadbb3379714a6fd1c",
+    "sourceRevision": "cfc9bb0d3b15f74c9b258668532321c8096be8b6",
+    "installedApkSha256": "b14fe2dd5535a1982a6fc921cef208ee5f1b897a1eceae643d393a72e2ac0c1b",
+    "appId": "com.bullbitcoin.mobile.buttons.debug",
+    "realDevice": true,
+    "files": [
+      "lib/features/settings/ui/screens/app_settings/app_settings_screen.dart",
+      "lib/features/settings/ui/widgets/amount_input_mode_setting.dart"
+    ],
+    "safeForPublic": true,
+    "device": "Pixel 5",
+    "path": "phone-integrated/after/light/p5-amount-settings-theme-control.png",
+    "kind": "real phone",
+    "evidenceScope": "Named observed state only; no exhaustive caller or completion coverage",
+    "publicationEligible": true
+  },
+  {
+    "screen": "p5-receive-amount",
+    "phase": "after",
+    "theme": "light",
+    "scenario": "Canonical receive amount 10000 sats, keyboard dismissed",
+    "sha256": "c5d62cca342ee67202380066f22b0b9e0f71727522085ef67f58b5141ea91bb5",
+    "sourceRevision": "cfc9bb0d3b15f74c9b258668532321c8096be8b6",
+    "installedApkSha256": "b14fe2dd5535a1982a6fc921cef208ee5f1b897a1eceae643d393a72e2ac0c1b",
+    "appId": "com.bullbitcoin.mobile.buttons.debug",
+    "realDevice": true,
+    "files": [
+      "lib/features/receive/ui/screens/receive_amount_screen.dart"
+    ],
+    "safeForPublic": true,
+    "device": "Pixel 5",
+    "path": "phone-integrated/after/light/p5-receive-amount.png",
+    "kind": "real phone",
+    "evidenceScope": "Named observed state only; no exhaustive caller or completion coverage",
+    "publicationEligible": true
+  },
+  {
+    "screen": "p5-receive-qr-amount",
+    "phase": "after",
+    "theme": "light",
+    "scenario": "Receive Bitcoin QR request 10000 sats, no payment created",
+    "sha256": "e6c7bd3b4a109fe2d5c83fc4dca1ae14e262dc558e5645679a4e7f5d7eadfd9e",
+    "sourceRevision": "cfc9bb0d3b15f74c9b258668532321c8096be8b6",
+    "installedApkSha256": "b14fe2dd5535a1982a6fc921cef208ee5f1b897a1eceae643d393a72e2ac0c1b",
+    "appId": "com.bullbitcoin.mobile.buttons.debug",
+    "realDevice": true,
+    "files": [
+      "lib/features/receive/ui/screens/receive_qr_screen.dart"
+    ],
+    "safeForPublic": true,
+    "device": "Pixel 5",
+    "path": "phone-integrated/after/light/p5-receive-qr-amount.png",
+    "kind": "real phone",
+    "evidenceScope": "Named observed state only; no exhaustive caller or completion coverage",
+    "publicationEligible": true
+  },
+  {
+    "screen": "p5-send-amount",
+    "phase": "after",
+    "theme": "light",
+    "scenario": "Send 10000 sats to same own public regtest address; Max off",
+    "sha256": "64447bdf02d1ded0053999865130ecc2154fda3705cb478cdd286766d1b83b0c",
+    "sourceRevision": "cfc9bb0d3b15f74c9b258668532321c8096be8b6",
+    "installedApkSha256": "b14fe2dd5535a1982a6fc921cef208ee5f1b897a1eceae643d393a72e2ac0c1b",
+    "appId": "com.bullbitcoin.mobile.buttons.debug",
+    "realDevice": true,
+    "files": [
+      "lib/features/send/ui/screens/send_screen.dart"
+    ],
+    "safeForPublic": true,
+    "device": "Pixel 5",
+    "path": "phone-integrated/after/light/p5-send-amount.png",
+    "kind": "real phone",
+    "evidenceScope": "Named observed state only; no exhaustive caller or completion coverage",
+    "publicationEligible": true
+  },
+  {
+    "screen": "p5-send-confirm",
+    "phase": "after",
+    "theme": "light",
+    "scenario": "Native Send review 10000 sats plus 16 sat fee; stopped before Confirm",
+    "sha256": "8acd93bd14717e01a311bd056ede0fc4e4a6633cdbcedb05fa003adcdb92aeb1",
+    "sourceRevision": "cfc9bb0d3b15f74c9b258668532321c8096be8b6",
+    "installedApkSha256": "b14fe2dd5535a1982a6fc921cef208ee5f1b897a1eceae643d393a72e2ac0c1b",
+    "appId": "com.bullbitcoin.mobile.buttons.debug",
+    "realDevice": true,
+    "files": [
+      "lib/features/send/ui/screens/send_screen.dart"
+    ],
+    "safeForPublic": true,
+    "device": "Pixel 5",
+    "path": "phone-integrated/after/light/p5-send-confirm.png",
+    "kind": "real phone",
+    "evidenceScope": "Named observed state only; no exhaustive caller or completion coverage",
+    "publicationEligible": true
+  },
+  {
+    "screen": "p5-send-advanced",
+    "phase": "after",
+    "theme": "light",
+    "scenario": "Send Advanced Options RBF enabled/manual coins; no changes",
+    "sha256": "c095115c02e040f42fef502a28f7a23018291de289d96cae0843dbe8956d347e",
+    "sourceRevision": "cfc9bb0d3b15f74c9b258668532321c8096be8b6",
+    "installedApkSha256": "b14fe2dd5535a1982a6fc921cef208ee5f1b897a1eceae643d393a72e2ac0c1b",
+    "appId": "com.bullbitcoin.mobile.buttons.debug",
+    "realDevice": true,
+    "files": [
+      "lib/features/send/ui/widgets/advanced_options_bottom_sheet.dart"
+    ],
+    "safeForPublic": true,
+    "device": "Pixel 5",
+    "path": "phone-integrated/after/light/p5-send-advanced.png",
+    "kind": "real phone",
+    "evidenceScope": "Named observed state only; no exhaustive caller or completion coverage",
+    "publicationEligible": true
+  },
+  {
+    "screen": "p5-swap-amount",
+    "phase": "after",
+    "theme": "light",
+    "scenario": "BTC to Liquid form 10000 sats, same funded wallet; no review claimed",
+    "sha256": "54508cf69c4b5869819f644bdb6999cc73c3d343156e36058dead0d1f0038490",
+    "sourceRevision": "cfc9bb0d3b15f74c9b258668532321c8096be8b6",
+    "installedApkSha256": "b14fe2dd5535a1982a6fc921cef208ee5f1b897a1eceae643d393a72e2ac0c1b",
+    "appId": "com.bullbitcoin.mobile.buttons.debug",
+    "realDevice": true,
+    "files": [
+      "lib/features/swap/ui/pages/swap_page.dart",
+      "lib/features/swap/ui/widgets/swap_balance_row.dart"
+    ],
+    "safeForPublic": true,
+    "device": "Pixel 5",
+    "path": "phone-integrated/after/light/p5-swap-amount.png",
+    "kind": "real phone",
+    "evidenceScope": "Named observed state only; no exhaustive caller or completion coverage",
+    "publicationEligible": true
+  },
+  {
+    "screen": "p5-swap-max",
+    "phase": "after",
+    "theme": "light",
+    "scenario": "BTC Swap Max 199987 sats; same 200000 sat balance; Continue not pressed in this state",
+    "sha256": "1cbd8f29bcc69425b184e47191cbfab514d3a0db399fd271583ad250760dabc1",
+    "sourceRevision": "cfc9bb0d3b15f74c9b258668532321c8096be8b6",
+    "installedApkSha256": "b14fe2dd5535a1982a6fc921cef208ee5f1b897a1eceae643d393a72e2ac0c1b",
+    "appId": "com.bullbitcoin.mobile.buttons.debug",
+    "realDevice": true,
+    "files": [
+      "lib/features/swap/ui/widgets/swap_balance_row.dart"
+    ],
+    "safeForPublic": true,
+    "device": "Pixel 5",
+    "path": "phone-integrated/after/light/p5-swap-max.png",
+    "kind": "real phone",
+    "evidenceScope": "Named observed state only; no exhaustive caller or completion coverage",
+    "publicationEligible": true
+  },
+  {
+    "screen": "p5-swap-advanced",
+    "phase": "after",
+    "theme": "light",
+    "scenario": "BTC Swap Advanced Options, 10000 sats form; review not reached",
+    "sha256": "77bb0a4ca3e3d4423ee1fe8945ed9670c1a5b6132648d7dde76223164da6394a",
+    "sourceRevision": "cfc9bb0d3b15f74c9b258668532321c8096be8b6",
+    "installedApkSha256": "b14fe2dd5535a1982a6fc921cef208ee5f1b897a1eceae643d393a72e2ac0c1b",
+    "appId": "com.bullbitcoin.mobile.buttons.debug",
+    "realDevice": true,
+    "files": [
+      "lib/features/swap/ui/widgets/swap_advanced_options_bottom_sheet.dart"
+    ],
+    "safeForPublic": true,
+    "device": "Pixel 5",
+    "path": "phone-integrated/after/light/p5-swap-advanced.png",
+    "kind": "real phone",
+    "evidenceScope": "Named observed state only; no exhaustive caller or completion coverage",
+    "publicationEligible": true
+  },
+  {
+    "screen": "p5-swap-continue-error",
+    "phase": "after",
+    "theme": "light",
+    "scenario": "Actual after Swap inline Oops! Something went wrong at 100000 sats; no review reached. Error inputs differ between versions; not a same-input comparison.",
+    "sha256": "e23b2b82f2b2a63dd67ccbe25cf12c95d9145a6664ecb83464dae4f0f416961c",
+    "sourceRevision": "cfc9bb0d3b15f74c9b258668532321c8096be8b6",
+    "installedApkSha256": "b14fe2dd5535a1982a6fc921cef208ee5f1b897a1eceae643d393a72e2ac0c1b",
+    "appId": "com.bullbitcoin.mobile.buttons.debug",
+    "realDevice": true,
+    "files": [
+      "lib/features/swap/ui/pages/swap_page.dart"
+    ],
+    "safeForPublic": true,
+    "device": "Pixel 5",
+    "path": "phone-integrated/after/light/p5-swap-continue-error.png",
+    "kind": "real phone",
+    "evidenceScope": "Named observed state only; no exhaustive caller or completion coverage",
+    "publicationEligible": true,
+    "observedAmountSat": 100000,
+    "attemptCountLimit": "Exact semantic Continue/backend request count not instrumented; coordinate taps can encounter the native keyboard. At least one processed Continue produced this inline failure."
+  }
+]
