@@ -12,7 +12,7 @@
     "README.md": "15b973698c646ca4c5826da5362fffd79a899573e0cfdfce7e5782d13dceac0b",
     "REVIEW-GUIDE.md": "a9b7c3d5582e3d9994751a971fa5a52ecd96d196a532fa271ef3f5167d850dc7",
     "SOURCE-REVIEW.json": "d29dcaf57569bc882a005c38bf9953c463cce9d00f70c3c78bf15f2203fcfabe",
-    "VERIFICATION.md": "0786dce94bc9479ff7baa3f8afdfb90b25c482decfae673f8f21fccc777f9cfc",
+    "VERIFICATION.md": "b4e0d861ea82981798acda76a5a477986e3f0dda41f97269caa133ffa9ed99b2",
     "index.html": "e99ed5db0fb7f39764859cb95e6672a2fc7a6bb6d0a2d9ab587b45b03d954366",
     "phone/account-dark-after.png": "c37b1b86bcccc8e398c05c2577d571181b563897cbbbef1bf342ab1865d71c35",
     "phone/account-dark-before.png": "3bb27de58bbabd68622f20a433c36492401bee24657e8aa5df9e3608f6d1ce6e",
@@ -43,5 +43,6 @@
     "phone/vtxos-dark-after.png": "a8c6f2e8d9bdc43ee79183ca19ad1263ecfb12bcdd929d21d96fd90841a3255c",
     "phone/vtxos-dark-before.png": "091220cfd8d5d761d63bfe9d73f46082c9978299163720a446e8732aff67aa74"
   },
-  "totalBytes": 2183997
+  "totalBytes": 2183997,
+  "updatedAt": "2026-11-19T16:37:24.166301+00:00"
 }
