@@ -275,10 +275,12 @@ class _ExchangeAuthScreenState extends State<ExchangeAuthScreen> {
       return SafeArea(
         child: _isGeneratingApiKey
             ? const Center(child: CircularProgressIndicator())
-            : Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+            : ListView(
                 children: [
-                  CloseButton(onPressed: widget.onExit),
+                  Align(
+                    alignment: AlignmentDirectional.centerStart,
+                    child: CloseButton(onPressed: widget.onExit),
+                  ),
                   Padding(
                     padding: const EdgeInsets.all(16),
                     child: Text(context.loc.exchangeRegtestAccountDescription),
@@ -310,7 +312,13 @@ class _ExchangeAuthScreenState extends State<ExchangeAuthScreen> {
         isCurrent: () => mounted && !_isClosing,
       );
       if (!mounted || _isClosing) return;
-      if (result case Err(:final failure)) await _handleLoginError(failure);
+      switch (result) {
+        case Ok():
+          _isClosing = true;
+          widget.onExit();
+        case Err(:final failure):
+          await _handleLoginError(failure);
+      }
     } finally {
       if (mounted) setState(() => _isGeneratingApiKey = false);
     }
