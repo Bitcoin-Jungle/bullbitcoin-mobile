@@ -57,6 +57,14 @@ final class _BlockchainPort implements PayjoinBlockchainPort {
 
 final class _TransactionPort implements PayjoinTransactionPort {
   @override
+  Future<String?> findMatchingTransaction({
+    required String walletId,
+    required List<({String txId, int vout})> inputs,
+    required List<({int value, Uint8List scriptPubkey})> outputs,
+    bool refresh = false,
+  }) async => null;
+
+  @override
   Future<bool> isTransactionVisible({
     required String walletId,
     required String transactionId,

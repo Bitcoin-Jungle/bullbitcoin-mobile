@@ -415,6 +415,14 @@ class PayjoinRepositoryImpl implements PayjoinRepository {
         return txId;
       }
     }
+    if (payjoin is PayjoinReceiver && payjoin.proposalPsbt != null) {
+      final proposal = await BitcoinTx.fromPsbt(payjoin.proposalPsbt!);
+      return _findMatchingProposalTransaction(
+        walletId: payjoin.walletId,
+        proposal: proposal,
+        refresh: true,
+      );
+    }
     return null;
   }
 
@@ -482,7 +490,11 @@ class PayjoinRepositoryImpl implements PayjoinRepository {
         ),
       );
     }
-    if (competingTxId != null && competingTxId == freshEntity.txId) {
+    if (competingTxId != null &&
+        (competingTxId == freshEntity.txId ||
+            (freshEntity is PayjoinReceiver &&
+                freshEntity.proposalPsbt != null &&
+                competingTxId != freshEntity.originalTxId))) {
       // The payjoin already reached the network: the user is paid. Settle the
       // session now instead of leaving them on a spinner until a watcher
       // notices the same transaction.
@@ -655,6 +667,7 @@ class PayjoinRepositoryImpl implements PayjoinRepository {
         payjoinId: receiver.id,
         walletId: receiver.walletId,
         txId: receiver.txId!,
+        receiverProposalPsbt: receiver.proposalPsbt,
       );
     }
     if (receiver.originalTxId != null) {
@@ -894,6 +907,7 @@ class PayjoinRepositoryImpl implements PayjoinRepository {
           payjoinId: result.id,
           walletId: result.walletId,
           txId: result.txId!,
+          receiverProposalPsbt: result.proposalPsbt,
         );
       }
     }
@@ -1342,6 +1356,7 @@ class PayjoinRepositoryImpl implements PayjoinRepository {
           payjoinId: expiredModel.id,
           walletId: expiredModel.walletId,
           txId: expiredModel.txId!,
+          receiverProposalPsbt: expiredModel.proposalPsbt,
         );
         // Same reasoning as _resumeOne's equivalent receiver branch: the
         //  sender could independently fall back to the original transaction
@@ -1576,6 +1591,7 @@ class PayjoinRepositoryImpl implements PayjoinRepository {
           payjoinId: model.id,
           walletId: model.walletId,
           txId: model.txId!,
+          receiverProposalPsbt: model.proposalPsbt,
         );
         // The sender still owns finalizing/broadcasting the real proposal
         //  from here, but could instead fall back to the original
@@ -1891,15 +1907,49 @@ class PayjoinRepositoryImpl implements PayjoinRepository {
     required String payjoinId,
     required String walletId,
     required String txId,
-  }) => _watchForTransaction(
-    payjoinId: payjoinId,
+    String? receiverProposalPsbt,
+  }) {
+    BitcoinTx? proposal;
+    Future<String?> findFinalizedReceiverTx(bool refresh) async {
+      final psbt = receiverProposalPsbt;
+      if (psbt == null) return null;
+      proposal ??= await BitcoinTx.fromPsbt(psbt);
+      return _findMatchingProposalTransaction(
+        walletId: walletId,
+        proposal: proposal!,
+        refresh: refresh,
+      );
+    }
+
+    _watchForTransaction(
+      payjoinId: payjoinId,
+      walletId: walletId,
+      txId: txId,
+      watchers: _broadcastWatchers,
+      pollTimers: _broadcastPollTimers,
+      onSeen: _onPayjoinTransactionSeen,
+      findMatching: receiverProposalPsbt == null
+          ? null
+          : findFinalizedReceiverTx,
+      kind: 'broadcast',
+      watchKey: '$payjoinId|$txId',
+    );
+  }
+
+  Future<String?> _findMatchingProposalTransaction({
+    required String walletId,
+    required BitcoinTx proposal,
+    required bool refresh,
+  }) => _transactions.findMatchingTransaction(
     walletId: walletId,
-    txId: txId,
-    watchers: _broadcastWatchers,
-    pollTimers: _broadcastPollTimers,
-    onSeen: (payjoinId) => _onPayjoinTransactionSeen(payjoinId, txId),
-    kind: 'broadcast',
-    watchKey: '$payjoinId|$txId',
+    inputs: [
+      for (final input in proposal.inputs) (txId: input.txid, vout: input.vout),
+    ],
+    outputs: [
+      for (final output in proposal.outputs)
+        (value: output.value, scriptPubkey: output.scriptPubkey),
+    ],
+    refresh: refresh,
   );
 
   /// Watches for the ORIGINAL transaction [originalTxId] to appear in
@@ -1948,7 +1998,7 @@ class PayjoinRepositoryImpl implements PayjoinRepository {
     txId: originalTxId,
     watchers: _fallbackWatchers,
     pollTimers: _fallbackPollTimers,
-    onSeen: _onOriginalTransactionSeen,
+    onSeen: (payjoinId, _) => _onOriginalTransactionSeen(payjoinId),
     kind: 'fallback',
     // '|' never appears in a session id: a sender id is a percent-encoded
     // BIP21 URI, a receiver id is a 16-hex-char sha256 prefix.
@@ -1970,7 +2020,9 @@ class PayjoinRepositoryImpl implements PayjoinRepository {
     required String txId,
     required Map<String, StreamSubscription<void>> watchers,
     required Map<String, Timer> pollTimers,
-    required Future<void> Function(String payjoinId) onSeen,
+    required Future<void> Function(String payjoinId, String observedTxId)
+    onSeen,
+    Future<String?> Function(bool refresh)? findMatching,
     required String kind,
     String? watchKey,
   }) {
@@ -1986,26 +2038,29 @@ class PayjoinRepositoryImpl implements PayjoinRepository {
           .watchWallet(walletId)
           .asyncMap((_) async {
             try {
-              return await _transactions.isTransactionVisible(
+              final visible = await _transactions.isTransactionVisible(
                 walletId: walletId,
                 transactionId: txId,
               );
+              if (visible) return txId;
+              return await findMatching?.call(false);
             } catch (e) {
               _log.warning(
                 code: api.PayjoinLogCode.watchFailure,
                 sessionRef: payjoinId,
                 error: e,
               );
-              return false;
+              return null;
             }
           })
-          .where((visible) => visible)
-          .listen((_) {
+          .where((observedTxId) => observedTxId != null)
+          .listen((observedTxId) {
+            if (observedTxId == null) return;
             // onSeen (fetch + update + emit) can throw; the future is not
             //  awaited by the stream, so guard it explicitly or it becomes an
             //  unhandled zone error.
             unawaited(
-              onSeen(payjoinId).catchError((Object e) {
+              onSeen(payjoinId, observedTxId).catchError((Object e) {
                 _log.warning(
                   code: api.PayjoinLogCode.watchFailure,
                   sessionRef: payjoinId,
@@ -2024,6 +2079,7 @@ class PayjoinRepositoryImpl implements PayjoinRepository {
         watchers: watchers,
         pollTimers: pollTimers,
         onSeen: onSeen,
+        findMatching: findMatching,
         kind: kind,
         attempt: 0,
         watchKey: key,
@@ -2054,7 +2110,9 @@ class PayjoinRepositoryImpl implements PayjoinRepository {
     required String txId,
     required Map<String, StreamSubscription<void>> watchers,
     required Map<String, Timer> pollTimers,
-    required Future<void> Function(String payjoinId) onSeen,
+    required Future<void> Function(String payjoinId, String observedTxId)
+    onSeen,
+    Future<String?> Function(bool refresh)? findMatching,
     required String kind,
     required int attempt,
     String? watchKey,
@@ -2074,13 +2132,14 @@ class PayjoinRepositoryImpl implements PayjoinRepository {
     pollTimers[key] = Timer(delay, () async {
       if (!watchers.containsKey(key)) return;
 
-      var visible = false;
+      String? observedTxId;
       try {
-        visible = await _transactions.isTransactionVisible(
+        final visible = await _transactions.isTransactionVisible(
           walletId: walletId,
           transactionId: txId,
           refresh: true,
         );
+        observedTxId = visible ? txId : await findMatching?.call(true);
       } catch (e) {
         _log.warning(
           code: api.PayjoinLogCode.watchFailure,
@@ -2093,11 +2152,11 @@ class PayjoinRepositoryImpl implements PayjoinRepository {
       // (or been torn down) while the sync'd lookup was in flight.
       if (!watchers.containsKey(key)) return;
 
-      if (visible) {
+      if (observedTxId != null) {
         // Guarded: this runs inside a Timer callback, so a throw would be an
         //  unhandled zone error (same reasoning as the passive watcher).
         try {
-          await onSeen(payjoinId);
+          await onSeen(payjoinId, observedTxId);
         } catch (e) {
           _log.warning(
             code: api.PayjoinLogCode.watchFailure,
@@ -2113,6 +2172,7 @@ class PayjoinRepositoryImpl implements PayjoinRepository {
             watchers: watchers,
             pollTimers: pollTimers,
             onSeen: onSeen,
+            findMatching: findMatching,
             kind: kind,
             attempt: attempt + 1,
             watchKey: key,
@@ -2126,6 +2186,7 @@ class PayjoinRepositoryImpl implements PayjoinRepository {
           watchers: watchers,
           pollTimers: pollTimers,
           onSeen: onSeen,
+          findMatching: findMatching,
           kind: kind,
           attempt: attempt + 1,
           watchKey: key,
@@ -2159,7 +2220,7 @@ class PayjoinRepositoryImpl implements PayjoinRepository {
 
     final PayjoinModel completedModel = model is PayjoinReceiverModel
         ? model.copyWith(
-            txId: model.txId ?? observedTxId,
+            txId: observedTxId,
             isExpired: false,
             isCompleted: true,
             isAborted: false,

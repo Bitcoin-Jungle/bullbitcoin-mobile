@@ -757,7 +757,7 @@ void main() {
         originalTransactionId: 'original-tx',
       );
       final proposal = model.copyWith(
-        proposalPsbt: 'proposal',
+        proposalPsbt: oneInputPsbt,
         txId: 'payjoin-tx',
       );
       await local.storeReceiver(model);
@@ -850,7 +850,7 @@ void main() {
     final model = receiver(
       originalTransaction: Uint8List.fromList([1, 2, 3]),
       originalTransactionId: 'original-tx',
-      proposalPsbt: 'cHNidP9wcm9wb3NhbA==',
+      proposalPsbt: oneInputPsbt,
       transactionId: 'payjoin-tx',
     );
     await local.storeReceiver(model);

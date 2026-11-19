@@ -70,6 +70,16 @@ abstract interface class PayjoinTransactionPort {
     bool refresh = false,
   });
 
+  /// Finds a wallet transaction with the proposal's exact ordered inputs and
+  /// outputs. Finalizing a nested SegWit sender input can add a scriptSig and
+  /// change the txid predicted from the receiver's proposal PSBT.
+  Future<String?> findMatchingTransaction({
+    required String walletId,
+    required List<({String txId, int vout})> inputs,
+    required List<({int value, Uint8List scriptPubkey})> outputs,
+    bool refresh = false,
+  });
+
   Future<void> refreshWallet(String walletId);
 }
 

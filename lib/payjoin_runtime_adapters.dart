@@ -7,11 +7,14 @@ import 'package:bb_mobile/core/electrum/domain/value_objects/electrum_server_net
 import 'package:bb_mobile/core/fees/domain/repositories/fees_repository.dart';
 import 'package:bull_logger/bull_logger.dart';
 import 'package:bb_mobile/core/wallet/domain/entities/wallet.dart';
+import 'package:bb_mobile/core/wallet/domain/entities/transaction_input.dart';
+import 'package:bb_mobile/core/wallet/domain/entities/transaction_output.dart';
 import 'package:bb_mobile/core/wallet/data/repositories/wallet_repository.dart';
 import 'package:bb_mobile/core/wallet/domain/repositories/wallet_transaction_repository.dart';
 import 'package:bb_mobile/features/labels/labels_facade.dart';
 import 'package:bull_payjoin/bull_payjoin.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart' show listEquals;
 import 'package:primitives/primitives.dart';
 
 final class AppPayjoinBlockchainAdapter implements PayjoinBlockchainPort {
@@ -85,6 +88,59 @@ final class AppPayjoinTransactionAdapter implements PayjoinTransactionPort {
   @override
   Stream<void> watchWallet(String walletId) => _wallets.walletSyncFinishedStream
       .where((wallet) => wallet.id == walletId);
+
+  @override
+  Future<String?> findMatchingTransaction({
+    required String walletId,
+    required List<({String txId, int vout})> inputs,
+    required List<({int value, Uint8List scriptPubkey})> outputs,
+    bool refresh = false,
+  }) async {
+    if (inputs.isEmpty || outputs.isEmpty) return null;
+    final transactions = await _transactions.getWalletTransactions(
+      walletId: walletId,
+      sync: refresh,
+    );
+    String? matchingTxId;
+    for (final transaction in transactions) {
+      if (transaction.walletId != walletId ||
+          !transaction.isBitcoin ||
+          transaction.inputs.length != inputs.length ||
+          transaction.outputs.length != outputs.length) {
+        continue;
+      }
+      var matches = true;
+      for (var index = 0; index < inputs.length; index++) {
+        final actual = transaction.inputs[index];
+        final expected = inputs[index];
+        if (actual is! BitcoinTransactionInput ||
+            actual.vin != index ||
+            actual.previousTxId != expected.txId ||
+            actual.previousTxVout != expected.vout) {
+          matches = false;
+          break;
+        }
+      }
+      if (!matches) continue;
+      for (var index = 0; index < outputs.length; index++) {
+        final actual = transaction.outputs[index];
+        final expected = outputs[index];
+        if (actual is! BitcoinTransactionOutput ||
+            actual.vout != index ||
+            actual.value != BigInt.from(expected.value) ||
+            !listEquals(actual.scriptPubkey, expected.scriptPubkey)) {
+          matches = false;
+          break;
+        }
+      }
+      if (!matches) continue;
+      if (matchingTxId != null && matchingTxId != transaction.txId) {
+        return null;
+      }
+      matchingTxId = transaction.txId;
+    }
+    return matchingTxId;
+  }
 
   /// A refreshed lookup asks the Electrum server about this one transaction
   /// instead of syncing the whole wallet, which takes 15 to 120 seconds
