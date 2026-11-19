@@ -134,6 +134,16 @@ class SettlementTest(unittest.TestCase):
         self.assertEqual(done["orderStatus"], "Completed")
         self.assertEqual(done["liquidTransactionId"], "liquid-tx-1")
 
+    def test_swap_amounts_never_use_scientific_notation(self):
+        quote = self.exchange.dispatch("getBestSwapOption", {
+            "amount": 0.00008, "isInAmountFixed": True, "inNetwork": "liquid", "outNetwork": "bitcoin"})
+        order = self.exchange.dispatch("createOrderSwap", {
+            "amount": 0.00008, "isInAmountFixed": True, "inNetwork": "liquid",
+            "outNetwork": "bitcoin", "destinationAddress": "d"})
+        for value in (quote["inAmount"], quote["outAmount"], order["payinAmount"], order["payoutAmount"]):
+            self.assertNotIn("e", str(value).lower())
+        self.assertEqual(Decimal(str(quote["outAmount"])), Decimal("0.00007920"))
+
     def test_lightning_is_refused_instead_of_faked(self):
         with self.assertRaises(ValueError):
             self.exchange.dispatch("createOrderSwap", {
