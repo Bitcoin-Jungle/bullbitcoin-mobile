@@ -9,6 +9,10 @@ import 'package:bb_mobile/features/settings/domain/settings_entity.dart';
 import 'package:primitives/primitives.dart';
 import 'package:bb_mobile/features/exchange/data/exchange_auth_repository_impl.dart';
 import 'package:bb_mobile/features/exchange/data/exchange_web_auth_datasource.dart';
+import 'package:bb_mobile/features/exchange/data/regtest_exchange_auth_repository.dart';
+import 'package:bb_mobile/features/exchange/domain/exchange_failure.dart';
+import 'package:bb_mobile/features/exchange/data/regtest_exchange_routing.dart';
+import 'package:bb_mobile/core/exchange/domain/entity/exchange_api_key.dart';
 import 'package:bb_mobile/features/exchange/domain/usecases/complete_exchange_authentication_usecase.dart';
 import 'package:bb_mobile/features/exchange/domain/usecases/get_exchange_web_settings_usecase.dart';
 import 'package:bb_mobile/features/exchange/presentation/exchange_cubit.dart';
@@ -85,7 +89,11 @@ class _Delegate extends FakePlatformNavigationDelegate {
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
-  setUpAll(() => registerFallbackValue(_FakeAuthentication()));
+  setUpAll(() async {
+    registerFallbackValue(_FakeAuthentication());
+    final key = await const RegtestExchangeAuthRepository().generateApiKey();
+    registerFallbackValue((key as Ok<ExchangeApiKey, ExchangeFailure>).value);
+  });
   for (final scenario in [
     'deferred',
     'acknowledge',
@@ -230,4 +238,90 @@ void main() {
       verifyNoMoreInteractions(keys);
     });
   }
+
+  testWidgets(
+    'regtest: the development account signs in and leaves the screen',
+    (tester) async {
+      var exits = 0;
+      WebViewPlatform.instance = _Platform();
+      final settings = _Settings();
+      final keys = _Keys();
+      final cubit = _Cubit();
+      SharedPreferences.setMockInitialValues({});
+      when(() => keys.readActiveApiKey(isTestnet: true))
+          .thenAnswer((_) async => const Ok(null));
+      when(() => keys.saveApiKey(any(), isTestnet: true))
+          .thenAnswer((_) async => const Ok(null));
+      final access = ExchangeAccessRepositoryImpl(
+        apiKeyRepository: keys,
+        readEnvironment: () async => true,
+        platformAllowed: () async => true,
+        disconnectNotifications: () async {},
+        clearCookies: () async {},
+      );
+      await access.enable();
+      when(settings.execute).thenAnswer(
+        (_) async => const Ok(
+          SettingsEntity(
+            environment: Environment.regtest,
+            bitcoinUnit: BitcoinUnit.btc,
+            currencyCode: 'CAD',
+          ),
+        ),
+      );
+      when(() => cubit.state).thenReturn(const ExchangeState());
+      when(() => cubit.stream).thenAnswer((_) => const Stream.empty());
+      when(
+        () => cubit.completeAuthentication(
+          any(),
+          isCurrent: any(named: 'isCurrent'),
+        ),
+      ).thenAnswer(
+        (invocation) =>
+            (invocation.positionalArguments.single
+                    as CompleteExchangeAuthenticationUsecase)
+                .execute(
+                  isCurrent:
+                      invocation.namedArguments[#isCurrent] as bool Function(),
+                ),
+      );
+      locator.registerSingleton<GetExchangeWebSettingsUsecase>(settings);
+      locator.registerFactoryParam<
+        CompleteExchangeAuthenticationUsecase,
+        Future<Object> Function(String),
+        ({bool isTestnet, bool isRegtest, bool Function() isOpen})
+      >(
+        (_, session) => CompleteExchangeAuthenticationUsecase(
+          authRepository: const RegtestExchangeAuthRepository(),
+          access: access,
+          isTestnet: session.isTestnet,
+        ),
+      );
+      addTearDown(locator.reset);
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: AppTheme.themeData(AppThemeType.light),
+          localizationsDelegates: appLocalizationsDelegates,
+          supportedLocales: AppLocalizations.supportedLocales,
+          home: BlocProvider<ExchangeCubit>.value(
+            value: cubit,
+            child: ExchangeAuthScreen(onExit: () => exits++),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.byType(FilledButton));
+      await tester.pumpAndSettle();
+
+      final saved =
+          verify(() => keys.saveApiKey(captureAny(), isTestnet: true))
+                  .captured
+                  .single
+              as ExchangeApiKey;
+      expect(saved.key, RegtestExchangeProfile.developmentApiKey);
+      expect(exits, 1);
+      expect(find.byType(AlertDialog), findsNothing);
+    },
+  );
 }
