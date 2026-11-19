@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:bull_logger/bull_logger.dart';
 import 'package:bull_payjoin/bull_payjoin.dart';
@@ -9,6 +10,8 @@ import 'package:bb_mobile/core/electrum/domain/value_objects/electrum_connection
 import 'package:bb_mobile/core/electrum/domain/value_objects/electrum_server_network.dart';
 import 'package:bb_mobile/core/wallet/data/repositories/wallet_repository.dart';
 import 'package:bb_mobile/core/wallet/domain/entities/wallet.dart';
+import 'package:bb_mobile/core/wallet/domain/entities/transaction_input.dart';
+import 'package:bb_mobile/core/wallet/domain/entities/transaction_output.dart';
 import 'package:bb_mobile/core/wallet/domain/entities/wallet_transaction.dart';
 import 'package:bb_mobile/core/wallet/domain/repositories/wallet_transaction_repository.dart';
 import 'package:bb_mobile/core/wallet/domain/wallet_failure.dart';
@@ -429,6 +432,88 @@ void main() {
       ),
     );
   });
+
+  test(
+    'matches a finalized payjoin by every ordered input and output',
+    () async {
+      final firstScript = Uint8List.fromList([0x00, 0x14, 0x01]);
+      final secondScript = Uint8List.fromList([0x00, 0x14, 0x02]);
+      final transaction = _transaction().copyWith(
+        txId: 'finalized-tx',
+        inputs: const [
+          TransactionInput.bitcoin(
+            txId: 'finalized-tx',
+            vin: 0,
+            isOwn: false,
+            previousTxId: 'sender-prevout',
+            previousTxVout: 1,
+          ),
+          TransactionInput.bitcoin(
+            txId: 'finalized-tx',
+            vin: 1,
+            isOwn: true,
+            previousTxId: 'receiver-prevout',
+            previousTxVout: 2,
+          ),
+        ],
+        outputs: [
+          TransactionOutput.bitcoin(
+            txId: 'finalized-tx',
+            vout: 0,
+            isOwn: true,
+            value: BigInt.from(120000),
+            scriptPubkey: firstScript,
+          ),
+          TransactionOutput.bitcoin(
+            txId: 'finalized-tx',
+            vout: 1,
+            isOwn: false,
+            value: BigInt.from(80000),
+            scriptPubkey: secondScript,
+          ),
+        ],
+      );
+      when(
+        () => transactions.getWalletTransactions(
+          walletId: _walletId,
+          sync: false,
+        ),
+      ).thenAnswer((_) async => [transaction]);
+      const inputs = [
+        (txId: 'sender-prevout', vout: 1),
+        (txId: 'receiver-prevout', vout: 2),
+      ];
+      final outputs = [
+        (value: 120000, scriptPubkey: firstScript),
+        (value: 80000, scriptPubkey: secondScript),
+      ];
+
+      expect(
+        await adapter.findMatchingTransaction(
+          walletId: _walletId,
+          inputs: inputs,
+          outputs: outputs,
+        ),
+        'finalized-tx',
+      );
+      expect(
+        await adapter.findMatchingTransaction(
+          walletId: _walletId,
+          inputs: inputs,
+          outputs: [outputs.first, (value: 80001, scriptPubkey: secondScript)],
+        ),
+        isNull,
+      );
+      expect(
+        await adapter.findMatchingTransaction(
+          walletId: _walletId,
+          inputs: inputs.reversed.toList(),
+          outputs: outputs,
+        ),
+        isNull,
+      );
+    },
+  );
 
   test('a refresh trusts the server over a pending wallet copy', () async {
     when(

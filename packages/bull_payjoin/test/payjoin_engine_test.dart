@@ -174,6 +174,14 @@ void main() {
         refresh: any(named: 'refresh'),
       ),
     ).thenAnswer((_) async => false);
+    when(
+      () => transactions.findMatchingTransaction(
+        walletId: any(named: 'walletId'),
+        inputs: any(named: 'inputs'),
+        outputs: any(named: 'outputs'),
+        refresh: any(named: 'refresh'),
+      ),
+    ).thenAnswer((_) async => null);
     when(() => transactions.refreshWallet(any())).thenAnswer((_) async {});
     logs = _CaptureLogPort();
     engine = PayjoinRepositoryImpl(
@@ -220,6 +228,101 @@ void main() {
     expect(created.id, model.id);
     expect(await local.fetchReceiver(model.id), isNotNull);
   });
+
+  test(
+    'a receiver recognizes the finalized transaction after its scriptSig changes the txid',
+    () async {
+      const actualTxId = 'finalized-payjoin-tx';
+      final model = receiver(
+        originalTransaction: Uint8List.fromList([1, 2, 3]),
+        originalTransactionId: 'original-tx',
+        proposalPsbt: oneInputPsbt,
+        transactionId: 'unsigned-proposal-tx',
+      ).copyWith(isExpired: true);
+      await local.storeReceiver(model);
+      final walletEvents = StreamController<void>.broadcast();
+      addTearDown(walletEvents.close);
+      when(
+        () => transactions.watchWallet(any()),
+      ).thenAnswer((_) => walletEvents.stream);
+      when(
+        () => transactions.findMatchingTransaction(
+          walletId: model.walletId,
+          inputs: any(named: 'inputs'),
+          outputs: any(named: 'outputs'),
+          refresh: any(named: 'refresh'),
+        ),
+      ).thenAnswer((_) async => actualTxId);
+      when(
+        () => labels.labelTransaction(
+          walletId: model.walletId,
+          transactionId: actualTxId,
+        ),
+      ).thenAnswer((_) async {});
+
+      await engine.resumePayjoinsOnStartup();
+      walletEvents.add(null);
+      final deadline = DateTime.now().add(const Duration(seconds: 3));
+      PayjoinReceiverModel? row;
+      while (DateTime.now().isBefore(deadline)) {
+        row = await local.fetchReceiver(model.id);
+        if (row?.isCompleted == true) break;
+        await Future<void>.delayed(const Duration(milliseconds: 20));
+      }
+      expect(row?.isCompleted, isTrue);
+      expect(row?.txId, actualTxId);
+      verify(
+        () => labels.labelTransaction(
+          walletId: model.walletId,
+          transactionId: actualTxId,
+        ),
+      ).called(1);
+    },
+  );
+
+  test(
+    'manual fallback settles a receiver whose finalized txid changed',
+    () async {
+      const actualTxId = 'finalized-payjoin-tx';
+      final model = receiver(
+        originalTransaction: Uint8List.fromList([1, 2, 3]),
+        originalTransactionId: 'original-tx',
+        proposalPsbt: oneInputPsbt,
+        transactionId: 'unsigned-proposal-tx',
+      );
+      await local.storeReceiver(model);
+      when(
+        () => transactions.findMatchingTransaction(
+          walletId: model.walletId,
+          inputs: any(named: 'inputs'),
+          outputs: any(named: 'outputs'),
+          refresh: true,
+        ),
+      ).thenAnswer((_) async => actualTxId);
+      when(
+        () => labels.labelTransaction(
+          walletId: model.walletId,
+          transactionId: actualTxId,
+        ),
+      ).thenAnswer((_) async {});
+
+      final result = await engine.tryBroadcastOriginalTransaction(
+        model.toEntity(),
+      );
+
+      expect(
+        (result as Ok<internal.Payjoin, PayjoinFailure>).value.isCompleted,
+        isTrue,
+      );
+      expect((await local.fetchReceiver(model.id))?.txId, actualTxId);
+      verifyNever(
+        () => blockchain.broadcastTransaction(
+          network: any(named: 'network'),
+          transaction: any(named: 'transaction'),
+        ),
+      );
+    },
+  );
 
   group('session milestones', () {
     test('a started receiver is logged on the receiver side', () async {
