@@ -121,6 +121,23 @@ class SettlementTest(unittest.TestCase):
         usd = self.exchange.dispatch("getRate", {"element": {"fromCurrency": "BTC", "toCurrency": "USD"}})
         self.assertLess(usd["element"]["indexPrice"], 10000000)
 
+    def test_order_rate_is_the_plain_price_not_the_scaled_index(self):
+        created = self.exchange.dispatch("createOrderBuy", {
+            "network": "bitcoin", "address": "a", "fiatAmount": 100})
+        self.assertEqual(created["exchangeRateAmount"], 100000)
+
+    def test_fiat_recipients_offer_one_demo_interac_recipient(self):
+        listed = self.exchange.dispatch("listRecipientsFiat", {
+            "paginator": {"page": 1, "pageSize": 50}})
+        self.assertEqual(listed["totalElements"], 1)
+        element = listed["elements"][0]
+        self.assertEqual(element["recipientTypeFiat"], "INTERAC_EMAIL_CAD")
+        for key in ("recipientId", "userId", "userNbr", "isArchived", "createdAt", "updatedAt"):
+            self.assertIn(key, element)
+        other = self.exchange.dispatch("listRecipientsFiat", {
+            "filters": {"recipientTypeFiat": ["SEPA_EUR"]}})
+        self.assertEqual(other["totalElements"], 0)
+
     def test_legacy_scenarios_never_touch_the_nodes(self):
         self.exchange.scenario = "completed"
         created = self.exchange.dispatch("createOrderBuy", {"address": "a", "fiatAmount": 10})
