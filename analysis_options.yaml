@@ -26,6 +26,8 @@ analyzer:
   exclude:
     # Isolated tool: checked separately by make app-icons-check.
     - tools/app_icons/**
+    # Regtest stack tooling: smoke scripts run with `fvm dart run`, outside the app.
+    - tools/regtest/**
     - features/**/lib/generated/**
     # Flutter-generated delegates still reference deprecated SDK design exports.
     - lib/generated/**
