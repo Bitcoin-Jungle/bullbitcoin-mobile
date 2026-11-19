@@ -100,7 +100,7 @@ def prepare():
             "command": ["--datadir", "/data/boltz", "--configpath", "/config/boltz.toml"],
             "volumes": ["boltz:/data/boltz", "boltz-cln:/data/cln:ro",
                         str(Path(__file__).with_name("boltz.toml").resolve()) + ":/config/boltz.toml:ro"],
-            "ports": ["9001:9001", "9004:9004", "9005:9005"],
+            "ports": ["9004:9004", "9005:9005"],
             "depends_on": ["bitcoin", "liquid", "boltz-cln", "boltz-postgres"],
             "restart": "on-failure",
         },
@@ -150,6 +150,13 @@ def prepare():
             "RATE_LIMIT_COOLDOWN": "1", "RATE_LIMIT_MAX_ATTEMPTS": "3",
             "ATTEMPTS_SNAPSHOT_TTL_SECONDS": "30", "RATE_LIMIT_MEMORY_BUDGET_MB": "512",
         }, "ports": ["8098:3000"],
+    }
+    # One Boltz URL, as in production: the backend and the sidecar each serve
+    # part of the /v2 API, so the gateway routes by path in front of both.
+    services["boltz-gateway"] = {
+        "image": python_image, "command": ["python3", "/app/gateway.py"],
+        "volumes": [str(Path(__file__).with_name("boltz_gateway.py").resolve()) + ":/app/gateway.py:ro"],
+        "ports": ["9001:9001"], "depends_on": ["boltz"], "restart": "on-failure",
     }
     services["recoverbull-proxy"] = {
         "image": python_image, "command": ["python3", "/app/proxy.py"],

@@ -35,7 +35,7 @@ All host ports bind to `127.0.0.1`:
 | Bitcoin / Liquid explorer | `http://127.0.0.1:5000`, `http://127.0.0.1:5001` |
 | Bark provider | `http://127.0.0.1:3535` |
 | Bark wallet / peer REST | `http://127.0.0.1:3538`, `http://127.0.0.1:3539` |
-| Boltz API | `http://127.0.0.1:9001/v2` |
+| Boltz API (gateway: backend + sidecar routes) | `http://127.0.0.1:9001/v2` |
 | Boltz sidecar WS / API | `ws://127.0.0.1:9004`, `http://127.0.0.1:9005` |
 | Dummy exchange | `http://127.0.0.1:8088` |
 | Integration controller | `http://127.0.0.1:8099` |
