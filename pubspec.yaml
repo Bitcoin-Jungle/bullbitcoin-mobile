@@ -8,6 +8,7 @@ environment:
   sdk: "3.14.0"
   flutter: "3.50.0"
 workspace:
+  - packages/backup_storage
   - features/ark
   - packages/ark
   - packages/secrets
