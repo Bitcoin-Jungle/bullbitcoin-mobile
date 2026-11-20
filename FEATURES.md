@@ -13,6 +13,9 @@ graph TB
     PRIMITIVES[Primitives Package]
     BACKUP_STORAGE[Backup Storage Package<br/>Account-bound byte storage]
     BACKUP_STORAGE --> PRIMITIVES
+    BACKUP_METADATA[Backup Metadata<br/>Workspace Feature]
+    BACKUP_METADATA --> BACKUP_STORAGE
+    BACKUP_METADATA --> PRIMITIVES
     ARK[Ark]
     ARK_PROTOCOL[Ark Protocol Package]
     BULL_UI[Bull UI Package]
@@ -456,6 +459,7 @@ The pre-existing reverse source edges remain: SP uses the wallet repository via 
 - **Tor**: `packages/bull_tor` — embedded Onion lifecycle with isolated RecoverBull and Bitcoin Electrum `.onion` sessions, plus provider-agnostic local SOCKS5 verification. Depends on Flutter for app-directory storage and an iOS plugin that excludes Tor state from backups, which are infrastructure-package exceptions in AGENTS.md
 - **Wallets**: Used by Send, UTXO Management, Transaction History, Backups, App Startup
 - **Backup storage** (workspace package `packages/backup_storage`): byte storage with account-bound sessions; RecoverBull owns vault parsing, JSON discovery, latest-vault selection and its 2 MiB read cap. The Google Drive backend owns authorization, pagination, bounded downloads and transport disposal.
+- **Backup metadata** (workspace feature `features/backup_metadata`, package `bull_backup_metadata`): automatic encrypted backup of wallet data (labels first) in BIP139 exports encrypted with BIP138. It owns its ports (`BackupInventoryPort`, `BackupLabelsPort`, `BackupReadinessPort`); the wallet and labels owners implement them and the shell only injects.
 - **Secrets** (workspace package): Used by Wallets, BIP85, App Startup, All Seed View, RecoverBull, Swaps, Silent Payments
 - **Settings**: Used by Wallets, BIP85, Bitcoin Price
 - **Swaps** (workspace package `packages/swaps`): the swap engine behind one provider-neutral surface — `SwapStore` (reads), `SwapResolver` (claim, refund, recovery; one per provider) and per-provider create methods (`BoltzSwaps`). Used by Swaps, Send, Receive, Autoswap, Transaction History, Wallets, Settings, All Seed View, App Startup

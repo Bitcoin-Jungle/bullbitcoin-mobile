@@ -1,0 +1,22 @@
+name: bull_backup_metadata
+description: Automatic encrypted backup of wallet data such as labels.
+publish_to: none
+version: 0.1.0
+
+environment:
+  sdk: "3.14.0"
+  flutter: "3.50.0"
+
+resolution: workspace
+
+dependencies:
+  flutter:
+    sdk: flutter
+  meta: ^1.17.0
+  primitives:
+  backup_storage:
+  rust_bindings:
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
