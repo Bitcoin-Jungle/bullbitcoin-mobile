@@ -76,6 +76,12 @@ def prepare():
     # it (see ensure_default_wallet); bitcoind loads it and the funding
     # wallet on every start.
     services["bitcoin"]["command"] = ["-wallet=bull-regtest", "-wallet="]
+    # The explorers read their API from the browser: loopback by default, a
+    # public Esplora when the stack is hosted.
+    services["esplora"]["environment"] = {
+        "API_URL": os.environ.get("BULL_REGTEST_ESPLORA_URL", "http://localhost:3000")}
+    services["esplora-liquid"]["environment"] = {
+        "API_URL": os.environ.get("BULL_REGTEST_LIQUID_ESPLORA_URL", "http://localhost:3001")}
     # Same arguments as Nigiri's electrs, on a current build (see ELECTRS).
     services["electrs"]["image"] = ELECTRS_IMAGE
     services["electrs"]["entrypoint"] = ["/usr/local/bin/electrs"]
