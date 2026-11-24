@@ -4,6 +4,7 @@
 import argparse
 import json
 import os
+import re
 from pathlib import Path
 import shutil
 import socket
@@ -24,10 +25,13 @@ LOCK = Path(__file__).with_name("images.json")
 # Built locally by build-services.py from these pinned sources, so they are
 # named by revision instead of pinned by registry digest. scuttle is
 # Bitcoin Jungle's fork of Second's bark: the Ark server with expiry payouts
-# (captaind, watchmand), its wallet daemon (barkd) and posd.
+# (captaind, watchmand), its wallet daemon (barkd) and posd. crash-cache is
+# BULL's Sentry-compatible crash report collector.
 SCUTTLE = ("https://github.com/Bitcoin-Jungle/scuttle.git", "d0c31ed0eecf202b210fd5c81213ee19b9d5c414")
+CRASH_CACHE = ("https://github.com/ethicnology/crash-cache.git", "ae657408c9c1c10677929827baae23da72690333")
 SCUTTLE_IMAGE = f"localhost/bull-regtest-scuttle:{SCUTTLE[1][:12]}"
-LOCAL_IMAGES = (SCUTTLE_IMAGE,)
+CRASH_CACHE_IMAGE = f"localhost/bull-regtest-crash-cache:{CRASH_CACHE[1][:12]}"
+LOCAL_IMAGES = (SCUTTLE_IMAGE, CRASH_CACHE_IMAGE)
 POSTGRES_IMAGE = "docker.io/library/postgres:18-alpine"
 SERVICES = (
     "bitcoin", "liquid", "electrs", "electrs-liquid", "electrum-ws",
@@ -134,6 +138,31 @@ def prepare():
             "ports": ["3080:3080"], "depends_on": ["captaind", "posd-barkd", "posd-postgres", "bitcoin"],
             "restart": "on-failure",
         },
+        "crash-cache-postgres": {
+            "image": POSTGRES_IMAGE,
+            "environment": {"POSTGRES_DB": "crash_cache", "POSTGRES_USER": "crash_cache",
+                            "POSTGRES_PASSWORD": "crash_cache"},
+            "volumes": ["crash-cache-postgres:/var/lib/postgresql"], "restart": "on-failure",
+        },
+        "crash-cache": {
+            "image": CRASH_CACHE_IMAGE,
+            "environment": {
+                "DATABASE_URL": "postgresql://crash_cache:crash_cache@crash-cache-postgres:5432/crash_cache",
+                "CRASH_CACHE_HOST": "0.0.0.0", "CRASH_CACHE_PORT": "3000",
+                # crash-cache requires every setting. Its small profile, with
+                # reports processed every 10 seconds instead of every minute.
+                "DATABASE_POOL_SIZE": "10", "DATABASE_POOL_TIMEOUT_SECS": "20",
+                "MAX_COMPRESSED_PAYLOAD_BYTES": "50 * 1024",
+                "MAX_UNCOMPRESSED_PAYLOAD_BYTES": "200 * 1024",
+                "WORKER_INTERVAL_SECS": "10", "WORKER_REPORTS_BATCH_SIZE": "100",
+                "MAX_CONCURRENT_COMPRESSIONS": "4",
+                "RATE_LIMIT_REQUESTS_PER_SEC": "800", "RATE_LIMIT_PER_IP_PER_SEC": "30",
+                "RATE_LIMIT_PER_PROJECT_PER_SEC": "500", "RATE_LIMIT_BURST_MULTIPLIER": "2",
+                "ANALYTICS_FLUSH_INTERVAL_SECS": "10", "ANALYTICS_RETENTION_DAYS": "30",
+                "ANALYTICS_BUFFER_SIZE": "20000",
+            },
+            "ports": ["8097:3000"], "depends_on": ["crash-cache-postgres"], "restart": "on-failure",
+        },
         "exchange": {
             "image": "docker.io/library/python:3.11-slim-bookworm",
             "command": ["python3", "/app/exchange.py", "--host", "0.0.0.0"],
@@ -234,7 +263,7 @@ def prepare():
         if name in ("bitcoin", "liquid"):
             service["user"] = "0:0"
     COMPOSE.write_text(yaml.safe_dump({"version": "3.8", "services": services,
-                                      "volumes": {name: {} for name in ("cln", "cln-peer", "boltz-cln", "captaind", "ark-postgres", "watchmand", "bark", "bark-peer", "posd-barkd", "posd-postgres", "boltz", "boltz-postgres", "recoverbull")}},
+                                      "volumes": {name: {} for name in ("cln", "cln-peer", "boltz-cln", "captaind", "ark-postgres", "watchmand", "bark", "bark-peer", "posd-barkd", "posd-postgres", "crash-cache-postgres", "boltz", "boltz-postgres", "recoverbull")}},
                                      sort_keys=False))
     used = {service["image"] for service in services.values()}
     pins = {image: pin for image, pin in pins.items() if pin in used}
@@ -377,7 +406,7 @@ def bootstrap():
     initialize_scuttle()
     initialize_controller()
     wait_services()
-    print("Bitcoin, Liquid, Lightning, scuttle (Ark, posd), Boltz and dummy exchange initialized")
+    print("Bitcoin, Liquid, Lightning, scuttle (Ark, posd), Boltz, crash-cache and dummy exchange initialized")
 
 
 def wait_indexers():
@@ -426,7 +455,7 @@ def initialize_ark():
 
 
 def initialize_scuttle():
-    """Give watchmand its sweep address and posd its wallet."""
+    """Give watchmand its sweep address, posd its wallet, crash-cache a project."""
     try:
         run("podman", "exec", "bull-regtest-watchmand", "test", "-s", "/data/watchmand/sweep_address", capture=True)
     except subprocess.CalledProcessError:
@@ -451,6 +480,15 @@ def initialize_scuttle():
                            "chain_source": {"esplora": {"url": "http://chopsticks:3000"}}})
         run("podman", "exec", "bull-regtest-posd-barkd", "sh", "-c",
             barkd + "wallet/create -X POST -d '" + body + "'", capture=True)
+    dsn = STATE / "crash-cache-dsn"
+    if not dsn.exists():
+        output = run("podman", "exec", "bull-regtest-crash-cache", "crash-cache", "project", "create",
+                     "bull-regtest", capture=True)
+        line = next(item for item in output.splitlines() if "DSN" in item)
+        # The DSN names the container's own listen address; give the host's.
+        value = re.sub(r"@[^/]+/", "@127.0.0.1:8097/", line.split("DSN:", 1)[1].strip(), count=1)
+        dsn.write_text(value + "\n")
+    print("crash-cache DSN: " + dsn.read_text().strip())
 
 
 def initialize_controller():
@@ -478,7 +516,7 @@ def wait_services():
                     json.load(response)
             for peer in (False, True):
                 bark("GET", "wallet/balance", peer=peer)
-            for url in ("http://127.0.0.1:3080/api/v1/openapi.json",):
+            for url in ("http://127.0.0.1:3080/api/v1/openapi.json", "http://127.0.0.1:8097/health"):
                 with urllib.request.urlopen(url, timeout=5):
                     pass
             trust = ssl.create_default_context(cafile=str(STATE / "mailrooms/cert.pem"))

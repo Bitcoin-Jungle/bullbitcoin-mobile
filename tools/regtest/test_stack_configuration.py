@@ -52,6 +52,7 @@ class StackConfigurationTest(unittest.TestCase):
             for name in ("captaind", "watchmand", "bark", "bark-peer", "posd-barkd", "posd"):
                 self.assertTrue(services[name]["image"].startswith("localhost/bull-regtest-scuttle:"), name)
             self.assertEqual(services["posd"]["ports"], ["127.0.0.1:3080:3080"])
+            self.assertEqual(services["crash-cache"]["ports"], ["127.0.0.1:8097:3000"])
 
     def test_up_refuses_missing_ancillary_binaries_before_preparing_resources(self):
         with tempfile.TemporaryDirectory(prefix="bull-regtest-preflight-") as directory:

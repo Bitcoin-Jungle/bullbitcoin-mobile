@@ -43,10 +43,11 @@ def main():
         temporary = binaries / (name + ".tmp")
         shutil.copy2(original, temporary)
         temporary.replace(binaries / name)
-    # scuttle (captaind, watchmand, barkd, posd), as images named by their
-    # pinned revisions.
+    # scuttle (captaind, watchmand, barkd, posd) and crash-cache, as images
+    # named by their pinned revisions.
     for name, (url, revision), image, dockerfile in (
-            ("scuttle", stack.SCUTTLE, stack.SCUTTLE_IMAGE, "contrib/docker/Dockerfile"),):
+            ("scuttle", stack.SCUTTLE, stack.SCUTTLE_IMAGE, "contrib/docker/Dockerfile"),
+            ("crash-cache", stack.CRASH_CACHE, stack.CRASH_CACHE_IMAGE, "Dockerfile")):
         if subprocess.run(["podman", "image", "exists", image]).returncode != 0:
             directory = source(name, url, revision)
             run("podman", "--cgroup-manager=cgroupfs", "build", "-f", str(directory / dockerfile),
