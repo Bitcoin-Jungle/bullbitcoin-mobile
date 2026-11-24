@@ -2,7 +2,7 @@
 
 This development stack uses rootless Podman and Nigiri's Bitcoin/Liquid configuration. It is intended for disposable regtest funds. The exchange is an in-memory interaction simulator; it does not settle orders or maintain a financial ledger.
 
-Requirements: Nigiri 0.5.17, Podman, podman-compose, Python 3.11 with PyYAML. Pulled images are pinned by digest in `images.json`. Bitcoin Core 31 is used because Bark requires it. Elements uses Liquid's relay floor of 0.1 sat/vB and accepts discounted confidential transactions, matching the Liquid mainnet/testnet relay defaults and Boltz's fee policy. Bark and Boltz use separate compatible CLN versions, each connected to a shared liquidity peer.
+Requirements: Nigiri 0.5.17, Podman, podman-compose, Python 3.11 with PyYAML. Pulled images are pinned by digest in `images.json`. Bitcoin Core 32.1 is used: scuttle requires 31 or later, and its deployments run 32.1. Elements uses Liquid's relay floor of 0.1 sat/vB and accepts discounted confidential transactions, matching the Liquid mainnet/testnet relay defaults and Boltz's fee policy. Bark and Boltz use separate compatible CLN versions, each connected to a shared liquidity peer.
 
 Build the ancillary RecoverBull and Payjoin executables and the scuttle and crash-cache images with `python3 tools/regtest/build-services.py` before starting the stack. The builder verifies pinned source revisions and uses Rust 1.99.0 for RecoverBull and Rust 1.95.0 for Payjoin; the images build inside Podman from their own Dockerfiles (the first scuttle build takes 20 to 40 minutes). Install these toolchains explicitly beforehand. Executables, source checkouts and private TLS material stay in the local state directory.
 

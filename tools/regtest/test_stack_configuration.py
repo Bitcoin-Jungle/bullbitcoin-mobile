@@ -47,6 +47,7 @@ class StackConfigurationTest(unittest.TestCase):
             self.assertEqual(services["recoverbull"]["environment"]["CANARY"], "🐦")
             self.assertIn("-acceptdiscountct=1", services["liquid"]["command"])
             self.assertEqual(services["bitcoin"]["user"], "0:0")
+            self.assertEqual(services["bitcoin"]["command"], ["-wallet=bull-regtest", "-wallet="])
             # scuttle, not upstream bark: the Ark server, watchman, wallets
             # and posd all run the scuttle image.
             for name in ("captaind", "watchmand", "bark", "bark-peer", "posd-barkd", "posd"):

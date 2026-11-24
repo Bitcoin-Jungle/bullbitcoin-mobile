@@ -64,8 +64,14 @@ def prepare():
     source = yaml.safe_load((NIGIRI / "docker-compose.yml").read_text())
     pins = json.loads(LOCK.read_text()) if LOCK.exists() else {}
     services = {name: source["services"][name] for name in SERVICES}
-    # Bark requires Core 31; Nigiri 0.5.17 still embeds Core 30.
-    services["bitcoin"]["image"] = "ghcr.io/getumbrel/docker-bitcoind:v31.0"
+    # scuttle's captaind requires Core 31 or later; Nigiri 0.5.17 still
+    # embeds Core 30. 32.1 is what scuttle's deployments run.
+    services["bitcoin"]["image"] = "ghcr.io/getumbrel/docker-bitcoind:v32.1"
+    # chopsticks (Nigiri's faucet and Esplora proxy) uses Core's unnamed
+    # default wallet, which Core 31 and later no longer create. `up` makes
+    # it (see ensure_default_wallet); bitcoind loads it and the funding
+    # wallet on every start.
+    services["bitcoin"]["command"] = ["-wallet=bull-regtest", "-wallet="]
     # Match Liquid's relay floor and Boltz's Elements fee policy.
     services["liquid"]["command"] = ["-datadir=config", "-minrelaytxfee=0.00000100", "-acceptdiscountct=1"]
     services.update({
@@ -315,6 +321,24 @@ def ensure_wallet(liquid, name):
         return
     existing = {item["name"] for item in rpc(liquid, "listwalletdir")["wallets"]}
     rpc(liquid, "loadwallet" if name in existing else "createwallet", name)
+
+
+def ensure_default_wallet():
+    """Give bitcoind the unnamed wallet chopsticks needs.
+
+    Core refuses to create a wallet with an empty name but still loads one:
+    a wallet.dat at the top of the wallet directory. Create a named wallet
+    and move its file there.
+    """
+    if "" in rpc(False, "listwallets"):
+        return
+    if not any(item["name"] == "" for item in rpc(False, "listwalletdir")["wallets"]):
+        rpc(False, "createwallet", "chopsticks-default")
+        rpc(False, "unloadwallet", "chopsticks-default")
+        run("podman", "exec", "bull-regtest-bitcoin", "sh", "-c",
+            "cd /data/.bitcoin/regtest/wallets && mv chopsticks-default/wallet.dat wallet.dat"
+            " && rm -rf chopsticks-default", capture=True)
+    rpc(False, "loadwallet", "")
 
 
 def bark(method, path, body=None, peer=False):
@@ -568,6 +592,19 @@ def main():
             if subprocess.run(["podman", "image", "exists", image]).returncode != 0:
                 raise RuntimeError(f"Build {image} with tools/regtest/build-services.py first")
         prepare()
+        # chopsticks exits without Core's unnamed wallet: make it, and the
+        # funding wallet, before everything else.
+        compose("up", "-d", "bitcoin")
+        deadline = time.monotonic() + 180
+        while True:
+            try:
+                ensure_wallet(False, "bull-regtest")
+                ensure_default_wallet()
+                break
+            except subprocess.CalledProcessError:
+                if time.monotonic() > deadline:
+                    raise RuntimeError("bitcoind did not start")
+                time.sleep(2)
         compose("up", "-d")
         bootstrap()
     elif args.command == "status":
