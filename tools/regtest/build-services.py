@@ -22,7 +22,12 @@ def source(name, url, revision):
         run("git", "-C", str(directory), "checkout", "--detach", "FETCH_HEAD")
     actual = subprocess.check_output(["git", "-C", str(directory), "rev-parse", "HEAD"], text=True).strip()
     if actual != revision:
-        raise RuntimeError(f"Preserve existing {name} checkout: a different revision is checked out")
+        # A bumped pin moves a clean checkout; local changes are preserved.
+        changes = subprocess.check_output(["git", "-C", str(directory), "status", "--porcelain"], text=True)
+        if changes.strip():
+            raise RuntimeError(f"Preserve existing {name} checkout: it has local changes at another revision")
+        run("git", "-C", str(directory), "fetch", "--depth=1", url, revision)
+        run("git", "-C", str(directory), "checkout", "--detach", "FETCH_HEAD")
     return directory
 
 
