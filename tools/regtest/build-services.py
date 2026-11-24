@@ -43,6 +43,14 @@ def main():
         temporary = binaries / (name + ".tmp")
         shutil.copy2(original, temporary)
         temporary.replace(binaries / name)
+    # scuttle (captaind, watchmand, barkd, posd), as images named by their
+    # pinned revisions.
+    for name, (url, revision), image, dockerfile in (
+            ("scuttle", stack.SCUTTLE, stack.SCUTTLE_IMAGE, "contrib/docker/Dockerfile"),):
+        if subprocess.run(["podman", "image", "exists", image]).returncode != 0:
+            directory = source(name, url, revision)
+            run("podman", "--cgroup-manager=cgroupfs", "build", "-f", str(directory / dockerfile),
+                "-t", image, str(directory), env={**os.environ, "DBUS_SESSION_BUS_ADDRESS": "disabled"})
     stack.prepare_certificates()
 
 

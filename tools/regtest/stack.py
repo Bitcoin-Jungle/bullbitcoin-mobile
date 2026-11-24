@@ -21,6 +21,14 @@ STATE = Path(os.environ.get("BULL_REGTEST_STATE", Path.home() / ".local/share/bu
 NIGIRI = STATE / "nigiri"
 COMPOSE = STATE / "compose.yml"
 LOCK = Path(__file__).with_name("images.json")
+# Built locally by build-services.py from these pinned sources, so they are
+# named by revision instead of pinned by registry digest. scuttle is
+# Bitcoin Jungle's fork of Second's bark: the Ark server with expiry payouts
+# (captaind, watchmand), its wallet daemon (barkd) and posd.
+SCUTTLE = ("https://github.com/Bitcoin-Jungle/scuttle.git", "d0c31ed0eecf202b210fd5c81213ee19b9d5c414")
+SCUTTLE_IMAGE = f"localhost/bull-regtest-scuttle:{SCUTTLE[1][:12]}"
+LOCAL_IMAGES = (SCUTTLE_IMAGE,)
+POSTGRES_IMAGE = "docker.io/library/postgres:18-alpine"
 SERVICES = (
     "bitcoin", "liquid", "electrs", "electrs-liquid", "electrum-ws",
     "chopsticks", "chopsticks-liquid", "esplora", "esplora-liquid",
@@ -52,7 +60,7 @@ def prepare():
     source = yaml.safe_load((NIGIRI / "docker-compose.yml").read_text())
     pins = json.loads(LOCK.read_text()) if LOCK.exists() else {}
     services = {name: source["services"][name] for name in SERVICES}
-    # Bark 0.8.1 requires Core 31; Nigiri 0.5.17 still embeds Core 30.
+    # Bark requires Core 31; Nigiri 0.5.17 still embeds Core 30.
     services["bitcoin"]["image"] = "ghcr.io/getumbrel/docker-bitcoind:v31.0"
     # Match Liquid's relay floor and Boltz's Elements fee policy.
     services["liquid"]["command"] = ["-datadir=config", "-minrelaytxfee=0.00000100", "-acceptdiscountct=1"]
@@ -67,21 +75,64 @@ def prepare():
                         str(Path(__file__).with_name("start-cln.sh").resolve()) + ":/app/start-cln.sh:ro"],
             "depends_on": ["bitcoin"],
         },
+        "ark-postgres": {
+            "image": POSTGRES_IMAGE,
+            "environment": {"POSTGRES_DB": "captaind", "POSTGRES_USER": "captaind",
+                            "POSTGRES_PASSWORD": "captaind"},
+            "volumes": ["ark-postgres:/var/lib/postgresql"], "restart": "on-failure",
+        },
         "captaind": {
-            "image": "docker.io/secondark/captaind:0.8.1",
+            "image": SCUTTLE_IMAGE,
             "entrypoint": ["sh", "/app/start-captaind.sh"],
-            "volumes": ["captaind:/data/captaind", "postgres:/var/lib/postgresql/data",
-                        "cln:/data/cln", str(Path(__file__).with_name("captaind.toml").resolve())
-                        + ":/root/captaind/captaind.toml:ro",
+            "volumes": ["captaind:/data/captaind", "cln:/data/cln:ro",
+                        str(Path(__file__).with_name("captaind.toml").resolve()) + ":/root/captaind/captaind.toml:ro",
                         str(Path(__file__).with_name("start-captaind.sh").resolve()) + ":/app/start-captaind.sh:ro"],
-            "ports": ["3535:3535"], "depends_on": ["cln"], "restart": "on-failure",
+            "ports": ["3535:3535"], "depends_on": ["cln", "ark-postgres"], "restart": "on-failure",
+        },
+        "watchmand": {
+            "image": SCUTTLE_IMAGE,
+            "entrypoint": ["sh", "/app/start-watchmand.sh"],
+            "volumes": ["watchmand:/data/watchmand", "captaind:/data/captaind:ro",
+                        str(Path(__file__).with_name("watchmand.toml").resolve()) + ":/root/watchmand/watchmand.toml:ro",
+                        str(Path(__file__).with_name("start-watchmand.sh").resolve()) + ":/app/start-watchmand.sh:ro"],
+            "depends_on": ["captaind"], "restart": "on-failure",
         },
         "bark": {
-            "image": "docker.io/secondark/bark:0.8.1",
+            "image": SCUTTLE_IMAGE,
             "entrypoint": ["/usr/local/bin/barkd"],
-            "command": ["--no-ui", "--host", "0.0.0.0", "--port", "3000"],
+            "command": ["--host", "0.0.0.0", "--port", "3000"],
+            "environment": {"BARKD_NO_UI": "true"},
             "ports": ["3538:3000"],
             "volumes": ["bark:/root"], "restart": "on-failure",
+        },
+        # posd's own barkd: it issues the invoices of sales and Lightning
+        # addresses and forwards each payment to the store owner's mailbox.
+        "posd-barkd": {
+            "image": SCUTTLE_IMAGE,
+            "entrypoint": ["/usr/local/bin/barkd"],
+            "command": ["--host", "0.0.0.0", "--port", "3000"],
+            "environment": {"BARKD_NO_UI": "true"},
+            "volumes": ["posd-barkd:/root"], "depends_on": ["captaind"], "restart": "on-failure",
+        },
+        "posd-postgres": {
+            "image": POSTGRES_IMAGE,
+            "environment": {"POSTGRES_DB": "posd", "POSTGRES_USER": "posd", "POSTGRES_PASSWORD": "posd"},
+            "volumes": ["posd-postgres:/var/lib/postgresql"], "restart": "on-failure",
+        },
+        "posd": {
+            "image": SCUTTLE_IMAGE,
+            "entrypoint": ["sh", "/app/start-posd.sh"],
+            "environment": {
+                "POSD__BRANDS__BITCOINJUNGLE__PUBLIC_URL":
+                    os.environ.get("BULL_REGTEST_POSD_URL", "http://127.0.0.1:3080"),
+                "POSD__BRANDS__BULLBITCOIN__PUBLIC_URL":
+                    os.environ.get("BULL_REGTEST_POSD_BULL_URL", "http://localhost:3080"),
+            },
+            "volumes": ["posd-barkd:/data/posd-barkd:ro",
+                        str(Path(__file__).with_name("posd.toml").resolve()) + ":/root/posd/posd.toml:ro",
+                        str(Path(__file__).with_name("start-posd.sh").resolve()) + ":/app/start-posd.sh:ro"],
+            "ports": ["3080:3080"], "depends_on": ["captaind", "posd-barkd", "posd-postgres", "bitcoin"],
+            "restart": "on-failure",
         },
         "exchange": {
             "image": "docker.io/library/python:3.11-slim-bookworm",
@@ -165,11 +216,14 @@ def prepare():
     }
     for name, service in services.items():
         image = service["image"]
-        if image not in pins:
+        if image in LOCAL_IMAGES:
+            pass
+        elif image not in pins:
             run("podman", "pull", image)
             info = json.loads(run("podman", "image", "inspect", image, capture=True))[0]
             pins[image] = info["RepoDigests"][0]
-        service["image"] = pins[image]
+        if image not in LOCAL_IMAGES:
+            service["image"] = pins[image]
         service["container_name"] = f"bull-regtest-{name}"
         service["stop_grace_period"] = "60s"
         service["ports"] = [f"127.0.0.1:{port}" for port in service.get("ports", [])]
@@ -180,8 +234,10 @@ def prepare():
         if name in ("bitcoin", "liquid"):
             service["user"] = "0:0"
     COMPOSE.write_text(yaml.safe_dump({"version": "3.8", "services": services,
-                                      "volumes": {name: {} for name in ("cln", "cln-peer", "boltz-cln", "captaind", "postgres", "bark", "bark-peer", "boltz", "boltz-postgres", "recoverbull")}},
+                                      "volumes": {name: {} for name in ("cln", "cln-peer", "boltz-cln", "captaind", "ark-postgres", "watchmand", "bark", "bark-peer", "posd-barkd", "posd-postgres", "boltz", "boltz-postgres", "recoverbull")}},
                                      sort_keys=False))
+    used = {service["image"] for service in services.values()}
+    pins = {image: pin for image, pin in pins.items() if pin in used}
     LOCK.write_text(json.dumps(pins, indent=2) + "\n")
     print(f"Configuration: {COMPOSE}")
 
@@ -318,9 +374,10 @@ def bootstrap():
         raise RuntimeError("Lightning channel did not become active")
     wait_indexers()
     initialize_ark()
+    initialize_scuttle()
     initialize_controller()
     wait_services()
-    print("Bitcoin, Liquid, Lightning, Bark, Boltz and dummy exchange initialized")
+    print("Bitcoin, Liquid, Lightning, scuttle (Ark, posd), Boltz and dummy exchange initialized")
 
 
 def wait_indexers():
@@ -368,6 +425,34 @@ def initialize_ark():
     bark("POST", "onchain/sync", {})
 
 
+def initialize_scuttle():
+    """Give watchmand its sweep address and posd its wallet."""
+    try:
+        run("podman", "exec", "bull-regtest-watchmand", "test", "-s", "/data/watchmand/sweep_address", capture=True)
+    except subprocess.CalledProcessError:
+        address = rpc(False, "getnewaddress", wallet="bull-regtest")
+        run("podman", "exec", "-i", "bull-regtest-watchmand", "sh", "-c",
+            "umask 077; cat > /data/watchmand/sweep_address.tmp && mv /data/watchmand/sweep_address.tmp /data/watchmand/sweep_address",
+            stdin=address)
+    # The token stays inside posd-barkd's container.
+    barkd = ("curl -sf -H \"Authorization: Bearer $(cat /root/.bark/auth_token)\" "
+             "-H 'Content-Type: application/json' http://127.0.0.1:3000/api/v1/")
+    deadline = time.monotonic() + 120
+    while True:
+        try:
+            wallet = json.loads(run("podman", "exec", "bull-regtest-posd-barkd", "sh", "-c", barkd + "wallet", capture=True))
+            break
+        except (subprocess.CalledProcessError, json.JSONDecodeError):
+            if time.monotonic() > deadline:
+                raise RuntimeError("posd's barkd did not start")
+            time.sleep(2)
+    if wallet.get("fingerprint") is None:
+        body = json.dumps({"network": "regtest", "ark_server": "http://captaind:3535",
+                           "chain_source": {"esplora": {"url": "http://chopsticks:3000"}}})
+        run("podman", "exec", "bull-regtest-posd-barkd", "sh", "-c",
+            barkd + "wallet/create -X POST -d '" + body + "'", capture=True)
+
+
 def initialize_controller():
     for node in ("cln-peer", "boltz-cln"):
         path = "/root/.lightning/regtest/regtest-controller.rune"
@@ -393,6 +478,9 @@ def wait_services():
                     json.load(response)
             for peer in (False, True):
                 bark("GET", "wallet/balance", peer=peer)
+            for url in ("http://127.0.0.1:3080/api/v1/openapi.json",):
+                with urllib.request.urlopen(url, timeout=5):
+                    pass
             trust = ssl.create_default_context(cafile=str(STATE / "mailrooms/cert.pem"))
             for hostname, port in (("localhost", 8040), ("127.0.0.1", 8041)):
                 with socket.create_connection((hostname, port), timeout=5) as connection:
@@ -438,6 +526,9 @@ def main():
         for name in ("cert.pem", "key.pem", "cert.der"):
             if not (STATE / "mailrooms" / name).is_file():
                 raise RuntimeError("Prepare Payjoin TLS with tools/regtest/build-services.py first")
+        for image in LOCAL_IMAGES:
+            if subprocess.run(["podman", "image", "exists", image]).returncode != 0:
+                raise RuntimeError(f"Build {image} with tools/regtest/build-services.py first")
         prepare()
         compose("up", "-d")
         bootstrap()

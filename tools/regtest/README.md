@@ -2,9 +2,9 @@
 
 This development stack uses rootless Podman and Nigiri's Bitcoin/Liquid configuration. It is intended for disposable regtest funds. The exchange is an in-memory interaction simulator; it does not settle orders or maintain a financial ledger.
 
-Requirements: Nigiri 0.5.17, Podman, podman-compose, Python 3.11 with PyYAML. Images are pinned by digest in `images.json`. Bitcoin Core 31 is used because Bark 0.8.1 requires it. Elements uses Liquid's relay floor of 0.1 sat/vB and accepts discounted confidential transactions, matching the Liquid mainnet/testnet relay defaults and Boltz's fee policy. Bark and Boltz use separate compatible CLN versions, each connected to a shared liquidity peer.
+Requirements: Nigiri 0.5.17, Podman, podman-compose, Python 3.11 with PyYAML. Pulled images are pinned by digest in `images.json`. Bitcoin Core 31 is used because Bark requires it. Elements uses Liquid's relay floor of 0.1 sat/vB and accepts discounted confidential transactions, matching the Liquid mainnet/testnet relay defaults and Boltz's fee policy. Bark and Boltz use separate compatible CLN versions, each connected to a shared liquidity peer.
 
-Build the ancillary RecoverBull and Payjoin executables with `python3 tools/regtest/build-services.py` before starting the stack. The builder verifies pinned source revisions and uses Rust 1.99.0 for RecoverBull and Rust 1.95.0 for Payjoin. Install these toolchains explicitly beforehand. Executables, source checkouts and private TLS material stay in the local state directory.
+Build the ancillary RecoverBull and Payjoin executables and the scuttle image with `python3 tools/regtest/build-services.py` before starting the stack. The builder verifies pinned source revisions and uses Rust 1.99.0 for RecoverBull and Rust 1.95.0 for Payjoin; the images build inside Podman from their own Dockerfiles (the first scuttle build takes 20 to 40 minutes). Install these toolchains explicitly beforehand. Executables, source checkouts and private TLS material stay in the local state directory.
 
 ```sh
 python3 tools/regtest/stack.py up
@@ -18,6 +18,8 @@ python3 tools/regtest/stack.py bark wallet/balance
 python3 tools/regtest/stack.py bark --peer wallet/balance
 python3 tools/regtest/stack.py down
 ```
+
+The Ark side is [scuttle](https://github.com/Bitcoin-Jungle/scuttle), Bitcoin Jungle's fork of Second's bark, at the revision `stack.py` pins (`SCUTTLE`): captaind with expiry payouts and the fee schedule proposed for mainnet (`captaind.toml`), watchmand, which sweeps rounds and pays expired VTXOs out on-chain, scuttle's barkd for both Bark wallets, and posd, the point-of-sale and Lightning address service, with a barkd of its own. Upstream bark wallets cannot use a server in expiry payout mode, so a wallet under test must be built from scuttle's bark.
 
 `up` prepares configuration, starts services, loads the funding and Boltz wallets, funds Boltz and Lightning, establishes bidirectional channels, initializes the Bark provider and two Bark wallets, and waits for indexers and service APIs. `bootstrap` repeats initialization on an already running stack. It preserves wallets and channels, and mines blocks as needed for development funding. `down` preserves volumes and chain state.
 
@@ -33,7 +35,7 @@ All host ports bind to `127.0.0.1`:
 | Bitcoin / Liquid Esplora API | `http://127.0.0.1:30000`, `http://127.0.0.1:30001` |
 | Bitcoin / Liquid faucet | `http://127.0.0.1:3000/faucet`, `http://127.0.0.1:3001/faucet` |
 | Bitcoin / Liquid explorer | `http://127.0.0.1:5000`, `http://127.0.0.1:5001` |
-| Bark provider | `http://127.0.0.1:3535` |
+| Bark provider (scuttle captaind) | `http://127.0.0.1:3535` |
 | Bark wallet / peer REST | `http://127.0.0.1:3538`, `http://127.0.0.1:3539` |
 | Boltz API (gateway: backend + sidecar routes) | `http://127.0.0.1:9001/v2` |
 | Boltz sidecar WS / API | `ws://127.0.0.1:9004`, `http://127.0.0.1:9005` |
@@ -42,6 +44,7 @@ All host ports bind to `127.0.0.1`:
 | RecoverBull | `http://127.0.0.1:8098` |
 | RecoverBull restricted SOCKS proxy | `127.0.0.1:59051` |
 | Payjoin mailrooms | `https://localhost:8040`, `https://127.0.0.1:8041` |
+| posd (Bitcoin Jungle / Bull Bitcoin brands) | `http://127.0.0.1:3080`, `http://localhost:3080` |
 
 RPC credentials are Nigiri's public development defaults `admin1:123`. Boltz's CLN connections use mutual TLS with certificates generated inside its dedicated volume. The default Liquid policy asset is `5ac9f65c0efcc4775e0baec4ec03abdde22473cd3cf33c0419ca290e0751b225`, matching the supported native Boltz regtest chain.
 
