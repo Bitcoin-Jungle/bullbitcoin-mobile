@@ -31,7 +31,11 @@ SCUTTLE = ("https://github.com/Bitcoin-Jungle/scuttle.git", "d0c31ed0eecf202b210
 CRASH_CACHE = ("https://github.com/ethicnology/crash-cache.git", "ae657408c9c1c10677929827baae23da72690333")
 SCUTTLE_IMAGE = f"localhost/bull-regtest-scuttle:{SCUTTLE[1][:12]}"
 CRASH_CACHE_IMAGE = f"localhost/bull-regtest-crash-cache:{CRASH_CACHE[1][:12]}"
-LOCAL_IMAGES = (SCUTTLE_IMAGE, CRASH_CACHE_IMAGE)
+# Blockstream's electrs for Bitcoin: Nigiri's predates POST /txs/package,
+# which bark needs to broadcast boards (electrs.Dockerfile).
+ELECTRS = ("https://github.com/Blockstream/electrs.git", "6cad780be93835b962af735171fae872f9526503")
+ELECTRS_IMAGE = f"localhost/bull-regtest-electrs:{ELECTRS[1][:12]}"
+LOCAL_IMAGES = (SCUTTLE_IMAGE, CRASH_CACHE_IMAGE, ELECTRS_IMAGE)
 POSTGRES_IMAGE = "docker.io/library/postgres:18-alpine"
 SERVICES = (
     "bitcoin", "liquid", "electrs", "electrs-liquid", "electrum-ws",
@@ -72,6 +76,9 @@ def prepare():
     # it (see ensure_default_wallet); bitcoind loads it and the funding
     # wallet on every start.
     services["bitcoin"]["command"] = ["-wallet=bull-regtest", "-wallet="]
+    # Same arguments as Nigiri's electrs, on a current build (see ELECTRS).
+    services["electrs"]["image"] = ELECTRS_IMAGE
+    services["electrs"]["entrypoint"] = ["/usr/local/bin/electrs"]
     # Match Liquid's relay floor and Boltz's Elements fee policy.
     services["liquid"]["command"] = ["-datadir=config", "-minrelaytxfee=0.00000100", "-acceptdiscountct=1"]
     services.update({

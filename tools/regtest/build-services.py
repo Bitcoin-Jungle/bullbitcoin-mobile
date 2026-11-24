@@ -47,7 +47,8 @@ def main():
     # named by their pinned revisions.
     for name, (url, revision), image, dockerfile in (
             ("scuttle", stack.SCUTTLE, stack.SCUTTLE_IMAGE, "contrib/docker/Dockerfile"),
-            ("crash-cache", stack.CRASH_CACHE, stack.CRASH_CACHE_IMAGE, "Dockerfile")):
+            ("crash-cache", stack.CRASH_CACHE, stack.CRASH_CACHE_IMAGE, "Dockerfile"),
+            ("electrs", stack.ELECTRS, stack.ELECTRS_IMAGE, str(Path(__file__).with_name("electrs.Dockerfile").resolve()))):
         if subprocess.run(["podman", "image", "exists", image]).returncode != 0:
             directory = source(name, url, revision)
             run("podman", "--cgroup-manager=cgroupfs", "build", "-f", str(directory / dockerfile),
