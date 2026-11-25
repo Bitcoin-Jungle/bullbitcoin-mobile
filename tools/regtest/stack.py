@@ -219,6 +219,10 @@ def prepare():
         "volumes": ["boltz-cln:/root/.lightning",
                     str(Path(__file__).with_name("start-cln.sh").resolve()) + ":/app/start-cln.sh:ro"],
     }
+    # Each node's peer port on the host, so Lightning nodes outside the stack
+    # can connect and open channels.
+    for node, port in (("cln", 19735), ("cln-peer", 29735), ("boltz-cln", 39735)):
+        services[node]["ports"] = [f"{port}:9735"]
     for node in ("cln-peer", "boltz-cln"):
         services[node]["environment"] = {
             **services[node]["environment"],

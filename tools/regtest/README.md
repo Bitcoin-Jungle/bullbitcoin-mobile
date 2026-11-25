@@ -31,11 +31,13 @@ All host ports bind to `127.0.0.1`:
 | --- | --- |
 | Bitcoin RPC | `http://127.0.0.1:18443` |
 | Liquid RPC | `http://127.0.0.1:18884` |
+| Bitcoin P2P | `127.0.0.1:18444` |
 | Bitcoin / Liquid Electrum | `tcp://127.0.0.1:50000`, `tcp://127.0.0.1:50001` |
 | Bitcoin / Liquid Esplora API | `http://127.0.0.1:30000`, `http://127.0.0.1:30001` |
 | Bitcoin / Liquid faucet | `http://127.0.0.1:3000/faucet`, `http://127.0.0.1:3001/faucet` |
 | Bitcoin / Liquid explorer | `http://127.0.0.1:5000`, `http://127.0.0.1:5001` |
 | Bark provider (scuttle captaind) | `http://127.0.0.1:3535` |
+| Lightning peer port: CLN of captaind / hub `cln-peer` / Boltz | `127.0.0.1:19735`, `127.0.0.1:29735`, `127.0.0.1:39735` |
 | Bark wallet / peer REST | `http://127.0.0.1:3538`, `http://127.0.0.1:3539` |
 | Boltz API (gateway: backend + sidecar routes) | `http://127.0.0.1:9001/v2` |
 | Boltz sidecar WS / API | `ws://127.0.0.1:9004`, `http://127.0.0.1:9005` |
