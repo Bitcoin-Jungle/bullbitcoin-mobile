@@ -44,7 +44,7 @@ rpc_password = "123"
 wallet = "posd"
 
 [price]
-# Test coins have no price; a fixed one keeps the fiat keypad working.
-source = "fixed"
-fixed_btc_price = "62500000.00"
-currencies = { USD = 2, CAD = 2, MXN = 2, CRC = 2, EUR = 2, ARS = 2, AUD = 2, COP = 0 }
+# The live Bull Bitcoin price, as in production: fiat amounts at the till are
+# real, and the price path is exercised. Its currencies are posd's defaults.
+source = "bull-bitcoin"
+cache_secs = 60
