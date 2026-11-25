@@ -27,7 +27,7 @@ LOCK = Path(__file__).with_name("images.json")
 # Bitcoin Jungle's fork of Second's bark: the Ark server with expiry payouts
 # (captaind, watchmand), its wallet daemon (barkd) and posd. crash-cache is
 # BULL's Sentry-compatible crash report collector.
-SCUTTLE = ("https://github.com/Bitcoin-Jungle/scuttle.git", "d0c31ed0eecf202b210fd5c81213ee19b9d5c414")
+SCUTTLE = ("https://github.com/Bitcoin-Jungle/scuttle.git", "c031d0b7bfd24d21d92c4f9d338321cbe7e63ba6")
 CRASH_CACHE = ("https://github.com/ethicnology/crash-cache.git", "ae657408c9c1c10677929827baae23da72690333")
 SCUTTLE_IMAGE = f"localhost/bull-regtest-scuttle:{SCUTTLE[1][:12]}"
 CRASH_CACHE_IMAGE = f"localhost/bull-regtest-crash-cache:{CRASH_CACHE[1][:12]}"
